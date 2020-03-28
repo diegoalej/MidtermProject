@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `first_name` VARCHAR(65) NOT NULL,
   `last_name` VARCHAR(65) NOT NULL,
   `username` VARCHAR(100) NOT NULL,
-  `passwod` VARCHAR(45) NOT NULL,
+  `password` VARCHAR(45) NOT NULL,
   `enabled` TINYINT NOT NULL DEFAULT 1,
   `role` VARCHAR(45) NOT NULL,
   `phone_number` VARCHAR(45) NULL,
@@ -90,7 +90,7 @@ CREATE TABLE IF NOT EXISTS `product` (
   `name` VARCHAR(100) NOT NULL,
   `type` VARCHAR(100) NOT NULL,
   `description` VARCHAR(350) NOT NULL,
-  `size_of_product` ENUM('small', 'medium', 'large', 'extra large') NULL,
+  `size_of_product` ENUM('small', 'medium', 'large', 'extralarge') NULL,
   `image_url` VARCHAR(5000) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
@@ -248,7 +248,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `urbangardendb`;
-INSERT INTO `user` (`id`, `first_name`, `last_name`, `username`, `passwod`, `enabled`, `role`, `phone_number`, `image_url`, `address_id`) VALUES (1, 'JJ', 'Smith', 'jjsmith', 'jjsmithpassword', 1, 'admin', NULL, NULL, NULL );
+INSERT INTO `user` (`id`, `first_name`, `last_name`, `username`, `password`, `enabled`, `role`, `phone_number`, `image_url`, `address_id`) VALUES (1, 'JJ', 'Smith', 'jjsmith', 'jjsmithpassword', 1, 'admin', NULL, NULL, NULL );
 
 COMMIT;
 
@@ -279,7 +279,7 @@ COMMIT;
 START TRANSACTION;
 USE `urbangardendb`;
 INSERT INTO `product` (`id`, `name`, `type`, `description`, `size_of_product`, `image_url`) VALUES (1, 'Tomatoes', 'Cherokee Purple', 'Large, Purple, Heirloom tomato', 'Large', NULL);
-INSERT INTO `product` (`id`, `name`, `type`, `description`, `size_of_product`, `image_url`) VALUES (2, 'Melon', 'Watermelon', 'Large, green, sweet melon', 'Extra Large', NULL);
+INSERT INTO `product` (`id`, `name`, `type`, `description`, `size_of_product`, `image_url`) VALUES (2, 'Melon', 'Watermelon', 'Large, green, sweet melon', 'extralarge', NULL);
 
 COMMIT;
 
