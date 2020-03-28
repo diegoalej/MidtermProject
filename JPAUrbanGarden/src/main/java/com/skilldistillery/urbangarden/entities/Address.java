@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Address {
@@ -25,6 +26,9 @@ public class Address {
 	private String state;
 	
 	private String country;
+	
+	@OneToOne
+	private GardenStoreFront gardenStoreFront;
 	
 	//
 	//Methods Begin
@@ -88,10 +92,18 @@ public class Address {
 		this.country = country;
 	}
 
+	public GardenStoreFront getGardenStoreFront() {
+		return gardenStoreFront;
+	}
+
+	public void setGardenStoreFront(GardenStoreFront gardenStoreFront) {
+		this.gardenStoreFront = gardenStoreFront;
+	}
+
 	@Override
 	public String toString() {
 		return "Address [id=" + id + ", street=" + street + ", street2=" + street2 + ", zipCode=" + zipCode + ", city="
-				+ city + ", state=" + state + ", country=" + country + "]";
+				+ city + ", state=" + state + ", country=" + country + ", gardenStoreFront=" + gardenStoreFront + "]";
 	}
 	
 	

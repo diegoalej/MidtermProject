@@ -1,12 +1,15 @@
 package com.skilldistillery.urbangarden.entities;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -17,20 +20,33 @@ public class GardenProduce {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-//	@OneToMany(mappedBy = "gardenProduce")
-//	@Column(name = "garden_id")
-//	private GardenStoreFront garden;
-//	@OneToMany(mappedBy = "product")
-//	@Column(name = "product_id")
-//	private Product product;
+	
+	@ManyToOne
+	@Column(name = "garden_id")
+	private GardenStoreFront garden;
+	
+	@ManyToOne
+	@Column(name = "product_id")
+	private Product product;
+	
 	private Integer amount;
+	
 	private Boolean active;
+	
 	@Column(name = "date_expected_available")
 	private LocalDate dateAvailable;
+	
 	@Column(name = "date_harvested")
 	private LocalDate harvested;
+	
 	@Column(name = "date_expires")
 	private LocalDate expires;
+	
+	@OneToMany(mappedBy = "offered")
+	private List<Offer> offeredProduct;
+	
+	@OneToMany(mappedBy = "desired")
+	private List<Offer> requestedProduct;
 	
 	// m e t h o d s 
 	
@@ -44,21 +60,21 @@ public class GardenProduce {
 		this.id = id;
 	}
 
-//	public GardenStoreFront getGarden() {
-//		return garden;
-//	}
-//
-//	public void setGarden(GardenStoreFront garden) {
-//		this.garden = garden;
-//	}
-//
-//	public Product getProduct() {
-//		return product;
-//	}
-//
-//	public void setProduct(Product product) {
-//		this.product = product;
-//	}
+	public GardenStoreFront getGardenStoreFront() {
+		return garden;
+	}
+
+	public void setGardenStoreFront(GardenStoreFront garden) {
+		this.garden = garden;
+	}
+
+	public Product getProduct() {
+		return product;
+	}
+
+	public void setProduct(Product product) {
+		this.product = product;
+	}
 
 	public Integer getAmount() {
 		return amount;
@@ -98,6 +114,30 @@ public class GardenProduce {
 
 	public void setExpires(LocalDate expires) {
 		this.expires = expires;
+	}
+
+	public GardenStoreFront getGarden() {
+		return garden;
+	}
+
+	public void setGarden(GardenStoreFront garden) {
+		this.garden = garden;
+	}
+
+	public List<Offer> getOfferedProduct() {
+		return offeredProduct;
+	}
+
+	public void setOfferedProduct(List<Offer> offeredProduct) {
+		this.offeredProduct = offeredProduct;
+	}
+
+	public List<Offer> getRequestedProduct() {
+		return requestedProduct;
+	}
+
+	public void setRequestedProduct(List<Offer> requestedProduct) {
+		this.requestedProduct = requestedProduct;
 	}
 
 	@Override
@@ -156,6 +196,45 @@ public class GardenProduce {
 		if (id != other.id)
 			return false;
 		return true;
+	}
+	
+	public void addProductOffer(Offer offeredGP) {
+		if (offeredProduct == null) {
+			offeredProduct = new ArrayList<Offer>();
+		}
+		if (!offeredProduct.contains(offeredGP)) {
+			offeredProduct.add(offeredGP);
+			if(offeredGP.getOffered() != null) {
+				offeredGP.getOffered().getOfferedProduct().remove(offeredGP);
+			}
+			offeredGP.setOffered(this);
+		}
+	}
+	public void removeGardenProduce(Offer offeredGP) {
+		offeredGP.setOffered(null);
+		if (offeredProduct != null) {
+			offeredProduct.remove(offeredGP);
+		}
+	}
+	
+	public void addRequestedOffer(Offer requestedGP) {
+		if (requestedProduct == null) {
+			requestedProduct = new ArrayList<Offer>();
+		}
+		if (!requestedProduct.contains(requestedGP)) {
+			requestedProduct.add(requestedGP);
+			if(requestedGP.getDesired() != null) {
+				requestedGP.getDesired().getOfferedProduct().remove(requestedGP);
+			}
+			requestedGP.setOffered(this);
+		}
+	}
+	
+	public void removeRequestedOffer(Offer requestedGP) {
+		requestedGP.setDesired(null);
+		if (requestedProduct != null) {
+			requestedProduct.remove(requestedGP);
+		}
 	}
 
 }
