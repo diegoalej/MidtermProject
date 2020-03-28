@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class User {
@@ -38,6 +39,9 @@ public class User {
 	
 	@Column(name = "address_id")
 	private Integer addressID;
+	
+	@OneToOne
+	private GardenStoreFront gardenStoreFront;
 	
 	//
 	// Methods Begin
@@ -127,11 +131,20 @@ public class User {
 	}
 	
 
+	public GardenStoreFront getGardenStoreFront() {
+		return gardenStoreFront;
+	}
+
+	public void setGardenStoreFront(GardenStoreFront gardenStoreFront) {
+		this.gardenStoreFront = gardenStoreFront;
+	}
+
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", username=" + username
 				+ ", password=" + password + ", enabled=" + enabled + ", role=" + role + ", phoneNumber=" + phoneNumber
-				+ ", imageURL=" + imageURL + ", addressID=" + addressID + "]";
+				+ ", imageURL=" + imageURL + ", addressID=" + addressID + ", gardenStoreFront=" + gardenStoreFront
+				+ "]";
 	}
 
 }

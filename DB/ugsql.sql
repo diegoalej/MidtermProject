@@ -109,7 +109,7 @@ CREATE TABLE IF NOT EXISTS `garden_produce` (
   `active` TINYINT NOT NULL DEFAULT 1,
   `date_expected_available` DATE NULL,
   `date_harvested` DATE NULL,
-  `date_exipres` DATE NULL,
+  `date_expires` DATE NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_garden_produce_garden_id`
     FOREIGN KEY (`garden_id`)
@@ -289,8 +289,8 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `urbangardendb`;
-INSERT INTO `garden_produce` (`id`, `garden_id`, `produce_id`, `amount`, `active`, `date_expected_available`, `date_harvested`, `date_exipres`) VALUES (1, 1, 1, 12, 1, '2020-10-10', '2020-10-11', '2020-11-11');
-INSERT INTO `garden_produce` (`id`, `garden_id`, `produce_id`, `amount`, `active`, `date_expected_available`, `date_harvested`, `date_exipres`) VALUES (2, 1, 2, 1, 1, '2020-09-30', '2020-10-01', '2020-11-01');
+INSERT INTO `garden_produce` (`id`, `garden_id`, `produce_id`, `amount`, `active`, `date_expected_available`, `date_harvested`, `date_expires`) VALUES (1, 1, 1, 12, 1, '2020-10-10', '2020-10-11', '2020-11-11');
+INSERT INTO `garden_produce` (`id`, `garden_id`, `produce_id`, `amount`, `active`, `date_expected_available`, `date_harvested`, `date_expires`) VALUES (2, 1, 2, 1, 1, '2020-09-30', '2020-10-01', '2020-11-01');
 
 COMMIT;
 
