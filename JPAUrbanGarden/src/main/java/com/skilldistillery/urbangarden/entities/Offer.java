@@ -23,12 +23,12 @@ public class Offer {
 	private LocalDateTime offerDate;
 	@Column(name="accepted_rejected")
 	private Boolean accepeted;
-	@ManyToOne
-	@JoinColumn(name="garden_produce_id")
-	private GardenProduce desired;
-	@ManyToOne
-	@JoinColumn(name="offered_produce_id")
-	private GardenProduce offered;
+//	@ManyToOne
+//	@JoinColumn(name="garden_produce_id")
+//	private GardenProduce desired;
+//	@ManyToOne
+//	@JoinColumn(name="offered_produce_id")
+//	private GardenProduce offered;
 	private String comment;
 	
 	// m e t h o d s 
@@ -59,21 +59,21 @@ public class Offer {
 		this.accepeted = accepeted;
 	}
 
-	public GardenProduce getDesired() {
-		return desired;
-	}
-
-	public void setDesired(GardenProduce desired) {
-		this.desired = desired;
-	}
-
-	public GardenProduce getOffered() {
-		return offered;
-	}
-
-	public void setOffered(GardenProduce offered) {
-		this.offered = offered;
-	}
+//	public GardenProduce getDesired() {
+//		return desired;
+//	}
+//
+//	public void setDesired(GardenProduce desired) {
+//		this.desired = desired;
+//	}
+//
+//	public GardenProduce getOffered() {
+//		return offered;
+//	}
+//
+//	public void setOffered(GardenProduce offered) {
+//		this.offered = offered;
+//	}
 
 	public String getComment() {
 		return comment;
@@ -85,8 +85,8 @@ public class Offer {
 
 	@Override
 	public String toString() {
-		return "Offer [id=" + id + ", offerDate=" + offerDate + ", accepeted=" + accepeted + ", desired=" + desired
-				+ ", offered=" + offered + ", comment=" + comment + "]";
+		return "Offer [id=" + id + ", offerDate=" + offerDate + ", accepeted=" + accepeted + ", comment=" + comment
+				+ "]";
 	}
 
 	@Override
@@ -95,10 +95,8 @@ public class Offer {
 		int result = 1;
 		result = prime * result + ((accepeted == null) ? 0 : accepeted.hashCode());
 		result = prime * result + ((comment == null) ? 0 : comment.hashCode());
-		result = prime * result + ((desired == null) ? 0 : desired.hashCode());
 		result = prime * result + id;
 		result = prime * result + ((offerDate == null) ? 0 : offerDate.hashCode());
-		result = prime * result + ((offered == null) ? 0 : offered.hashCode());
 		return result;
 	}
 
@@ -121,22 +119,12 @@ public class Offer {
 				return false;
 		} else if (!comment.equals(other.comment))
 			return false;
-		if (desired == null) {
-			if (other.desired != null)
-				return false;
-		} else if (!desired.equals(other.desired))
-			return false;
 		if (id != other.id)
 			return false;
 		if (offerDate == null) {
 			if (other.offerDate != null)
 				return false;
 		} else if (!offerDate.equals(other.offerDate))
-			return false;
-		if (offered == null) {
-			if (other.offered != null)
-				return false;
-		} else if (!offered.equals(other.offered))
 			return false;
 		return true;
 	}

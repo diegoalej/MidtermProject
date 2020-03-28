@@ -17,12 +17,12 @@ public class GardenProduce {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	@OneToMany(mappedBy = "gardenProduce")
-	@Column(name = "garden_id")
-	private GardenStoreFront garden;
-	@OneToMany(mappedBy = "product")
-	@Column(name = "product_id")
-	private Product product;
+//	@OneToMany(mappedBy = "gardenProduce")
+//	@Column(name = "garden_id")
+//	private GardenStoreFront garden;
+//	@OneToMany(mappedBy = "product")
+//	@Column(name = "product_id")
+//	private Product product;
 	private Integer amount;
 	private Boolean active;
 	@Column(name = "date_expected_available")
@@ -44,21 +44,21 @@ public class GardenProduce {
 		this.id = id;
 	}
 
-	public GardenStoreFront getGarden() {
-		return garden;
-	}
-
-	public void setGarden(GardenStoreFront garden) {
-		this.garden = garden;
-	}
-
-	public Product getProduct() {
-		return product;
-	}
-
-	public void setProduct(Product product) {
-		this.product = product;
-	}
+//	public GardenStoreFront getGarden() {
+//		return garden;
+//	}
+//
+//	public void setGarden(GardenStoreFront garden) {
+//		this.garden = garden;
+//	}
+//
+//	public Product getProduct() {
+//		return product;
+//	}
+//
+//	public void setProduct(Product product) {
+//		this.product = product;
+//	}
 
 	public Integer getAmount() {
 		return amount;
