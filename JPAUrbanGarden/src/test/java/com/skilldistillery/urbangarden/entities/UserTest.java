@@ -2,6 +2,8 @@ package com.skilldistillery.urbangarden.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -52,6 +54,13 @@ class UserTest {
 		assertNotNull(user);
 		assertEquals(1, user.getId());
 		assertEquals("jjsmith", user.getUsername());
+		assertEquals("Smith", user.getLastName());
+		assertEquals("JJ", user.getFirstName());
+		assertEquals("jjsmithpassword", user.getPassword());
+		assertTrue(user.getEnabled());
+		assertEquals("admin", user.getRole());
+		assertEquals(null, user.getPhoneNumber());
+		assertNull(user.getImageURL());
 		
 	}
 
