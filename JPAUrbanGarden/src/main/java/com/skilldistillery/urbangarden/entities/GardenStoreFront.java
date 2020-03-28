@@ -26,11 +26,13 @@ public class GardenStoreFront {
 	@Column(name = "name_of_garden")
 	private String nameOfGarden;
 	
+	//THIS IS S FOREIGN KEY AND NEEDS TO BE MAPPED
 	@Column(name = "user_id")
 	private int userId;
 	
 	private String description;
 	
+	//THIS IS A FOREIGN KEY AND NEEDS TO BE MAPPED
 	@Column(name = "fk_garden_address_id")
 	private Integer gardenAddressId;
 	
