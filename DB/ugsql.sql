@@ -195,6 +195,7 @@ CREATE TABLE IF NOT EXISTS `offer` (
   `offer_date` DATETIME NOT NULL,
   `garden_produce_id` INT NOT NULL,
   `offered_produce_id` INT NOT NULL,
+  `accepted_rejected` TINYINT NULL,
   `comment` VARCHAR(250) NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_offer_give_garden_produce_id`
@@ -299,7 +300,8 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `urbangardendb`;
-INSERT INTO `offer` (`id`, `offer_date`, `garden_produce_id`, `offered_produce_id`, `comment`) VALUES (1, '2020-06-30', 1, 2, 'We love your tomatoes');
+INSERT INTO `offer` (`id`, `offer_date`, `garden_produce_id`, `offered_produce_id`, `accepted_rejected`, `comment`) VALUES (1, '2020-06-30', 1, 2, 1, 'We love your tomatoes');
+INSERT INTO `offer` (`id`, `offer_date`, `garden_produce_id`, `offered_produce_id`, `accepted_rejected`, `comment`) VALUES (2, '2020-07-15', 2, 1, NULL, 'Your Melons make me happy');
 
 COMMIT;
 
