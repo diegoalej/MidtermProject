@@ -1,5 +1,11 @@
 package com.skilldistillery.urbangarden.data;
 
-public interface UserDAO {
+import java.util.List;
 
+import com.skilldistillery.urbangarden.entities.User;
+
+
+public interface UserDAO {
+	User findById(int id);
+	List<User> findAll();
 }
