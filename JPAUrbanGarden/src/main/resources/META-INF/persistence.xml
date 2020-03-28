@@ -8,6 +8,7 @@
     <provider>org.hibernate.jpa.HibernatePersistenceProvider
     </provider>
 		<!-- Entities -->
+	<class>com.skilldistillery.urbangarden.entities.GardenStoreFront</class>
 	<class>com.skilldistillery.urbangarden.entities.User</class>
 		<!-- end entities -->
     <properties>
