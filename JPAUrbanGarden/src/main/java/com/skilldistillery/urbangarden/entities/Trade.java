@@ -7,7 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -21,9 +20,11 @@ public class Trade {
 	
 	@Column(name="trade_date")
 	private LocalDateTime tradeDate;
+	
 //	@OneToOne
 //	@JoinColumn(name="offer_id")
-//	private Offer offer;
+//	private int offerId;
+	
 	@Column(name="rating_by_buyer")
 	private Integer buyerRating;
 	@Column(name="rating_by_seller")
@@ -32,6 +33,9 @@ public class Trade {
 	private String buyerComment;
 	@Column(name="comment_by_seller")
 	private String sellerComment;
+	
+	@OneToOne
+	private Offer offer;
 	
 	// m e t h o d s 
 	
@@ -104,6 +108,16 @@ public class Trade {
 
 	public void setSellerComment(String sellerComment) {
 		this.sellerComment = sellerComment;
+	}
+
+
+	public Offer getOffer() {
+		return offer;
+	}
+
+
+	public void setOffer(Offer offer) {
+		this.offer = offer;
 	}
 
 
