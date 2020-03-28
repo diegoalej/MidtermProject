@@ -1,6 +1,6 @@
 package com.skilldistillery.urbangarden.entities;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -13,15 +13,16 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class TradeTest {
-
+class ProductTest {
+	
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private Trade trade;
+	private Product product;
+	
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
-		emf = Persistence.createEntityManagerFactory("VideoStore");
+		emf = Persistence.createEntityManagerFactory("UrbanGarden");
 	}
 
 	@AfterAll
@@ -32,23 +33,26 @@ class TradeTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		trade = em.find(Trade.class, 1);
+		product = em.find(Product.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		trade = null;
+		product = null;
 	}
 
 	@Test
-	@DisplayName("test trade mappings")
-	void test1() {
-//		SELECT *
-//	    -> FROM trade
-//	    -> WHERE id = 1;
-		assertEquals(5, trade.getSellerRating());
-
+	@DisplayName("Test mapping for all fields in Product")
+	void test() {
+		assertEquals(1, product.getId());
+		assertEquals("Tomatoes", product.getName());
+		assertEquals("Cherokee Purple", product.getType());
+		assertEquals("Large, Purple, Heirloom tomato", product.getDescription());
+		assertEquals("large", product.getSizeOfProduct().toString());
+		assertNull(product.getImageURL());
 	}
+	
+	
 
 }

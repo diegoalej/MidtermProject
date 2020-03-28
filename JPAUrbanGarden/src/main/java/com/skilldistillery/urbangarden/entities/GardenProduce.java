@@ -7,9 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 
 @Entity
 public class GardenProduce {
@@ -21,7 +19,7 @@ public class GardenProduce {
 	private int id;
 	@OneToMany(mappedBy = "gardenProduce")
 	@Column(name = "garden_id")
-	private Garden garden;
+	private GardenStoreFront garden;
 	@OneToMany(mappedBy = "product")
 	@Column(name = "product_id")
 	private Product product;
@@ -46,11 +44,11 @@ public class GardenProduce {
 		this.id = id;
 	}
 
-	public Garden getGarden() {
+	public GardenStoreFront getGarden() {
 		return garden;
 	}
 
-	public void setGarden(Garden garden) {
+	public void setGarden(GardenStoreFront garden) {
 		this.garden = garden;
 	}
 

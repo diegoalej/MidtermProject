@@ -13,15 +13,15 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class TradeTest {
+class GardenProduceTest {
 
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private Trade trade;
+	private GardenProduce produce;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
-		emf = Persistence.createEntityManagerFactory("VideoStore");
+		emf = Persistence.createEntityManagerFactory("UrbanGarden");
 	}
 
 	@AfterAll
@@ -32,22 +32,22 @@ class TradeTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		trade = em.find(Trade.class, 1);
+		produce = em.find(GardenProduce.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		trade = null;
+		produce = null;
 	}
 
 	@Test
 	@DisplayName("test trade mappings")
 	void test1() {
 //		SELECT *
-//	    -> FROM trade
+//	    -> FROM garden_produce
 //	    -> WHERE id = 1;
-		assertEquals(5, trade.getSellerRating());
+		assertEquals(12, produce.getAmount());
 
 	}
 

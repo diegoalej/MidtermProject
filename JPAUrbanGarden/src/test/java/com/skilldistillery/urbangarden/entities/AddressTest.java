@@ -1,6 +1,6 @@
 package com.skilldistillery.urbangarden.entities;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -13,15 +13,15 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class TradeTest {
-
+class AddressTest {
+	
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private Trade trade;
+	private Address address;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
-		emf = Persistence.createEntityManagerFactory("VideoStore");
+		emf = Persistence.createEntityManagerFactory("UrbanGarden");
 	}
 
 	@AfterAll
@@ -32,23 +32,25 @@ class TradeTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		trade = em.find(Trade.class, 1);
+		address = em.find(Address.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
-		em.close();
-		trade = null;
+		em = null;
+		address = null;
 	}
 
 	@Test
-	@DisplayName("test trade mappings")
-	void test1() {
-//		SELECT *
-//	    -> FROM trade
-//	    -> WHERE id = 1;
-		assertEquals(5, trade.getSellerRating());
-
+	@DisplayName("testing entity address with all fields")
+	void test() {
+		assertEquals(1, address.getId());
+		assertEquals("2345 Random Street", address.getStreet());
+		assertNull(address.getStreet2());
+		assertEquals(80111, address.getZipCode());
+		assertEquals("Denver", address.getCity());
+		assertEquals("Colorado", address.getState());
+		assertEquals("United States", address.getCountry());
 	}
 
 }
