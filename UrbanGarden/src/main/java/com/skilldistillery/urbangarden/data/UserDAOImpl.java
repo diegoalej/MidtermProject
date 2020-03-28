@@ -1,74 +1,33 @@
 package com.skilldistillery.urbangarden.data;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.PersistenceContext;
 
 import com.skilldistillery.urbangarden.entities.User;
 
 public class UserDAOImpl implements UserDAO {
 	private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("UrbanGarden");
 
+	@PersistenceContext
+	private EntityManager em;
+	
 	@Override
-	public User create(User user) {
-		EntityManager em = emf.createEntityManager();
-//		System.out.println("DAO, Before persist " + user);
-
-		// start transaction
-		em.getTransaction().begin();
-
-		// write user to db
-		em.persist(user);
-
-		// update "local" User object
-		em.flush();
-
-		em.getTransaction().commit();
-
-		em.close();
-
-		return user;
+	public User findById(int id) {
+		// TODO Auto-generated method stub
+		return em.find(User.class, id);
 	}
 
 	@Override
-	public User update(int id, User user) {
-		EntityManager em = emf.createEntityManager();
-
-		User userToBeChanged = em.find(User.class, id);
-
-		em.getTransaction().begin();
-
-//		userToBeChanged.setFirstName(user.getFirstName());
-//		userToBeChanged.setLastName(user.getLastName());
-
-		em.flush();
-
-		em.getTransaction().commit();
-		em.close();
-
-		return userToBeChanged;
-	}
-
-	@Override
-	public boolean destroy(int id) {
-		EntityManager em = emf.createEntityManager();
-		User user = em.find(User.class, id);
-
-		// now changes to db are done, so create transaction
-		em.getTransaction().begin();
-
-		em.remove(user);
-
-		em.flush();
-
-		em.getTransaction().commit();
-
-		// if boolean is true it was not removed, flipped logic below
-		boolean removeStatus = !em.contains(user);
-
-		em.close();
-
-		return removeStatus;
+	public List<User> findAll() {
+		List<User> results = null;
+		String queryString = "SELECT s from User s";
+		results = em.createQuery(queryString, User.class)
+                 .getResultList();
+		return results;
 	}
 
 }
