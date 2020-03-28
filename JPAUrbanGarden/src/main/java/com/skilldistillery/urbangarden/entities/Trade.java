@@ -21,9 +21,9 @@ public class Trade {
 	
 	@Column(name="trade_date")
 	private LocalDateTime tradeDate;
-	@OneToOne
-	@JoinColumn(name="offer_id")
-	private Offer offer;
+//	@OneToOne
+//	@JoinColumn(name="offer_id")
+//	private Offer offer;
 	@Column(name="rating_by_buyer")
 	private Integer buyerRating;
 	@Column(name="rating_by_seller")
@@ -56,15 +56,15 @@ public class Trade {
 		this.tradeDate = tradeDate;
 	}
 
-
-	public Offer getOffer() {
-		return offer;
-	}
-
-
-	public void setOffer(Offer offer) {
-		this.offer = offer;
-	}
+//
+//	public Offer getOffer() {
+//		return offer;
+//	}
+//
+//
+//	public void setOffer(Offer offer) {
+//		this.offer = offer;
+//	}
 
 
 	public Integer getBuyerRating() {
@@ -109,9 +109,8 @@ public class Trade {
 
 	@Override
 	public String toString() {
-		return "Trade [id=" + id + ", tradeDate=" + tradeDate + ", offer=" + offer + ", buyerRating=" + buyerRating
-				+ ", sellerRating=" + sellerRating + ", buyerComment=" + buyerComment + ", sellerComment="
-				+ sellerComment + "]";
+		return "Trade [id=" + id + ", tradeDate=" + tradeDate + ", buyerRating=" + buyerRating + ", sellerRating="
+				+ sellerRating + ", buyerComment=" + buyerComment + ", sellerComment=" + sellerComment + "]";
 	}
 
 
@@ -122,7 +121,6 @@ public class Trade {
 		result = prime * result + ((buyerComment == null) ? 0 : buyerComment.hashCode());
 		result = prime * result + ((buyerRating == null) ? 0 : buyerRating.hashCode());
 		result = prime * result + id;
-		result = prime * result + ((offer == null) ? 0 : offer.hashCode());
 		result = prime * result + ((sellerComment == null) ? 0 : sellerComment.hashCode());
 		result = prime * result + ((sellerRating == null) ? 0 : sellerRating.hashCode());
 		result = prime * result + ((tradeDate == null) ? 0 : tradeDate.hashCode());
@@ -150,11 +148,6 @@ public class Trade {
 		} else if (!buyerRating.equals(other.buyerRating))
 			return false;
 		if (id != other.id)
-			return false;
-		if (offer == null) {
-			if (other.offer != null)
-				return false;
-		} else if (!offer.equals(other.offer))
 			return false;
 		if (sellerComment == null) {
 			if (other.sellerComment != null)

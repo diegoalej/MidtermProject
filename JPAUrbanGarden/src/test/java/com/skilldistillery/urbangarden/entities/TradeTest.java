@@ -21,7 +21,7 @@ class TradeTest {
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
-		emf = Persistence.createEntityManagerFactory("VideoStore");
+		emf = Persistence.createEntityManagerFactory("UrbanGarden");
 	}
 
 	@AfterAll
