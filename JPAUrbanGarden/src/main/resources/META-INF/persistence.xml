@@ -10,6 +10,7 @@
 		<!-- Entities -->
 	<class>com.skilldistillery.urbangarden.entities.Address</class>
 	<class>com.skilldistillery.urbangarden.entities.GardenStoreFront</class>
+	<class>com.skilldistillery.urbangarden.entities.Product</class>
 	<class>com.skilldistillery.urbangarden.entities.User</class>
 		<!-- end entities -->
     <properties>

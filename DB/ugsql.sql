@@ -90,7 +90,7 @@ CREATE TABLE IF NOT EXISTS `product` (
   `name` VARCHAR(100) NOT NULL,
   `type` VARCHAR(100) NOT NULL,
   `description` VARCHAR(350) NOT NULL,
-  `size_of_product` ENUM('small', 'medium', 'large', 'extra large') NULL,
+  `size_of_product` ENUM('small', 'medium', 'large', 'extralarge') NULL,
   `image_url` VARCHAR(5000) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
@@ -279,7 +279,7 @@ COMMIT;
 START TRANSACTION;
 USE `urbangardendb`;
 INSERT INTO `product` (`id`, `name`, `type`, `description`, `size_of_product`, `image_url`) VALUES (1, 'Tomatoes', 'Cherokee Purple', 'Large, Purple, Heirloom tomato', 'Large', NULL);
-INSERT INTO `product` (`id`, `name`, `type`, `description`, `size_of_product`, `image_url`) VALUES (2, 'Melon', 'Watermelon', 'Large, green, sweet melon', 'Extra Large', NULL);
+INSERT INTO `product` (`id`, `name`, `type`, `description`, `size_of_product`, `image_url`) VALUES (2, 'Melon', 'Watermelon', 'Large, green, sweet melon', 'extralarge', NULL);
 
 COMMIT;
 
