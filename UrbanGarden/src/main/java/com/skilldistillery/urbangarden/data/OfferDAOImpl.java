@@ -8,24 +8,24 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
-import com.skilldistillery.urbangarden.entities.Trade;
+import com.skilldistillery.urbangarden.entities.Offer;
 
 @Transactional
 @Service
-public class TradeDAOImpl implements TradeDAO {
+public class OfferDAOImpl implements OfferDAO {
 
 	@PersistenceContext
 	private EntityManager em;
 	
 	@Override
-	public Trade findById(int id) {
-		return em.find(Trade.class, id);
+	public Offer findById(int id) {
+		return em.find(Offer.class, id);
 	}
 
 	@Override
-	public List<Trade> findAll() {
-		String query = "SELECT t FROM Trade t";
-		return em.createQuery(query, Trade.class).getResultList();
+	public List<Offer> findAll() {
+		String query = "SELECT o FROM Offer o";
+		return em.createQuery(query, Offer.class).getResultList();
 	}
 
 }

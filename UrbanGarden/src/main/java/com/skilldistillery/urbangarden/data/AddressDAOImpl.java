@@ -8,24 +8,24 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
-import com.skilldistillery.urbangarden.entities.Trade;
+import com.skilldistillery.urbangarden.entities.Address;
 
 @Transactional
 @Service
-public class TradeDAOImpl implements TradeDAO {
+public class AddressDAOImpl implements AddressDAO {
 
 	@PersistenceContext
 	private EntityManager em;
 	
 	@Override
-	public Trade findById(int id) {
-		return em.find(Trade.class, id);
+	public Address findById(int id) {
+		return em.find(Address.class, id);
 	}
 
 	@Override
-	public List<Trade> findAll() {
-		String query = "SELECT t FROM Trade t";
-		return em.createQuery(query, Trade.class).getResultList();
+	public List<Address> findAll() {
+		String query = "SELECT a FROM Address a";
+		return em.createQuery(query, Address.class).getResultList();
 	}
 
 }
