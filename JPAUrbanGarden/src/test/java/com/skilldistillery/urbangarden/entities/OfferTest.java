@@ -1,6 +1,7 @@
 package com.skilldistillery.urbangarden.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -50,5 +51,30 @@ class OfferTest {
 		assertEquals("We love your tomatoes", offer.getComment());
 
 	}
+	
+	@Test
+	@DisplayName("Relational Mapping between Offer and GardenProduct")
+	void test2() {
+		assertEquals(1, offer.getDesired().getId());
+		assertEquals(1, offer.getDesired().getProduct().getId());
+		assertEquals(1, offer.getDesired().getGarden().getId());
+		assertEquals(12, offer.getDesired().getAmount());
+		assertTrue(offer.getDesired().getActive());
+		
+	}
+	
+	@Test
+	@DisplayName("Relational Mapping test bewteen Offer and Trade")
+	void test3() {
+	
+		assertEquals("2020-06-29T01:00", offer.getTrade().getTradeDate().toString());
+		assertEquals(1, offer.getTrade().getId());
+		assertEquals("Great transaction", offer.getTrade().getBuyerComment());
+		assertEquals(5, offer.getTrade().getBuyerRating());
+		assertEquals("Great melons. Very juicy", offer.getTrade().getSellerComment());
+		assertEquals(5, offer.getTrade().getSellerRating());
+		assertTrue(offer.getTrade().getOffer().getAccepeted()); //Test relationship is accessible forwards and backwards.
+	}
+	
 
 }
