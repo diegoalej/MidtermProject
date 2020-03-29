@@ -28,4 +28,36 @@ public class ProductDAOImpl implements ProductDAO {
 		return em.createQuery(query, Product.class).getResultList();
 	}
 
+	@Override
+	public Product create(Product product) {
+		em.persist(product);
+		em.flush();
+		return product;
+	}
+
+	@Override
+	public Product update(int id, Product product) {
+		Product managedProduct = em.find(Product.class, id);
+		managedProduct.setType(product.getType());
+		managedProduct.setSizeOfProduct(product.getSizeOfProduct());
+		managedProduct.setName(product.getName());
+		managedProduct.setImageURL(product.getImageURL());
+		managedProduct.setDescription(product.getDescription());
+		managedProduct.setGardenProduces(product.getGardenProduces());
+		return managedProduct;
+	}
+
+	@Override
+	public boolean delete(int id) {
+		Product managedProduct = em.find(Product.class, id);
+		if (managedProduct != null) {
+			em.remove(managedProduct);
+			em.flush();
+			if (!em.contains(managedProduct)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
 }
