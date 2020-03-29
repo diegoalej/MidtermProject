@@ -37,6 +37,8 @@ public class GardenStoreFront {
 	@JoinColumn(name = "user_id")
 	private User user;
 	
+	private boolean active;
+	
 	private String description;
 	
 	//THIS IS A FOREIGN KEY AND NEEDS TO BE MAPPED
@@ -148,10 +150,19 @@ public class GardenStoreFront {
 		}
 	}
 
+	public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+
 	@Override
 	public String toString() {
 		return "GardenStoreFront [id=" + id + ", size=" + size + ", organic=" + organic + ", nameOfGarden="
-				+ nameOfGarden + ", description=" + description + ", gardenURL=" + gardenURL + ", address=" + address + ", user=" + user + "]";
+				+ nameOfGarden + ", user=" + user + ", active=" + active + ", description=" + description + ", address="
+				+ address + ", gardenURL=" + gardenURL + "]";
 	}
 	
 	

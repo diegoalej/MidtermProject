@@ -63,6 +63,7 @@ CREATE TABLE IF NOT EXISTS `garden_store_front` (
   `organic` TINYINT NOT NULL COMMENT 'THIS SUPPOSED TO BE A BOOLEAN!!!!!',
   `name_of_garden` VARCHAR(100) NOT NULL,
   `user_id` INT NOT NULL,
+  `active` TINYINT NOT NULL DEFAULT 1,
   `description` VARCHAR(300) NULL,
   `fk_garden_address_id` INT NULL,
   `garden_url` VARCHAR(5000) NULL,
@@ -268,7 +269,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `urbangardendb`;
-INSERT INTO `garden_store_front` (`id`, `size`, `organic`, `name_of_garden`, `user_id`, `description`, `fk_garden_address_id`, `garden_url`) VALUES (1, 100, 1, 'Marge\'s Place', 1, 'The best tomatoes you\'ve ever had. Also, I have honey.', 1, NULL);
+INSERT INTO `garden_store_front` (`id`, `size`, `organic`, `name_of_garden`, `user_id`, `active`, `description`, `fk_garden_address_id`, `garden_url`) VALUES (1, 100, 1, 'Marge\'s Place', 1, DEFAULT, 'The best tomatoes you\'ve ever had. Also, I have honey.', 1, NULL);
 
 COMMIT;
 
