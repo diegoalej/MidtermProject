@@ -28,4 +28,43 @@ public class AddressDAOImpl implements AddressDAO {
 		return em.createQuery(query, Address.class).getResultList();
 	}
 
+	@Override
+	public Address createAddress(Address address) {
+		em.persist(address);
+		em.flush();
+		// TODO Auto-generated method stub
+		return address;
+	}
+
+	@Override
+	public boolean destroyAddress(int id) {
+		boolean destroyed = false;
+		try {
+			Address toDestroy = em.find(Address.class, id);
+			if(em.contains(toDestroy)){
+			em.remove(toDestroy);
+			em.flush();
+			destroyed = true;
+			}
+		} catch (Exception e){
+			System.out.println("Unable to delete address record. It may not exist in the database.");
+		}
+		// TODO Auto-generated method stub
+		return destroyed;
+	}
+
+	@Override
+	public Address updateAddress(Address updateAddress) {
+		if(em.contains(updateAddress)) {
+			Address managedAddress = em.find(Address.class, updateAddress.getId());
+			managedAddress.setStreet(updateAddress.getStreet());
+			managedAddress.setStreet2(updateAddress.getStreet2());
+			managedAddress.setCity(updateAddress.getCity());
+			managedAddress.setState(updateAddress.getState());
+			managedAddress.setZipCode(updateAddress.getZipCode());
+			managedAddress.setCountry(updateAddress.getCountry());
+			return managedAddress;
+		}else return null;
+	}
+
 }
