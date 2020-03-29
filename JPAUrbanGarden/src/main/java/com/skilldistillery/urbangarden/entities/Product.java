@@ -88,6 +88,14 @@ public class Product {
 		this.imageURL = imageURL;
 	}
 
+	public List<GardenProduce> getGardenProduces() {
+		return gardenProduces;
+	}
+
+	public void setGardenProduces(List<GardenProduce> gardenProduces) {
+		this.gardenProduces = gardenProduces;
+	}
+
 	@Override
 	public String toString() {
 		return "Product [id=" + id + ", name=" + name + ", type=" + type + ", description=" + description
