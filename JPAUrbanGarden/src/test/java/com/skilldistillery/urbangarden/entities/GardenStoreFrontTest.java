@@ -54,6 +54,7 @@ class GardenStoreFrontTest {
 		assertEquals("Marge's Place", gstore.getNameOfGarden());
 		assertEquals("The best tomatoes you've ever had. Also, I have honey.", gstore.getDescription());
 		assertNull(gstore.getGardenURL());
+		assertTrue(gstore.isActive());
 	}
 	
 	@Test
