@@ -22,7 +22,7 @@
 <!--Custom styles-->
 <link rel="stylesheet" type="text/css" href="css/myStyles.css">
 </head>
-<body>
+<body class="homeBody">
 	<div class="d-flex justify-content-center">
 		<div class="row justify-content-center">
 			<div class="col-12 ">
@@ -78,7 +78,7 @@
 					</div>
 					<div class="card-footer">
 						<div class="d-flex justify-content-center links">
-							Don't have an account?<a href="#">Sign Up</a>
+							Don't have an account?<a href="addUser.do">Sign Up</a>
 						</div>
 						<div class="d-flex justify-content-center">
 							<a href="#">Forgot your password?</a>
@@ -118,7 +118,7 @@
 						purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo,
 						tortor mauris condimentum nibh.</p>
 					<p>
-						<a class="btn " href="#" role="button">Join Today</a>
+						<a class="btn " href="adduser.do" role="button">Join Today</a>
 					</p>
 				</div>
 				<!-- /.col-lg-4 -->
@@ -142,11 +142,20 @@
 		</div>
 	</div>
 
-	<footer class="footer">
+	<!-- Footer -->
+	<footer class="footer font-small">
 		<div class="container">
-			<span class="footerspan">UrbanGarden 2020</span>
+			<div class="row">
+				<div class="col-md-12">
+					<!-- Copyright -->
+					<div class="footer-copyright text-center py-3">© 2020
+						Copyright: UrbanGarden App</div>
+					<!-- Copyright -->
+				</div>
+			</div>
 		</div>
 	</footer>
+	<!-- Footer -->
 
 	<script
 		src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
