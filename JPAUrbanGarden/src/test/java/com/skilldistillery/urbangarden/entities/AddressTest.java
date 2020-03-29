@@ -53,10 +53,11 @@ class AddressTest {
 		assertEquals("United States", address.getCountry());
 	}
 	
-//	@Test
-//	@DisplayName("Test relational mapping between Address and GardenStore")
-//	void test2() {
-//		assertEquals("Marge's Place", address.getGardenStoreFront().getNameOfGarden());
-//	}
+	@Test
+	@DisplayName("Test relational mapping between Address and GardenStore")
+	void test2() {
+		assertEquals("Marge's Place", address.getGardenStoreFront().getNameOfGarden());
+		assertEquals("The best tomatoes you've ever had. Also, I have honey.", address.getGardenStoreFront().getDescription());
+	}
 
 }

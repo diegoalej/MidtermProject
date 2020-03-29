@@ -27,6 +27,9 @@ public class Address {
 	
 	private String country;
 	
+	@OneToOne(mappedBy = "user")
+	private GardenStoreFront gardenStoreFront;
+	
 	//
 	//Methods Begin
 	//
@@ -89,6 +92,14 @@ public class Address {
 		this.country = country;
 	}
 
+
+	public GardenStoreFront getGardenStoreFront() {
+		return gardenStoreFront;
+	}
+
+	public void setGardenStoreFront(GardenStoreFront gardenStoreFront) {
+		this.gardenStoreFront = gardenStoreFront;
+	}
 
 	@Override
 	public String toString() {

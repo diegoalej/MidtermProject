@@ -40,6 +40,9 @@ public class User {
 	@Column(name = "address_id")
 	private Integer addressID;
 	
+	@OneToOne(mappedBy= "address")
+	private GardenStoreFront gardenStoreFront;
+
 	
 	//
 	// Methods Begin
@@ -126,6 +129,14 @@ public class User {
 
 	public void setAddressID(Integer addressID) {
 		this.addressID = addressID;
+	}
+
+	public GardenStoreFront getGardenStoreFront() {
+		return gardenStoreFront;
+	}
+
+	public void setGardenStoreFront(GardenStoreFront gardenStoreFront) {
+		this.gardenStoreFront = gardenStoreFront;
 	}
 
 	@Override
