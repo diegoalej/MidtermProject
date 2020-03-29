@@ -40,8 +40,9 @@ public class User {
 	@Column(name = "address_id")
 	private Integer addressID;
 	
-	@OneToOne
+	@OneToOne(mappedBy= "address")
 	private GardenStoreFront gardenStoreFront;
+
 	
 	//
 	// Methods Begin
@@ -129,7 +130,6 @@ public class User {
 	public void setAddressID(Integer addressID) {
 		this.addressID = addressID;
 	}
-	
 
 	public GardenStoreFront getGardenStoreFront() {
 		return gardenStoreFront;
@@ -143,7 +143,7 @@ public class User {
 	public String toString() {
 		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", username=" + username
 				+ ", password=" + password + ", enabled=" + enabled + ", role=" + role + ", phoneNumber=" + phoneNumber
-				+ ", imageURL=" + imageURL + ", addressID=" + addressID + ", gardenStoreFront=" + gardenStoreFront
+				+ ", imageURL=" + imageURL + ", addressID=" + addressID
 				+ "]";
 	}
 

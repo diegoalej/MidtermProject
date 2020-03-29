@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -24,11 +25,11 @@ public class GardenProduce {
 	private int id;
 	
 	@ManyToOne
-	@Column(name = "garden_id")
+	@JoinColumn(name = "garden_id")
 	private GardenStoreFront garden;
 	
 	@ManyToOne
-	@Column(name = "product_id")
+	@JoinColumn(name = "produce_id")
 	private Product product;
 	
 	private Integer amount;

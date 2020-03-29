@@ -27,7 +27,7 @@ public class Address {
 	
 	private String country;
 	
-	@OneToOne
+	@OneToOne(mappedBy = "user")
 	private GardenStoreFront gardenStoreFront;
 	
 	//
@@ -92,6 +92,7 @@ public class Address {
 		this.country = country;
 	}
 
+
 	public GardenStoreFront getGardenStoreFront() {
 		return gardenStoreFront;
 	}
@@ -103,7 +104,7 @@ public class Address {
 	@Override
 	public String toString() {
 		return "Address [id=" + id + ", street=" + street + ", street2=" + street2 + ", zipCode=" + zipCode + ", city="
-				+ city + ", state=" + state + ", country=" + country + ", gardenStoreFront=" + gardenStoreFront + "]";
+				+ city + ", state=" + state + ", country=" + country + "]";
 	}
 	
 	
