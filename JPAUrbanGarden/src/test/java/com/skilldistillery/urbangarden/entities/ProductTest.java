@@ -53,6 +53,12 @@ class ProductTest {
 		assertNull(product.getImageURL());
 	}
 	
+	@Test
+	@DisplayName("RelationalMapping")
+	void test2() {
+		
+	}
+	
 	
 
 }

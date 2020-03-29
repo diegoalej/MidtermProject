@@ -55,5 +55,31 @@ class GardenStoreFrontTest {
 		assertEquals("The best tomatoes you've ever had. Also, I have honey.", gstore.getDescription());
 		assertNull(gstore.getGardenURL());
 	}
+	
+	@Test
+	@DisplayName("Relational Mapping test between GardenStore and Address")
+	void test2() {
+		assertEquals("2345 Random Street", gstore.getAddress().getStreet());
+		assertNull(gstore.getAddress().getStreet2());
+		assertEquals(80111, gstore.getAddress().getZipCode());
+		assertEquals("Denver", gstore.getAddress().getCity());
+		assertEquals("Colorado", gstore.getAddress().getState());
+		assertEquals("United States", gstore.getAddress().getCountry());
+	}
+	
+	@Test
+	@DisplayName("Relational Mapping test between GardenStore and User")
+	void test3() {
+		assertEquals("JJ", gstore.getUser().getFirstName());
+		assertEquals("Smith", gstore.getUser().getLastName());
+		assertEquals("jjsmith", gstore.getUser().getUsername());
+		assertEquals("jjsmithpassword", gstore.getUser().getPassword());
+		assertTrue(gstore.getUser().getEnabled());
+		assertEquals("admin", gstore.getUser().getRole());
+		assertNull(gstore.getUser().getPhoneNumber());
+		assertNull(gstore.getUser().getImageURL());
+		assertNull(gstore.getUser().getAddressID());
+		
+	}
 
 }

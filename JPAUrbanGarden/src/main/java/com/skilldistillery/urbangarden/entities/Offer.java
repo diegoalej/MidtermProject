@@ -36,7 +36,7 @@ public class Offer {
 	
 	private String comment;
 	
-	@OneToOne
+	@OneToOne(mappedBy = "offer")
 	private Trade trade;
 	
 	// m e t h o d s 
