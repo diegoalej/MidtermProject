@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Offer {
@@ -21,15 +22,22 @@ public class Offer {
 	
 	@Column(name="offer_date")
 	private LocalDateTime offerDate;
+	
 	@Column(name="accepted_rejected")
 	private Boolean accepeted;
-//	@ManyToOne
-//	@JoinColumn(name="garden_produce_id")
-//	private GardenProduce desired;
-//	@ManyToOne
-//	@JoinColumn(name="offered_produce_id")
-//	private GardenProduce offered;
+	
+	@ManyToOne
+	@JoinColumn(name="garden_produce_id")
+	private GardenProduce desired;
+	
+	@ManyToOne
+	@JoinColumn(name="offered_produce_id")
+	private GardenProduce offered;
+	
 	private String comment;
+	
+	@OneToOne(mappedBy = "offer")
+	private Trade trade;
 	
 	// m e t h o d s 
 	
@@ -59,21 +67,21 @@ public class Offer {
 		this.accepeted = accepeted;
 	}
 
-//	public GardenProduce getDesired() {
-//		return desired;
-//	}
-//
-//	public void setDesired(GardenProduce desired) {
-//		this.desired = desired;
-//	}
-//
-//	public GardenProduce getOffered() {
-//		return offered;
-//	}
-//
-//	public void setOffered(GardenProduce offered) {
-//		this.offered = offered;
-//	}
+	public GardenProduce getDesired() {
+		return desired;
+	}
+
+	public void setDesired(GardenProduce desired) {
+		this.desired = desired;
+	}
+
+	public GardenProduce getOffered() {
+		return offered;
+	}
+
+	public void setOffered(GardenProduce offered) {
+		this.offered = offered;
+	}
 
 	public String getComment() {
 		return comment;
@@ -81,6 +89,14 @@ public class Offer {
 
 	public void setComment(String comment) {
 		this.comment = comment;
+	}
+
+	public Trade getTrade() {
+		return trade;
+	}
+
+	public void setTrade(Trade trade) {
+		this.trade = trade;
 	}
 
 	@Override

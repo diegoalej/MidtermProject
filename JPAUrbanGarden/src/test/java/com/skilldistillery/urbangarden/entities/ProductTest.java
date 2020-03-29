@@ -53,6 +53,15 @@ class ProductTest {
 		assertNull(product.getImageURL());
 	}
 	
+	@Test
+	@DisplayName("Relational Mapping between Product and GardenProduce")
+	void test2() {
+		assertEquals(1, product.getGardenProduces().get(0).getId());
+		assertEquals(1, product.getGardenProduces().get(0).getGarden().getId());
+		assertEquals(12, product.getGardenProduces().get(0).getAmount());
+		assertTrue(product.getGardenProduces().get(0).getActive());	
+		}
+	
 	
 
 }

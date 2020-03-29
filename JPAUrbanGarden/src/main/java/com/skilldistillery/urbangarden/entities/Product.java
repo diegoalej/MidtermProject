@@ -1,6 +1,16 @@
 package com.skilldistillery.urbangarden.entities;
 
-import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Product {
@@ -21,6 +31,9 @@ public class Product {
 	
 	@Column(name = "image_url")
 	private String imageURL;
+	
+	@OneToMany(mappedBy = "product")
+	private List<GardenProduce> gardenProduces;
 	
 	//
 	//Methods Begin
@@ -75,10 +88,37 @@ public class Product {
 		this.imageURL = imageURL;
 	}
 
+	public List<GardenProduce> getGardenProduces() {
+		return gardenProduces;
+	}
+
+	public void setGardenProduces(List<GardenProduce> gardenProduces) {
+		this.gardenProduces = gardenProduces;
+	}
+
 	@Override
 	public String toString() {
 		return "Product [id=" + id + ", name=" + name + ", type=" + type + ", description=" + description
 				+ ", sizeOfProduct=" + sizeOfProduct + ", imageURL=" + imageURL + "]";
+	}
+	
+	public void addGardenProduce(GardenProduce gp) {
+		if (gardenProduces == null) {
+			gardenProduces = new ArrayList<GardenProduce>();
+		}
+		if (!gardenProduces.contains(gp)) {
+			gardenProduces.add(gp);
+			if(gp.getGardenStoreFront() != null) {
+				gp.getGardenStoreFront().getGardenProduce().remove(gp);
+			}
+			gp.setProduct(this);
+		}
+	}
+	public void removeGardenProduce(GardenProduce gp) {
+		gp.setGardenStoreFront(null);
+		if (gardenProduces != null) {
+			gardenProduces.remove(gp);
+		}
 	}
 	
 	

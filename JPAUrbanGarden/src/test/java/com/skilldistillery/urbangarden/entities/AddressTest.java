@@ -43,7 +43,7 @@ class AddressTest {
 
 	@Test
 	@DisplayName("testing entity address with all fields")
-	void test() {
+	void test1() {
 		assertEquals(1, address.getId());
 		assertEquals("2345 Random Street", address.getStreet());
 		assertNull(address.getStreet2());
@@ -51,6 +51,13 @@ class AddressTest {
 		assertEquals("Denver", address.getCity());
 		assertEquals("Colorado", address.getState());
 		assertEquals("United States", address.getCountry());
+	}
+	
+	@Test
+	@DisplayName("Test relational mapping between Address and GardenStore")
+	void test2() {
+		assertEquals("Marge's Place", address.getGardenStoreFront().getNameOfGarden());
+		assertEquals("The best tomatoes you've ever had. Also, I have honey.", address.getGardenStoreFront().getDescription());
 	}
 
 }

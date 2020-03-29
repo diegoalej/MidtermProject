@@ -1,6 +1,6 @@
 package com.skilldistillery.urbangarden.entities;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -49,6 +49,17 @@ class TradeTest {
 //	    -> WHERE id = 1;
 		assertEquals(5, trade.getSellerRating());
 
+	}
+	
+	@Test
+	@DisplayName("Relational Mapping between Trade and Offer")
+	void test2() {
+		assertEquals(1, trade.getOffer().getId());
+		assertEquals("2020-06-30T01:00", trade.getOffer().getOfferDate().toString());
+		assertEquals(2, trade.getOffer().getOffered().getId());
+		assertTrue(trade.getOffer().getAccepeted());
+		assertEquals("We love your tomatoes", trade.getOffer().getComment());
+		assertEquals("Tomatoes", trade.getOffer().getDesired().getProduct().getName()); //Testing extensive reach between the entities.
 	}
 
 }

@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Address {
@@ -25,6 +26,9 @@ public class Address {
 	private String state;
 	
 	private String country;
+	
+	@OneToOne(mappedBy = "user")
+	private GardenStoreFront gardenStoreFront;
 	
 	//
 	//Methods Begin
@@ -86,6 +90,15 @@ public class Address {
 
 	public void setCountry(String country) {
 		this.country = country;
+	}
+
+
+	public GardenStoreFront getGardenStoreFront() {
+		return gardenStoreFront;
+	}
+
+	public void setGardenStoreFront(GardenStoreFront gardenStoreFront) {
+		this.gardenStoreFront = gardenStoreFront;
 	}
 
 	@Override

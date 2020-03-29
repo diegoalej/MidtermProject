@@ -63,5 +63,14 @@ class UserTest {
 		assertNull(user.getImageURL());
 		
 	}
+	
+	@Test
+	@DisplayName("Relational Mapping between User and GardenStore")
+	void test2() {
+		assertEquals(1, user.getGardenStoreFront().getId());
+		assertEquals(100, user.getGardenStoreFront().getSize());
+		assertTrue(user.getGardenStoreFront().isOrganic());
+		assertEquals("The best tomatoes you've ever had. Also, I have honey.", user.getGardenStoreFront().getDescription());
+	}
 
 }

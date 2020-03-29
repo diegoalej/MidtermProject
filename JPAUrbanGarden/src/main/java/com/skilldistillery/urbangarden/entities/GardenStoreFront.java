@@ -1,10 +1,16 @@
 package com.skilldistillery.urbangarden.entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -27,17 +33,23 @@ public class GardenStoreFront {
 	private String nameOfGarden;
 	
 	//THIS IS S FOREIGN KEY AND NEEDS TO BE MAPPED
-	@Column(name = "user_id")
-	private int userId;
+	@OneToOne
+	@JoinColumn(name = "user_id")
+	private User user;
 	
 	private String description;
 	
 	//THIS IS A FOREIGN KEY AND NEEDS TO BE MAPPED
-	@Column(name = "fk_garden_address_id")
-	private Integer gardenAddressId;
+	@OneToOne
+	@JoinColumn(name = "fk_garden_address_id")
+	private Address address;
 	
 	@Column(name = "garden_url")
 	private String gardenURL;
+
+	
+	@OneToMany(mappedBy = "garden")
+	private List<GardenProduce> gardenProduces;
 	
 	//
 	//Methods begin
@@ -77,28 +89,12 @@ public class GardenStoreFront {
 		this.nameOfGarden = nameOfGarden;
 	}
 
-	public int getUserId() {
-		return userId;
-	}
-
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
-
 	public String getDescription() {
 		return description;
 	}
 
 	public void setDescription(String description) {
 		this.description = description;
-	}
-
-	public Integer getGardenAddressId() {
-		return gardenAddressId;
-	}
-
-	public void setGardenAddressId(Integer gardenAddressId) {
-		this.gardenAddressId = gardenAddressId;
 	}
 
 	public String getGardenURL() {
@@ -109,11 +105,53 @@ public class GardenStoreFront {
 		this.gardenURL = gardenURL;
 	}
 
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public List<GardenProduce> getGardenProduce() {
+		return gardenProduces;
+	}
+
+	public void setGardenProduce(List<GardenProduce> gardenProduces) {
+		this.gardenProduces = gardenProduces;
+	}
+	
+	public void addGardenProduce(GardenProduce gp) {
+		if (gardenProduces == null) {
+			gardenProduces = new ArrayList<GardenProduce>();
+		}
+		if (!gardenProduces.contains(gp)) {
+			gardenProduces.add(gp);
+			if(gp.getGardenStoreFront() != null) {
+				gp.getGardenStoreFront().getGardenProduce().remove(gp);
+			}
+			gp.setGardenStoreFront(this);
+		}
+	}
+	public void removeGardenProduce(GardenProduce gp) {
+		gp.setGardenStoreFront(null);
+		if (gardenProduces != null) {
+			gardenProduces.remove(gp);
+		}
+	}
+
 	@Override
 	public String toString() {
 		return "GardenStoreFront [id=" + id + ", size=" + size + ", organic=" + organic + ", nameOfGarden="
-				+ nameOfGarden + ", userId=" + userId + ", description=" + description + ", gardenAddressId="
-				+ gardenAddressId + ", gardenURL=" + gardenURL + "]";
+				+ nameOfGarden + ", description=" + description + ", gardenURL=" + gardenURL + ", address=" + address + ", user=" + user + "]";
 	}
 	
 	
