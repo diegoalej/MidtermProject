@@ -1,8 +1,23 @@
 @charset "UTF-8";
+/* NAVIGATION */
+.navbar {
+	background-color: #5B7213;
+}
+
+.navbar-brand {
+	color: white;
+}
+
+.nav-link {
+	color: white;
+}
+
+
+
 
 /* BODY STYLES */
 
- html,body {
+ .homeBody {
 background-image: url('../images/signInBackground.jpg');
 background-size: cover;
 background-repeat: no-repeat;
@@ -17,9 +32,11 @@ height: 100%;
 	bottom: 0; 
 	width: 100%;
 }
-.footerspan {
-	color:white;	
-}
+
+.footer-copyright {
+	color: white;
+}		
+
 
 /* BUTTON AND LINK STYLES */
 .btn{
