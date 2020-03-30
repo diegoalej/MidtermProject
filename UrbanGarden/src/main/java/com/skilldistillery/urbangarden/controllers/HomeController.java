@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.skilldistillery.urbangarden.data.GardenStoreFrontDAO;
 import com.skilldistillery.urbangarden.data.UserDAO;
 import com.skilldistillery.urbangarden.entities.User;
 
@@ -15,6 +16,8 @@ import com.skilldistillery.urbangarden.entities.User;
 public class HomeController {
 	@Autowired
 	private UserDAO dao;
+	@Autowired
+	private GardenStoreFrontDAO gsfDAO;
 
 	@RequestMapping(path = { "/", "home.do" })
 	public String home() {
@@ -42,5 +45,13 @@ public class HomeController {
 		}
 
 		return "index";
+	}
+
+	@RequestMapping(path = "search.do", method = RequestMethod.GET)
+	public String searchAllGardens(HttpSession session) {
+
+		User user = (User) session.getAttribute("user");
+		session.setAttribute("allGSF", dao.otherGardenStoreFronts(user));
+		return "######";
 	}
 }

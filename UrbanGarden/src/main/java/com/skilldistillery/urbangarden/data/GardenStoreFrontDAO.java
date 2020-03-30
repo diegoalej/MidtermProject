@@ -12,4 +12,5 @@ public interface GardenStoreFrontDAO {
 	GardenStoreFront deactivateStore(GardenStoreFront gsf);
 	GardenStoreFront activateStore(GardenStoreFront gsf);
 	GardenStoreFront update(int id, GardenStoreFront gsf);
+	List<GardenStoreFront> searchByZip(int id);
 }
