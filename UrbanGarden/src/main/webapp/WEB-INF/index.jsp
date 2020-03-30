@@ -59,7 +59,7 @@
 									<span class="input-group-text"><i class="fas fa-user"
 										style="color: white"></i></span>
 								</div>
-								<input type="text" class="form-control" placeholder="username" name="username">
+								<input type="text" class="form-control" placeholder="username" name="username" required>
 
 							</div>
 							<div class="input-group form-group">
@@ -67,7 +67,7 @@
 									<span class="input-group-text"><i class="fas fa-key"
 										style="color: white"></i></span>
 								</div>
-								<input type="password" class="form-control"placeholder="password" name="password">
+								<input type="password" class="form-control"placeholder="password" name="password" required>
 							</div>
 							<div class="row align-items-center remember">
 								<input type="checkbox">Remember Me
