@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>	
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,7 +20,6 @@
 	crossorigin="anonymous">
 
 <!--Custom styles-->
-<link href="https://fonts.googleapis.com/css?family=Karla|Rubik&display=swap" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="css/myStyles.css">
 </head>
 <body class="homeBody">
@@ -53,13 +50,15 @@
 						<div class="d-flex justify-content-start"></div>
 					</div>
 					<div class="card-body">
-						<form:form action="login.do" method="POST">
+						<form>
 							<div class="input-group form-group">
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="fas fa-user"
 										style="color: white"></i></span>
 								</div>
+
 								<input type="text" class="form-control" placeholder="username" name="username" required>
+
 
 							</div>
 							<div class="input-group form-group">
@@ -68,6 +67,7 @@
 										style="color: white"></i></span>
 								</div>
 								<input type="password" class="form-control"placeholder="password" name="password" required>
+
 							</div>
 							<div class="row align-items-center remember">
 								<input type="checkbox">Remember Me
@@ -76,7 +76,7 @@
 								<input type="submit" value="Login"
 									class="btn float-right">
 							</div>
-						</form:form>
+						</form>
 					</div>
 					<div class="card-footer">
 						<div class="d-flex justify-content-center links">

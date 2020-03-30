@@ -73,7 +73,7 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 
 	public User update(int id, User user) {
-		if(em.contains(em.find(User.class, id))) {
+		if (em.contains(em.find(User.class, id))) {
 			User managedUser = em.find(User.class, id);
 			managedUser.setAddressID(user.getAddressID());
 			managedUser.setFirstName(user.getFirstName());
@@ -92,12 +92,16 @@ public class UserDAOImpl implements UserDAO {
 	public User login(User user) {
 		String username = user.getUsername();
 		String password = user.getPassword();
-		String loginQuery = "SELECT u FROM User u WHERE u.username = :username and u.password = :password";	
-		user = em.createQuery(loginQuery, User.class)
-				.setParameter("username", username)
-				.setParameter("password", password)
-				.getSingleResult();
-		return user;
+		String loginQuery = "SELECT u FROM User u WHERE u.username = :username and u.password = :password";
+		User managedUser = null;
+		try {
+			managedUser = em.createQuery(loginQuery, User.class).setParameter("username", username)
+					.setParameter("password", password).getSingleResult();
+		} catch (Exception e) {
+			System.out.println("Invalid username and password combination.");
+		}
+
+		return managedUser;
 	}
 
 }
