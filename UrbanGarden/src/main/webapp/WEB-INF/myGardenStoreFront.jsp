@@ -50,146 +50,47 @@
 		</div>
 	</nav>
 	<!-- MAIN BODY -->
-	<div class="d-flex justify-content-center">
-		<div class="row justify-content-start">
-			<div class="col-12 ">
-				<h1>Your Garden Profile</h1>
+	<div class="container">
+		<div class="d-flex justify-content-start">
+			<div class="row justify-content-start">
+				<div class="col-12 ">
+					<h1>Your Garden Profile</h1>
+				</div>
+				<div class="col-12 ">
+					<h5>Welcome back!</h5>
+				</div>
 			</div>
 		</div>
-	</div>
-	<div class="d-flex justify-content-center">
-		<div class="row justify-content-start">
-			<div class="col-12  ">
-				<h5>Welcome back!</h5>
-			</div>
-		</div>
-	</div>
-	<div class="d-flex justify-content-center">
-		<div class="row py-6 justify-content-center">
-			<div class="col-12 text-center pb-1">
-				<p>
-					<strong>Name: </strong>Steve McStevens
-				</p>
-				<p>
-					<strong>Username: </strong>SteveMc
-				</p>
-				<p>
-					<strong>Role: </strong>Gardener
-				</p>
-			</div>
-		</div>
-	</div>
-	<div class="container moreinfo" id="moreinfo">
-		<div class="container ">
-			<!-- Three columns of text below the image -->
-			<div class="row py-6 d-flex justify-content-around">
-				<div class="col-lg-6">
-					<div class="row d-flex justify-content-around">
-						<div class="col-lg-12 text-left pb-1">
-							<h2>Latest Products</h2>
-						</div>
-						<!-- THIS WILL HAVE A FOREACH THAT WILL DISPLAY ALL PRODUCTS -->
-						<div class="col-lg-12 text-center pb-2">
+		<div class="d-flex justify-content-start">
+			<div class="row justify-content-start">
+					<div class="col-4 ">
+						<div class="col-lg-12 text-left justify-content-start pt-2">
 							
-							<div class="row d-flex justify-content-start">
-								<div class="col-lg-3 text-center pt-2">
+							<div class="col-lg-12 text-left justify-content-start pt-2">
 
-									<img class="rounded-circle"
-										src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-										alt="Generic placeholder image" width="120" height="120">
-								</div>
-								<div class="col-lg-9 text-left pl-4">
-									<h2>Tomato</h2>
-									<p>Type: Cherry Tomato</p>
-									<p>Amount: 10lbs</p>
-									<p>Harvest: Jun 3 2020</p>
-									<p>Available: Jun 4 2020</p>
-									<p>Expires: Jun 30 2020</p>
-									<p>Description: Donec sed odio dui. Cras justo odio, dapibus ac facilisis
-								in, egestas eget quam. Vestibulum id ligula porta felis euismod
-								semper. Fusce dapibus. Donec sed odio dui. Cras justo odio,
-								dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula
-								porta felis euismod semper. Fusce dapibus.</p>
-									<p>
-										<a class="btn btn-secondary" href="#" role="button">Edit
-											Product</a>
-									</p>
-								</div>
+								<img class="rounded-circle"
+									src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+									alt="Generic placeholder image" width="120" height="120">
 							</div>
-						</div>
-						<!-- /.col-lg-2 -->
-						<div class="col-lg-12 text-center pb-2">
-							
-							<div class="row d-flex justify-content-start">
-								<div class="col-lg-3 text-center pt-2">
-
-									<img class="rounded-circle"
-										src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-										alt="Generic placeholder image" width="120" height="120">
-								</div>
-								<div class="col-lg-9 text-left pl-4">
-									<h2>Tomato</h2>
-									<p>Type: Cherry Tomato</p>
-									<p>Amount: 10lbs</p>
-									<p>Harvest: Jun 3 2020</p>
-									<p>Available: Jun 4 2020</p>
-									<p>Expires: Jun 30 2020</p>
-									<p>Description: Donec sed odio dui. Cras justo odio, dapibus ac facilisis
-								in, egestas eget quam. Vestibulum id ligula porta felis euismod
-								semper. Fusce dapibus. Donec sed odio dui. Cras justo odio,
-								dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula
-								porta felis euismod semper. Fusce dapibus.</p>
-									<p>
-										<a class="btn btn-secondary" href="#" role="button">Edit
-											Product</a>
-									</p>
-								</div>
-							</div>
-						</div>
-						<!-- /.col-lg-2 -->
-						<div class="col-lg-12 text-center">
-							
-							<div class="row d-flex justify-content-start">
-								<div class="col-lg-3 text-center pt-2">
-
-									<img class="rounded-circle"
-										src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-										alt="Generic placeholder image" width="120" height="120">
-								</div>
-								<div class="col-lg-9 text-left pl-4">
-									<h2>Tomato</h2>
-									<p>Type: Cherry Tomato</p>
-									<p>Amount: 10lbs</p>
-									<p>Harvest: Jun 3 2020</p>
-									<p>Available: Jun 4 2020</p>
-									<p>Expires: Jun 30 2020</p>
-									<p>Description: Donec sed odio dui. Cras justo odio, dapibus ac facilisis
-								in, egestas eget quam. Vestibulum id ligula porta felis euismod
-								semper. Fusce dapibus. Donec sed odio dui. Cras justo odio,
-								dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula
-								porta felis euismod semper. Fusce dapibus.</p>
-									<p>
-										<a class="btn btn-secondary" href="#" role="button">Edit
-											Product</a>
-									</p>
-								</div>
-							</div>
-						</div>
-						<br> <br>
-						<div class="row d-flex justify-content-around">
-							<div class="col-lg-12 text-center">
+							<div class="col-12 text-left py-3">
 								<p>
-									<a class="btn btn-secondary" href="#" role="button">New
-										Search</a>
+									<strong>Garden Name: </strong>Steve's garden
+								</p>
+								<p>
+									<strong>Owner: </strong>Steve McStevens
+								</p>
+								<p>
+									<strong>Role: </strong>Gardener
+								</p>
+								<p>
+									<strong>Organic: </strong>Yes
 								</p>
 							</div>
+
 						</div>
 					</div>
-				</div>
-				<!-- /.col-lg-2 -->
-				<div class="col-lg-6 text-center">
-					<div class="row py-6 d-flex justify-content-around">
-						<div class="col-lg-12 text-center pb-1">
+						<div class="col-lg-8 text-left">
+
 							<h2>Description</h2>
 							<p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis
 								in, egestas eget quam. Vestibulum id ligula porta felis euismod
@@ -201,12 +102,175 @@
 							</p>
 						</div>
 					</div>
-
 				</div>
-				<!-- /.col-lg-6 -->
-			</div>
 		</div>
-		<!-- /.row -->
+	<div class="container moreinfo" id="moreinfo">
+		<div class="container ">
+			<!-- Three columns of text below the image -->
+			<div class="row py-6 d-flex justify-content-around">
+				<div class="col-lg-12">
+					<div class="row d-flex justify-content-around">
+						<div class="col-lg-12 text-left pb-1">
+							<h2>Products Available</h2>
+						</div>
+						<!-- THIS WILL HAVE A FOREACH THAT WILL DISPLAY ALL PRODUCTS -->
+						<div class="col-lg-12 text-center pb-2">
+
+							<div class="row d-flex justify-content-start">
+								<div class="col-lg-3 text-center pt-2">
+
+									<img class="rounded-circle"
+										src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+										alt="Generic placeholder image" width="120" height="120">
+								</div>
+								<div class="col-lg-9 text-left pl-4">
+									<div class="row d-flex justify-content-center">
+
+										<div class="col-lg-12 justify-content-center pl-4">
+											<h2>Tomato</h2>
+											<p>Type: Cherry Tomato</p>
+											<p>Amount: 10lbs</p>
+											<p>Harvest: Jun 3 2020</p>
+											<p>Available: Jun 4 2020</p>
+											<p>Expires: Jun 30 2020</p>
+											<p>Size: medium</p>
+											<p>Description: Donec sed odio dui. Cras justo odio,
+												dapibus ac facilisis in, egestas eget quam. Vestibulum id
+												ligula porta felis euismod semper. Fusce dapibus. Donec sed
+												odio dui. Cras justo odio, dapibus ac facilisis in, egestas
+												eget quam. Vestibulum id ligula porta felis euismod semper.
+												Fusce dapibus.</p>
+										</div>
+									</div>
+									<div class="row d-flex justify-content-start">
+
+										<div class="col-lg-4 justify-content-start pl-4">
+											<p>
+												<a class="btn btn-secondary" href="#" role="button">Edit
+													Product</a>
+											</p>
+										</div>
+										<div class="col-lg-4 justify-content-start pl-4">
+											<p>
+												<a class="btn btn-secondary" href="#" role="button">View
+													Offers</a>
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- /.col-lg-2 -->
+						<div class="col-lg-12 text-center pb-2">
+
+							<div class="row d-flex justify-content-start">
+								<div class="col-lg-3 text-center pt-2">
+
+									<img class="rounded-circle"
+										src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+										alt="Generic placeholder image" width="120" height="120">
+								</div>
+								<div class="col-lg-9 text-left pl-4">
+									<div class="row d-flex justify-content-center">
+
+										<div class="col-lg-12 justify-content-center pl-4">
+											<h2>Zuccini</h2>
+											<p>Type: Regular Zuccini</p>
+											<p>Amount: 10lbs</p>
+											<p>Harvest: Jun 3 2020</p>
+											<p>Available: Jun 4 2020</p>
+											<p>Expires: Jun 30 2020</p>
+											<p>Size: medium</p>
+											<p>Description: Donec sed odio dui. Cras justo odio,
+												dapibus ac facilisis in, egestas eget quam. Vestibulum id
+												ligula porta felis euismod semper. Fusce dapibus. Donec sed
+												odio dui. Cras justo odio, dapibus ac facilisis in, egestas
+												eget quam. Vestibulum id ligula porta felis euismod semper.
+												Fusce dapibus.</p>
+										</div>
+									</div>
+									<div class="row d-flex justify-content-start">
+
+										<div class="col-lg-4 justify-content-start pl-4">
+											<p>
+												<a class="btn btn-secondary" href="#" role="button">Edit
+													Product</a>
+											</p>
+										</div>
+										<div class="col-lg-4 justify-content-start pl-4">
+											<p>
+												<a class="btn btn-secondary" href="#" role="button">View
+													Offers</a>
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- /.col-lg-2 -->
+						<div class="col-lg-12 text-center">
+
+							<div class="row d-flex justify-content-start">
+								<div class="col-lg-3 text-center pt-2">
+
+									<img class="rounded-circle"
+										src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+										alt="Generic placeholder image" width="120" height="120">
+								</div>
+								<div class="col-lg-9 text-left pl-4">
+									<div class="row d-flex justify-content-center">
+
+										<div class="col-lg-12 justify-content-center pl-4">
+											<h2>Squash</h2>
+											<p>Type: Butternut Squash</p>
+											<p>Amount: 10lbs</p>
+											<p>Harvest: Jun 3 2020</p>
+											<p>Available: Jun 4 2020</p>
+											<p>Expires: Jun 30 2020</p>
+											<p>Size: medium</p>
+											<p>Description: Donec sed odio dui. Cras justo odio,
+												dapibus ac facilisis in, egestas eget quam. Vestibulum id
+												ligula porta felis euismod semper. Fusce dapibus. Donec sed
+												odio dui. Cras justo odio, dapibus ac facilisis in, egestas
+												eget quam. Vestibulum id ligula porta felis euismod semper.
+												Fusce dapibus.</p>
+										</div>
+									</div>
+									<div class="row d-flex justify-content-start">
+
+										<div class="col-lg-4 justify-content-start pl-4">
+											<p>
+												<a class="btn btn-secondary" href="#" role="button">Edit
+													Product</a>
+											</p>
+										</div>
+										<div class="col-lg-4 justify-content-start pl-4">
+											<p>
+												<a class="btn btn-secondary" href="#" role="button">View
+													Offers</a>
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<br> <br>
+							<div class="row d-flex justify-content-around py-2">
+								<div class="col-lg-12 text-center">
+									<p>
+										<a class="btn btn-secondary" href="#" role="button">Add
+											New Product</a>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /.col-lg-2 -->
+
+					<!-- /.col-lg-6 -->
+				</div>
+			</div>
+			<!-- /.row -->
+		</div>
 	</div>
 
 	<!-- Footer -->
