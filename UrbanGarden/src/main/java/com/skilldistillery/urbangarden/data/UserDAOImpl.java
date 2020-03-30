@@ -92,8 +92,11 @@ public class UserDAOImpl implements UserDAO {
 	public User login(User user) {
 		String username = user.getUsername();
 		String password = user.getPassword();
-		String loginQuery = "SELECT u FROM User u WHERE u.username = :username and u.password = :password";
-		user = em.createQuery(loginQuery, User.class).getSingleResult();
+		String loginQuery = "SELECT u FROM User u WHERE u.username = :username and u.password = :password";	
+		user = em.createQuery(loginQuery, User.class)
+				.setParameter("username", username)
+				.setParameter("password", password)
+				.getSingleResult();
 		return user;
 	}
 

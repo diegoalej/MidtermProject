@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>	
 <!DOCTYPE html>
 <html>
 <head>
@@ -51,7 +53,7 @@
 						<div class="d-flex justify-content-start"></div>
 					</div>
 					<div class="card-body">
-						<form action="login.do">
+						<form:form action="login.do" method="POST">
 							<div class="input-group form-group">
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="fas fa-user"
@@ -65,8 +67,7 @@
 									<span class="input-group-text"><i class="fas fa-key"
 										style="color: white"></i></span>
 								</div>
-								<input type="password" class="form-control"
-									placeholder="password" name="password">
+								<input type="password" class="form-control"placeholder="password" name="password">
 							</div>
 							<div class="row align-items-center remember">
 								<input type="checkbox">Remember Me
@@ -75,7 +76,7 @@
 								<input type="submit" value="Login"
 									class="btn float-right">
 							</div>
-						</form>
+						</form:form>
 					</div>
 					<div class="card-footer">
 						<div class="d-flex justify-content-center links">
