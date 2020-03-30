@@ -31,14 +31,14 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public User createUser(User user) {
+	public User create(User user) {
 		em.persist(user);
 		em.flush();
 		return user;
 	}
 
 	@Override
-	public boolean destroyUser(int id) {
+	public boolean delete(int id) {
 		boolean destroyed = false;
 		try {
 			User toDestroy = em.find(User.class, id);
@@ -71,9 +71,9 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public User updateUser(User user) {
-		if(em.contains(user)) {
-			User managedUser = em.find(User.class, user.getId());
+	public User update(int id, User user) {
+		if(em.contains(em.find(User.class, id))) {
+			User managedUser = em.find(User.class, id);
 			managedUser.setAddressID(user.getAddressID());
 			managedUser.setFirstName(user.getFirstName());
 			managedUser.setLastName(user.getLastName());

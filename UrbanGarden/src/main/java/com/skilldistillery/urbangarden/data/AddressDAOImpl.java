@@ -29,7 +29,7 @@ public class AddressDAOImpl implements AddressDAO {
 	}
 
 	@Override
-	public Address createAddress(Address address) {
+	public Address create(Address address) {
 		em.persist(address);
 		em.flush();
 		// TODO Auto-generated method stub
@@ -37,7 +37,7 @@ public class AddressDAOImpl implements AddressDAO {
 	}
 
 	@Override
-	public boolean destroyAddress(int id) {
+	public boolean delete(int id) {
 		boolean destroyed = false;
 		try {
 			Address toDestroy = em.find(Address.class, id);
@@ -54,9 +54,9 @@ public class AddressDAOImpl implements AddressDAO {
 	}
 
 	@Override
-	public Address updateAddress(Address updateAddress) {
-		if(em.contains(updateAddress)) {
-			Address managedAddress = em.find(Address.class, updateAddress.getId());
+	public Address update(int id, Address updateAddress) {
+		if(em.contains(em.find(Address.class, id))) {
+			Address managedAddress = em.find(Address.class, id);
 			managedAddress.setStreet(updateAddress.getStreet());
 			managedAddress.setStreet2(updateAddress.getStreet2());
 			managedAddress.setCity(updateAddress.getCity());
