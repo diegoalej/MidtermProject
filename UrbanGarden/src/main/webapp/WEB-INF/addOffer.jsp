@@ -51,7 +51,7 @@
 	<div class="d-flex justify-content-center">
 		<div class="row justify-content-center">
 			<div class="col-12 ">
-				<h1>Add Produce to your Garden's Inventory</h1>
+				<h1>Make a Offer</h1>
 			</div>
 		</div>
 	</div>
@@ -59,7 +59,7 @@
 
 		<div class="row justify-content-center">
 			<div class="col-12  ">
-				<h5>Pick a Product to add to your Garden</h5>
+				<h5>What do you want to trade?</h5>
 			</div>
 		</div>
 	</div>
@@ -70,25 +70,19 @@
 					<form:form class="form-horizontal" action="addGardenProduce.do"
 						modelAttribute="gardenProduce">
 						<div class="form-group">
-							<label> Product </label>
+							<label> Products </label>
 							<br> 
 							<select name="action" id="action">
 								<option value="1">Name of first Product</option>
 								<option value="2">2</option>
 							</select>
+							<select name="action" id="action">
+								<option value="1">Name of second Product</option>
+								<option value="2">2</option>
+							</select>
 							<br> 
-							<br> 
-							<label> Amount </label> 
-							<input class="form-control" type="number" name="amount"/> 
-							<br> 
-							<label>Date Expected</label>
-							<input class="form-control" type="date" name="dateAvailable"/> 
-							<br> 
-							<label>Date Harvested</label>
-							<input class="form-control" type="date" name="harvested"/> 
-							<br> 
-							<label>Date of Expiration</label>
-							<input class="form-control" type="date" name="dateExpires"/> 
+							<label>Comment</label>
+							<input class="form-control" type="text" name="comment"/> 
 							<br> 
 							<br> 
 							<input class="form-control" type="hidden" name="active"
