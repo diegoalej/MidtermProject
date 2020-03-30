@@ -113,7 +113,7 @@
 							</div>
 							<br> 
 							<input class="form-control" type="hidden" name="active"
-								value="true" /> <input type="submit" value="Add Garden"
+								value="true" /> <input type="submit" value="Add Product"
 								class="btn btn-primary" />
 						</div>
 					</form:form>
