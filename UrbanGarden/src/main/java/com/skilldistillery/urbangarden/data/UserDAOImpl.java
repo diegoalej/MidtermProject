@@ -8,6 +8,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.urbangarden.entities.GardenStoreFront;
 import com.skilldistillery.urbangarden.entities.User;
 
 @Transactional
@@ -102,6 +103,16 @@ public class UserDAOImpl implements UserDAO {
 		}
 
 		return managedUser;
+	}
+
+	@Override
+	public List<GardenStoreFront> otherGardenStoreFronts(User user) {
+		String query = "Select g from GardenStoreFront g where g.user != :userid";
+		if (!em.contains(user)) {
+			return em.createQuery("SELECT g from GardenStoreFront g", GardenStoreFront.class).getResultList();
+		} else {
+			return em.createQuery(query, GardenStoreFront.class).setParameter("userid", user).getResultList();
+		}
 	}
 
 }

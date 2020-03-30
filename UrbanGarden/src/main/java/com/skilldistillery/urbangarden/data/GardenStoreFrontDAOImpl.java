@@ -58,7 +58,7 @@ public class GardenStoreFrontDAOImpl implements GardenStoreFrontDAO {
 
 	@Override
 	public GardenStoreFront deactivateStore(GardenStoreFront gsf) {
-		if(em.contains(gsf)) {
+		if (em.contains(gsf)) {
 			gsf.setActive(false);
 		}
 		return gsf;
@@ -66,7 +66,7 @@ public class GardenStoreFrontDAOImpl implements GardenStoreFrontDAO {
 
 	@Override
 	public GardenStoreFront activateStore(GardenStoreFront gsf) {
-		if(em.contains(gsf)) {
+		if (em.contains(gsf)) {
 			gsf.setActive(true);
 		}
 		return gsf;
@@ -74,7 +74,7 @@ public class GardenStoreFrontDAOImpl implements GardenStoreFrontDAO {
 
 	@Override
 	public GardenStoreFront update(int id, GardenStoreFront gsf) {
-		if(em.contains(em.find(GardenStoreFront.class, id))) {
+		if (em.contains(em.find(GardenStoreFront.class, id))) {
 			GardenStoreFront managedGSF = em.find(GardenStoreFront.class, id);
 			managedGSF.setSize(gsf.getSize());
 			managedGSF.setOrganic(gsf.isOrganic());
@@ -85,7 +85,15 @@ public class GardenStoreFrontDAOImpl implements GardenStoreFrontDAO {
 			managedGSF.setAddress(gsf.getAddress());
 			managedGSF.setGardenURL(gsf.getGardenURL());
 			return managedGSF;
-		}else return null;
+		} else
+			return null;
+	}
+	
+	@Override
+	public List<GardenStoreFront> searchByZip(int zip){
+		
+		return null;
+		
 	}
 
 }
