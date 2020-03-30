@@ -16,11 +16,30 @@ public class TradeController {
 	@Autowired
 	private TradeDAO dao;
 	
+	@RequestMapping(path= {"/","home.do"})
+	public String home() {
+		return "index";
+	}
+	
 	@RequestMapping(path = "getTrade.do", method = RequestMethod.GET, params = "id")
 	public String showTrade(@RequestParam Integer id, Model model) {
 		String view = "trade/show";
 		Trade trade = dao.findById(id);
 		model.addAttribute("trade", trade);
+		return view;
+	}
+	
+	@RequestMapping(path = "addTrade.do", method = RequestMethod.GET)
+	public String addTrade( Model model, Trade trade) {
+		String view = "addTrade";
+		model.addAttribute("trade", trade);
+		return view;
+	}
+	
+	@RequestMapping(path = "addTrade.do", method = RequestMethod.POST)
+	public String postTrade(Model model, Trade trade) {
+		String view = "tradePost";
+		dao.create(trade);
 		return view;
 	}
 }

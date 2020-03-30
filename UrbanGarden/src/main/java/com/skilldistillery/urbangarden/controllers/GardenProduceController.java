@@ -16,11 +16,54 @@ public class GardenProduceController {
 	@Autowired
 	private GardenProduceDAO dao;
 	
+	@RequestMapping(path= {"/","home.do"})
+	public String home() {
+		return "index";
+	}
+	
 	@RequestMapping(path = "getGardenProduce.do", method = RequestMethod.GET, params = "id")
 	public String showGardenProduce(@RequestParam Integer id, Model model) {
 		String view = "gardenProduce/show";
 		GardenProduce gardenProduce = dao.findById(id);
 		model.addAttribute("gardenProduce", gardenProduce);
+		return view;
+	}
+	
+	@RequestMapping(path = "addGardenProduce.do", method = RequestMethod.GET)
+	public String addGardenProduce( Model model, GardenProduce gardenProduce) {
+		String view = "addGardenProduce";
+		model.addAttribute("gardenProduce", gardenProduce);
+		return view;
+	}
+	
+	@RequestMapping(path = "addGardenProduce.do", method = RequestMethod.POST)
+	public String postGardenProduce(Model model, GardenProduce gardenProduce) {
+		String view = "gardenProducePost";
+		dao.create(gardenProduce);
+		return view;
+	}
+	
+	@RequestMapping(path = "deleteGardenProduce.do", method = RequestMethod.POST, params="id")
+	public String deleteGardenProduce(@RequestParam Integer id, Model model) {
+		String view = "deleteGardenProduce";
+		boolean deleted = dao.delete(id);
+		model.addAttribute("delete", deleted);
+		model.addAttribute("id", id);
+		return view;
+	}
+	
+	@RequestMapping(path = "editGardenProduce.do", method = RequestMethod.GET)
+	public String editGardenProduce(GardenProduce gardenProduce, Model model) {
+		String view = "editGardenProduce";
+		model.addAttribute("gardenProduce", gardenProduce);
+		return view;
+	}
+	
+	@RequestMapping(path = "editGardenProduce.do", method = RequestMethod.POST)
+	public String updateGardenProduce(@RequestParam Integer id, GardenProduce gardenProduce, Model model) {
+		String view = "updateGardenProduce";
+		model.addAttribute("gardenProduce", gardenProduce);
+		dao.update(id, gardenProduce);
 		return view;
 	}
 }
