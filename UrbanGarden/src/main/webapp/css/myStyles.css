@@ -42,7 +42,11 @@ font-family: 'Karla', sans-serif;
 .btn{
 color: white;
 background-color: #022601;
-width: 100px;
+width: 7em;
+}
+
+.btn-secondary {
+	width: 9em
 }
 
 .btn:hover{
@@ -97,7 +101,13 @@ background-color: #5B7213 !important;
 }
 
 
-.card-header h3,a,p{
+.card-header h3{
+color: white;
+}
+.card-header a{
+color: white;
+}
+.card-header p{
 color: white;
 }
 
