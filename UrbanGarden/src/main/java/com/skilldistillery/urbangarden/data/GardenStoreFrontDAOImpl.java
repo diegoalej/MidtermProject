@@ -91,9 +91,31 @@ public class GardenStoreFrontDAOImpl implements GardenStoreFrontDAO {
 	
 	@Override
 	public List<GardenStoreFront> searchByZip(int zip){
-		
-		return null;
+		String query = "SELECT gsf FROM GardenStoreFront gsf "
+				+ "WHERE gsf.address.zipCode = :zip";
+		List<GardenStoreFront> gsfResults = em.createQuery(query, GardenStoreFront.class).setParameter("zip", zip).getResultList();
+		return gsfResults;
 		
 	}
+
+	@Override
+	public List<GardenStoreFront> searchByKeyword(String keyword) {
+		String query = "SELECT gsf FROM GardenProduce gp JOIN GardenStoreFront gsf "
+						+ "ON gp.garden = gsf JOIN Product p ON gp.product = p "
+						+ "WHERE p.name LIKE :keyword OR p.type LIKE :keyword "
+						+ "OR p.description LIKE :keyword"; //concat the % inside the setParameter method
+		List<GardenStoreFront> gsfResults = em.createQuery(query, GardenStoreFront.class).setParameter("keyword", "%"+keyword+"%").getResultList();
+		return gsfResults;
+	}
+
+	@Override
+	public List<GardenStoreFront> searchByFarm(String farm) {
+		String query = "SELECT gsf FROM GardenStoreFront gsf where gsf.nameOfGarden like :farm";
+		List<GardenStoreFront> gsfResults = em.createQuery(query, GardenStoreFront.class).setParameter("farm", "%"+farm+"%").getResultList();
+		
+		return gsfResults;
+	}
+	
+	
 
 }
