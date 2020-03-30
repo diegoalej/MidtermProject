@@ -23,4 +23,42 @@ public class GardenStoreFrontController {
 		model.addAttribute("gardenStoreFront", gardenStoreFront);
 		return view;
 	}
+	
+	@RequestMapping(path = "addGardenStoreFront.do", method = RequestMethod.GET)
+	public String addGardenStoreFront( Model model, GardenStoreFront gardenStoreFront) {
+		String view = "addGardenStoreFront";
+		model.addAttribute("gardenStoreFront", gardenStoreFront);
+		return view;
+	}
+	
+	@RequestMapping(path = "addGardenStoreFront.do", method = RequestMethod.POST)
+	public String postGardenStoreFront(Model model, GardenStoreFront gardenStoreFront) {
+		String view = "gardenStoreFront";
+		dao.create(gardenStoreFront);
+		return view;
+	}
+	
+	@RequestMapping(path = "deleteGardenStoreFront.do", method = RequestMethod.POST, params="id")
+	public String deleteGardenStoreFront(@RequestParam Integer id, Model model) {
+		String view = "deleteGardenStoreFront";
+		boolean deleted = dao.delete(id);
+		model.addAttribute("delete", deleted);
+		model.addAttribute("id", id);
+		return view;
+	}
+	
+	@RequestMapping(path = "editGardenStoreFront.do", method = RequestMethod.GET)
+	public String editGardenStoreFront(GardenStoreFront gardenStoreFront, Model model) {
+		String view = "editGardenStoreFront";
+		model.addAttribute("gardenStoreFront", gardenStoreFront);
+		return view;
+	}
+	
+	@RequestMapping(path = "editGardenStoreFront.do", method = RequestMethod.POST)
+	public String updateGardenStoreFront(@RequestParam Integer id, GardenStoreFront gardenStoreFront, Model model) {
+		String view = "updateGardenStoreFront";
+		model.addAttribute("gardenStoreFront", gardenStoreFront);
+		dao.update(gardenStoreFront);
+		return view;
+	}
 }
