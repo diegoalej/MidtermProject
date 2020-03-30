@@ -47,11 +47,11 @@ public class HomeController {
 		return "index";
 	}
 
-	@RequestMapping(path = "search.do", method = RequestMethod.GET)
-	public String searchAllGardens(HttpSession session) {
-
-		User user = (User) session.getAttribute("user");
-		session.setAttribute("allGSF", dao.otherGardenStoreFronts(user));
-		return "######";
-	}
+//	@RequestMapping(path = "search.do", method = RequestMethod.GET)
+//	public String searchAllGardens(HttpSession session) {
+//
+//		User user = (User) session.getAttribute("user");
+//		session.setAttribute("allGSF", dao.otherGardenStoreFronts(user));
+//		return "######";
+//	}
 }
