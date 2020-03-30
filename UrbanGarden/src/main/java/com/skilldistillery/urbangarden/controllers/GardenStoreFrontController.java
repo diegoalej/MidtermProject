@@ -26,7 +26,7 @@ public class GardenStoreFrontController {
 	
 	@RequestMapping(path = "addGardenStoreFront.do", method = RequestMethod.GET)
 	public String addGardenStoreFront( Model model, GardenStoreFront gardenStoreFront) {
-		String view = "addGardenStoreFront";
+		String view = "addGarden";
 		model.addAttribute("gardenStoreFront", gardenStoreFront);
 		return view;
 	}

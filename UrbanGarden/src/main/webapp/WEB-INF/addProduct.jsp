@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>New Garden</title>
+<title>New Product</title>
 <!--Bootsrap 4 CDN-->
 <!-- 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
  -->
@@ -51,7 +51,7 @@
 	<div class="d-flex justify-content-center">
 		<div class="row justify-content-center">
 			<div class="col-12 ">
-				<h1>Add New Garden</h1>
+				<h1>Add New Product</h1>
 			</div>
 		</div>
 	</div>
@@ -59,7 +59,7 @@
 
 		<div class="row justify-content-center">
 			<div class="col-12  ">
-				<h5>Tell us about your garden</h5>
+				<h5>Tell us about your Product</h5>
 			</div>
 		</div>
 	</div>
@@ -67,53 +67,40 @@
 		<div class="container">
 			<div class="row py-2">
 				<div class="col-sm-12">
-					<form:form class="form-horizontal" action="addGardenStoreFront.do"
-						modelAttribute="gardenStoreFront">
+					<form:form class="form-horizontal" action="addProduct.do"
+						modelAttribute="product">
 						<div class="form-group">
-							<label> Name of the Garden </label> <input class="form-control"
-								type="text" name="nameOfGarden" value="${gardenStoreFront.nameOfGarden}" />
+							<label> Name of the Product </label> <input class="form-control"
+								type="text" name="name" value="${product.name}" />
 							<br> 
-							<label> Size in ft </label> <input class="form-control"
-								type="text" name="size" value="${gardenStoreFront.size}" /> 
-							<br>
-							<label>Is your garden organic? </label>
-							<br>
+							<label> Size of Product </label> 
+							<br> 
 							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="checkbox" id="role"
-									value="${gardenStoreFront.organic}"> <label
-									class="form-check-label" for="role">Yes</label>
+								<input class="form-check-input" type="checkbox" id="sizeOfProduct" value="${product.sizeOfProduct}"> 
+								<label class="form-check-label" for="role">Small</label>
 							</div>
 							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="checkbox" id="role"
-									value="${!gardenStoreFront.organic}"> <label
-									class="form-check-label" for="role">No</label>
+								<input class="form-check-input" type="checkbox" id="sizeOfProduct" value="${product.sizeOfProduct}"> 
+								<label class="form-check-label" for="role">Medium</label>
 							</div>
-							<br> 
-							<br> 
-							<label> Describe your garden </label> <input
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="checkbox" id="sizeOfProduct" value="${product.sizeOfProduct}"> 
+								<label class="form-check-label" for="role">Large</label>
+							</div>
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="checkbox" id="sizeOfProduct" value="${product.sizeOfProduct}"> 
+								<label class="form-check-label" for="role">Extra Large</label>
+							</div>
+							<br>
+							<br>
+							<label> Describe your Product </label> <input
 								class="form-control" type="text" name="description"
-								value="${gardenStoreFront.description}" /> 
+								value="${product.description}" /> 
 							<br> 
-							<label>Address</label>
-							<input class="form-control" type="text" name="street" value="${gardenStoreFront.address.street}"/> 
-							<br>
-							<label>Address</label>
-							<input class="form-control" type="text" name="street" value="${gardenStoreFront.address.street2}"/> 
-							<br>
-							<label>City</label> <input class="form-control" type="text"
-								name="city" value="${gardenStoreFront.address.city}"/> 
+							<label>Type</label>
+							<input class="form-control" type="text" name="type" value="${product.type}"/> 
 							<br> 
-							<label>ZipCode</label> <input
-								class="form-control" type="text" name="zipCode" value="${gardenStoreFront.address.zipCode}"/> 
-							<br> 
-							<label>State</label>
-							<input class="form-control" type="text" name="state" value="${gardenStoreFront.address.state}"/> 
-							<br>
-							<label>Country</label>
-							<input class="form-control" type="text" name="state" value="${gardenStoreFront.address.country}"/> 
-							<br>
-							<br> 
-							<label class="form-check-label" for="role">Add a profile image (Recommended size 200x200)</label>
+							<label class="form-check-label" for="role">Add a Product image (Recommended size 200x200)</label>
 							<div class="input-group">
 								<!-- 	<div class="input-group-prepend">
 									<span class="input-group-text" id="imageURL">Upload</span>
@@ -126,7 +113,7 @@
 							</div>
 							<br> 
 							<input class="form-control" type="hidden" name="active"
-								value="true" /> <input type="submit" value="Add Garden"
+								value="true" /> <input type="submit" value="Add Product"
 								class="btn btn-primary" />
 						</div>
 					</form:form>

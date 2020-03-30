@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>New Garden</title>
+<title>Add Produce to your Garden's Inventory</title>
 <!--Bootsrap 4 CDN-->
 <!-- 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
  -->
@@ -51,7 +51,7 @@
 	<div class="d-flex justify-content-center">
 		<div class="row justify-content-center">
 			<div class="col-12 ">
-				<h1>Add New Garden</h1>
+				<h1>Make a Offer</h1>
 			</div>
 		</div>
 	</div>
@@ -59,7 +59,7 @@
 
 		<div class="row justify-content-center">
 			<div class="col-12  ">
-				<h5>Tell us about your garden</h5>
+				<h5>What do you want to trade?</h5>
 			</div>
 		</div>
 	</div>
@@ -67,66 +67,26 @@
 		<div class="container">
 			<div class="row py-2">
 				<div class="col-sm-12">
-					<form:form class="form-horizontal" action="addGardenStoreFront.do"
-						modelAttribute="gardenStoreFront">
+					<form:form class="form-horizontal" action="addGardenProduce.do"
+						modelAttribute="gardenProduce">
 						<div class="form-group">
-							<label> Name of the Garden </label> <input class="form-control"
-								type="text" name="nameOfGarden" value="${gardenStoreFront.nameOfGarden}" />
+							<label> Products </label>
 							<br> 
-							<label> Size in ft </label> <input class="form-control"
-								type="text" name="size" value="${gardenStoreFront.size}" /> 
-							<br>
-							<label>Is your garden organic? </label>
-							<br>
-							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="checkbox" id="role"
-									value="${gardenStoreFront.organic}"> <label
-									class="form-check-label" for="role">Yes</label>
-							</div>
-							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="checkbox" id="role"
-									value="${!gardenStoreFront.organic}"> <label
-									class="form-check-label" for="role">No</label>
-							</div>
+							<select name="action" id="action">
+								<option value="1">Name of first Product</option>
+								<option value="2">2</option>
+							</select>
+							<select name="action" id="action">
+								<option value="1">Name of second Product</option>
+								<option value="2">2</option>
+							</select>
 							<br> 
+							<label>Comment</label>
+							<input class="form-control" type="text" name="comment"/> 
 							<br> 
-							<label> Describe your garden </label> <input
-								class="form-control" type="text" name="description"
-								value="${gardenStoreFront.description}" /> 
-							<br> 
-							<label>Address</label>
-							<input class="form-control" type="text" name="street" value="${gardenStoreFront.address.street}"/> 
-							<br>
-							<label>Address</label>
-							<input class="form-control" type="text" name="street" value="${gardenStoreFront.address.street2}"/> 
-							<br>
-							<label>City</label> <input class="form-control" type="text"
-								name="city" value="${gardenStoreFront.address.city}"/> 
-							<br> 
-							<label>ZipCode</label> <input
-								class="form-control" type="text" name="zipCode" value="${gardenStoreFront.address.zipCode}"/> 
-							<br> 
-							<label>State</label>
-							<input class="form-control" type="text" name="state" value="${gardenStoreFront.address.state}"/> 
-							<br>
-							<label>Country</label>
-							<input class="form-control" type="text" name="state" value="${gardenStoreFront.address.country}"/> 
-							<br>
-							<br> 
-							<label class="form-check-label" for="role">Add a profile image (Recommended size 200x200)</label>
-							<div class="input-group">
-								<!-- 	<div class="input-group-prepend">
-									<span class="input-group-text" id="imageURL">Upload</span>
-								</div> -->
-								<div class="custom-file">
-									<input type="file" class="custom-file-input" id="imageURL"
-										aria-describedby="imageURL"> <label
-										class="custom-file-label" for="imageURL">Choose file</label>
-								</div>
-							</div>
 							<br> 
 							<input class="form-control" type="hidden" name="active"
-								value="true" /> <input type="submit" value="Add Garden"
+								value="true" /> <input type="submit" value="Add"
 								class="btn btn-primary" />
 						</div>
 					</form:form>
