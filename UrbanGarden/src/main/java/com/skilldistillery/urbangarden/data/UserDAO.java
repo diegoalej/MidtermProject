@@ -12,6 +12,7 @@ public interface UserDAO {
 	boolean delete(int id);
 	User deactivateUser(User user);
 	User activateUser(User user);
+	User login(User user);
 	User update(int id, User user);
 	
 }
