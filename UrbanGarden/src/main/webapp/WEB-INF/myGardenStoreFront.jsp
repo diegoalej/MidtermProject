@@ -39,7 +39,7 @@
 				<li class="nav-item"><a class="nav-link" href="#">Garden</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">Offers/Trades</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">Profile</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">Search</a></li>
+				<li class="nav-item"><a class="nav-link" href="search.do">Search</a></li>
 			</ul>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarSupportedContent"
