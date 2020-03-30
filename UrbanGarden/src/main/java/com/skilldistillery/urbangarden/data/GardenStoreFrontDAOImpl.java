@@ -33,14 +33,14 @@ public class GardenStoreFrontDAOImpl implements GardenStoreFrontDAO {
 	}
 
 	@Override
-	public GardenStoreFront createGarden(GardenStoreFront gsf) {
+	public GardenStoreFront create(GardenStoreFront gsf) {
 		em.persist(gsf);
 		em.flush();
 		return gsf;
 	}
 
 	@Override
-	public boolean deestroyGardenStoreFront(int id) {
+	public boolean delete(int id) {
 		boolean destroyed = false;
 		try {
 
@@ -73,9 +73,9 @@ public class GardenStoreFrontDAOImpl implements GardenStoreFrontDAO {
 	}
 
 	@Override
-	public GardenStoreFront updateStore(GardenStoreFront gsf) {
-		if(em.contains(gsf)) {
-			GardenStoreFront managedGSF = em.find(GardenStoreFront.class, gsf.getId());
+	public GardenStoreFront update(int id, GardenStoreFront gsf) {
+		if(em.contains(em.find(GardenStoreFront.class, id))) {
+			GardenStoreFront managedGSF = em.find(GardenStoreFront.class, id);
 			managedGSF.setSize(gsf.getSize());
 			managedGSF.setOrganic(gsf.isOrganic());
 			managedGSF.setNameOfGarden(gsf.getNameOfGarden());
