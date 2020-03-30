@@ -16,11 +16,6 @@ public class TradeController {
 	@Autowired
 	private TradeDAO dao;
 	
-	@RequestMapping(path= {"/","home.do"})
-	public String home() {
-		return "index";
-	}
-	
 	@RequestMapping(path = "getTrade.do", method = RequestMethod.GET, params = "id")
 	public String showTrade(@RequestParam Integer id, Model model) {
 		String view = "trade/show";

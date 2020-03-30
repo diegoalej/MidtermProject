@@ -16,10 +16,10 @@ public class OfferController {
 	@Autowired
 	private OfferDAO dao;
 	
-	@RequestMapping(path= {"/","home.do"})
-	public String home() {
-		return "index";
-	}
+//	@RequestMapping(path= {"/","home.do"})
+//	public String home() {
+//		return "index";
+//	}
 	
 	@RequestMapping(path = "getOffer.do", method = RequestMethod.GET, params = "id")
 	public String showOffer(@RequestParam Integer id, Model model) {
