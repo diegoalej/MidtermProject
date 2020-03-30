@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>New User</title>
+<title>New Garden</title>
 <!--Bootsrap 4 CDN-->
 <!-- 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
  -->
@@ -51,7 +51,7 @@
 	<div class="d-flex justify-content-center">
 		<div class="row justify-content-center">
 			<div class="col-12 ">
-				<h1>Add New User</h1>
+				<h1>Add New Garden</h1>
 			</div>
 		</div>
 	</div>
@@ -59,8 +59,7 @@
 
 		<div class="row justify-content-center">
 			<div class="col-12  ">
-				<h5>Fill out the form below and become part of our urbanGarden
-					network</h5>
+				<h5>Tell us about your garden</h5>
 			</div>
 		</div>
 	</div>
@@ -71,29 +70,27 @@
 					<form:form class="form-horizontal" action="addUser.do"
 						modelAttribute="user">
 						<div class="form-group">
-							<label> First name </label> <input class="form-control"
-								type="text" name="firstName" /> <br> <label> Last
-								Name </label> <input class="form-control" type="text" name="lastName" />
-							<br> <label> Username </label> <input class="form-control"
-								type="text" name="userName" /> <br> <label>password
-							</label> <input class="form-control" type="text" name="password" /> <br>
-							<label>What is your role? </label><br>
+							<label> Name of the Garden </label> <input class="form-control" type="text" name="nameOfGarden" /> <br> 
+							<label> Size in ft </label> <input class="form-control" type="text" name="size" />
+							<br> 
+							<label>Is your garden organic? </label><br>
 							<div class="form-check form-check-inline">
 								<input class="form-check-input" type="checkbox" id="role"
-									value="user"> <label class="form-check-label"
-									for="role">User</label>
+									value="true"> <label class="form-check-label"
+									for="role">Yes</label>
 							</div>
 							<div class="form-check form-check-inline">
 								<input class="form-check-input" type="checkbox" id="role"
-									value="gardener"> <label class="form-check-label"
-									for="role">Gardener</label>
-							</div>
-							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="checkbox" id="role"
-									value="admin"> <label class="form-check-label"
-									for="role">Admin</label>
+									value="false"> <label class="form-check-label"
+									for="role">No</label>
 							</div>
 							<br> 
+							<br> <label> Describe your garden </label> <input class="form-control"
+								type="text" name="description" /> <br> 
+								<label>Address</label> <input class="form-control" type="text" name="street" /> <br>
+								<label>City</label> <input class="form-control" type="text" name="city" /> <br>
+								<label>ZipCode</label> <input class="form-control" type="text" name="zipCode" /> <br>
+								<label>State</label> <input class="form-control" type="text" name="state" /> <br>
 							<br>
 							<label class="form-check-label"
 									for="role">Add a profile image (Recommended size 200x200)</label>
@@ -109,8 +106,8 @@
 								</div>
 							</div>
 							<br> <input class="form-control" type="hidden"
-								name="enabled" value="true" /> <input type="submit"
-								value="Add User" class="btn btn-primary" />
+								name="active" value="true" /> <input type="submit"
+								value="Add Garden" class="btn btn-primary" />
 						</div>
 					</form:form>
 				</div>

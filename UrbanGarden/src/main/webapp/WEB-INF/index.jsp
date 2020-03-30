@@ -118,7 +118,7 @@
 						purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo,
 						tortor mauris condimentum nibh.</p>
 					<p>
-						<a class="btn " href="adduser.do" role="button">Join Today</a>
+						<a class="btn " href="addUser.do" role="button">Join Today</a>
 					</p>
 				</div>
 				<!-- /.col-lg-4 -->
