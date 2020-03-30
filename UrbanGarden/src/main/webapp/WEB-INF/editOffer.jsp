@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Make an Offer</title>
+<title>Edit Offer</title>
 <!--Bootsrap 4 CDN-->
 <!-- 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
  -->
@@ -51,7 +51,7 @@
 	<div class="d-flex justify-content-center">
 		<div class="row justify-content-center">
 			<div class="col-12 ">
-				<h1>Make an Offer</h1>
+				<h1>Edit Offer</h1>
 			</div>
 		</div>
 	</div>
@@ -67,26 +67,26 @@
 		<div class="container">
 			<div class="row py-2">
 				<div class="col-sm-12">
-					<form:form class="form-horizontal" action="addOffer.do"
+					<form:form class="form-horizontal" action="editOffer.do"
 						modelAttribute="offer">
 						<div class="form-group">
 							<label> Products </label>
 							<br> 
 							<select name="action" id="action">
-								<option value="1">Name of first Product</option>
+								<option value="${offer.offered}">Name of Offered Product</option>
 								<option value="2">2</option>
 							</select>
 							<select name="action" id="action">
-								<option value="1">Name of second Product</option>
+								<option value="${offer.desired}">Name of Desired Product</option>
 								<option value="2">2</option>
 							</select>
 							<br> 
 							<label>Comment</label>
-							<input class="form-control" type="text" name="comment"/> 
+							<input class="form-control" type="text" name="comment" value="${offer.comment}"/> 
 							<br> 
 							<br> 
 							<input class="form-control" type="hidden" name="active"
-								value="true" /> <input type="submit" value="Add"
+								value="true" /> <input type="submit" value="Update"
 								class="btn btn-primary" />
 						</div>
 					</form:form>

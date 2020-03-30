@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Make an Offer</title>
+<title>Edit Product</title>
 <!--Bootsrap 4 CDN-->
 <!-- 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
  -->
@@ -51,7 +51,7 @@
 	<div class="d-flex justify-content-center">
 		<div class="row justify-content-center">
 			<div class="col-12 ">
-				<h1>Make an Offer</h1>
+				<h1>Edit Product</h1>
 			</div>
 		</div>
 	</div>
@@ -59,7 +59,7 @@
 
 		<div class="row justify-content-center">
 			<div class="col-12  ">
-				<h5>What do you want to trade?</h5>
+				<h5>Tell us about your Product</h5>
 			</div>
 		</div>
 	</div>
@@ -67,26 +67,53 @@
 		<div class="container">
 			<div class="row py-2">
 				<div class="col-sm-12">
-					<form:form class="form-horizontal" action="addOffer.do"
-						modelAttribute="offer">
+					<form:form class="form-horizontal" action="editProduct.do"
+						modelAttribute="product">
 						<div class="form-group">
-							<label> Products </label>
+							<label> Name of the Product </label> <input class="form-control"
+								type="text" name="name" value="${product.name}" />
 							<br> 
-							<select name="action" id="action">
-								<option value="1">Name of first Product</option>
-								<option value="2">2</option>
-							</select>
-							<select name="action" id="action">
-								<option value="1">Name of second Product</option>
-								<option value="2">2</option>
-							</select>
+							<label> Size of Product </label> 
 							<br> 
-							<label>Comment</label>
-							<input class="form-control" type="text" name="comment"/> 
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="checkbox" id="sizeOfProduct" value="${product.sizeOfProduct}"> 
+								<label class="form-check-label" for="role">Small</label>
+							</div>
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="checkbox" id="sizeOfProduct" value="${product.sizeOfProduct}"> 
+								<label class="form-check-label" for="role">Medium</label>
+							</div>
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="checkbox" id="sizeOfProduct" value="${product.sizeOfProduct}"> 
+								<label class="form-check-label" for="role">Large</label>
+							</div>
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="checkbox" id="sizeOfProduct" value="${product.sizeOfProduct}"> 
+								<label class="form-check-label" for="role">Extra Large</label>
+							</div>
+							<br>
+							<br>
+							<label> Describe your Product </label> <input
+								class="form-control" type="text" name="description"
+								value="${product.description}" /> 
 							<br> 
+							<label>Type</label>
+							<input class="form-control" type="text" name="type" value="${product.type}"/> 
+							<br> 
+							<label class="form-check-label" for="role">Add a Product image (Recommended size 200x200)</label>
+							<div class="input-group">
+								<!-- 	<div class="input-group-prepend">
+									<span class="input-group-text" id="imageURL">Upload</span>
+								</div> -->
+								<div class="custom-file">
+									<input type="file" class="custom-file-input" id="imageURL"
+										aria-describedby="imageURL"> <label
+										class="custom-file-label" for="imageURL">Choose file</label>
+								</div>
+							</div>
 							<br> 
 							<input class="form-control" type="hidden" name="active"
-								value="true" /> <input type="submit" value="Add"
+								value="true" /> <input type="submit" value="Update"
 								class="btn btn-primary" />
 						</div>
 					</form:form>
