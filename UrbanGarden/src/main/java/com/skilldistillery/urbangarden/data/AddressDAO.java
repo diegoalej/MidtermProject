@@ -7,8 +7,8 @@ import com.skilldistillery.urbangarden.entities.Address;
 public interface AddressDAO {
 	Address findById(int id);
 	List<Address> findAll();
-	Address createAddress(Address address);
-	boolean destroyAddress(int id);
-	Address updateAddress(Address updateAdd);
+	Address create(Address address);
+	boolean delete(int id);
+	Address update(int id, Address updateAdd);
 	
 }

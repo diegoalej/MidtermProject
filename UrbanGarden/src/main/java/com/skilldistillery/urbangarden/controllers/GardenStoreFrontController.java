@@ -58,7 +58,7 @@ public class GardenStoreFrontController {
 	public String updateGardenStoreFront(@RequestParam Integer id, GardenStoreFront gardenStoreFront, Model model) {
 		String view = "updateGardenStoreFront";
 		model.addAttribute("gardenStoreFront", gardenStoreFront);
-		dao.update(gardenStoreFront);
+		dao.update(id, gardenStoreFront);
 		return view;
 	}
 }

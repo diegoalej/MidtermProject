@@ -11,5 +11,5 @@ public interface GardenStoreFrontDAO {
 	boolean delete(int id);
 	GardenStoreFront deactivateStore(GardenStoreFront gsf);
 	GardenStoreFront activateStore(GardenStoreFront gsf);
-	GardenStoreFront update(GardenStoreFront gsf);
+	GardenStoreFront update(int id, GardenStoreFront gsf);
 }

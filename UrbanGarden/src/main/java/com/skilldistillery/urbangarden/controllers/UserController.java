@@ -24,11 +24,48 @@ public class UserController {
 		return view;
 	}
 	//MINE
+//	@RequestMapping(path = "addUser.do", method = RequestMethod.GET)
+//	public String addUser( Model model) {
+//		String view = "addUser";
+//		return view;
+//	}
+	
 	@RequestMapping(path = "addUser.do", method = RequestMethod.GET)
-	public String addUser( Model model) {
+	public String addUser(User user, Model model) {
 		String view = "addUser";
+		model.addAttribute("user", user);
 		return view;
 	}
 	
+	@RequestMapping(path = "addUser.do", method = RequestMethod.POST)
+	public String postUser(User user, Model model) {
+		String view = "offerUser";
+		dao.create(user);
+		return view;
+	}
+	
+	@RequestMapping(path = "deleteUser.do", method = RequestMethod.POST, params="id")
+	public String deleteUser(@RequestParam Integer id, Model model) {
+		String view = "deleteUser";
+		boolean deleted = dao.delete(id);
+		model.addAttribute("delete", deleted);
+		model.addAttribute("id", id);
+		return view;
+	}
+	
+	@RequestMapping(path = "editUser.do", method = RequestMethod.GET)
+	public String editUser(User user, Model model) {
+		String view = "editUser";
+		model.addAttribute("user", user);
+		return view;
+	}
+	
+	@RequestMapping(path = "editUser.do", method = RequestMethod.POST)
+	public String updateUser(@RequestParam Integer id, User user, Model model) {
+		String view = "updateUser";
+		model.addAttribute("user", user);
+		dao.update(id, user);
+		return view;
+	}
 	
 }

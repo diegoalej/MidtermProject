@@ -73,9 +73,9 @@ public class GardenStoreFrontDAOImpl implements GardenStoreFrontDAO {
 	}
 
 	@Override
-	public GardenStoreFront update(GardenStoreFront gsf) {
-		if(em.contains(gsf)) {
-			GardenStoreFront managedGSF = em.find(GardenStoreFront.class, gsf.getId());
+	public GardenStoreFront update(int id, GardenStoreFront gsf) {
+		if(em.contains(em.find(GardenStoreFront.class, id))) {
+			GardenStoreFront managedGSF = em.find(GardenStoreFront.class, id);
 			managedGSF.setSize(gsf.getSize());
 			managedGSF.setOrganic(gsf.isOrganic());
 			managedGSF.setNameOfGarden(gsf.getNameOfGarden());
