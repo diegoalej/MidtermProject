@@ -61,10 +61,10 @@ public class UserDAOImpl implements UserDAO {
 		}
 		return user;
 	}
-	
+
 	@Override
 	public User activateUser(User user) {
-		if(em.contains(user)) {
+		if (em.contains(user)) {
 			user.setEnabled(true);
 		}
 		return user;
@@ -72,7 +72,7 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public User updateUser(User user) {
-		if(em.contains(user)) {
+		if (em.contains(user)) {
 			User managedUser = em.find(User.class, user.getId());
 			managedUser.setAddressID(user.getAddressID());
 			managedUser.setFirstName(user.getFirstName());
@@ -83,7 +83,17 @@ public class UserDAOImpl implements UserDAO {
 			managedUser.setPhoneNumber(user.getPhoneNumber());
 			managedUser.setImageURL(user.getImageURL());
 			return managedUser;
-		} else return null;
+		} else
+			return null;
+	}
+
+	@Override
+	public User login(User user) {
+		String username = user.getUsername();
+		String password = user.getPassword();
+		String loginQuery = "SELECT u FROM User u WHERE u.username = :username and u.password = :password";
+		user = em.createQuery(loginQuery, User.class).getSingleResult();
+		return user;
 	}
 
 }

@@ -13,5 +13,6 @@ public interface UserDAO {
 	User deactivateUser(User user);
 	User activateUser(User user);
 	User updateUser(User user);
+	User login(User user);
 	
 }
