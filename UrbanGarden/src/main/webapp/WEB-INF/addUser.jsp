@@ -79,27 +79,35 @@
 							</label> <input class="form-control" type="text" name="password" /> <br>
 							<label>What is your role? </label><br>
 							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="checkbox"
-									id="inlineCheckbox1" value="user"> <label
-									class="form-check-label" for="role">User</label>
+								<input class="form-check-input" type="checkbox" id="role"
+									value="user"> <label class="form-check-label"
+									for="role">User</label>
 							</div>
 							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="checkbox"
-									id="inlineCheckbox2" value="gardener"> <label
-									class="form-check-label" for="role">Gardener</label>
+								<input class="form-check-input" type="checkbox" id="role"
+									value="gardener"> <label class="form-check-label"
+									for="role">Gardener</label>
 							</div>
 							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="checkbox"
-									id="inlineCheckbox3" value="admin"> <label
-									class="form-check-label" for="role">Admin</label>
+								<input class="form-check-input" type="checkbox" id="role"
+									value="admin"> <label class="form-check-label"
+									for="role">Admin</label>
 							</div>
-							<br> <br>
-							<label> Phone number </label> <input class="form-control"
-								type="text" name="phoneNumber" /> <br> <label>
-								Address </label> <input class="form-control" type="text" name="address" />
-							<br> <label> City </label> <input class="form-control"
-								type="text" name="city" /> <br> <label> Zip Code </label>
-							<input class="form-control" type="text" name="zipcode" /> <br>
+							<br> 
+							<br>
+							<label class="form-check-label"
+									for="role">Add a profile image (Recommended size 200x200)</label>
+							<div class="input-group">
+							<!-- 	<div class="input-group-prepend">
+									<span class="input-group-text" id="imageURL">Upload</span>
+								</div> -->
+								<div class="custom-file">
+									<input type="file" class="custom-file-input"
+										id="imageURL" aria-describedby="imageURL">
+									<label class="custom-file-label" for="imageURL">Choose
+										file</label>
+								</div>
+							</div>
 							<br> <input class="form-control" type="hidden"
 								name="enabled" value="true" /> <input type="submit"
 								value="Add User" class="btn btn-primary" />
