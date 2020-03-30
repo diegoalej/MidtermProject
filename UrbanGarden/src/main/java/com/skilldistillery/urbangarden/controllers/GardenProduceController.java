@@ -16,11 +16,6 @@ public class GardenProduceController {
 	@Autowired
 	private GardenProduceDAO dao;
 	
-	@RequestMapping(path= {"/","home.do"})
-	public String home() {
-		return "index";
-	}
-	
 	@RequestMapping(path = "getGardenProduce.do", method = RequestMethod.GET, params = "id")
 	public String showGardenProduce(@RequestParam Integer id, Model model) {
 		String view = "gardenProduce/show";
