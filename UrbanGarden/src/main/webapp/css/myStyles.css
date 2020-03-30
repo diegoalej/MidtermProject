@@ -22,8 +22,8 @@ background-image: url('../images/signInBackground.jpg');
 background-size: cover;
 background-repeat: no-repeat;
 height: 100%;
-/* font-family: 'Numans', sans-serif;
- */}
+font-family: 'Karla', sans-serif;
+ }
 
 .footer {
 	height: 4em;
@@ -64,10 +64,12 @@ margin-left: 4px;
 h1 {
 	padding-top: 2em;
 	padding-bottom: .8em;
+	font-family: 'Rubik', sans-serif;
 }
 
 h5 {
 	padding-bottom: 1em;
+	font-family: 'Karla', sans-serif;
 }
 
 .moreinfo {

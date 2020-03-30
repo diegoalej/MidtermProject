@@ -20,6 +20,7 @@
 	crossorigin="anonymous">
 
 <!--Custom styles-->
+<link href="https://fonts.googleapis.com/css?family=Karla|Rubik&display=swap" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="css/myStyles.css">
 </head>
 <body class="homeBody">
@@ -50,13 +51,13 @@
 						<div class="d-flex justify-content-start"></div>
 					</div>
 					<div class="card-body">
-						<form>
+						<form action="login.do">
 							<div class="input-group form-group">
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="fas fa-user"
 										style="color: white"></i></span>
 								</div>
-								<input type="text" class="form-control" placeholder="username">
+								<input type="text" class="form-control" placeholder="username" name="username">
 
 							</div>
 							<div class="input-group form-group">
@@ -65,7 +66,7 @@
 										style="color: white"></i></span>
 								</div>
 								<input type="password" class="form-control"
-									placeholder="password">
+									placeholder="password" name="password">
 							</div>
 							<div class="row align-items-center remember">
 								<input type="checkbox">Remember Me

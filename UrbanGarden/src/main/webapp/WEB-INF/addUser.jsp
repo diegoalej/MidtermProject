@@ -68,15 +68,17 @@
 		<div class="container">
 			<div class="row py-2">
 				<div class="col-sm-12">
-					<form:form class="form-horizontal" action="addUser.do"
-						modelAttribute="user">
+					<form:form class="form-horizontal needs-validation" action="addUser.do"
+						modelAttribute="user" >
 						<div class="form-group">
 							<label> First name </label> <input class="form-control"
-								type="text" name="firstName" /> <br> <label> Last
-								Name </label> <input class="form-control" type="text" name="lastName" />
+								type="text" name="firstName" required/> <br> <label> Last
+								Name </label> <input class="form-control" type="text" name="lastName" required/>
+							 <!-- <div class="invalid-feedback">Valid last name is required.
+							</div> -->
 							<br> <label> Username </label> <input class="form-control"
 								type="text" name="userName" /> <br> <label>password
-							</label> <input class="form-control" type="text" name="password" /> <br>
+							</label> <input class="form-control" type="text" name="password" required/> <br>
 							<label>What is your role? </label><br>
 							<div class="form-check form-check-inline">
 								<input class="form-check-input" type="checkbox" id="role"
@@ -93,19 +95,16 @@
 									value="admin"> <label class="form-check-label"
 									for="role">Admin</label>
 							</div>
-							<br> 
-							<br>
-							<label class="form-check-label"
-									for="role">Add a profile image (Recommended size 200x200)</label>
+							<br> <br> <label class="form-check-label" for="role">Add
+								a profile image (Recommended size 200x200)</label>
 							<div class="input-group">
-							<!-- 	<div class="input-group-prepend">
+								<!-- 	<div class="input-group-prepend">
 									<span class="input-group-text" id="imageURL">Upload</span>
 								</div> -->
 								<div class="custom-file">
-									<input type="file" class="custom-file-input"
-										id="imageURL" aria-describedby="imageURL">
-									<label class="custom-file-label" for="imageURL">Choose
-										file</label>
+									<input type="file" class="custom-file-input" id="imageURL"
+										aria-describedby="imageURL"> <label
+										class="custom-file-label" for="imageURL">Choose file</label>
 								</div>
 							</div>
 							<br> <input class="form-control" type="hidden"
