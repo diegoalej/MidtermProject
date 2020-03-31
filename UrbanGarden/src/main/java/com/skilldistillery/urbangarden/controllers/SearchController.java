@@ -21,6 +21,10 @@ public class SearchController {
 	@Autowired
 	private GardenStoreFrontDAO gsfDAO;
 
+	@RequestMapping(path = "searchPage.do")
+	public String searchPage(HttpSession session) {
+		return "search";
+	}
 	@RequestMapping(path = "searchByZip", method = RequestMethod.POST)
 	public String searchByZip(int zip, HttpSession session) {
 		List<GardenStoreFront> gsfResults = gsfDAO.searchByZip(zip);
