@@ -15,21 +15,21 @@ import com.skilldistillery.urbangarden.entities.GardenStoreFront;
 
 @Controller
 public class SearchController {
-	
+
 	@Autowired
 	private UserDAO dao;
 	@Autowired
 	private GardenStoreFrontDAO gsfDAO;
-	
+
 	@RequestMapping(path = "searchByZip", method = RequestMethod.POST)
 	public String searchByZip(int zip, HttpSession session) {
 		List<GardenStoreFront> gsfResults = gsfDAO.searchByZip(zip);
 		session.removeAttribute("gsfResults");
 		session.setAttribute("gsfResults", gsfResults);
-		
-		
+
 		return "#######";
 	}
+
 	@RequestMapping(path = "searchByKeyword", method = RequestMethod.POST)
 	public String searchByKeyword(String keyword, HttpSession session) {
 		List<GardenStoreFront> gsfResults = gsfDAO.searchByKeyword(keyword);
@@ -37,6 +37,7 @@ public class SearchController {
 		session.setAttribute("gsfResults", gsfResults);
 		return "#######";
 	}
+
 	@RequestMapping(path = "searchByProduct", method = RequestMethod.POST)
 	public String searchByProduct(String farm, HttpSession session) {
 		List<GardenStoreFront> gsfResults = gsfDAO.searchByFarm(farm);
@@ -44,6 +45,5 @@ public class SearchController {
 		session.setAttribute("gsfResults", gsfResults);
 		return "#######";
 	}
-	
 
 }

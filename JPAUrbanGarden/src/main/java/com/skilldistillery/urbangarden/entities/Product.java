@@ -109,7 +109,7 @@ public class Product {
 		if (!gardenProduces.contains(gp)) {
 			gardenProduces.add(gp);
 			if(gp.getGardenStoreFront() != null) {
-				gp.getGardenStoreFront().getGardenProduce().remove(gp);
+				gp.getGardenStoreFront().getGardenProduces().remove(gp);
 			}
 			gp.setProduct(this);
 		}

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -74,16 +75,16 @@
 							</div>
 							<div class="col-12 text-left py-3">
 								<p>
-									<strong>Garden Name: </strong>Steve's garden
+									<strong>Garden Name: </strong><c:out value="${sessionScope.user.gardenStoreFront.nameOfGarden }"/>
 								</p>
 								<p>
-									<strong>Owner: </strong>Steve McStevens
+									<strong>Owner: </strong><c:out value="${sessionScope.user.firstName }"/> <c:out value="${sessionScope.user.lastName }"/>
 								</p>
 								<p>
-									<strong>Role: </strong>Gardener
+									<strong>Role: </strong><c:out value="${sessionScope.user.role }" />
 								</p>
 								<p>
-									<strong>Organic: </strong>Yes
+									<strong>Organic: </strong><c:choose><c:when test="${sessionScope.user.gardenStoreFront.organic}">Yes</c:when><c:otherwise>No</c:otherwise></c:choose>
 								</p>
 							</div>
 
@@ -92,13 +93,9 @@
 						<div class="col-lg-8 text-left">
 
 							<h2>Description</h2>
-							<p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis
-								in, egestas eget quam. Vestibulum id ligula porta felis euismod
-								semper. Fusce dapibus. Donec sed odio dui. Cras justo odio,
-								dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula
-								porta felis euismod semper. Fusce dapibus.</p>
+							<p><c:out value = "${sessionScope.user.gardenStoreFront.description }"/></p>
 							<p>
-								This is the address<br>This is the city and zip
+								<c:out value = "${sessionScope.user.gardenStoreFront.address.street }"/><br><c:out value = "${sessionScope.user.gardenStoreFront.address.city }"/> <c:out value = "${sessionScope.user.gardenStoreFront.address.zipCode }"/>
 							</p>
 						</div>
 					</div>
@@ -114,6 +111,7 @@
 							<h2>Products Available</h2>
 						</div>
 						<!-- THIS WILL HAVE A FOREACH THAT WILL DISPLAY ALL PRODUCTS -->
+						<c:forEach items="${sessionScope.user.gardenStoreFront.gardenProduces}" var="produce">						
 						<div class="col-lg-12 text-center pb-2">
 
 							<div class="row d-flex justify-content-start">
@@ -127,19 +125,14 @@
 									<div class="row d-flex justify-content-center">
 
 										<div class="col-lg-12 justify-content-center pl-4">
-											<h2>Tomato</h2>
-											<p>Type: Cherry Tomato</p>
-											<p>Amount: 10lbs</p>
-											<p>Harvest: Jun 3 2020</p>
-											<p>Available: Jun 4 2020</p>
-											<p>Expires: Jun 30 2020</p>
-											<p>Size: medium</p>
-											<p>Description: Donec sed odio dui. Cras justo odio,
-												dapibus ac facilisis in, egestas eget quam. Vestibulum id
-												ligula porta felis euismod semper. Fusce dapibus. Donec sed
-												odio dui. Cras justo odio, dapibus ac facilisis in, egestas
-												eget quam. Vestibulum id ligula porta felis euismod semper.
-												Fusce dapibus.</p>
+											<h2><c:out value = "${produce.product.name}"/></h2>
+											<p>Type: <c:out value = "${ produce.product.type}" /></p>
+											<p>Amount: <c:out value = "${ produce.amount}" /></p>
+											<p>Harvest: <c:out value = "${ produce.harvested}" /></p>
+											<p>Available: <c:out value = "${ produce.dateAvailable}" /></p>
+											<p>Expires: <c:out value = "${ produce.expires}" /></p>
+											<p>Size: <c:out value = "${ produce.product.sizeOfProduct}" /></p>
+											<p>Description: <c:out value = "${ produce.product.description}" /></p>
 										</div>
 									</div>
 									<div class="row d-flex justify-content-start">
@@ -160,113 +153,11 @@
 								</div>
 							</div>
 						</div>
-						<!-- /.col-lg-2 -->
-						<div class="col-lg-12 text-center pb-2">
-
-							<div class="row d-flex justify-content-start">
-								<div class="col-lg-3 text-center pt-2">
-
-									<img class="rounded-circle"
-										src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-										alt="Generic placeholder image" width="120" height="120">
-								</div>
-								<div class="col-lg-9 text-left pl-4">
-									<div class="row d-flex justify-content-center">
-
-										<div class="col-lg-12 justify-content-center pl-4">
-											<h2>Zuccini</h2>
-											<p>Type: Regular Zuccini</p>
-											<p>Amount: 10lbs</p>
-											<p>Harvest: Jun 3 2020</p>
-											<p>Available: Jun 4 2020</p>
-											<p>Expires: Jun 30 2020</p>
-											<p>Size: medium</p>
-											<p>Description: Donec sed odio dui. Cras justo odio,
-												dapibus ac facilisis in, egestas eget quam. Vestibulum id
-												ligula porta felis euismod semper. Fusce dapibus. Donec sed
-												odio dui. Cras justo odio, dapibus ac facilisis in, egestas
-												eget quam. Vestibulum id ligula porta felis euismod semper.
-												Fusce dapibus.</p>
-										</div>
-									</div>
-									<div class="row d-flex justify-content-start">
-
-										<div class="col-lg-4 justify-content-start pl-4">
-											<p>
-												<a class="btn btn-secondary" href="#" role="button">Edit
-													Product</a>
-											</p>
-										</div>
-										<div class="col-lg-4 justify-content-start pl-4">
-											<p>
-												<a class="btn btn-secondary" href="#" role="button">View
-													Offers</a>
-											</p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- /.col-lg-2 -->
-						<div class="col-lg-12 text-center">
-
-							<div class="row d-flex justify-content-start">
-								<div class="col-lg-3 text-center pt-2">
-
-									<img class="rounded-circle"
-										src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-										alt="Generic placeholder image" width="120" height="120">
-								</div>
-								<div class="col-lg-9 text-left pl-4">
-									<div class="row d-flex justify-content-center">
-
-										<div class="col-lg-12 justify-content-center pl-4">
-											<h2>Squash</h2>
-											<p>Type: Butternut Squash</p>
-											<p>Amount: 10lbs</p>
-											<p>Harvest: Jun 3 2020</p>
-											<p>Available: Jun 4 2020</p>
-											<p>Expires: Jun 30 2020</p>
-											<p>Size: medium</p>
-											<p>Description: Donec sed odio dui. Cras justo odio,
-												dapibus ac facilisis in, egestas eget quam. Vestibulum id
-												ligula porta felis euismod semper. Fusce dapibus. Donec sed
-												odio dui. Cras justo odio, dapibus ac facilisis in, egestas
-												eget quam. Vestibulum id ligula porta felis euismod semper.
-												Fusce dapibus.</p>
-										</div>
-									</div>
-									<div class="row d-flex justify-content-start">
-
-										<div class="col-lg-4 justify-content-start pl-4">
-											<p>
-												<a class="btn btn-secondary" href="#" role="button">Edit
-													Product</a>
-											</p>
-										</div>
-										<div class="col-lg-4 justify-content-start pl-4">
-											<p>
-												<a class="btn btn-secondary" href="#" role="button">View
-													Offers</a>
-											</p>
-										</div>
-									</div>
-								</div>
-							</div>
-							<br> <br>
-							<div class="row d-flex justify-content-around py-2">
-								<div class="col-lg-12 text-center">
-									<p>
-										<a class="btn btn-secondary" href="#" role="button">Add
-											New Product</a>
-									</p>
-								</div>
-							</div>
-						</div>
+						</c:forEach>
+						
+						
 					</div>
 					<!-- /.col-lg-2 -->
-
-					<!-- /.col-lg-6 -->
 				</div>
 			</div>
 			<!-- /.row -->

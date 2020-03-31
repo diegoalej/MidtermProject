@@ -6,7 +6,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import com.skilldistillery.urbangarden.entities.GardenStoreFront;
+import com.skilldistillery.urbangarden.entities.GardenProduce;
+import com.skilldistillery.urbangarden.entities.User;
 
 public class GardenStoreFrontClient {
 
@@ -23,11 +24,23 @@ public class GardenStoreFrontClient {
 //		List<GardenStoreFront> gsfResults = em.createQuery(query, GardenStoreFront.class)
 //				.setParameter("keyword", "%" + "om" + "%").getResultList();
 		
-		String query = "SELECT gsf FROM GardenStoreFront gsf where gsf.nameOfGarden like :farm";
-		List<GardenStoreFront> gsfResults = em.createQuery(query, GardenStoreFront.class).setParameter("farm", "%"+"marge"+"%").getResultList();
+//		String query = "SELECT gsf FROM GardenStoreFront gsf where gsf.nameOfGarden like :farm";
+//		List<GardenStoreFront> gsfResults = em.createQuery(query, GardenStoreFront.class).setParameter("farm", "%"+"marge"+"%").getResultList();
+//		
+//		for (GardenStoreFront gardenStoreFront : gsfResults) {
+//			System.out.println(gardenStoreFront);
+//		}
 		
-		for (GardenStoreFront gardenStoreFront : gsfResults) {
-			System.out.println(gardenStoreFront);
+//		String query = "SELECT gp from GardenStoreFront gsf join GardenProduce gp on gsf.id = gp.garden.id where gsf.id = 1";
+//		List<GardenProduce> gp = em.createQuery(query, GardenProduce.class).getResultList();
+//		for (GardenProduce gardenProduce : gp) {
+//			System.out.println(gardenProduce);
+//		}
+		String userQ = "SELECT u from User u where u.id = 1";
+		User user = em.createQuery(userQ, User.class).getSingleResult();
+		List<GardenProduce> gp = user.getGardenStoreFront().getGardenProduces();
+		for (GardenProduce gardenProduce : gp) {
+			System.out.println(gp);
 		}
 		// TODO Auto-generated method stub
 
