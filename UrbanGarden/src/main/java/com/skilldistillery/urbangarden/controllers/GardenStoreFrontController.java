@@ -62,9 +62,9 @@ public class GardenStoreFrontController {
 	}
 	
 	@RequestMapping(path = "editGardenStoreFront.do", method = RequestMethod.POST)
-	public String updateGardenStoreFront(GardenStoreFront gardenStoreFront, Address address, Model model) {
-		String view = "login";
-		model.addAttribute("gardenStoreFront", gardenStoreFront);
+	public String updateGardenStoreFront(GardenStoreFront gardenStoreFront, Address address) {
+		String view = "myGardenStoreFront";
+//		model.addAttribute("gardenStoreFront", gardenStoreFront);
 		dao.update(gardenStoreFront);
 		return view;
 	}
