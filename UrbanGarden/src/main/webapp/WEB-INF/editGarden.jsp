@@ -68,8 +68,10 @@
 			<div class="row py-2">
 				<div class="col-sm-12">
 					<form:form class="form-horizontal" action="editGardenStoreFront.do"
-						modelAttribute="gardenStoreFront" method="POST">
+						 method="POST">
 						<div class="form-group">
+						<input type ="hidden" name = id value="${sessionScope.gardenStoreFront.id }"/>
+						<input type = "hidden" name = "user" value = "${sessionScope.gardenStoreFront.user}"/>
 							<label> Name of the Garden </label> <input class="form-control"
 								type="text" name="nameOfGarden"
 								value="${sessionScope.gardenStoreFront.nameOfGarden}" /> <br>
