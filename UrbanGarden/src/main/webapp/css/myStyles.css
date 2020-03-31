@@ -36,7 +36,9 @@ font-family: 'Karla', sans-serif;
 .footer-copyright {
 	color: white;
 }		
-
+.spacer {
+    margin-top: 4em; /* define margin as you see fit */
+}
 
 /* BUTTON AND LINK STYLES */
 .btn{
@@ -78,6 +80,18 @@ h5 {
 
 .moreinfo {
 	background-color: whitesmoke;
+}
+.gardenDetails {
+	background-color: #14729A;
+}
+.gardenDetails p, h2{
+color: white;
+}
+.nav-link.active {
+	background-color: #5A5519;
+}
+#gardenDetails {
+	padding-bottom: 3em;
 }
 .moreinfo p{
 	color: black;
