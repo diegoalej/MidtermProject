@@ -67,7 +67,7 @@
 								<!-- 	<div class="input-group-prepend">
 									<span class="input-group-text" id="imageURL">Upload</span>
 								</div> -->
-								<div class="custom-file">
+								<div class="form-check-label">
 									<input type="text" class="form-control" id="imageURL"
 										aria-describedby="imageURL" placeholder="Enter image URL"> 
 								</div>

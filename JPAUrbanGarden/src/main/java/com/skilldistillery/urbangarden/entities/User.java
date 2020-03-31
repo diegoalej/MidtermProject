@@ -40,7 +40,7 @@ public class User {
 	@Column(name = "address_id")
 	private Integer addressID;
 	
-	@OneToOne(mappedBy= "address")
+	@OneToOne(mappedBy= "user")
 	private GardenStoreFront gardenStoreFront;
 
 	
