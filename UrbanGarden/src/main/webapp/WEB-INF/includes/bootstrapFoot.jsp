@@ -1,5 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<!-- Footer -->
+	<footer class="footer font-small">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<!-- Copyright -->
+					<div class="footer-copyright text-center py-3">© 2020
+						Copyright: UrbanGarden App</div>
+					<!-- Copyright -->
+				</div>
+			</div>
+		</div>
+	</footer>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
 	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" 
 	crossorigin="anonymous"></script>
