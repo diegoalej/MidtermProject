@@ -123,11 +123,11 @@ public class GardenStoreFront {
 		this.user = user;
 	}
 
-	public List<GardenProduce> getGardenProduce() {
+	public List<GardenProduce> getGardenProduces() {
 		return gardenProduces;
 	}
 
-	public void setGardenProduce(List<GardenProduce> gardenProduces) {
+	public void setGardenProduces(List<GardenProduce> gardenProduces) {
 		this.gardenProduces = gardenProduces;
 	}
 	
@@ -138,7 +138,7 @@ public class GardenStoreFront {
 		if (!gardenProduces.contains(gp)) {
 			gardenProduces.add(gp);
 			if(gp.getGardenStoreFront() != null) {
-				gp.getGardenStoreFront().getGardenProduce().remove(gp);
+				gp.getGardenStoreFront().getGardenProduces().remove(gp);
 			}
 			gp.setGardenStoreFront(this);
 		}
