@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Your Profile</title>
+<title>Search</title>
 <jsp:include page="includes/bootstrapHead.jsp" />
 </head>
 </head>
@@ -16,60 +18,155 @@
 	<!-- MAIN BODY -->
 	<div class="container">
 		<div class="row justify-content-start gardenProfile py-5">
-			<div class="col-4 ">
-				<div class="col-lg-12 text-left justify-content-start pt-2">
-
-					<div class="col-lg-12 text-left justify-content-start pt-1 pb-2">
-
-						<img class="rounded-circle"
-							src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-							alt="Generic placeholder image" width="120" height="120">
-					</div>
-					<div class="col-12 text-left pt-5">
-						<p>
-							<strong>Garden Name: </strong>
-							<c:out
-								value="${sessionScope.user.gardenStoreFront.nameOfGarden }" />
-						</p>
-						<p>
-							<strong>Owner: </strong>
-							<c:out value="${sessionScope.user.firstName }" />
-							<c:out value="${sessionScope.user.lastName }" />
-						</p>
-						<p>
-							<strong>Role: </strong>
-							<c:out value="${sessionScope.user.role }" />
-						</p>
-						<p>
-							<strong>Organic: </strong>
-							<c:choose>
-								<c:when test="${sessionScope.user.gardenStoreFront.organic}">Yes</c:when>
-								<c:otherwise>No</c:otherwise>
-							</c:choose>
-						</p>
-					</div>
-
-				</div>
+			<div class="col-12 ">
+				<h3>Check out gardens near you or search for something in
+					particular</h3>
 			</div>
-			<div class="col-lg-8 text-left pt-2 w-100">
+			<div class="col-4 text-left pt-2 ">
+				<form:form action="search.do">
+					<div class="form-group">
+						<label for="exampleInputPassword1">Search by product</label> <input
+							type="text" class="form-control" id="exampleInputPassword1"
+							placeholder="Enter Product">
+					</div>
+					<button type="submit" class="btn ">Submit</button>
+				</form:form>
 
-				<h2>Description</h2>
-				<p>
-					<c:out value="${sessionScope.user.gardenStoreFront.description }" />
-				</p>
-				<p>
-					<c:out
-						value="${sessionScope.user.gardenStoreFront.address.street }" />
-					<br>
-					<c:out value="${sessionScope.user.gardenStoreFront.address.city }" />
-					<c:out
-						value="${sessionScope.user.gardenStoreFront.address.zipCode }" />
-				</p>
+			</div>
+			<div class="col-lg-4 text-left pt-2">
+
+				<form:form action="search.do">
+					<div class="form-group">
+						<label for="exampleInputPassword1">Search by Garden</label> <input
+							type="text" class="form-control" id="exampleInputPassword1"
+							placeholder="Enter Farm">
+					</div>
+					<button type="submit" class="btn ">Submit</button>
+				</form:form>
+			</div>
+			<div class="col-lg-4 text-left pt-2">
+
+				<form:form action="search.do">
+					<div class="form-group">
+						<label for="exampleInputPassword1">Search by zipcode</label> <input
+							type="text" class="form-control" id="exampleInputPassword1"
+							placeholder="Enter ZipCode">
+					</div>
+					<button type="submit" class="btn ">Submit</button>
+				</form:form>
 			</div>
 		</div>
 	</div>
+	<div class="row spacer1">
+		<div class="span4"></div>
+	</div>
+	<!-- SEARCH RESULTS -->
+	<div class="container gardenDetails " id="gardenDetails">
+		<div class="container">
 
+			<div class="row d-flex justify-content-around">
+				<div class="col-lg-12 text-left pt-1">
+					<h2>Gardens near you</h2>
+				</div>
 
+			</div>
+		</div>
+		<div class="container gardenPageTrade">
+			<div class="row d-flex justify-content-center">
+				<div class="col-lg-12 text-left pb-1">
+					<h3>Nancy's Garden</h3>
+				</div>
+				<div class="col-lg-12 justify-content-center pl-4">
+					<p>Description: Donec sed odio dui. Cras justo odio, dapibus ac
+						facilisis in, egestas eget quam.</p>
+				</div>
+				<div class="col-lg-12 justify-content-center pl-4">
+					<div class="row d-flex justify-content-center">
+						<div class="col-lg-2 justify-content-center pl-4">
+							<h4>Product image</h4>
+
+						</div>
+						<div class="col-lg-2 justify-content-center pl-4">
+							<h4>Product image</h4>
+						</div>
+						<div class="col-lg-2 justify-content-center pl-4">
+							<h4>Product image</h4>
+						</div>
+						<div class="col-lg-2 justify-content-center pl-4">
+							<h4>Product image</h4>
+						</div>
+						<div class="col-lg-2 justify-content-center pl-4">
+							<h4>Product image</h4>
+						</div>
+						<div class="col-lg-2 justify-content-center pl-4">
+							<h4>Product image</h4>
+						</div>
+					</div>
+				</div>
+
+				<div class="row d-flex justify-content-start">
+
+					<div class="col-lg-4 justify-content-start py-2">
+						<p>
+							<a class="btn btn-secondary" href="#" role="button">View
+								Garden</a>
+						</p>
+					</div>
+				</div>
+			</div>
+
+		</div>
+				<div class="container gardenPageTrade">
+			<div class="row d-flex justify-content-center">
+				<div class="col-lg-12 text-left pb-1">
+					<h3>Steve's Garden</h3>
+				</div>
+				<div class="col-lg-12 justify-content-center pl-4">
+					<p>Description: Donec sed odio dui. Cras justo odio, dapibus ac
+						facilisis in, egestas eget quam.Donec sed odio dui. Cras justo odio, dapibus ac
+						facilisis in, egestas eget quam.</p>
+				</div>
+				<div class="col-lg-12 justify-content-center pl-4">
+					<div class="row d-flex justify-content-center">
+						<div class="col-lg-2 justify-content-center pl-4">
+							<h4>Product image</h4>
+
+						</div>
+						<div class="col-lg-2 justify-content-center pl-4">
+							<h4>Product image</h4>
+						</div>
+						<div class="col-lg-2 justify-content-center pl-4">
+							<h4>Product image</h4>
+						</div>
+						<div class="col-lg-2 justify-content-center pl-4">
+							<h4>Product image</h4>
+						</div>
+						<div class="col-lg-2 justify-content-center pl-4">
+							<h4>Product image</h4>
+						</div>
+						<div class="col-lg-2 justify-content-center pl-4">
+							<h4>Product image</h4>
+						</div>
+					</div>
+				</div>
+
+				<div class="row d-flex justify-content-start">
+
+					<div class="col-lg-4 justify-content-start py-2">
+						<p>
+							<a class="btn btn-secondary" href="#" role="button">View
+								Garden</a>
+						</p>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+	<div class="row spacer">
+		<div class="span4"></div>
+	</div>
 
 	<!-- Footer -->
 	<jsp:include page="includes/bootstrapFoot.jsp" />

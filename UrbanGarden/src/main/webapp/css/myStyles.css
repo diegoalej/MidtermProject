@@ -50,7 +50,7 @@ font-family: 'Karla', sans-serif;
 /* BUTTON AND LINK STYLES */
 .btn{
 color: white;
-background-style: none;
+background-color: #5B7213;
 width: 7em;
 }
 
@@ -75,7 +75,7 @@ margin-left: 4px;
 /* HOMEPAGE COLUMN AND ROW STYLES */
 
 h1, h2, h3{
-	padding-top: 2em;
+	padding-top: 1em;
 	padding-bottom: .8em;
 	font-family: 'Rubik', sans-serif;
 }
@@ -92,6 +92,7 @@ h5, h4, p, a, span{
 .gardenDetails {
 	background-color: #14729A;
 }
+
 .gardenDetails p, h2{
 color: white;
 }
