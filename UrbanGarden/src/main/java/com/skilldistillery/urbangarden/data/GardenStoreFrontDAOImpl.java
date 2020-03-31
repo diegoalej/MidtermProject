@@ -74,7 +74,7 @@ public class GardenStoreFrontDAOImpl implements GardenStoreFrontDAO {
 
 	@Override
 	public GardenStoreFront update(GardenStoreFront gsf) {
-		
+		System.out.println("######### THIS IS WHAT IS TO BE UPDATED: " + gsf);
 		if (em.contains(em.find(GardenStoreFront.class, gsf.getId()))) {
 			GardenStoreFront managedGSF = em.find(GardenStoreFront.class, gsf.getId());
 			managedGSF.setSize(gsf.getSize());
@@ -84,7 +84,10 @@ public class GardenStoreFrontDAOImpl implements GardenStoreFrontDAO {
 			managedGSF.setActive(gsf.isActive());
 			managedGSF.setDescription(gsf.getDescription());
 			managedGSF.setAddress(gsf.getAddress());
-			managedGSF.setGardenURL(gsf.getGardenURL());
+			managedGSF.setGardenURL("************" + gsf.getGardenURL());
+			em.persist(managedGSF);
+			em.flush();
+			System.out.println(managedGSF);
 			return managedGSF;
 		} else
 			return null;

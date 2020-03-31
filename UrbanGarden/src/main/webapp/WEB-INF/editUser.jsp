@@ -33,59 +33,52 @@
 		<div class="container">
 			<div class="row py-2">
 				<div class="col-sm-12">
-					<form:form class="form-horizontal needs-validation"
-						action="editUser.do" modelAttribute="user">
+					<form:form class="form-horizontal needs-validation" action="editUser.do" 
+								method="POST" modelAttribute="user">
 						<div class="form-group">
 							<label> First name </label> 
 							<input class="form-control"
-								type="text" name="firstName" required value="${user.firstName}"/> 
+								type="text" name="firstName" required value="${sessionScope.user.firstName}"/> 
 							<br> 
 							<label>Last Name </label> 
 							<input class="form-control" type="text"
-								name="lastName" required value="${user.lastName}"/>
+								name="lastName" required value="${sessionScope.user.lastName}"/>
 							<!-- <div class="invalid-feedback">Valid last name is required.
 							</div> -->
 							<br> 
 							<label> Username </label> 
 							<input class="form-control"
-								type="text" name="userName" value="${user.username}"/> 
+								type="text" name="username" value="${sessionScope.user.username}"/> 
 							<br> 
-							<label>password
-							</label> 
-							<input class="form-control" type="password" name="password" required value="${user.password}"/>
+							<label> Password </label> 
+							<input class="form-control" type="password" name="password" required value="${sessionScope.user.password}"/>
 							<br> 
-							<label>What is your role? </label>
-							<br>
-							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="checkbox" id="role" value="user"> 
-								<label class="form-check-label" for="role">User</label>
-							</div>
-							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="checkbox" id="role"
-									value="gardener"> 
-								<label class="form-check-label" for="role">Gardener</label>
-							</div>
-							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="checkbox" id="role" value="admin"> 
-								<label class="form-check-label" for="role">Admin</label>
-							</div>
-							<br> 
+							<label for="role"> What is your role? </label>
+							<select name="role" id="role">
+								<option value="${sessionScope.user.role}" 
+										selected >Maintain Current Role</option>
+								<option value="user">User</option>
+								<option value="gardener">Gardener</option>
+								<option value="admin">Admin</option>
+							</select>
 							<br> 
 							<label class="form-check-label" for="role">Add a profile image (Recommended size 200x200)</label>
 							<div class="input-group">
 								<!-- 	<div class="input-group-prepend">
 									<span class="input-group-text" id="imageURL">Upload</span>
 								</div> -->
-								<div class="custom-file">
-									<input type="file" class="custom-file-input" id="imageURL"
-										aria-describedby="imageURL"> <label
-										class="custom-file-label" for="imageURL"
-										value="${user.imageURL}">Choose file</label>
+								<div class="form-check-label">
+									<input type="text" class="form-control" id="imageURL"
+										aria-describedby="imageURL" placeholder="Enter image URL"> 
 								</div>
 							</div>
-							<br> <input class="form-control" type="hidden"
-								name="enabled" value="true" /> <input type="Update"
-								value="Add User" class="btn btn-primary" />
+							<br> 
+							<input class="form-control" type="hidden"
+								name="enabled" value="true" /> 
+							<input class="form-control" type="hidden"
+								name="id" value="${sessionScope.user.id}" /> 
+							<input type="submit"
+								value="Update" class="btn btn-primary" />
 						</div>
 					</form:form>
 				</div>
