@@ -1,5 +1,9 @@
 @charset "UTF-8";
 /* NAVIGATION */
+
+a:hover {
+	color: whitesmoke;
+}
 .navbar {
 	background-color: #5B7213;
 }
@@ -37,13 +41,16 @@ font-family: 'Karla', sans-serif;
 	color: white;
 }		
 .spacer {
-    margin-top: 4em; /* define margin as you see fit */
+    margin-top: 2em; /* define margin as you see fit */
+}
+.spacer1 {
+    margin-top: 0.5em; /* define margin as you see fit */
 }
 
 /* BUTTON AND LINK STYLES */
 .btn{
 color: white;
-background-color: #022601;
+background-style: none;
 width: 7em;
 }
 
@@ -67,14 +74,15 @@ margin-left: 4px;
 
 /* HOMEPAGE COLUMN AND ROW STYLES */
 
-h1 {
+h1, h2, h3{
 	padding-top: 2em;
 	padding-bottom: .8em;
 	font-family: 'Rubik', sans-serif;
 }
-
-h5 {
-	padding-bottom: 1em;
+.gardenPageTrade h5, h4, h3{
+	color: white;
+}
+h5, h4, p, a, span{
 	font-family: 'Karla', sans-serif;
 }
 
@@ -86,6 +94,17 @@ h5 {
 }
 .gardenDetails p, h2{
 color: white;
+}
+.gardenDetails.btn{
+background-color: gray;
+border-style: none;
+}
+
+.gardenProfile {
+	background-color: #D7D7D9;
+}
+.gardenProfile h2{
+	color: black;
 }
 .nav-link.active {
 	background-color: #5A5519;
