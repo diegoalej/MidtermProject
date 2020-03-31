@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Make an Offer</title>
+<title>Edit Produce in your Garden's Inventory</title>
 <!--Bootsrap 4 CDN-->
 <!-- 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
  -->
@@ -51,7 +51,7 @@
 	<div class="d-flex justify-content-center">
 		<div class="row justify-content-center">
 			<div class="col-12 ">
-				<h1>Make an Offer</h1>
+				<h1>Edit Produce in your Garden's Inventory</h1>
 			</div>
 		</div>
 	</div>
@@ -59,7 +59,7 @@
 
 		<div class="row justify-content-center">
 			<div class="col-12  ">
-				<h5>What do you want to trade?</h5>
+				<h5>Edit Garden Product</h5>
 			</div>
 		</div>
 	</div>
@@ -67,26 +67,31 @@
 		<div class="container">
 			<div class="row py-2">
 				<div class="col-sm-12">
-					<form:form class="form-horizontal" action="addOffer.do"
-						modelAttribute="offer">
+					<form:form class="form-horizontal" action="editGardenProduce.do"
+						modelAttribute="gardenProduce">
 						<div class="form-group">
-							<label> Products </label>
+							<label> Product </label>
 							<br> 
 							<select name="action" id="action">
-								<option value="1">Name of first Product</option>
-								<option value="2">2</option>
-							</select>
-							<select name="action" id="action">
-								<option value="1">Name of second Product</option>
-								<option value="2">2</option>
+								<option value="${gardenProduce.product}">Name of Product</option>
 							</select>
 							<br> 
-							<label>Comment</label>
-							<input class="form-control" type="text" name="comment"/> 
+							<br> 
+							<label> Amount </label> 
+							<input class="form-control" type="number" name="amount" value="${gardenProduce.amount}"/> 
+							<br> 
+							<label>Date Expected</label>
+							<input class="form-control" type="date" name="dateAvailable" value="${gardenProduce.dateAvailable}"/> 
+							<br> 
+							<label>Date Harvested</label>
+							<input class="form-control" type="date" name="harvested" value="${gardenProduce.harvested}"/> 
+							<br> 
+							<label>Date of Expiration</label>
+							<input class="form-control" type="date" name="dateExpires" value="${gardenProduce.expires}"/> 
 							<br> 
 							<br> 
 							<input class="form-control" type="hidden" name="active"
-								value="true" /> <input type="submit" value="Add"
+								value="true" /> <input type="submit" value="Update"
 								class="btn btn-primary" />
 						</div>
 					</form:form>

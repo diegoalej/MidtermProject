@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Make an Offer</title>
+<title>Trade Offer</title>
 <!--Bootsrap 4 CDN-->
 <!-- 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
  -->
@@ -51,7 +51,7 @@
 	<div class="d-flex justify-content-center">
 		<div class="row justify-content-center">
 			<div class="col-12 ">
-				<h1>Make an Offer</h1>
+				<h1>Trade Offer</h1>
 			</div>
 		</div>
 	</div>
@@ -67,8 +67,8 @@
 		<div class="container">
 			<div class="row py-2">
 				<div class="col-sm-12">
-					<form:form class="form-horizontal" action="addOffer.do"
-						modelAttribute="offer">
+					<form:form class="form-horizontal" action="addGardenProduce.do"
+						modelAttribute="gardenProduce">
 						<div class="form-group">
 							<label> Products </label>
 							<br> 

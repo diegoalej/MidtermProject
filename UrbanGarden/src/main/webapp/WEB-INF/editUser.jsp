@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Make an Offer</title>
+<title>Edit User</title>
 <!--Bootsrap 4 CDN-->
 <!-- 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
  -->
@@ -51,7 +51,7 @@
 	<div class="d-flex justify-content-center">
 		<div class="row justify-content-center">
 			<div class="col-12 ">
-				<h1>Make an Offer</h1>
+				<h1>Edit User Information</h1>
 			</div>
 		</div>
 	</div>
@@ -59,7 +59,7 @@
 
 		<div class="row justify-content-center">
 			<div class="col-12  ">
-				<h5>What do you want to trade?</h5>
+				<h5>Edit the form below to update your information</h5>
 			</div>
 		</div>
 	</div>
@@ -67,27 +67,59 @@
 		<div class="container">
 			<div class="row py-2">
 				<div class="col-sm-12">
-					<form:form class="form-horizontal" action="addOffer.do"
-						modelAttribute="offer">
+					<form:form class="form-horizontal needs-validation"
+						action="editUser.do" modelAttribute="user">
 						<div class="form-group">
-							<label> Products </label>
+							<label> First name </label> 
+							<input class="form-control"
+								type="text" name="firstName" required value="${user.firstName}"/> 
 							<br> 
-							<select name="action" id="action">
-								<option value="1">Name of first Product</option>
-								<option value="2">2</option>
-							</select>
-							<select name="action" id="action">
-								<option value="1">Name of second Product</option>
-								<option value="2">2</option>
-							</select>
+							<label>Last Name </label> 
+							<input class="form-control" type="text"
+								name="lastName" required value="${user.lastName}"/>
+							<!-- <div class="invalid-feedback">Valid last name is required.
+							</div> -->
 							<br> 
-							<label>Comment</label>
-							<input class="form-control" type="text" name="comment"/> 
+							<label> Username </label> 
+							<input class="form-control"
+								type="text" name="userName" value="${user.username}"/> 
+							<br> 
+							<label>password
+							</label> 
+							<input class="form-control" type="password" name="password" required value="${user.password}"/>
+							<br> 
+							<label>What is your role? </label>
+							<br>
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="checkbox" id="role" value="user"> 
+								<label class="form-check-label" for="role">User</label>
+							</div>
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="checkbox" id="role"
+									value="gardener"> 
+								<label class="form-check-label" for="role">Gardener</label>
+							</div>
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="checkbox" id="role" value="admin"> 
+								<label class="form-check-label" for="role">Admin</label>
+							</div>
 							<br> 
 							<br> 
-							<input class="form-control" type="hidden" name="active"
-								value="true" /> <input type="submit" value="Add"
-								class="btn btn-primary" />
+							<label class="form-check-label" for="role">Add a profile image (Recommended size 200x200)</label>
+							<div class="input-group">
+								<!-- 	<div class="input-group-prepend">
+									<span class="input-group-text" id="imageURL">Upload</span>
+								</div> -->
+								<div class="custom-file">
+									<input type="file" class="custom-file-input" id="imageURL"
+										aria-describedby="imageURL"> <label
+										class="custom-file-label" for="imageURL"
+										value="${user.imageURL}">Choose file</label>
+								</div>
+							</div>
+							<br> <input class="form-control" type="hidden"
+								name="enabled" value="true" /> <input type="Update"
+								value="Add User" class="btn btn-primary" />
 						</div>
 					</form:form>
 				</div>

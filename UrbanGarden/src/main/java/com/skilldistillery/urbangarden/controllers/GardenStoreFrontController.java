@@ -49,7 +49,7 @@ public class GardenStoreFrontController {
 	
 	@RequestMapping(path = "editGardenStoreFront.do", method = RequestMethod.GET)
 	public String editGardenStoreFront(GardenStoreFront gardenStoreFront, Model model) {
-		String view = "editGardenStoreFront";
+		String view = "editGarden";
 		model.addAttribute("gardenStoreFront", gardenStoreFront);
 		return view;
 	}
