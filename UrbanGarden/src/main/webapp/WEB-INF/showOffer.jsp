@@ -7,7 +7,6 @@
 <title>Offer Detail</title>
 <jsp:include page="includes/bootstrapHead.jsp"/>
 </head>
-</head>
 <body>
 	<!-- N A V I G A T I O N -->
 	<jsp:include page="includes/navbar.jsp"/>
