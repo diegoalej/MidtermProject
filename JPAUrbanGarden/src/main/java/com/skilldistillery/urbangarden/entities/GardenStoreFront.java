@@ -3,6 +3,7 @@ package com.skilldistillery.urbangarden.entities;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -42,7 +43,7 @@ public class GardenStoreFront {
 	private String description;
 	
 	//THIS IS A FOREIGN KEY AND NEEDS TO BE MAPPED
-	@OneToOne
+	@OneToOne(cascade =  CascadeType.PERSIST)
 	@JoinColumn(name = "fk_garden_address_id")
 	private Address address;
 	
@@ -75,7 +76,7 @@ public class GardenStoreFront {
 		this.size = size;
 	}
 
-	public boolean isOrganic() {
+	public boolean getOrganic() {
 		return organic;
 	}
 

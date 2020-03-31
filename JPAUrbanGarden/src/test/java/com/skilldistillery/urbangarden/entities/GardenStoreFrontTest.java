@@ -50,7 +50,7 @@ class GardenStoreFrontTest {
 	void test1() {
 		assertEquals(1, gstore.getId());
 		assertEquals(100, gstore.getSize());
-		assertTrue(gstore.isOrganic());
+		assertTrue(gstore.getOrganic());
 		assertEquals("Marge's Place", gstore.getNameOfGarden());
 		assertEquals("The best tomatoes you've ever had. Also, I have honey.", gstore.getDescription());
 		assertNull(gstore.getGardenURL());

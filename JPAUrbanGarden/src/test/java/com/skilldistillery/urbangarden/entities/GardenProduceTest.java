@@ -57,7 +57,7 @@ class GardenProduceTest {
 	void test2() {
 		assertEquals(1, produce.getGarden().getId());
 		assertEquals(100, produce.getGarden().getSize());
-		assertTrue(produce.getGarden().isOrganic());
+		assertTrue(produce.getGarden().getOrganic());
 		assertEquals("Marge's Place", produce.getGarden().getNameOfGarden());
 		assertEquals(1, produce.getGarden().getUser().getId());
 		assertEquals("The best tomatoes you've ever had. Also, I have honey.", produce.getGarden().getDescription());

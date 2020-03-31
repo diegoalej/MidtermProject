@@ -77,7 +77,7 @@ public class GardenStoreFrontDAOImpl implements GardenStoreFrontDAO {
 		if (em.contains(em.find(GardenStoreFront.class, id))) {
 			GardenStoreFront managedGSF = em.find(GardenStoreFront.class, id);
 			managedGSF.setSize(gsf.getSize());
-			managedGSF.setOrganic(gsf.isOrganic());
+			managedGSF.setOrganic(gsf.getOrganic());
 			managedGSF.setNameOfGarden(gsf.getNameOfGarden());
 			managedGSF.setUser(gsf.getUser());
 			managedGSF.setActive(gsf.isActive());
