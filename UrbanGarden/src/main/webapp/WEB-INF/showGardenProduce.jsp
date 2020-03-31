@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Transaction Detail</title>
+<title>Offer Detail</title>
 <!--Bootsrap 4 CDN-->
 <!-- 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
  -->
@@ -54,7 +54,7 @@
 		<div class="d-flex justify-content-start">
 			<div class="row justify-content-start">
 				<div class="col-12 ">
-					<h1>Trade Detail</h1>
+					<h1>Garden Produce Details</h1>
 				</div>
 			</div>
 		</div>
@@ -71,57 +71,44 @@
 								<div class="col-lg-12 text-left pl-4">
 									<div class="row d-flex justify-content-center">
 										<div class="col-lg-12 text-left pb-1">
-											<h3>Trade 1234</h3>
-										</div>
-										<div class="col-lg-6 justify-content-center pl-4">
-											<h5>Desired</h5>
-											<p>Desired item: Cherry Tomato</p>
-											<p>Farm name: Steve's Farm</p>
-											<p>Amount: 6lbs</p>
-											<p>Trade Date: Jun 3 2020</p>
-											<p>Harvest: Jun 3 2020</p>
-											<p>Expires: Jun 30 2020</p>
-											<p>Size: medium</p>
-										</div>
-										<div class="col-lg-6 justify-content-center pl-4">
-											<h5>Offered</h5>
-											<p>Offered item: Acorn squash</p>
-											<p>Farm name: Nancy's Farm</p>
-											<p>Amount: 10lbs</p>
-											<p>Trade Date: Jun 3 2020</p>
-											<p>Harvest: Jun 3 2020</p>
-											<p>Expires: Jun 30 2020</p>
-											<p>Size: medium</p>
-
+											<h3>Garden Produce 1234</h3>
 										</div>
 										<div class="col-lg-12 text-left pb-1">
-											<h4>Comments</h4>
+											<h5>Name</h5>
+											<p>Farm name: Steve's Farm</p>
+											<p>Amount Available: 6lbs</p>
+											<p>Harvest: Jun 3 2020</p>
+											<p>Expires: Jun 30 2020</p>
+											<p>Size: medium</p>
+										</div>
+										
+										<div class="col-lg-12 text-left pb-1">
+											<h4>Description</h4>
 										</div>
 										<div class="col-lg-12 text-left pb-2">
 											<p>
 												Donec sed odio dui. Cras justo odio, dapibus ac facilisis
 												in, egestas eget quam.<strong> Steve</strong>
 											</p>
-											<p>
-												Donec sed odio dui. Cras justo odio, dapibus ac facilisis
-												in, egestas eget quam.<strong> Nancy</strong>
-											</p>
-											<p>
-												Donec sed odio dui. Cras justo odio, dapibus ac facilisis
-												in, egestas eget quam.<strong> Steve</strong>
-											</p>
-											<p>
-												Donec sed odio dui. Cras justo odio, dapibus ac facilisis
-												in, egestas eget quam.<strong> Nancy</strong>
-											</p>
+											
 										</div>
 									</div>
 									<div class="row d-flex justify-content-start">
 
 										<div class="col-lg-4 justify-content-start pl-4">
 											<p>
-												<a class="btn btn-secondary" href="#" role="button">Back
-													to all Trades</a>
+												<a class="btn btn-secondary" href="myGardenStoreFront.do" role="button">Back
+													to Garden</a>
+											</p>
+										</div>
+										<div class="col-lg-4 justify-content-start pl-4">
+											<p>
+												<a class="btn btn-secondary" href="showTradeDetail.do" role="button">Edit Item</a>
+											</p>
+										</div>
+										<div class="col-lg-4 justify-content-start pl-4">
+											<p>
+												<a class="btn btn-secondary" href="#" role="button">Remove Item</a>
 											</p>
 										</div>
 									</div>
