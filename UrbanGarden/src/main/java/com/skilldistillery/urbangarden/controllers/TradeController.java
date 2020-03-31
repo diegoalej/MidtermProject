@@ -37,4 +37,10 @@ public class TradeController {
 		dao.create(trade);
 		return view;
 	}
+
+	@RequestMapping(path = "showTrade.do")
+	public String showTrade(Model model) {
+		String view = "showTradeDetail";
+		return view;
+	}
 }
