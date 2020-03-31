@@ -61,4 +61,11 @@ public class GardenProduceController {
 		dao.update(id, gardenProduce);
 		return view;
 	}
+	
+	@RequestMapping(path = "showGardenProduce.do")
+	public String showGardenProduce(Model model) {
+		String view = "showGardenProduce";
+		return view;
+	}
+	
 }
