@@ -1,5 +1,7 @@
 package com.skilldistillery.urbangarden.controllers;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,7 +10,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.skilldistillery.urbangarden.data.GardenStoreFrontDAO;
+import com.skilldistillery.urbangarden.entities.Address;
 import com.skilldistillery.urbangarden.entities.GardenStoreFront;
+import com.skilldistillery.urbangarden.entities.User;
 
 @Controller
 public class GardenStoreFrontController {
@@ -32,7 +36,7 @@ public class GardenStoreFrontController {
 	}
 	
 	@RequestMapping(path = "addGardenStoreFront.do", method = RequestMethod.POST)
-	public String postGardenStoreFront(Model model, GardenStoreFront gardenStoreFront) {
+	public String postGardenStoreFront(Model model, GardenStoreFront gardenStoreFront, GardenStoreFront gsf) {
 		String view = "gardenStoreFront";
 		dao.create(gardenStoreFront);
 		return view;
@@ -48,17 +52,20 @@ public class GardenStoreFrontController {
 	}
 	
 	@RequestMapping(path = "editGardenStoreFront.do", method = RequestMethod.GET)
-	public String editGardenStoreFront(GardenStoreFront gardenStoreFront, Model model) {
+	public String editGardenStoreFront(Model model, HttpSession session) {
+		User user = (User) session.getAttribute("user");
+		GardenStoreFront gsf = user.getGardenStoreFront();
+		session.setAttribute("gardenStoreFront", gsf);
 		String view = "editGarden";
-		model.addAttribute("gardenStoreFront", gardenStoreFront);
+		System.out.println("#################  " + gsf);
 		return view;
 	}
 	
 	@RequestMapping(path = "editGardenStoreFront.do", method = RequestMethod.POST)
-	public String updateGardenStoreFront(@RequestParam Integer id, GardenStoreFront gardenStoreFront, Model model) {
-		String view = "updateGardenStoreFront";
+	public String updateGardenStoreFront(GardenStoreFront gardenStoreFront, Address address, Model model) {
+		String view = "login";
 		model.addAttribute("gardenStoreFront", gardenStoreFront);
-		dao.update(id, gardenStoreFront);
+		dao.update(gardenStoreFront);
 		return view;
 	}
 }

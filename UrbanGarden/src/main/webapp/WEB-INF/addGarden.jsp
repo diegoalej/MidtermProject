@@ -33,7 +33,7 @@
 			<div class="row py-2">
 				<div class="col-sm-12">
 					<form:form class="form-horizontal" action="addGardenStoreFront.do"
-						modelAttribute="gardenStoreFront">
+						modelAttribute="gardenStoreFront" method = "POST">
 						<div class="form-group">
 							<label> Name of the Garden </label> <input class="form-control"
 								type="text" name="nameOfGarden" value="${gardenStoreFront.nameOfGarden}" />

@@ -60,4 +60,10 @@ public class TradeDAOImpl implements TradeDAO {
 		return false;
 	}
 
+	@Override
+	public List<Trade> tradesByUser() { //Functionality needs to be implemented.
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

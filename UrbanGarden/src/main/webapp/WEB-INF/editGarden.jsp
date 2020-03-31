@@ -68,52 +68,54 @@
 			<div class="row py-2">
 				<div class="col-sm-12">
 					<form:form class="form-horizontal" action="editGardenStoreFront.do"
-						modelAttribute="gardenStoreFront">
+						modelAttribute="gardenStoreFront" method="POST">
 						<div class="form-group">
 							<label> Name of the Garden </label> <input class="form-control"
-								type="text" name="nameOfGarden" value="${gardenStoreFront.nameOfGarden}" />
-							<br> 
+								type="text" name="nameOfGarden"
+								value="${sessionScope.gardenStoreFront.nameOfGarden}" /> <br>
 							<label> Size in ft </label> <input class="form-control"
-								type="text" name="size" value="${gardenStoreFront.size}" /> 
-							<br>
-							<label>Is your garden organic? </label>
-							<br>
+								type="text" name="size"
+								value="${sessionScope.gardenStoreFront.size}" /> <br> <label>Is
+								your garden organic? </label> <br>
+
 							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="checkbox" id="role"
-									value="${gardenStoreFront.organic}"> <label
-									class="form-check-label" for="role">Yes</label>
+								<c:choose>
+									<c:when test="${sessionScope.gardenStoreFront.organic}">
+										<input class="form-check-input" type="checkbox" id="role"
+											value="true" name = "organic" checked>
+										<label class="form-check-label" for="role">Is organic</label>
+									</c:when>
+									<c:otherwise>
+										<input class="form-check-input" type="checkbox" id="role"
+											value="false" name = "organic">
+										<label class="form-check-label" for="role">Is organic</label>
+									</c:otherwise>
+								</c:choose>
 							</div>
-							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="checkbox" id="role"
-									value="${!gardenStoreFront.organic}"> <label
-									class="form-check-label" for="role">No</label>
-							</div>
-							<br> 
-							<br> 
-							<label> Describe your garden </label> <input
+
+							<br> <br> <label> Describe your garden </label> <input
 								class="form-control" type="text" name="description"
-								value="${gardenStoreFront.description}" /> 
-							<br> 
-							<label>Address</label>
-							<input class="form-control" type="text" name="street" value="${gardenStoreFront.address.street}"/> 
-							<br>
-							<label>Address</label>
-							<input class="form-control" type="text" name="street" value="${gardenStoreFront.address.street2}"/> 
-							<br>
+								value="${sessionScope.gardenStoreFront.description}" /> <br>
+							<label>Address</label> <input class="form-control" type="text"
+								name="address.street"
+								value="${sessionScope.gardenStoreFront.address.street}" /> <br>
+							<label>Address 2</label> <input class="form-control" type="text"
+								name="address.street"
+								value="${sessionScope.gardenStoreFront.address.street2}" /> <br>
 							<label>City</label> <input class="form-control" type="text"
-								name="city" value="${gardenStoreFront.address.city}"/> 
-							<br> 
-							<label>ZipCode</label> <input
-								class="form-control" type="text" name="zipCode" value="${gardenStoreFront.address.zipCode}"/> 
-							<br> 
-							<label>State</label>
-							<input class="form-control" type="text" name="state" value="${gardenStoreFront.address.state}"/> 
-							<br>
-							<label>Country</label>
-							<input class="form-control" type="text" name="state" value="${gardenStoreFront.address.country}"/> 
-							<br>
-							<br> 
-							<label class="form-check-label" for="role">Add a profile image (Recommended size 200x200)</label>
+								name="address.city"
+								value="${sessionScope.gardenStoreFront.address.city}" /> <br>
+							<label>ZipCode</label> <input class="form-control" type="text"
+								name="address.zipCode"
+								value="${sessionScope.gardenStoreFront.address.zipCode}" /> <br>
+							<label>State</label> <input class="form-control" type="text"
+								name="address.state"
+								value="${sessionScope.gardenStoreFront.address.state}" /> <br>
+							<label>Country</label> <input class="form-control" type="text"
+								name="address.state"
+								value="${sessionScope.gardenStoreFront.address.country}" /> <br>
+							<br> <label class="form-check-label" for="role">Add
+								a profile image (Recommended size 200x200)</label>
 							<div class="input-group">
 								<!-- 	<div class="input-group-prepend">
 									<span class="input-group-text" id="imageURL">Upload</span>
@@ -124,8 +126,7 @@
 										class="custom-file-label" for="imageURL">Choose file</label>
 								</div>
 							</div>
-							<br> 
-							<input class="form-control" type="hidden" name="active"
+							<br> <input class="form-control" type="hidden" name="active"
 								value="true" /> <input type="submit" value="Update"
 								class="btn btn-primary" />
 						</div>
