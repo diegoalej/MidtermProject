@@ -78,7 +78,7 @@
 							</div> -->
 							<br> <label> Username </label> <input class="form-control"
 								type="text" name="userName" /> <br> <label>password
-							</label> <input class="form-control" type="text" name="password" required/> <br>
+							</label> <input class="form-control" type="password" name="password" required/> <br>
 							<label>What is your role? </label><br>
 							<div class="form-check form-check-inline">
 								<input class="form-check-input" type="checkbox" id="role"
