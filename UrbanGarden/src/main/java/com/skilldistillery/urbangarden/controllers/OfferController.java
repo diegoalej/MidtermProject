@@ -18,7 +18,7 @@ public class OfferController {
 	
 	@RequestMapping(path = "getOffer.do", method = RequestMethod.GET, params = "id")
 	public String showOffer(@RequestParam Integer id, Model model) {
-		String view = "offer/show";
+		String view = "showOffer";
 		Offer offer = dao.findById(id);
 		model.addAttribute("offer", offer);
 		return view;
@@ -59,6 +59,12 @@ public class OfferController {
 		String view = "updateOffer";
 		model.addAttribute("offer", offer);
 		dao.update(id, offer);
+		return view;
+	}
+	
+	@RequestMapping(path = "showOffer.do")
+	public String showOffer(Model model) {
+		String view = "showOffer";
 		return view;
 	}
 	
