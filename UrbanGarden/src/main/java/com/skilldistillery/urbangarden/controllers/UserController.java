@@ -62,7 +62,7 @@ public class UserController {
 	
 	@RequestMapping(path = "editUser.do", method = RequestMethod.POST)
 	public String updateUser(@RequestParam Integer id, User user, Model model) {
-		String view = "updateUser";
+		String view = "myGardenStoreFront";
 		model.addAttribute("user", user);
 		dao.update(id, user);
 		return view;
