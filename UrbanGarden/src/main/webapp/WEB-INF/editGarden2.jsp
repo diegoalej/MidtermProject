@@ -68,49 +68,64 @@
 			<div class="row py-2">
 				<div class="col-sm-12">
 					<form:form class="form-horizontal" action="editGardenStoreFront.do"
-						 method="POST" modelAttribute="gardenStoreFront" >
+						 method="POST">
 						<div class="form-group">
-						<form:input type ="hidden" path = "id"/>
-							<label> Name of the Garden </label> 
-							<form:input class="form-control"
-								type="text" path="nameOfGarden"
-								 /> <br>
-							<label> Size in ft </label> 
-							<form:input class="form-control" type="text" path="size"
-								/> <br> <label>Is
+						<input type ="hidden" name = "id" value="${sessionScope.gardenStoreFront.id}"/>
+							<label> Name of the Garden </label> <input class="form-control"
+								type="text" name="nameOfGarden"
+								value="${sessionScope.gardenStoreFront.nameOfGarden}" /> <br>
+							<label> Size in ft </label> <input class="form-control"
+								type="text" name="size"
+								value="${sessionScope.gardenStoreFront.size}" /> <br> <label>Is
 								your garden organic? </label> <br>
 
 							<div class="form-check form-check-inline">
-										<form:checkbox class="form-check-input"  id="role"
-											 path = "organic" />
+								<c:choose>
+									<c:when test="${sessionScope.gardenStoreFront.organic}">
+										<input class="form-check-input" type="checkbox" id="role"
+											value="true" name = "organic" checked>
 										<label class="form-check-label" for="role">Is organic</label>
-									
+									</c:when>
+									<c:otherwise>
+										<input class="form-check-input" type="checkbox" id="role"
+											value="false" name = "organic">
+										<label class="form-check-label" for="role">Is organic</label>
+									</c:otherwise>
+								</c:choose>
 							</div>
-							<br> 
-							<label >Add a profile image URL (Recommended size 200x200)</label>
-							<form:input type="text" class="form-control" path="gardenURL" /> 
 
-							<br> <br> <label> Describe your garden </label> 
-							<form:input class="form-control" type="text" path="description" /> <br>
-							
-							<label>Address</label> 
-							<form:input class="form-control" type="text" path="address.street"/> <br>
-							<label>Address 2</label> 
-							<form:input class="form-control" type="text" path="address.street2" /> <br>
-							<label>City</label> 
-							<form:input class="form-control" type="text" path="address.city"/> <br>
-							<label>ZipCode</label> 
-							<form:input class="form-control" type="text" path="address.zipCode"  /> <br>
-							<label>State</label> 
-							<form:input class="form-control" type="text" path="address.state" /> <br>
-							<label>Country</label> 
-							<form:input class="form-control" type="text" path="address.country" /> <br>
+							<br> <br> <label> Describe your garden </label> <input
+								class="form-control" type="text" name="description"
+								value="${sessionScope.gardenStoreFront.description}" /> <br>
+							<label>Address</label> <input class="form-control" type="text"
+								name="address.street"
+								value="${sessionScope.gardenStoreFront.address.street}" /> <br>
+							<label>Address 2</label> <input class="form-control" type="text"
+								name="address.street"
+								value="${sessionScope.gardenStoreFront.address.street2}" /> <br>
+							<label>City</label> <input class="form-control" type="text"
+								name="address.city"
+								value="${sessionScope.gardenStoreFront.address.city}" /> <br>
+							<label>ZipCode</label> <input class="form-control" type="text"
+								name="address.zipCode"
+								value="${sessionScope.gardenStoreFront.address.zipCode}" /> <br>
+							<label>State</label> <input class="form-control" type="text"
+								name="address.state"
+								value="${sessionScope.gardenStoreFront.address.state}" /> <br>
+							<label>Country</label> <input class="form-control" type="text"
+								name="address.state"
+								value="${sessionScope.gardenStoreFront.address.country}" /> <br>
+							<br> <label class="form-check-label" for="role">Add
+								a profile image (Recommended size 200x200)</label>
 							<div class="input-group">
 								<!-- 	<div class="input-group-prepend">
 									<span class="input-group-text" id="imageURL">Upload</span>
 								</div> -->
-								
-								
+								<div class="custom-file">
+									<input type="file" class="custom-file-input" id="imageURL"
+										aria-describedby="imageURL"> <label
+										class="custom-file-label" for="imageURL">Choose file</label>
+								</div>
 							</div>
 							
 							<br> <input class="form-control" type="hidden" name="active"

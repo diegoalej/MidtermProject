@@ -8,6 +8,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.urbangarden.entities.Address;
 import com.skilldistillery.urbangarden.entities.GardenStoreFront;
 
 @Transactional
@@ -75,6 +76,7 @@ public class GardenStoreFrontDAOImpl implements GardenStoreFrontDAO {
 	@Override
 	public GardenStoreFront update(GardenStoreFront gsf) {
 		System.out.println("######### THIS IS WHAT IS TO BE UPDATED: " + gsf);
+		
 		if (em.contains(em.find(GardenStoreFront.class, gsf.getId()))) {
 			GardenStoreFront managedGSF = em.find(GardenStoreFront.class, gsf.getId());
 			managedGSF.setSize(gsf.getSize());
@@ -83,10 +85,20 @@ public class GardenStoreFrontDAOImpl implements GardenStoreFrontDAO {
 			managedGSF.setUser(gsf.getUser());
 			managedGSF.setActive(gsf.isActive());
 			managedGSF.setDescription(gsf.getDescription());
-			managedGSF.setAddress(gsf.getAddress());
-			managedGSF.setGardenURL("************" + gsf.getGardenURL());
-			em.persist(managedGSF);
-			em.flush();
+			managedGSF.setGardenURL("*" + gsf.getGardenURL());
+			if( gsf.getAddress() != null) {
+				System.out.println(gsf.getAddress());
+				Address unManagedAddress = gsf.getAddress();
+				Address managedAddress = em.find(Address.class, managedGSF.getAddress().getId());
+				managedAddress.setStreet(unManagedAddress.getStreet());
+				managedAddress.setStreet2(unManagedAddress.getStreet2());
+				managedAddress.setCity(unManagedAddress.getCity());
+				managedAddress.setState(unManagedAddress.getState());
+				managedAddress.setZipCode(unManagedAddress.getZipCode());
+				managedAddress.setCountry(unManagedAddress.getCountry());
+			}
+//			em.persist(managedGSF);
+//			em.flush();
 			System.out.println(managedGSF);
 			return managedGSF;
 		} else

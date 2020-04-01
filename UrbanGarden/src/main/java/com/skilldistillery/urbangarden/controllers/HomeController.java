@@ -23,18 +23,25 @@ public class HomeController {
 	public String home() {
 		return "index";
 	}
+	
 
 	@RequestMapping(path = "login.do", method = RequestMethod.POST)
-	public String login(User user, Model model, HttpSession session) {
-		User userLogin = dao.login(user);
-		if (userLogin != null) {
-			session.setAttribute("user", userLogin);
+	public String login(User userLogin, Model model, HttpSession session) {
+		User user = dao.login(userLogin);
+		if (user != null) {
+			session.setAttribute("userSession", user);
+			model.addAttribute("user", user);
 			return "myGardenStoreFront";
 		} else {
-			model.addAttribute("errorLogin", "Invalid username and password combination. Please try again.");
 			return "index";
 		}
 
+	}
+	
+	@RequestMapping(path = "homePage.do", method = RequestMethod.GET)
+	public String homePage(Model model, HttpSession session) {
+		model.addAttribute("user", dao.findById(((User) session.getAttribute("userSession")).getId()));
+		return "myGardenStoreFront";
 	}
 
 	@RequestMapping(path = "logout.do", method = RequestMethod.GET)
