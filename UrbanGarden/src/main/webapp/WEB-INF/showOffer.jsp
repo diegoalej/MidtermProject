@@ -70,7 +70,7 @@
 
 										<div class="col-lg-4 justify-content-start pl-4">
 											<p>
-												<a class="btn btn-secondary" href="getMyGardenStoreFront.do" role="button" >Back
+												<a class="btn btn-secondary" href="homePage.do" role="button" >Back
 													to Garden Store Front</a>
 											</p>
 										</div>
