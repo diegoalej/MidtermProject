@@ -33,70 +33,58 @@
 					</div>
 					<div class="col-12 text-left">
 						<div class="row justify-content-start gardenProfile ">
-							<div class="col-12 text-left pb-5">
-									<h4>User First and Last Name </h4>
+							<c:forEach items="${users}" var="user">
+								<div class="col-12 text-left pb-5">
+									<h4>${user.firstName} ${user.lastName}</h4>
 									<%-- <c:out value="gardenStoreFront.user.firstName" />
 									<c:out value="gardenStoreFront.user.lastName" /> --%>
-								<p>
-									<strong>Role: </strong>
-									<c:out value="gardener" />
-								<br>
-									<strong>Garden Name: </strong>
-									<c:out value="gardenStoreFront.nameOfGarden" />
-								</p>
-								<form:form action="login.do" method="GET">
-									<div class="custom-control custom-switch pb-2">
-										<div class="form-check">
-											<input class="form-check-input" type="radio"
-												name="exampleRadios" id="exampleRadios1" value="option1"
-												checked> <label class="form-check-label"
-												for="exampleRadios1"> Active </label>
+									<p>
+										<strong>Role: </strong>
+										<c:out value="gardener" />
+										<br> <strong>Garden Name: </strong>
+										<c:out value="${user.gardenStoreFront.nameOfGarden }" />
+									</p>
+									<form:form action="changeUser.do" method="GET">
+										<div class="custom-control custom-switch pb-2">
+											<c:choose>
+												<c:when test="${user.enabled == true}">
+													<div class="form-check">
+														<input class="form-check-input" type="radio"
+															name="exampleRadios" id="exampleRadios1" value="true"
+															checked> <label class="form-check-label"
+															for="exampleRadios1"> Active </label>
+													</div>
+													<div class="form-check pb-1">
+														<input class="form-check-input" type="radio"
+															name="exampleRadios" id="exampleRadios2" value="false">
+														<label class="form-check-label" for="exampleRadios2">
+															Inactive </label>
+													</div>
+												</c:when>
+
+												<c:otherwise>
+													<div class="form-check">
+														<input class="form-check-input" type="radio"
+															name="exampleRadios" id="exampleRadios1" value="true">
+														<label class="form-check-label" for="exampleRadios1">
+															Active </label>
+													</div>
+													<div class="form-check pb-1">
+														<input class="form-check-input" type="radio"
+															name="exampleRadios" id="exampleRadios2" value="false"
+															checked> <label class="form-check-label"
+															for="exampleRadios2"> Inactive </label>
+													</div>
+												</c:otherwise>
+											</c:choose>
+
 										</div>
-										<div class="form-check pb-1">
-											<input class="form-check-input" type="radio"
-												name="exampleRadios" id="exampleRadios2" value="option2">
-											<label class="form-check-label" for="exampleRadios2">
-												Inactive </label> 
-										</div>
-									</div>
-										<input type="submit"
-												value="Change" class="btn float-left">
-								</form:form>
-							</div>
-						</div>
-					</div>
-					<div class="col-12 text-left">
-						<div class="row justify-content-start gardenProfile ">
-							<div class="col-12 text-left ">
-									<h4>User First and Last Name </h4>
-									<%-- <c:out value="gardenStoreFront.user.firstName" />
-									<c:out value="gardenStoreFront.user.lastName" /> --%>
-								<p>
-									<strong>Role: </strong>
-									<c:out value="gardener" />
-								<br>
-									<strong>Garden Name: </strong>
-									<c:out value="gardenStoreFront.nameOfGarden" />
-								</p>
-								<form:form action="login.do" method="GET">
-									<div class="custom-control custom-switch pb-2">
-										<div class="form-check">
-											<input class="form-check-input" type="radio"
-												name="exampleRadios" id="exampleRadios1" value="option1"
-												checked> <label class="form-check-label"
-												for="exampleRadios1"> Active </label>
-										</div>
-										<div class="form-check pb-1">
-											<input class="form-check-input" type="radio"
-												name="exampleRadios" id="exampleRadios2" value="option2">
-											<label class="form-check-label" for="exampleRadios2">
-												Inactive </label> 
-										</div>
-									</div>
-										<input type="submit"
-												value="Change" class="btn float-left">
-								</form:form>
-							</div>
+										
+										<input type="hidden" value="${user.id }" name="id" class="btn float-left">
+										<input type="submit" value="Change" class="btn float-left">
+									</form:form>
+								</div>
+							</c:forEach>
 						</div>
 					</div>
 				</div>
