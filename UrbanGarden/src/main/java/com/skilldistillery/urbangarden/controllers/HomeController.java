@@ -23,7 +23,6 @@ public class HomeController {
 	public String home() {
 		return "index";
 	}
-	
 
 	@RequestMapping(path = "login.do", method = RequestMethod.POST)
 	public String login(User userLogin, Model model, HttpSession session) {
@@ -37,7 +36,7 @@ public class HomeController {
 		}
 
 	}
-	
+
 	@RequestMapping(path = "homePage.do", method = RequestMethod.GET)
 	public String homePage(Model model, HttpSession session) {
 		model.addAttribute("user", dao.findById(((User) session.getAttribute("userSession")).getId()));

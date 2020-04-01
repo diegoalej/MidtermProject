@@ -28,6 +28,17 @@ public class GardenStoreFrontController {
 		return view;
 	}
 
+	@RequestMapping(path = "getMyGardenStoreFront.do", method = RequestMethod.GET, params = "id")
+	public String showMyGardenStoreFront(HttpSession session, Model model) {
+		System.out.println();
+		String view = "gardenStoreFront";
+		User user = (User) session.getAttribute("userSession");
+		int id = user.getId();
+		GardenStoreFront gardenStoreFront = dao.findById(id);
+		model.addAttribute("gardenStoreFront", gardenStoreFront);
+		return view;
+	}
+
 	@RequestMapping(path = "addGardenStoreFront.do", method = RequestMethod.GET)
 	public String addGardenStoreFront(Model model, GardenStoreFront gardenStoreFront) {
 		String view = "addGarden";
