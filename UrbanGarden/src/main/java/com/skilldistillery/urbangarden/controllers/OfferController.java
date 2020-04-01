@@ -1,5 +1,7 @@
 package com.skilldistillery.urbangarden.controllers;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,7 +19,7 @@ public class OfferController {
 	private OfferDAO dao;
 	
 	@RequestMapping(path = "getOffer.do", method = RequestMethod.GET, params = "id")
-	public String showOffer(@RequestParam Integer id, Model model) {
+	public String getOffer(@RequestParam Integer id, Model model) {
 		String view = "showOffer";
 		Offer offer = dao.findById(id);
 		model.addAttribute("offer", offer);
@@ -63,8 +65,10 @@ public class OfferController {
 	}
 	
 	@RequestMapping(path = "showOffer.do")
-	public String showOffer(Model model) {
+	public String showOffer(@RequestParam Integer id, Model model, HttpSession session) {
 		String view = "showOffer";
+		Offer offer = dao.findById(id);
+		model.addAttribute("offer", offer);
 		return view;
 	}
 	
