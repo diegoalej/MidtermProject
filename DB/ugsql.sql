@@ -337,6 +337,12 @@ START TRANSACTION;
 USE `urbangardendb`;
 INSERT INTO `garden_produce` (`id`, `garden_id`, `produce_id`, `amount`, `active`, `date_expected_available`, `date_harvested`, `date_expires`) VALUES (1, 1, 1, 12, 1, '2020-10-10', '2020-10-11', '2020-11-11');
 INSERT INTO `garden_produce` (`id`, `garden_id`, `produce_id`, `amount`, `active`, `date_expected_available`, `date_harvested`, `date_expires`) VALUES (2, 1, 2, 1, 1, '2020-09-30', '2020-10-01', '2020-11-01');
+INSERT INTO `garden_produce` (`id`, `garden_id`, `produce_id`, `amount`, `active`, `date_expected_available`, `date_harvested`, `date_expires`) VALUES (3, 1, 3, 1, 1, '2020-09-30', '2020-10-01', '2020-11-01');
+INSERT INTO `garden_produce` (`id`, `garden_id`, `produce_id`, `amount`, `active`, `date_expected_available`, `date_harvested`, `date_expires`) VALUES (4, 1, 4, 1, 1, '2020-09-30', '2020-10-01', '2020-11-01');
+INSERT INTO `garden_produce` (`id`, `garden_id`, `produce_id`, `amount`, `active`, `date_expected_available`, `date_harvested`, `date_expires`) VALUES (5, 1, 5, 1, 1, '2020-09-30', '2020-10-01', '2020-11-01');
+INSERT INTO `garden_produce` (`id`, `garden_id`, `produce_id`, `amount`, `active`, `date_expected_available`, `date_harvested`, `date_expires`) VALUES (6, 1, 6, 1, 1, '2020-09-30', '2020-10-01', '2020-11-01');
+INSERT INTO `garden_produce` (`id`, `garden_id`, `produce_id`, `amount`, `active`, `date_expected_available`, `date_harvested`, `date_expires`) VALUES (7, 1, 7, 1, 1, '2020-09-30', '2020-10-01', '2020-11-01');
+INSERT INTO `garden_produce` (`id`, `garden_id`, `produce_id`, `amount`, `active`, `date_expected_available`, `date_harvested`, `date_expires`) VALUES (8, 1, 8, 1, 1, '2020-09-30', '2020-10-01', '2020-11-01');
 
 COMMIT;
 

@@ -49,6 +49,7 @@ public class HomeController {
 		if (session.getAttribute("user") != null) {
 			session.removeAttribute("user");
 			model.addAttribute("logout", "Logout successful.");
+			session.invalidate();
 		}
 
 		return "index";
