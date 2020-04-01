@@ -38,16 +38,16 @@
 							<label> Products </label>
 							<br> 
 							<select name="action" id="action">
-								<option value="${offer.offered}">Name of Offered Product</option>
+								<option value="${offered}">Name of Offered Product</option>
 								<option value="2">2</option>
 							</select>
 							<select name="action" id="action">
-								<option value="${offer.desired}">Name of Desired Product</option>
+								<option value="${desired}">Name of Desired Product</option>
 								<option value="2">2</option>
 							</select>
 							<br> 
 							<label>Comment</label>
-							<input class="form-control" type="text" name="comment" value="${offer.comment}"/> 
+							<input class="form-control" type="text" name="comment" value="${comment}"/> 
 							<br> 
 							<br> 
 							<input class="form-control" type="hidden" name="active"
