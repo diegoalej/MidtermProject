@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.skilldistillery.urbangarden.data.OfferDAO;
 import com.skilldistillery.urbangarden.entities.Offer;
+import com.skilldistillery.urbangarden.entities.User;
 
 @Controller
 public class OfferController {
@@ -40,13 +41,22 @@ public class OfferController {
 		return view;
 	}
 	
+	@RequestMapping(path = "deactivateOffer.do", method = RequestMethod.POST, params="id")
+	public String deactivateOffer(@RequestParam Integer id, Model model) {
+		String view = "homePage";
+		Offer offer = dao.deactivate(id);
+//		model.addAttribute("offer", offer);
+//		model.addAttribute("id", id);
+		return view;
+	}
+	
 	@RequestMapping(path = "deleteOffer.do", method = RequestMethod.POST, params="id")
-	public String deleteOffer(@RequestParam Integer id, Model model) {
-		String view = "deleteOffer";
+	public String deleteOffer(@RequestParam Integer id, HttpSession session, Model model) {
 		boolean deleted = dao.delete(id);
 		model.addAttribute("delete", deleted);
 		model.addAttribute("id", id);
-		return view;
+		model.addAttribute("user", dao.findById(((User) session.getAttribute("userSession")).getId()));
+		return "myGardenStoreFront";
 	}
 	
 	@RequestMapping(path = "editOffer.do", method = RequestMethod.GET)
@@ -58,8 +68,8 @@ public class OfferController {
 	
 	@RequestMapping(path = "editOffer.do", method = RequestMethod.POST)
 	public String updateOffer(@RequestParam Integer id, Offer offer, Model model) {
-		String view = "updateOffer";
-		model.addAttribute("offer", offer);
+		String view = "homePage";
+//		model.addAttribute("offer", offer);
 		dao.update(id, offer);
 		return view;
 	}

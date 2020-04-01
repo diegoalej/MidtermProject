@@ -89,13 +89,14 @@
 										<form:form class="form-horizontal needs-validation" action="editOffer.do" modelAttribute="offer" >
 											<div class="col-lg-4 justify-content-start pl-4">
 												<input class="form-control" type="hidden" name="offer" value="${offer}" /> 
+												<input class="form-control" type="hidden" name="id" value="${offer.id}" /> 
 												<input type="submit" value="Edit Offer" class="btn btn-primary" />
 											</div>
 										</form:form>
-										<form:form class="form-horizontal needs-validation" action="deleteOffer.do" modelAttribute="offer" >
+										<form:form class="form-horizontal needs-validation" action="deactivateOffer.do" modelAttribute="offer" >
 											<div class="col-lg-4 justify-content-start pl-4">
-												<input class="form-control" type="hidden" name="id" value="1" /> 
-												<input type="submit" value="Delete Offer" class="btn btn-primary" />
+												<input class="form-control" type="hidden" name="id" value="${offer.id}" /> 
+												<input type="submit" value="Remove Offer" class="btn btn-primary" />
 											</div>
 										</form:form>
 									</div>
