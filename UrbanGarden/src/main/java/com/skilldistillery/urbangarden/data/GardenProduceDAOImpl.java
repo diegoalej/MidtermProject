@@ -9,6 +9,8 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.urbangarden.entities.GardenProduce;
+import com.skilldistillery.urbangarden.entities.GardenStoreFront;
+import com.skilldistillery.urbangarden.entities.Product;
 
 @Transactional
 @Service
@@ -32,6 +34,7 @@ public class GardenProduceDAOImpl implements GardenProduceDAO {
 	public GardenProduce create(GardenProduce gardenProduce) {
 		System.out.println("!!!!!!!!!!!!!!!!!!!!!You made it here!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 		em.persist(gardenProduce);
+		System.out.println("#########################WAS MY GUESS RIGHT#########################");
 		em.flush();
 		return gardenProduce;
 	}

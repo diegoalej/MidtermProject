@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.skilldistillery.urbangarden.data.GardenProduceDAO;
+import com.skilldistillery.urbangarden.data.GardenStoreFrontDAO;
+import com.skilldistillery.urbangarden.data.ProductDAO;
 import com.skilldistillery.urbangarden.entities.GardenProduce;
 
 @Controller
@@ -15,6 +17,12 @@ public class GardenProduceController {
 		
 	@Autowired
 	private GardenProduceDAO dao;
+	
+	@Autowired
+	private GardenStoreFrontDAO daoGSF;
+	
+	@Autowired
+	private ProductDAO daoProd;
 	
 	@RequestMapping(path = "getGardenProduce.do", method = RequestMethod.GET, params = "id")
 	public String showGardenProduce(@RequestParam Integer id, Model model) {
@@ -32,8 +40,11 @@ public class GardenProduceController {
 	}
 	
 	@RequestMapping(path = "addGardenProduce.do", method = RequestMethod.POST)
-	public String postGardenProduce(Model model, GardenProduce gardenProduce) {
+	public String postGardenProduce(Model model, GardenProduce gardenProduce, int gardenId, int productId) {
 		String view = "gardenProducePost";
+		
+		gardenProduce.setGardenStoreFront(daoGSF.findById(gardenId));
+		gardenProduce.setProduct(daoProd.findById(productId));
 		System.out.println("@@@@@@@@@@@@@@@@@@@YOU MDADE IT HERE @@@@@@@@@@@@@@@@@@@@@@@");
 		dao.create(gardenProduce);
 		return "redirect:homePage.do";

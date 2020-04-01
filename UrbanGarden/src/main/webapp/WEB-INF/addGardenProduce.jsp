@@ -33,13 +33,13 @@
 			<div class="row py-2">
 				<div class="col-sm-12">
 					<form:form class="form-horizontal" action="addGardenProduce.do"
-						modelAttribute="gardenProduce">
+						modelAttribute="gardenProduce" method="post">
 						<div class="form-group">
 							<label> Product </label>
 							<br> 
-							<select name="product" id="product">
+							<select name="productId" id="product">
 								<c:forEach var="productName" items="${listAllProducts}">
-								<option value="${productName}">${productName.name}</option>
+								<option value="${productName.id}">${productName.name}</option>
 								</c:forEach>
 							</select>
 							<br> 
@@ -58,7 +58,7 @@
 							<br> 
 							<br> 
 							<input class="form-control" type="hidden" name="active" value="true" /> 
-							<input class="form-control" type="hidden" name="garden" value="${gardenStoreFront}"/>
+							<input class="form-control" type="hidden" name="gardenId" value="${gardenStoreFront.id}"/>
 							<%-- <input class="form-control" type="hidden" name="product" value="${productName}"/> --%>
 							<input type="submit" value="Add" class="btn btn-primary" />
 						</div>
