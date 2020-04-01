@@ -27,7 +27,7 @@ public class GardenStoreFrontDAOImpl implements GardenStoreFrontDAO {
 	@Override
 	public List<GardenStoreFront> findAll() {
 		List<GardenStoreFront> results = null;
-		String queryString = "SELECT s from XXXXX s";
+		String queryString = "SELECT s from GardenStoreFront s";
 		results = em.createQuery(queryString, GardenStoreFront.class).getResultList();
 		return results;
 
@@ -85,7 +85,7 @@ public class GardenStoreFrontDAOImpl implements GardenStoreFrontDAO {
 			managedGSF.setUser(gsf.getUser());
 			managedGSF.setActive(gsf.isActive());
 			managedGSF.setDescription(gsf.getDescription());
-			managedGSF.setGardenURL("*" + gsf.getGardenURL());
+			managedGSF.setGardenURL(gsf.getGardenURL());
 			if( gsf.getAddress() != null) {
 				System.out.println(gsf.getAddress());
 				Address unManagedAddress = gsf.getAddress();
@@ -116,7 +116,7 @@ public class GardenStoreFrontDAOImpl implements GardenStoreFrontDAO {
 
 	@Override
 	public List<GardenStoreFront> searchByKeyword(String keyword) {
-		String query = "SELECT gsf FROM GardenProduce gp JOIN GardenStoreFront gsf "
+		String query = "SELECT  DISTINCT gsf FROM GardenProduce gp JOIN GardenStoreFront gsf "
 						+ "ON gp.garden = gsf JOIN Product p ON gp.product = p "
 						+ "WHERE p.name LIKE :keyword OR p.type LIKE :keyword "
 						+ "OR p.description LIKE :keyword"; //concat the % inside the setParameter method

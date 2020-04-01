@@ -23,11 +23,11 @@
 					particular</h3>
 			</div>
 			<div class="col-4 text-left pt-2 ">
-				<form:form action="search.do">
+				<form:form action="searchByKeyword.do">
 					<div class="form-group">
-						<label for="exampleInputPassword1">Search by product</label> <input
-							type="text" class="form-control" id="exampleInputPassword1"
-							placeholder="Enter Product">
+						<label for="keywordSearch">Search by Keyword</label> <input
+							type="text" class="form-control" id="keywordSearch"
+							placeholder="Enter Keyword" name="keyword">
 					</div>
 					<button type="submit" class="btn ">Submit</button>
 				</form:form>
@@ -35,22 +35,22 @@
 			</div>
 			<div class="col-lg-4 text-left pt-2">
 
-				<form:form action="search.do">
+				<form:form action="searchByFarm.do">
 					<div class="form-group">
-						<label for="exampleInputPassword1">Search by Garden</label> <input
-							type="text" class="form-control" id="exampleInputPassword1"
-							placeholder="Enter Farm">
+						<label for="farmSearch">Search by Garden</label> <input
+							type="text" class="form-control" id="farmSearch"
+							placeholder="Enter Farm" name="farm">
 					</div>
 					<button type="submit" class="btn ">Submit</button>
 				</form:form>
 			</div>
 			<div class="col-lg-4 text-left pt-2">
 
-				<form:form action="search.do">
+				<form:form action="searchByZip.do">
 					<div class="form-group">
-						<label for="exampleInputPassword1">Search by zipcode</label> <input
-							type="text" class="form-control" id="exampleInputPassword1"
-							placeholder="Enter ZipCode">
+						<label for="searchByZip">Search by ZipCode</label> <input
+							type="text" class="form-control" id="searchByZip"
+							placeholder="Enter ZipCode" name="zipString">
 					</div>
 					<button type="submit" class="btn ">Submit</button>
 				</form:form>
@@ -66,106 +66,51 @@
 
 			<div class="row d-flex justify-content-around">
 				<div class="col-lg-12 text-left pt-1">
-					<h2>Gardens near you</h2>
+					<h2>Gardens you might be interested in</h2>
 				</div>
 
 			</div>
 		</div>
-		<div class="container gardenPageTrade">
-			<div class="row d-flex justify-content-center">
-				<div class="col-lg-12 text-left pb-1">
-					<h3>Nancy's Garden</h3>
-				</div>
-				<div class="col-lg-12 justify-content-center pl-4">
-					<p>Description: Donec sed odio dui. Cras justo odio, dapibus ac
-						facilisis in, egestas eget quam.</p>
-				</div>
-				<div class="col-lg-12 justify-content-center pl-4">
-					<div class="row d-flex justify-content-center">
-						<div class="col-lg-2 justify-content-center pl-4">
-							<h4>Product image</h4>
+		<c:forEach items="${gsfResults}" var="gardenStore">
+			<div class="container gardenPageTrade">
+				<div class="row d-flex justify-content-center">
+					<div class="col-lg-12 text-left pb-1">
+						<h3><c:out value="${gardenStore.user.firstName}'s Garden"/></h3>
+						<h3><c:out value="${gardenStore.nameOfGarden}"/></h3>
+						<h4><c:out value="${gardenStore.address.street}"/></h4>
+						<h4><c:out value="${gardenStore.address.city}, ${gardenStore.address.state} ${gardenStore.address.zipCode}"/></h4>
+					</div>
+					<div class="col-lg-12 justify-content-center pl-4">
+						<p>Description: <c:out value="${gardenStore.description}"/></p>
+					</div>
+					<div class="col-lg-12 justify-content-center pl-4">
+						<div class="row d-flex justify-content-center">
+							<c:forEach items="${gardenStore.gardenProduces}" var="produce" begin="0" end="5">
+							<div class="col-lg-2 justify-content-center pl-4">
+								<h4><img src="<c:url value="${produce.product.imageURL }"/>"/></h4>
 
+							</div>
+							</c:forEach>
 						</div>
-						<div class="col-lg-2 justify-content-center pl-4">
-							<h4>Product image</h4>
-						</div>
-						<div class="col-lg-2 justify-content-center pl-4">
-							<h4>Product image</h4>
-						</div>
-						<div class="col-lg-2 justify-content-center pl-4">
-							<h4>Product image</h4>
-						</div>
-						<div class="col-lg-2 justify-content-center pl-4">
-							<h4>Product image</h4>
-						</div>
-						<div class="col-lg-2 justify-content-center pl-4">
-							<h4>Product image</h4>
+					</div>
+
+					<div class="row d-flex justify-content-start">
+
+						<div class="col-lg-4 justify-content-start py-2">
+							<form:form action="getGardenStoreFront.do" method="GET"
+								class="form">
+								<input type="hidden" value="${gardenStore.id}" id="1" name="id">
+
+								<input type="submit" value="View Garden" class="btn btn-primary" />
+							</form:form>
+
 						</div>
 					</div>
 				</div>
 
-				<div class="row d-flex justify-content-start">
-
-					<div class="col-lg-4 justify-content-start py-2">
-						<form:form action="getGardenStoreFront.do" method="GET" class="form">
-							<input type="hidden" value="1" id="1" name="id">
-						
-								<input type="submit"
-												value="View Garden" class="btn btn-primary" />
-						</form:form>
-						
-					</div>
-				</div>
 			</div>
-
-		</div>
-		<div class="container gardenPageTrade">
-			<div class="row d-flex justify-content-center">
-				<div class="col-lg-12 text-left pb-1">
-					<h3>Steve's Garden</h3>
-				</div>
-				<div class="col-lg-12 justify-content-center pl-4">
-					<p>Description: Donec sed odio dui. Cras justo odio, dapibus ac
-						facilisis in, egestas eget quam.Donec sed odio dui. Cras justo
-						odio, dapibus ac facilisis in, egestas eget quam.</p>
-				</div>
-				<div class="col-lg-12 justify-content-center pl-4">
-					<div class="row d-flex justify-content-center">
-						<div class="col-lg-2 justify-content-center pl-4">
-							<h4>Product image</h4>
-
-						</div>
-						<div class="col-lg-2 justify-content-center pl-4">
-							<h4>Product image</h4>
-						</div>
-						<div class="col-lg-2 justify-content-center pl-4">
-							<h4>Product image</h4>
-						</div>
-						<div class="col-lg-2 justify-content-center pl-4">
-							<h4>Product image</h4>
-						</div>
-						<div class="col-lg-2 justify-content-center pl-4">
-							<h4>Product image</h4>
-						</div>
-						<div class="col-lg-2 justify-content-center pl-4">
-							<h4>Product image</h4>
-						</div>
-					</div>
-				</div>
-
-				<div class="row d-flex justify-content-start">
-
-					<div class="col-lg-4 justify-content-start py-2">
-						<p>
-							<a class="btn btn-secondary" href="#" role="button">View
-								Garden</a>
-						</p>
-					</div>
-				</div>
-			</div>
-
-		</div>
-
+		</c:forEach>
+		
 	</div>
 	<div class="row spacer">
 		<div class="span4"></div>
