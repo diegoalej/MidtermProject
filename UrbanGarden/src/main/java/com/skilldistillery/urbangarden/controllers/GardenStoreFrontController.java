@@ -22,7 +22,7 @@ public class GardenStoreFrontController {
 
 	@RequestMapping(path = "getGardenStoreFront.do", method = RequestMethod.GET, params = "id")
 	public String showGardenStoreFront(@RequestParam Integer id, Model model) {
-		String view = "gardenStoreFront/show";
+		String view = "gardenStoreFront";
 		GardenStoreFront gardenStoreFront = dao.findById(id);
 		model.addAttribute("gardenStoreFront", gardenStoreFront);
 		return view;
