@@ -33,7 +33,7 @@
 			<div class="row py-2">
 				<div class="col-sm-12">
 					<form:form class="form-horizontal" action="editOffer.do"
-						modelAttribute="offer">
+						modelAttribute="offer" method="POST">
 						<div class="form-group">
 							<label> Products </label>
 							<br> 
