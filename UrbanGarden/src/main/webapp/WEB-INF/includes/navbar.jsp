@@ -9,8 +9,8 @@
 			<li class="nav-item active"><a class="nav-link" href="home.do">Home
 					<span class="sr-only">(current)</span>
 			</a></li>
-			<li class="nav-item"><a class="nav-link" href="myGardenStoreFront.do">Garden</a></li>
-			<li class="nav-item"><a class="nav-link" href="myGardenStoreFront.do">Offers/Trades</a></li>
+			<li class="nav-item"><a class="nav-link" href="homePage.do">Garden</a></li>
+			<li class="nav-item"><a class="nav-link" href="homePage.do">Offers/Trades</a></li>
 			<li class="nav-item"><a class="nav-link" href="editUser.do">Profile</a></li>
 			<li class="nav-item"><a class="nav-link" href="search.do">Search</a></li>
 			<c:choose>

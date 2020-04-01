@@ -30,8 +30,9 @@ public class GardenStoreFrontController {
 
 	@RequestMapping(path = "getMyGardenStoreFront.do", method = RequestMethod.GET, params = "id")
 	public String showMyGardenStoreFront(HttpSession session, Model model) {
+		System.out.println();
 		String view = "gardenStoreFront";
-		User user = (User) session.getAttribute("user");
+		User user = (User) session.getAttribute("userSession");
 		int id = user.getId();
 		GardenStoreFront gardenStoreFront = dao.findById(id);
 		model.addAttribute("gardenStoreFront", gardenStoreFront);
