@@ -62,6 +62,19 @@ public class UserDAOImpl implements UserDAO {
 		}
 		return user;
 	}
+	
+	@Override
+	public User deactivate(int id) {
+		User managedOffer = em.find(User.class, id);
+		managedOffer.setEnabled(false);
+		return managedOffer;
+	}
+	@Override
+	public User activate(int id) {
+		User managedOffer = em.find(User.class, id);
+		managedOffer.setEnabled(true);
+		return managedOffer;
+	}
 
 	@Override
 	public User activateUser(User user) {

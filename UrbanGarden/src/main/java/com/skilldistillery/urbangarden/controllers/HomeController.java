@@ -1,5 +1,7 @@
 package com.skilldistillery.urbangarden.controllers;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,8 +31,15 @@ public class HomeController {
 		User user = dao.login(userLogin);
 		if (user != null) {
 			session.setAttribute("userSession", user);
-			model.addAttribute("user", user);
-			return "myGardenStoreFront";
+			if (user.getRole().equals("admin")) {
+				List<User> allUsers = dao.findAll();		
+				model.addAttribute("user", user);
+				model.addAttribute("users", allUsers);
+				return "admin";
+			} else {
+				model.addAttribute("user", user);
+				return "myGardenStoreFront";
+			}
 		} else {
 			return "index";
 		}
