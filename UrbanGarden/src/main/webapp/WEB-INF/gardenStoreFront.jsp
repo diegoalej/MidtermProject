@@ -38,8 +38,7 @@
 					<div class="col-12 text-left pt-5">
 						<p>
 							<strong>Garden Name: </strong>
-							<c:out
-								value="${gardenStoreFront.nameOfGarden }" />
+							<c:out value="${gardenStoreFront.nameOfGarden }" />
 						</p>
 						<p>
 							<strong>Owner: </strong>
@@ -64,12 +63,10 @@
 					<c:out value="${gardenStoreFront.description }" />
 				</p>
 				<p>
-					<c:out
-						value="${gardenStoreFront.address.street }" />
+					<c:out value="${gardenStoreFront.address.street }" />
 					<br>
 					<c:out value="${gardenStoreFront.address.city }" />
-					<c:out
-						value="${gardenStoreFront.address.zipCode }" />
+					<c:out value="${gardenStoreFront.address.zipCode }" />
 				</p>
 			</div>
 		</div>
@@ -85,17 +82,25 @@
 					<h2>Products Available</h2>
 				</div>
 				<!-- THIS WILL HAVE A FOREACH THAT WILL DISPLAY ALL PRODUCTS -->
-				<c:forEach
-					items="${gardenStoreFront.gardenProduces}"
-					var="produce">
+				<c:forEach items="${gardenStoreFront.gardenProduces}" var="produce">
 					<div class="col-lg-12 text-center pb-2">
 
 						<div class="row d-flex justify-content-start">
 							<div class="col-lg-3 text-center pt-2">
 
-								<img class="rounded-circle"
-									src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-									alt="Generic placeholder image" width="120" height="120">
+								<c:choose>
+									<c:when test="${not empty produce.product.imageURL}">
+										<img class="rounded-circle" width="120" height="120"
+											src="<c:url value="${produce.product.imageURL }"/>"
+											alt="${produce.product.name}">
+									</c:when>
+									<c:otherwise>
+										<img class="rounded-circle"
+											src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+											alt="${produce.product.name}" width="120" height="120">
+									</c:otherwise>
+
+								</c:choose>
 							</div>
 							<div class="col-lg-9 text-left pl-4">
 								<div class="row d-flex justify-content-center">
