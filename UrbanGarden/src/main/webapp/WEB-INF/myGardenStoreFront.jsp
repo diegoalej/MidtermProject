@@ -10,6 +10,7 @@
 </head>
 </head>
 <body>
+	<c:set var="userPage" value="${userPage}"/>
 	<!-- N A V I G A T I O N -->
 	<jsp:include page="includes/navbar.jsp" />
 
@@ -41,21 +42,21 @@
 							<p>
 								<strong>Garden Name: </strong>
 								<c:out
-									value="${sessionScope.user.gardenStoreFront.nameOfGarden }" />
+									value="${userPage.gardenStoreFront.nameOfGarden }" />
 							</p>
 							<p>
 								<strong>Owner: </strong>
-								<c:out value="${sessionScope.user.firstName }" />
-								<c:out value="${sessionScope.user.lastName }" />
+								<c:out value="${userPage.firstName }" />
+								<c:out value="${userPage.lastName }" />
 							</p>
 							<p>
 								<strong>Role: </strong>
-								<c:out value="${sessionScope.user.role }" />
+								<c:out value="${userPage.role }" />
 							</p>
 							<p>
 								<strong>Organic: </strong>
 								<c:choose>
-									<c:when test="${sessionScope.user.gardenStoreFront.organic}">Yes</c:when>
+									<c:when test="${userPage.gardenStoreFront.organic}">Yes</c:when>
 									<c:otherwise>No</c:otherwise>
 								</c:choose>
 							</p>
@@ -67,15 +68,15 @@
 
 					<h2>Description</h2>
 					<p>
-						<c:out value="${sessionScope.user.gardenStoreFront.description }" />
+						<c:out value="${userPage.gardenStoreFront.description }" />
 					</p>
 					<p>
 						<c:out
-							value="${sessionScope.user.gardenStoreFront.address.street }" />
+							value="${userPage.gardenStoreFront.address.street }" />
 						<br>
-						<c:out value="${sessionScope.user.gardenStoreFront.address.city }" />
+						<c:out value="${userPage.gardenStoreFront.address.city }" />
 						<c:out
-							value="${sessionScope.user.gardenStoreFront.address.zipCode }" />
+							value="${userPage.gardenStoreFront.address.zipCode }" />
 					</p>
 				</div>
 			</div>
@@ -105,7 +106,7 @@
 						</div>
 						<!-- THIS WILL HAVE A FOREACH THAT WILL DISPLAY ALL PRODUCTS -->
 						<c:forEach
-							items="${sessionScope.user.gardenStoreFront.gardenProduces}"
+							items="${userPage.gardenStoreFront.gardenProduces}"
 							var="produce">
 							<div class="col-lg-12 text-center pb-2">
 
