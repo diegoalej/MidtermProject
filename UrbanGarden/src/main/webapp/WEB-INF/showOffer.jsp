@@ -70,8 +70,8 @@
 
 										<div class="col-lg-4 justify-content-start pl-4">
 											<p>
-												<a class="btn btn-secondary" href="myGardenStoreFront.do" role="button">Back
-													to all Offers</a>
+												<a class="btn btn-secondary" href="getMyGardenStoreFront.do" role="button" >Back
+													to Garden Store Front</a>
 											</p>
 										</div>
 										<div class="col-lg-4 justify-content-start pl-4">

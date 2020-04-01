@@ -59,20 +59,22 @@
 										</div>
 										<div class="col-lg-12 text-left pb-2">
 											<p>
-												${trade.buyerComment}<strong> -${trade.offer.offered.garden.user.firstName}</strong>
+												${trade.buyerComment}<strong> ${trade.offer.offered.garden.user.firstName}</strong>
 											</p>
 											<p>
-												${trade.sellerComment}<strong> -${trade.offer.desired.garden.user.firstName}</strong>
+												${trade.sellerComment}<strong> ${trade.offer.desired.garden.user.firstName}</strong>
 											</p>
 											
 									</div>
 									<div class="row d-flex justify-content-start">
 
 										<div class="col-lg-4 justify-content-start pl-4">
-											<p>
-												<a class="btn btn-secondary" href="myGardenStoreFront.do" role="button">Back
-													to all Trades</a>
-											</p>
+											<form:form class="form-horizontal needs-validation" action="getMyGardenStoreFront.do">
+												<div class="col-lg-4 justify-content-start pl-4">
+													<input class="form-control" type="hidden" name="id" value="${trade.offer.offered.garden.id}" /> 
+													<input type="submit" value="Back to Garden Store Front" class="btn btn-primary" />
+												</div>
+											</form:form>
 										</div>
 										</div>
 									</div>
