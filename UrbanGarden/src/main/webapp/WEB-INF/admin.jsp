@@ -18,141 +18,93 @@
 	<!-- MAIN BODY -->
 	<!-- MAIN PROFILE  -->
 	<div class="container">
-		<div class="d-flex justify-content-start">
+		<div class="d-flex justify-content-start w-100">
 			<div class="row justify-content-start">
 				<div class="col-12 ">
 					<h1>Site Admin</h1>
 				</div>
 			</div>
 		</div>
-		<div class="row justify-content-start gardenProfile py-5">
-			<div class="col-4 ">
-				<div class="col-lg-12 text-left justify-content-start pt-2">
-
-					<div class="col-lg-12 text-left justify-content-start pt-1 pb-2">
-
-						<img class="rounded-circle"
-							src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-							alt="Generic placeholder image" width="120" height="120">
+		<div class="d-flex justify-content-start ">
+			<div class="row justify-content-start gardenProfile py-3 w-100">
+				<div class="col-lg-12 text-left justify-content-start ">
+					<div class="col-12 text-left ">
+						<h2>You can deactivate users by using buttons below</h2>
 					</div>
-					<div class="col-12 text-left pt-5">
-						<h2>You can deactivate users by using toggle</h2>
-					</div>
-					<div class="col-12 text-left pt-5">
-						<p>
-							<strong>Owner: </strong>
-							<c:out value="${gardenStoreFront.user.firstName }" />
-							<c:out value="${gardenStoreFront.user.lastName }" />
-						</p>
-						<p>
-							<strong>Garden Name: </strong>
-							<c:out
-								value="${gardenStoreFront.nameOfGarden }" />
-						</p>
-						<p>
-							<strong>Organic: </strong>
-							<c:choose>
-								<c:when test="${gardenStoreFront.organic}">Yes</c:when>
-								<c:otherwise>No</c:otherwise>
-							</c:choose>
-						</p>
-					</div>
-
-				</div>
-			</div>
-			<div class="col-lg-4 text-left pt-2 w-100">
-
-				<h2>Description</h2>
-				<p>
-					<c:out value="${gardenStoreFront.description }" />
-				</p>
-				<p>
-					<c:out
-						value="${gardenStoreFront.address.street }" />
-					<br>
-					<c:out value="${gardenStoreFront.address.city }" />
-					<c:out
-						value="${gardenStoreFront.address.zipCode }" />
-				</p>
-			</div>
-		</div>
-	</div>
-	<div class="row spacer1">
-		<div class="span4"></div>
-	</div>
-	<!-- PRODUCT AND OFFER TOGGLE -->
-	<div class="container gardenDetails " id="gardenDetails">
-		<div class="container">
-			<div class="row d-flex justify-content-around">
-				<div class="col-lg-12 text-left pb-1 pt-1">
-					<h2>Products Available</h2>
-				</div>
-				<!-- THIS WILL HAVE A FOREACH THAT WILL DISPLAY ALL PRODUCTS -->
-				<c:forEach
-					items="${gardenStoreFront.gardenProduces}"
-					var="produce">
-					<div class="col-lg-12 text-center pb-2">
-
-						<div class="row d-flex justify-content-start">
-							<div class="col-lg-3 text-center pt-2">
-
-								<img class="rounded-circle"
-									src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-									alt="Generic placeholder image" width="120" height="120">
-							</div>
-							<div class="col-lg-9 text-left pl-4">
-								<div class="row d-flex justify-content-center">
-
-									<div class="col-lg-12 justify-content-center pl-4">
-										<h2>
-											<c:out value="${produce.product.name}" />
-										</h2>
-										<p>
-											Type:
-											<c:out value="${ produce.product.type}" />
-										</p>
-										<p>
-											Amount:
-											<c:out value="${ produce.amount}" />
-										</p>
-										<p>
-											Harvest:
-											<c:out value="${ produce.harvested}" />
-										</p>
-										<p>
-											Available:
-											<c:out value="${ produce.dateAvailable}" />
-										</p>
-										<p>
-											Expires:
-											<c:out value="${ produce.expires}" />
-										</p>
-										<p>
-											Size:
-											<c:out value="${ produce.product.sizeOfProduct}" />
-										</p>
-										<p>
-											Description:
-											<c:out value="${ produce.product.description}" />
-										</p>
+					<div class="col-12 text-left">
+						<div class="row justify-content-start gardenProfile ">
+							<div class="col-12 text-left pb-5">
+									<h4>User First and Last Name </h4>
+									<%-- <c:out value="gardenStoreFront.user.firstName" />
+									<c:out value="gardenStoreFront.user.lastName" /> --%>
+								<p>
+									<strong>Role: </strong>
+									<c:out value="gardener" />
+								<br>
+									<strong>Garden Name: </strong>
+									<c:out value="gardenStoreFront.nameOfGarden" />
+								</p>
+								<form:form action="login.do" method="GET">
+									<div class="custom-control custom-switch pb-2">
+										<div class="form-check">
+											<input class="form-check-input" type="radio"
+												name="exampleRadios" id="exampleRadios1" value="option1"
+												checked> <label class="form-check-label"
+												for="exampleRadios1"> Active </label>
+										</div>
+										<div class="form-check pb-1">
+											<input class="form-check-input" type="radio"
+												name="exampleRadios" id="exampleRadios2" value="option2">
+											<label class="form-check-label" for="exampleRadios2">
+												Inactive </label> 
+										</div>
 									</div>
-								</div>
-								<div class="row d-flex justify-content-start">
-
-									<div class="col-lg-4 justify-content-start pl-4">
-										<p>
-											<a class="btn btn-secondary" href="#" role="button">Place
-												offer</a>
-										</p>
-									</div>
-								</div>
+										<input type="submit"
+												value="Change" class="btn float-left">
+								</form:form>
 							</div>
 						</div>
 					</div>
-				</c:forEach>
+					<div class="col-12 text-left">
+						<div class="row justify-content-start gardenProfile ">
+							<div class="col-12 text-left ">
+									<h4>User First and Last Name </h4>
+									<%-- <c:out value="gardenStoreFront.user.firstName" />
+									<c:out value="gardenStoreFront.user.lastName" /> --%>
+								<p>
+									<strong>Role: </strong>
+									<c:out value="gardener" />
+								<br>
+									<strong>Garden Name: </strong>
+									<c:out value="gardenStoreFront.nameOfGarden" />
+								</p>
+								<form:form action="login.do" method="GET">
+									<div class="custom-control custom-switch pb-2">
+										<div class="form-check">
+											<input class="form-check-input" type="radio"
+												name="exampleRadios" id="exampleRadios1" value="option1"
+												checked> <label class="form-check-label"
+												for="exampleRadios1"> Active </label>
+										</div>
+										<div class="form-check pb-1">
+											<input class="form-check-input" type="radio"
+												name="exampleRadios" id="exampleRadios2" value="option2">
+											<label class="form-check-label" for="exampleRadios2">
+												Inactive </label> 
+										</div>
+									</div>
+										<input type="submit"
+												value="Change" class="btn float-left">
+								</form:form>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
+	<!-- PRODUCT AND OFFER TOGGLE -->
+
 	<div class="row spacer">
 		<div class="span4"></div>
 	</div>
