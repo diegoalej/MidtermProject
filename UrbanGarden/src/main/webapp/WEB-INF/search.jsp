@@ -107,24 +107,27 @@
 				<div class="row d-flex justify-content-start">
 
 					<div class="col-lg-4 justify-content-start py-2">
-						<p>
-							<a class="btn btn-secondary" href="#" role="button">View
-								Garden</a>
-						</p>
+						<form:form action="getGardenStoreFront.do" method="GET" class="form">
+							<input type="hidden" value="1" id="1" name="id">
+						
+								<input type="submit"
+												value="View Garden" class="btn btn-primary" />
+						</form:form>
+						
 					</div>
 				</div>
 			</div>
 
 		</div>
-				<div class="container gardenPageTrade">
+		<div class="container gardenPageTrade">
 			<div class="row d-flex justify-content-center">
 				<div class="col-lg-12 text-left pb-1">
 					<h3>Steve's Garden</h3>
 				</div>
 				<div class="col-lg-12 justify-content-center pl-4">
 					<p>Description: Donec sed odio dui. Cras justo odio, dapibus ac
-						facilisis in, egestas eget quam.Donec sed odio dui. Cras justo odio, dapibus ac
-						facilisis in, egestas eget quam.</p>
+						facilisis in, egestas eget quam.Donec sed odio dui. Cras justo
+						odio, dapibus ac facilisis in, egestas eget quam.</p>
 				</div>
 				<div class="col-lg-12 justify-content-center pl-4">
 					<div class="row d-flex justify-content-center">
