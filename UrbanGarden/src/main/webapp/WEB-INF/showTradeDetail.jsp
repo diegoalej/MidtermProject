@@ -69,12 +69,10 @@
 									<div class="row d-flex justify-content-start">
 
 										<div class="col-lg-4 justify-content-start pl-4">
-											<form:form class="form-horizontal needs-validation" action="getMyGardenStoreFront.do">
-												<div class="col-lg-4 justify-content-start pl-4">
-													<input class="form-control" type="hidden" name="id" value="${trade.offer.offered.garden.id}" /> 
-													<input type="submit" value="Back to Garden Store Front" class="btn btn-primary" />
-												</div>
-											</form:form>
+											<p>
+												<a class="btn btn-secondary" href="homePage.do" role="button" >Back
+													to Garden Store Front</a>
+											</p>
 										</div>
 										</div>
 									</div>
