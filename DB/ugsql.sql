@@ -250,6 +250,8 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 START TRANSACTION;
 USE `urbangardendb`;
 INSERT INTO `user` (`id`, `first_name`, `last_name`, `username`, `password`, `enabled`, `role`, `phone_number`, `image_url`, `address_id`) VALUES (1, 'JJ', 'Smith', 'jjsmith', 'jjsmithpassword', 1, 'admin', NULL, NULL, NULL);
+INSERT INTO `user` (`id`, `first_name`, `last_name`, `username`, `password`, `enabled`, `role`, `phone_number`, `image_url`, `address_id`) VALUES (2, 'Luke', 'Lucky', 'lulu', 'different', 1, 'gardener', NULL, NULL, NULL);
+INSERT INTO `user` (`id`, `first_name`, `last_name`, `username`, `password`, `enabled`, `role`, `phone_number`, `image_url`, `address_id`) VALUES (3, 'Diego', 'AxeSmasher', 'daxe', 'something', 1, 'gardener', NULL, NULL, NULL);
 
 COMMIT;
 
@@ -260,6 +262,8 @@ COMMIT;
 START TRANSACTION;
 USE `urbangardendb`;
 INSERT INTO `address` (`id`, `street`, `street2`, `zip_code`, `city`, `state`, `country`) VALUES (1, '2345 Random Street', NULL, 80111, 'Denver', 'Colorado', 'United States');
+INSERT INTO `address` (`id`, `street`, `street2`, `zip_code`, `city`, `state`, `country`) VALUES (2, '98981 Serenity Village Road', NULL, 80211, 'Denver', 'Colorado', 'United States');
+INSERT INTO `address` (`id`, `street`, `street2`, `zip_code`, `city`, `state`, `country`) VALUES (3, '4102 High Mountain Drive', NULL, 80211, 'Denver', 'Colorado', 'United States');
 
 COMMIT;
 
@@ -269,7 +273,9 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `urbangardendb`;
-INSERT INTO `garden_store_front` (`id`, `size`, `organic`, `name_of_garden`, `user_id`, `active`, `description`, `fk_garden_address_id`, `garden_url`) VALUES (1, 100, 1, 'Marge\'s Place', 1, DEFAULT, 'The best tomatoes you\'ve ever had. Also, I have honey.', 1, NULL);
+INSERT INTO `garden_store_front` (`id`, `size`, `organic`, `name_of_garden`, `user_id`, `active`, `description`, `fk_garden_address_id`, `garden_url`) VALUES (1, 100, 1, 'Marge\'s Place', 1, 1, 'The best tomatoes you\'ve ever had. Also, I have honey.', 1, NULL);
+INSERT INTO `garden_store_front` (`id`, `size`, `organic`, `name_of_garden`, `user_id`, `active`, `description`, `fk_garden_address_id`, `garden_url`) VALUES (2, 750, 0, 'Lucky Luke\'s', 2, 1, 'A variety of nature provided goodness. Fill your body, nurish your soul', 2, NULL);
+INSERT INTO `garden_store_front` (`id`, `size`, `organic`, `name_of_garden`, `user_id`, `active`, `description`, `fk_garden_address_id`, `garden_url`) VALUES (3, 1299, 1, 'Backcountry Produce', 3, 1, 'Hardy plants grown strong by a backcountry environment', 3, NULL);
 
 COMMIT;
 
@@ -343,6 +349,14 @@ INSERT INTO `garden_produce` (`id`, `garden_id`, `produce_id`, `amount`, `active
 INSERT INTO `garden_produce` (`id`, `garden_id`, `produce_id`, `amount`, `active`, `date_expected_available`, `date_harvested`, `date_expires`) VALUES (6, 1, 6, 1, 1, '2020-09-30', '2020-10-01', '2020-11-01');
 INSERT INTO `garden_produce` (`id`, `garden_id`, `produce_id`, `amount`, `active`, `date_expected_available`, `date_harvested`, `date_expires`) VALUES (7, 1, 7, 1, 1, '2020-09-30', '2020-10-01', '2020-11-01');
 INSERT INTO `garden_produce` (`id`, `garden_id`, `produce_id`, `amount`, `active`, `date_expected_available`, `date_harvested`, `date_expires`) VALUES (8, 1, 8, 1, 1, '2020-09-30', '2020-10-01', '2020-11-01');
+INSERT INTO `garden_produce` (`id`, `garden_id`, `produce_id`, `amount`, `active`, `date_expected_available`, `date_harvested`, `date_expires`) VALUES (9, 2, 21, 5, 1, '2020-09-30', '2020-10-01', '2020-11-01');
+INSERT INTO `garden_produce` (`id`, `garden_id`, `produce_id`, `amount`, `active`, `date_expected_available`, `date_harvested`, `date_expires`) VALUES (10, 2, 17, 9, 1, '2020-09-30', '2020-10-01', '2020-11-01');
+INSERT INTO `garden_produce` (`id`, `garden_id`, `produce_id`, `amount`, `active`, `date_expected_available`, `date_harvested`, `date_expires`) VALUES (11, 2, 35, 12, 1, '2020-09-30', '2020-10-01', '2020-11-01');
+INSERT INTO `garden_produce` (`id`, `garden_id`, `produce_id`, `amount`, `active`, `date_expected_available`, `date_harvested`, `date_expires`) VALUES (12, 2, 12, 10, 1, '2020-09-30', '2020-10-01', '2020-11-01');
+INSERT INTO `garden_produce` (`id`, `garden_id`, `produce_id`, `amount`, `active`, `date_expected_available`, `date_harvested`, `date_expires`) VALUES (13, 3, 10, 25, 1, '2020-09-30', '2020-10-01', '2020-11-01');
+INSERT INTO `garden_produce` (`id`, `garden_id`, `produce_id`, `amount`, `active`, `date_expected_available`, `date_harvested`, `date_expires`) VALUES (14, 3, 11, 15, 1, '2020-09-30', '2020-10-01', '2020-11-01');
+INSERT INTO `garden_produce` (`id`, `garden_id`, `produce_id`, `amount`, `active`, `date_expected_available`, `date_harvested`, `date_expires`) VALUES (15, 3, 40, 19, 1, '2020-09-30', '2020-10-01', '2020-11-01');
+INSERT INTO `garden_produce` (`id`, `garden_id`, `produce_id`, `amount`, `active`, `date_expected_available`, `date_harvested`, `date_expires`) VALUES (16, 3, 46, 40, DEFAULT, '2020-09-30', '2020-10-01', '2020-11-01');
 
 COMMIT;
 
