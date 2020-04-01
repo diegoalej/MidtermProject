@@ -25,6 +25,7 @@ public class SearchController {
 	public String searchPage(HttpSession session) {
 		return "search";
 	}
+
 	@RequestMapping(path = "searchByZip.do", method = RequestMethod.POST)
 	public String searchByZip(int zip, HttpSession session) {
 		List<GardenStoreFront> gsfResults = gsfDAO.searchByZip(zip);
