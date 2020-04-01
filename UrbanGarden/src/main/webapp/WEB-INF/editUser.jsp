@@ -33,8 +33,7 @@
 		<div class="container">
 			<div class="row py-2">
 				<div class="col-sm-12">
-					<form:form class="form-horizontal needs-validation" action="editUser.do" 
-								method="POST" modelAttribute="user">
+					<form:form class="form-horizontal needs-validation" action="editUser.do" method="POST" modelAttribute="user">
 						<div class="form-group">
 							<label> First name </label> 
 							<input class="form-control"
@@ -55,8 +54,7 @@
 							<br> 
 							<label for="role"> What is your role? </label>
 							<select name="role" id="role">
-								<option value="${sessionScope.user.role}" 
-										selected >Maintain Current Role</option>
+								<option value="${sessionScope.user.role}" selected >Maintain Current Role</option>
 								<option value="user">User</option>
 								<option value="gardener">Gardener</option>
 								<option value="admin">Admin</option>
@@ -73,15 +71,16 @@
 								</div>
 							</div>
 							<br> 
-							<input class="form-control" type="hidden"
-								name="enabled" value="true" /> 
-							<input class="form-control" type="hidden"
-								name="id" value="${sessionScope.user.id}" /> 
-							<input type="submit"
-								value="Update" class="btn btn-primary" />
+							<input class="form-control" type="hidden" name="enabled" value="true" /> 
+							<input class="form-control" type="hidden" name="id" value="${sessionScope.user.id}" /> 
+							<input type="submit" value="Update" class="btn btn-primary" />
 						</div>
 					</form:form>
 				</div>
+				<form:form class="form-horizontal needs-validation" action="deleteUser.do" method="POST" modelAttribute="user">
+					<input class="form-control" type="hidden" name="id" value="${sessionScope.user.id}" />
+					<input type="submit" value="Delete User" class="btn btn-primary"/>
+				</form:form>
 			</div>
 		</div>
 	</div>

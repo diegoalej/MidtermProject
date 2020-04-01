@@ -46,7 +46,7 @@ public class UserController {
 	
 	@RequestMapping(path = "deleteUser.do", method = RequestMethod.POST, params="id")
 	public String deleteUser(@RequestParam Integer id, Model model) {
-		String view = "deleteUser";
+		String view = "index";
 		boolean deleted = dao.delete(id);
 		model.addAttribute("delete", deleted);
 		model.addAttribute("id", id);
