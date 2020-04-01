@@ -75,21 +75,48 @@
 			<div class="container gardenPageTrade">
 				<div class="row d-flex justify-content-center">
 					<div class="col-lg-12 text-left pb-1">
-						<h3><c:out value="${gardenStore.user.firstName}'s Garden"/></h3>
-						<h3><c:out value="${gardenStore.nameOfGarden}"/></h3>
-						<h4><c:out value="${gardenStore.address.street}"/></h4>
-						<h4><c:out value="${gardenStore.address.city}, ${gardenStore.address.state} ${gardenStore.address.zipCode}"/></h4>
+						<h3>
+							<c:out value="${gardenStore.user.firstName}'s Garden" />
+						</h3>
+						<h3>
+							<c:out value="${gardenStore.nameOfGarden}" />
+						</h3>
+						<h4>
+							<c:out value="${gardenStore.address.street}" />
+						</h4>
+						<h4>
+							<c:out
+								value="${gardenStore.address.city}, ${gardenStore.address.state} ${gardenStore.address.zipCode}" />
+						</h4>
 					</div>
 					<div class="col-lg-12 justify-content-center pl-4">
-						<p>Description: <c:out value="${gardenStore.description}"/></p>
+						<p>
+							Description:
+							<c:out value="${gardenStore.description}" />
+						</p>
 					</div>
 					<div class="col-lg-12 justify-content-center pl-4">
 						<div class="row d-flex justify-content-center">
-							<c:forEach items="${gardenStore.gardenProduces}" var="produce" begin="0" end="5">
-							<div class="col-lg-2 justify-content-center pl-4">
-								<h4><img src="<c:url value="${produce.product.imageURL }"/>"/></h4>
+							<c:forEach items="${gardenStore.gardenProduces}" var="produce"
+								begin="0" end="5">
+								<div class="col-lg-2 justify-content-center pl-4">
+									<h4>
+										<c:choose>
+											<c:when test="${not empty produce.product.imageURL}">
+												<img class="rounded-circle" width="120" height="120"
+													src="<c:url value="${produce.product.imageURL }"/>"
+													alt="${produce.product.name}">
+											</c:when>
+											<c:otherwise>
+												<img class="rounded-circle"
+													src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+													alt="${produce.product.name}" width="120" height="120">
+											</c:otherwise>
 
-							</div>
+										</c:choose>
+									</h4>
+
+								</div>
 							</c:forEach>
 						</div>
 					</div>
@@ -110,7 +137,7 @@
 
 			</div>
 		</c:forEach>
-		
+
 	</div>
 	<div class="row spacer">
 		<div class="span4"></div>

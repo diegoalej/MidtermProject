@@ -112,9 +112,19 @@
 								<div class="row d-flex justify-content-start">
 									<div class="col-lg-3 text-center pt-2">
 
-										<img class="rounded-circle"
-											src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-											alt="Generic placeholder image" width="120" height="120">
+										<c:choose>
+											<c:when test="${not empty produce.product.imageURL}">
+												<img class="rounded-circle" width="120" height="120"
+													src="<c:url value="${produce.product.imageURL }"/>"
+													alt="${produce.product.name}">
+											</c:when>
+											<c:otherwise>
+												<img class="rounded-circle"
+													src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+													alt="${produce.product.name}" width="120" height="120">
+											</c:otherwise>
+
+										</c:choose>
 									</div>
 									<div class="col-lg-9 text-left pl-4">
 										<div class="row d-flex justify-content-center">
