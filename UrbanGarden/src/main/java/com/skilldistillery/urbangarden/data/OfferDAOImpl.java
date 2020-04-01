@@ -48,6 +48,13 @@ public class OfferDAOImpl implements OfferDAO {
 	}
 
 	@Override
+	public Offer deactivate(int id) {
+		Offer managedOffer = em.find(Offer.class, id);
+		managedOffer.setAccepeted(false);
+		return managedOffer;
+	}
+
+	@Override
 	public boolean delete(int id) {
 		Offer managedOffer = em.find(Offer.class, id);
 		if (managedOffer != null) {

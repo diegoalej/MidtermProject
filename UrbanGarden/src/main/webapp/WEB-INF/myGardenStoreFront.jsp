@@ -194,7 +194,7 @@
 					<div class="container">
 						<div class="row d-flex justify-content-center">
 							<div class="col-lg-12 text-left pb-1 pt-3">
-								<h2>Trades/Purchases</h2>
+								<h2>Offers</h2>
 							</div>
 							<div class="col-lg-12 text-left pb-1">
 								<h3>Trade 1234</h3>
@@ -259,7 +259,7 @@
 					<div class="container">
 						<div class="row d-flex justify-content-center">
 							<div class="col-lg-12 text-left pb-1 pt-3">
-								<h2>Trades/Purchases</h2>
+								<h2>Trades</h2>
 							</div>
 							<div class="col-lg-12 text-left pb-1">
 								<h3>Trade 1234</h3>
