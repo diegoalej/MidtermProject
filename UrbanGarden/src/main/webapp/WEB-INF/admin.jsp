@@ -33,59 +33,68 @@
 					</div>
 					<div class="col-12 text-left">
 						<div class="row justify-content-start gardenProfile ">
-							<c:forEach items="${users}" var="user">
+							<c:forEach items="${users}" var="users">
 								<div class="col-12 text-left pb-5">
-									<h4>${user.firstName} ${user.lastName}</h4>
+									<h4>${users.firstName}&nbsp;${users.lastName}</h4>
 									<%-- <c:out value="gardenStoreFront.user.firstName" />
 									<c:out value="gardenStoreFront.user.lastName" /> --%>
 									<p>
 										<strong>Role: </strong>
 										<c:out value="gardener" />
 										<br> <strong>Garden Name: </strong>
-										<c:out value="${user.gardenStoreFront.nameOfGarden }" />
+										<c:out value="${users.gardenStoreFront.nameOfGarden }" />
+										<br> 
+										<c:choose>
+										<c:when test="${users.enabled == true}"><strong>Status: </strong>
+										<c:out value="Enabled" />
+										</c:when>
+										<c:when test="${users.enabled == false}"><strong>Status: </strong>
+										<c:out value="Disabled" />
+										</c:when>
+										</c:choose>
 									</p>
-									<form:form action="changeUser.do" method="GET">
-										<div class="custom-control custom-switch pb-2">
-											<c:choose>
-												<c:when test="${user.enabled == true}">
+									<c:choose>
+										<c:when test="${users.enabled == true}">
+											<form:form action="disableUser.do" method="POST">
+												<div class="custom-control custom-switch pb-2">
 													<div class="form-check">
-														<input class="form-check-input" type="radio"
-															name="exampleRadios" id="exampleRadios1" value="true"
-															checked> <label class="form-check-label"
-															for="exampleRadios1"> Active </label>
-													</div>
-													<div class="form-check pb-1">
-														<input class="form-check-input" type="radio"
-															name="exampleRadios" id="exampleRadios2" value="false">
-														<label class="form-check-label" for="exampleRadios2">
-															Inactive </label>
-													</div>
-												</c:when>
 
-												<c:otherwise>
+														<input type="hidden" value="${users.id }" name="id"
+															class="btn float-left"> <input type="submit"
+															value="Disable" class="btn float-left">
+													</div>
+												</div>
+											</form:form>
+										</c:when>
+										<c:when test="${users.enabled == false}">
+											<form:form action="enableUser.do" method="POST">
+												<div class="custom-control custom-switch pb-2">
 													<div class="form-check">
-														<input class="form-check-input" type="radio"
-															name="exampleRadios" id="exampleRadios1" value="true">
-														<label class="form-check-label" for="exampleRadios1">
-															Active </label>
-													</div>
-													<div class="form-check pb-1">
-														<input class="form-check-input" type="radio"
-															name="exampleRadios" id="exampleRadios2" value="false"
-															checked> <label class="form-check-label"
-															for="exampleRadios2"> Inactive </label>
-													</div>
-												</c:otherwise>
-											</c:choose>
 
-										</div>
-										
-										<input type="hidden" value="${user.id }" name="id" class="btn float-left">
-										<input type="submit" value="Change" class="btn float-left">
-									</form:form>
+														<input type="hidden" value="${users.id }" name="id"
+															class="btn float-left"> <input type="submit"
+															value="Enable" class="btn float-left">
+													</div>
+												</div>
+											</form:form>
+
+										</c:when>
+									</c:choose>
+
+
 								</div>
 							</c:forEach>
 						</div>
+						<form:form action="homePage.do" method="GET">
+							<div class="custom-control custom-switch pb-2">
+								<div class="form-check">
+
+									<%-- <input type="hidden" value="${user.id }" name="id"
+										class="btn float-left"> --%> <input type="submit"
+										value="My Garden" class="btn float-left">
+								</div>
+							</div>
+						</form:form>
 					</div>
 				</div>
 			</div>

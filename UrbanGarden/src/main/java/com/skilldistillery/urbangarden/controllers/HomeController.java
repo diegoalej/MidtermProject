@@ -1,5 +1,7 @@
 package com.skilldistillery.urbangarden.controllers;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,21 +25,27 @@ public class HomeController {
 	public String home() {
 		return "index";
 	}
-	
 
 	@RequestMapping(path = "login.do", method = RequestMethod.POST)
 	public String login(User userLogin, Model model, HttpSession session) {
 		User user = dao.login(userLogin);
 		if (user != null) {
 			session.setAttribute("userSession", user);
-			model.addAttribute("user", user);
-			return "myGardenStoreFront";
+			if (user.getRole().equals("admin")) {
+				List<User> allUsers = dao.findAll();		
+				model.addAttribute("user", user);
+				model.addAttribute("users", allUsers);
+				return "admin";
+			} else {
+				model.addAttribute("user", user);
+				return "myGardenStoreFront";
+			}
 		} else {
 			return "index";
 		}
 
 	}
-	
+
 	@RequestMapping(path = "homePage.do", method = RequestMethod.GET)
 	public String homePage(Model model, HttpSession session) {
 		model.addAttribute("user", dao.findById(((User) session.getAttribute("userSession")).getId()));
