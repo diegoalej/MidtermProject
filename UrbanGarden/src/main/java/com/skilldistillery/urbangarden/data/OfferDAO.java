@@ -11,4 +11,5 @@ public interface OfferDAO {
 	Offer create(Offer offer);
 	Offer update(int id, Offer offer);
 	boolean delete(int id);
+	Offer deactivate(int id);
 }
