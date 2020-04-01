@@ -25,7 +25,7 @@ public class SearchController {
 	public String searchPage(HttpSession session) {
 		return "search";
 	}
-	@RequestMapping(path = "searchByZip", method = RequestMethod.POST)
+	@RequestMapping(path = "searchByZip.do", method = RequestMethod.POST)
 	public String searchByZip(int zip, HttpSession session) {
 		List<GardenStoreFront> gsfResults = gsfDAO.searchByZip(zip);
 		session.removeAttribute("gsfResults");
@@ -34,7 +34,7 @@ public class SearchController {
 		return "#######";
 	}
 
-	@RequestMapping(path = "searchByKeyword", method = RequestMethod.POST)
+	@RequestMapping(path = "searchByKeyword.do", method = RequestMethod.POST)
 	public String searchByKeyword(String keyword, HttpSession session) {
 		List<GardenStoreFront> gsfResults = gsfDAO.searchByKeyword(keyword);
 		session.removeAttribute("gsfResults");
@@ -42,7 +42,7 @@ public class SearchController {
 		return "#######";
 	}
 
-	@RequestMapping(path = "searchByProduct", method = RequestMethod.POST)
+	@RequestMapping(path = "searchByProduct.do", method = RequestMethod.POST)
 	public String searchByProduct(String farm, HttpSession session) {
 		List<GardenStoreFront> gsfResults = gsfDAO.searchByFarm(farm);
 		session.removeAttribute("gsfResults");

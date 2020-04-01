@@ -12,6 +12,7 @@
 </head>
 </head>
 <body>
+	<c:set var="userPage" value="${userPage}"/>
 	<!-- N A V I G A T I O N -->
 	<jsp:include page="includes/navbar.jsp" />
 
@@ -32,7 +33,39 @@
 			<div class="col-4 ">
 				<div class="col-lg-12 text-left justify-content-start pt-2">
 
+<<<<<<< HEAD
+						<div class="col-lg-12 text-left justify-content-start pt-2">
+
+							<img class="rounded-circle"
+								src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+								alt="Generic placeholder image" width="120" height="120">
+						</div>
+						<div class="col-12 text-left py-3">
+							<p>
+								<strong>Garden Name: </strong>
+								<c:out
+									value="${userPage.gardenStoreFront.nameOfGarden }" />
+							</p>
+							<p>
+								<strong>Owner: </strong>
+								<c:out value="${userPage.firstName }" />
+								<c:out value="${userPage.lastName }" />
+							</p>
+							<p>
+								<strong>Role: </strong>
+								<c:out value="${userPage.role }" />
+							</p>
+							<p>
+								<strong>Organic: </strong>
+								<c:choose>
+									<c:when test="${userPage.gardenStoreFront.organic}">Yes</c:when>
+									<c:otherwise>No</c:otherwise>
+								</c:choose>
+							</p>
+						</div>
+=======
 					<div class="col-lg-12 text-left justify-content-start pt-1 pb-2">
+>>>>>>> c3f1928deae3aefa71bb0197915a559bd5009a1d
 
 						<img class="rounded-circle"
 							src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
@@ -62,6 +95,21 @@
 						</p>
 					</div>
 
+<<<<<<< HEAD
+					<h2>Description</h2>
+					<p>
+						<c:out value="${userPage.gardenStoreFront.description }" />
+					</p>
+					<p>
+						<c:out
+							value="${userPage.gardenStoreFront.address.street }" />
+						<br>
+						<c:out value="${userPage.gardenStoreFront.address.city }" />
+						<c:out
+							value="${userPage.gardenStoreFront.address.zipCode }" />
+					</p>
+=======
+>>>>>>> c3f1928deae3aefa71bb0197915a559bd5009a1d
 				</div>
 			</div>
 			<div class="col-lg-4 text-left pt-2 w-100">
@@ -108,7 +156,7 @@
 						</div>
 						<!-- THIS WILL HAVE A FOREACH THAT WILL DISPLAY ALL PRODUCTS -->
 						<c:forEach
-							items="${sessionScope.user.gardenStoreFront.gardenProduces}"
+							items="${userPage.gardenStoreFront.gardenProduces}"
 							var="produce">
 							<div class="col-lg-12 text-center pb-2">
 
