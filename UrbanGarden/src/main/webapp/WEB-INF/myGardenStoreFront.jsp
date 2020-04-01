@@ -10,6 +10,7 @@
 </head>
 </head>
 <body>
+
 	<!-- N A V I G A T I O N -->
 	<jsp:include page="includes/navbar.jsp" />
 
