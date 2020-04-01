@@ -41,9 +41,10 @@ public class TradeController {
 	}
 
 	@RequestMapping(path = "showTrade.do")
-	public String showTrade(Model model, HttpSession session) {
-		//Needs to populate SessionData for trades. 
+	public String showTrade(@RequestParam Integer id, Model model, HttpSession session) {
 		String view = "showTradeDetail";
+		Trade trade = dao.findById(id);
+		model.addAttribute("trade", trade);
 		return view;
 	}
 }

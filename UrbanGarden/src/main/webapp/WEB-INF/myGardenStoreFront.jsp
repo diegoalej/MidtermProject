@@ -1,6 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -241,6 +241,12 @@
 									egestas eget quam.<strong> Nancy</strong> April 23 2020 time ?
 								</p>
 							</div>
+							<form:form class="form-horizontal needs-validation" action="showOffer.do" modelAttribute="offer" >
+								<div class="col-lg-4 justify-content-start pl-4">
+									<input class="form-control" type="hidden" name="id" value="1" /> 
+									<input type="submit" value="View Details" class="btn btn-primary" />
+								</div>
+							</form:form>
 						</div>
 					</div>
 
@@ -282,6 +288,12 @@
 									egestas eget quam.<strong> Nancy</strong>
 								</p>
 							</div>
+							<form:form class="form-horizontal needs-validation" action="showTrade.do" modelAttribute="trade" >
+								<div class="col-lg-4 justify-content-start pl-4">
+									<input class="form-control" type="hidden" name="id" value="1" /> 
+									<input type="submit" value="View Details" class="btn btn-primary" />
+								</div>
+							</form:form>
 						</div>
 					</div>
 
