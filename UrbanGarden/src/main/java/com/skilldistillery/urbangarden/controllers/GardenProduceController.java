@@ -28,14 +28,15 @@ public class GardenProduceController {
 	public String addGardenProduce( Model model, GardenProduce gardenProduce) {
 		String view = "addGardenProduce";
 		model.addAttribute("gardenProduce", gardenProduce);
-		return view;
+		return "redirect:addGardenProduce.do"; //Will redirect if time allots for new JSP
 	}
 	
 	@RequestMapping(path = "addGardenProduce.do", method = RequestMethod.POST)
 	public String postGardenProduce(Model model, GardenProduce gardenProduce) {
 		String view = "gardenProducePost";
+		System.out.println("@@@@@@@@@@@@@@@@@@@YOU MDADE IT HERE @@@@@@@@@@@@@@@@@@@@@@@");
 		dao.create(gardenProduce);
-		return view;
+		return "redirect:homePage.do";
 	}
 	
 	@RequestMapping(path = "deleteGardenProduce.do", method = RequestMethod.POST, params="id")

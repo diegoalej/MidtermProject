@@ -81,7 +81,7 @@ public class GardenStoreFrontController {
 		System.out.println((User) session.getAttribute("userSession"));
 		gardenStoreFront.setAddress(gardenStoreFront.getAddress());
 		session.setAttribute("gardenStoreFront", dao.update(gardenStoreFront));
-		session.removeAttribute("userSession");
+		session.removeAttribute("userSession");// Probably don't need this
 		session.setAttribute("userSession", gardenStoreFront.getUser());
 		System.out.println((User) session.getAttribute("userSession"));
 //		redir.addFlashAttribute("user", gardenStoreFront.getUser());

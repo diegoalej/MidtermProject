@@ -37,14 +37,15 @@
 						<div class="form-group">
 							<label> Product </label>
 							<br> 
-							<select name="action" id="action">
-								<option value="1">Name of first Product</option>
-								<option value="2">2</option>
+							<select name="product" id="product">
+								<c:forEach var="productName" items="${listAllProducts}">
+								<option value="${productName}">${productName.name}</option>
+								</c:forEach>
 							</select>
 							<br> 
 							<br> 
 							<label> Amount </label> 
-							<input class="form-control" type="number" name="amount"/> 
+							<input class="form-control" type="number" name="amount" required="required"/> 
 							<br> 
 							<label>Date Expected</label>
 							<input class="form-control" type="date" name="dateAvailable"/> 
@@ -56,9 +57,10 @@
 							<input class="form-control" type="date" name="dateExpires"/> 
 							<br> 
 							<br> 
-							<input class="form-control" type="hidden" name="active"
-								value="true" /> <input type="submit" value="Add"
-								class="btn btn-primary" />
+							<input class="form-control" type="hidden" name="active" value="true" /> 
+							<input class="form-control" type="hidden" name="garden" value="${gardenStoreFront}"/>
+							<%-- <input class="form-control" type="hidden" name="product" value="${productName}"/> --%>
+							<input type="submit" value="Add" class="btn btn-primary" />
 						</div>
 					</form:form>
 				</div>
