@@ -13,6 +13,11 @@
 			<li class="nav-item"><a class="nav-link" href="myGardenStoreFront.do">Offers/Trades</a></li>
 			<li class="nav-item"><a class="nav-link" href="editUser.do">Profile</a></li>
 			<li class="nav-item"><a class="nav-link" href="search.do">Search</a></li>
+			<c:choose>
+				<c:when test="${not empty sessionScope.userSession}">
+					<li class="nav-item"><a class="nav-link" href="logout.do">Logout</a></li>
+				</c:when>
+			</c:choose>
 		</ul>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarSupportedContent"
