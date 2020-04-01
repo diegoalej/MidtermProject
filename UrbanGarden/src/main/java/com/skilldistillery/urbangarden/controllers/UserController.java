@@ -23,12 +23,7 @@ public class UserController {
 		model.addAttribute("user", user);
 		return view;
 	}
-	//MINE
-//	@RequestMapping(path = "addUser.do", method = RequestMethod.GET)
-//	public String addUser( Model model) {
-//		String view = "addUser";
-//		return view;
-//	}
+
 	
 	@RequestMapping(path = "addUser.do", method = RequestMethod.GET)
 	public String addUser(User user, Model model) {
