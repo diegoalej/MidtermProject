@@ -16,5 +16,7 @@ public interface UserDAO {
 	User login(User user);
 	User update(int id, User user);
 //	List<GardenStoreFront> otherGardenStoreFronts(User user);
+	User deactivate(int id);
+	User activate(int id);
 	
 }
