@@ -15,50 +15,50 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="garden_store_front")
+@Table(name = "garden_store_front")
 public class GardenStoreFront {
-	
+
 	//
-	//Fields begin
+	// Fields begin
 	//
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	private double size;
-	
+
 	private boolean organic;
-	
+
 	@Column(name = "name_of_garden")
 	private String nameOfGarden;
-	
-	//THIS IS S FOREIGN KEY AND NEEDS TO BE MAPPED
+
+	// THIS IS S FOREIGN KEY AND NEEDS TO BE MAPPED
 	@OneToOne
 	@JoinColumn(name = "user_id")
 	private User user;
-	
+
 	private boolean active;
-	
+
 	private String description;
-	
-	//THIS IS A FOREIGN KEY AND NEEDS TO BE MAPPED
-	@OneToOne(cascade =  CascadeType.PERSIST)
+
+	// THIS IS A FOREIGN KEY AND NEEDS TO BE MAPPED
+	@OneToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "fk_garden_address_id")
 	private Address address;
-	
+
 	@Column(name = "garden_url")
 	private String gardenURL;
 
-	
 	@OneToMany(mappedBy = "garden")
 	private List<GardenProduce> gardenProduces;
-	
+
 	//
-	//Methods begin
+	// Methods begin
 	//
-	
-	public GardenStoreFront() {}
+
+	public GardenStoreFront() {
+	}
 
 	public int getId() {
 		return id;
@@ -131,19 +131,20 @@ public class GardenStoreFront {
 	public void setGardenProduces(List<GardenProduce> gardenProduces) {
 		this.gardenProduces = gardenProduces;
 	}
-	
+
 	public void addGardenProduce(GardenProduce gp) {
 		if (gardenProduces == null) {
 			gardenProduces = new ArrayList<GardenProduce>();
 		}
 		if (!gardenProduces.contains(gp)) {
 			gardenProduces.add(gp);
-			if(gp.getGardenStoreFront() != null) {
+			if (gp.getGardenStoreFront() != null) {
 				gp.getGardenStoreFront().getGardenProduces().remove(gp);
 			}
 			gp.setGardenStoreFront(this);
 		}
 	}
+
 	public void removeGardenProduce(GardenProduce gp) {
 		gp.setGardenStoreFront(null);
 		if (gardenProduces != null) {
@@ -165,7 +166,5 @@ public class GardenStoreFront {
 				+ nameOfGarden + ", user=" + user + ", active=" + active + ", description=" + description + ", address="
 				+ address + ", gardenURL=" + gardenURL + "]";
 	}
-	
-	
 
 }

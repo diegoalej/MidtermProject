@@ -29,11 +29,10 @@ public class HomeController {
 	public String login(User userLogin, Model model, HttpSession session) {
 		User user = dao.login(userLogin);
 		if (user != null) {
-			session.setAttribute("user", user);
-			model.addAttribute("userPage", user);
+			session.setAttribute("userSession", user);
+			model.addAttribute("user", user);
 			return "myGardenStoreFront";
 		} else {
-			model.addAttribute("errorLogin", "Invalid username and password combination. Please try again.");
 			return "index";
 		}
 
@@ -41,8 +40,7 @@ public class HomeController {
 	
 	@RequestMapping(path = "homePage.do", method = RequestMethod.GET)
 	public String homePage(Model model, HttpSession session) {
-		User user = (User) session.getAttribute("user");
-		model.addAttribute("userPage", user);
+		model.addAttribute("user", dao.findById(((User) session.getAttribute("userSession")).getId()));
 		return "myGardenStoreFront";
 	}
 
