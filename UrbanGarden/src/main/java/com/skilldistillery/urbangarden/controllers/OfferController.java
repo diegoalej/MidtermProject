@@ -42,12 +42,13 @@ public class OfferController {
 	}
 	
 	@RequestMapping(path = "deactivateOffer.do", method = RequestMethod.POST, params="id")
-	public String deactivateOffer(@RequestParam Integer id, Model model) {
-		String view = "homePage";
+	public String deactivateOffer(@RequestParam Integer id, HttpSession session, Model model) {
 		Offer offer = dao.deactivate(id);
 //		model.addAttribute("offer", offer);
 //		model.addAttribute("id", id);
-		return view;
+		System.out.println((User) session.getAttribute("userSession"));
+		model.addAttribute("user", dao.findById(((User) session.getAttribute("userSession")).getId()));
+		return "myGardenStoreFront";
 	}
 	
 	@RequestMapping(path = "deleteOffer.do", method = RequestMethod.POST, params="id")
@@ -60,14 +61,14 @@ public class OfferController {
 	}
 	
 	@RequestMapping(path = "editOffer.do", method = RequestMethod.GET)
-	public String editOffer(Offer offer, Model model) {
+	public String editOffer(@RequestParam Integer id, Model model) {
 		String view = "editOffer";
-		model.addAttribute("offer", offer);
+		model.addAttribute("offer", dao.findById(id));
 		return view;
 	}
 	
 	@RequestMapping(path = "editOffer.do", method = RequestMethod.POST)
-	public String updateOffer(@RequestParam Integer id, Offer offer, Model model) {
+	public String updateOffer(@RequestParam Integer id, @RequestParam Offer offer, Model model) {
 		String view = "homePage";
 //		model.addAttribute("offer", offer);
 		dao.update(id, offer);

@@ -59,10 +59,10 @@
 										</div>
 										<div class="col-lg-12 text-left pb-2">
 											<p>
-												${trade.buyerComment}<strong> -${trade.offer.offered.garden.user.firstName}</strong>
+												${buyerComment}<strong> ${offer.offered.garden.user.firstName}</strong>
 											</p>
 											<p>
-												${trade.sellerComment}<strong> -${trade.offer.desired.garden.user.firstName}</strong>
+												${sellerComment}<strong> ${offer.desired.garden.user.firstName}</strong>
 											</p>
 										</div>
 									</div>
@@ -90,6 +90,9 @@
 											<div class="col-lg-4 justify-content-start pl-4">
 												<input class="form-control" type="hidden" name="offer" value="${offer}" /> 
 												<input class="form-control" type="hidden" name="id" value="${offer.id}" /> 
+												<input class="form-control" type="hidden" name="desired" value="${offer.desired}" /> 
+												<input class="form-control" type="hidden" name="offered" value="${offer.offered}" /> 
+												<input class="form-control" type="hidden" name="comment" value="${offer.comment}" /> 
 												<input type="submit" value="Edit Offer" class="btn btn-primary" />
 											</div>
 										</form:form>
@@ -99,6 +102,7 @@
 												<input type="submit" value="Remove Offer" class="btn btn-primary" />
 											</div>
 										</form:form>
+										
 									</div>
 								</div>
 
