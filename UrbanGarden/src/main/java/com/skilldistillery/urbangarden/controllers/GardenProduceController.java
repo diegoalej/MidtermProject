@@ -36,7 +36,6 @@ public class GardenProduceController {
 	
 	@RequestMapping(path = "addGardenProduce.do", method = RequestMethod.GET)
 	public String addGardenProduce( Model model, GardenProduce gardenProduce) {
-		String view = "addGardenProduce";
 		model.addAttribute("gardenProduce", gardenProduce);
 		return "redirect:addGardenProduce.do"; //Will redirect if time allots for new JSP
 	}
@@ -63,19 +62,19 @@ public class GardenProduceController {
 		return view;
 	}
 	
-	@RequestMapping(path = "editGardenProduce.do", method = RequestMethod.GET)
-	public String editGardenProduce(GardenProduce gardenProduce, Model model) {
-		String view = "editGardenProduce";
-		model.addAttribute("gardenProduce", gardenProduce);
-		return view;
+	@RequestMapping(path = "editGardenProduce.do", method = RequestMethod.GET) //Redirect Home?
+	public String editGardenProduce() {
+		return "redirect:homePage.do";
 	}
 	
 	@RequestMapping(path = "editGardenProduce.do", method = RequestMethod.POST)
-	public String updateGardenProduce(@RequestParam Integer id, GardenProduce gardenProduce, Model model) {
-		String view = "updateGardenProduce";
+	public String updateGardenProduce(GardenProduce gardenProduce, Model model, String dateAvailableString, String harvestedString, String dateExpiresString) {
+		gardenProduce.setDateAvailable(LocalDate.parse(dateAvailableString));
+		gardenProduce.setHarvested(LocalDate.parse(harvestedString));
+		gardenProduce.setExpires(LocalDate.parse(dateExpiresString));
 		model.addAttribute("gardenProduce", gardenProduce);
-		dao.update(id, gardenProduce);
-		return view;
+		dao.update(gardenProduce);
+		return "redirect:editGardenProduce.do";
 	}
 	
 	@RequestMapping(path = "showGardenProduce.do")

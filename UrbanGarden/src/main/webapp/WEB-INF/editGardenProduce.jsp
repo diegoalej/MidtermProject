@@ -33,9 +33,10 @@
 			<div class="row py-2">
 				<div class="col-sm-12">
 					<form:form class="form-horizontal" action="editGardenProduce.do"
-						modelAttribute="gardenProduce">
+						modelAttribute="gardenProduce" method="POST">
 						<div class="form-group">
-							<label> Product: ${gardenProduce.product.name} </label>
+							<label> Product: ${gardenProduce.product.name} </label><br>
+							<label> ID: ${gardenProduce.id} </label>
 							<br> 
 							<br> 
 							<br> 
@@ -58,7 +59,7 @@
 										<label class="form-check-label" for="role">Is this item still available?</label>
 									
 							</div>
-							<input class = "form-control" type="hidden" name="hiddenId" value="${gardenProduce.id}"/>
+							<input class = "form-control" type="hidden" name="id" value="${gardenProduce.id}"/>
 							<!-- <input class="form-control" type="hidden" name="active"
 								value="true" />  -->
 								<input type="submit" value="Update" class="btn btn-primary" />
