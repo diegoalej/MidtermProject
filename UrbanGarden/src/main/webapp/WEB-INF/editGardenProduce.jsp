@@ -35,29 +35,33 @@
 					<form:form class="form-horizontal" action="editGardenProduce.do"
 						modelAttribute="gardenProduce">
 						<div class="form-group">
-							<label> Product </label>
+							<label> Product: ${gardenProduce.product.name} </label>
 							<br> 
-							<select name="action" id="action">
-								<option value="${gardenProduce.product}">Name of Product</option>
-							</select>
 							<br> 
 							<br> 
 							<label> Amount </label> 
 							<input class="form-control" type="number" name="amount" value="${gardenProduce.amount}"/> 
 							<br> 
 							<label>Date Expected</label>
-							<input class="form-control" type="date" name="dateAvailable" value="${gardenProduce.dateAvailable}"/> 
+							<input class="form-control" type="date" name="dateAvailableString" value="${gardenProduce.dateAvailable}"/> 
 							<br> 
 							<label>Date Harvested</label>
-							<input class="form-control" type="date" name="harvested" value="${gardenProduce.harvested}"/> 
+							<input class="form-control" type="date" name="harvestedString" value="${gardenProduce.harvested}"/> 
 							<br> 
 							<label>Date of Expiration</label>
-							<input class="form-control" type="date" name="dateExpires" value="${gardenProduce.expires}"/> 
+							<input class="form-control" type="date" name="dateExpiresString" value="${gardenProduce.expires}"/> 
 							<br> 
 							<br> 
-							<input class="form-control" type="hidden" name="active"
-								value="true" /> <input type="submit" value="Update"
-								class="btn btn-primary" />
+							<div class="form-check form-check-inline">
+										<form:checkbox class="form-check-input"  id="role"
+											 path = "active" />
+										<label class="form-check-label" for="role">Is this item still available?</label>
+									
+							</div>
+							<input class = "form-control" type="hidden" name="hiddenId" value="${gardenProduce.id}"/>
+							<!-- <input class="form-control" type="hidden" name="active"
+								value="true" />  -->
+								<input type="submit" value="Update" class="btn btn-primary" />
 						</div>
 					</form:form>
 				</div>

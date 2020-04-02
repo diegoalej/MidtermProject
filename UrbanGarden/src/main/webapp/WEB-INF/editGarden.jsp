@@ -114,7 +114,8 @@
 							</div>
 							
 							<br> <input class="form-control" type="hidden" name="active"
-								value="true" /> <input type="submit" value="Update"
+								value="true" /> 
+								<input type="submit" value="Update"
 								class="btn btn-primary" />
 						</div>
 					</form:form>
