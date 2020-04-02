@@ -49,6 +49,8 @@ padding-bottom: .5em;
  }
 
 .footer {
+	  position: absolute;
+	
 	height: 4em;
 	background-color: #5B7213;
 	left: 0;
@@ -131,6 +133,9 @@ border-style: none;
 }
 .gardenProfile h2, h4{
 	color: black;
+}
+.whiteLetters h2, h4{
+	color: white;
 }
 .nav-link.active {
 	background-color: #5A5519;
