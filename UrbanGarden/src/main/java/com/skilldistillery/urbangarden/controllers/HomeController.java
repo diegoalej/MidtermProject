@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.skilldistillery.urbangarden.data.GardenStoreFrontDAO;
+import com.skilldistillery.urbangarden.data.ProductDAO;
 import com.skilldistillery.urbangarden.data.UserDAO;
+import com.skilldistillery.urbangarden.entities.GardenStoreFront;
 import com.skilldistillery.urbangarden.entities.User;
 
 @Controller
@@ -20,6 +22,8 @@ public class HomeController {
 	private UserDAO dao;
 	@Autowired
 	private GardenStoreFrontDAO gsfDAO;
+	@Autowired
+	private ProductDAO prodDAO;
 
 	@RequestMapping(path = { "/", "home.do" })
 	public String home() {
@@ -61,6 +65,15 @@ public class HomeController {
 		}
 
 		return "index";
+	}
+	
+	@RequestMapping(path= "addNewProduct.do", method = RequestMethod.GET)
+	public String newProduct(Model model, HttpSession session) {
+		GardenStoreFront userGSF = ((User) session.getAttribute("userSession")).getGardenStoreFront();
+		System.out.println(userGSF);
+		model.addAttribute("gardenStoreFront", userGSF);
+		model.addAttribute("listAllProducts", prodDAO.findAll());
+		return "addGardenProduce";
 	}
 
 //	@RequestMapping(path = "search.do", method = RequestMethod.GET)

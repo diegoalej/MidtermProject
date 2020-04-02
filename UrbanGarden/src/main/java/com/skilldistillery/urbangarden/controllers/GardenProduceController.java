@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.skilldistillery.urbangarden.data.GardenProduceDAO;
+import com.skilldistillery.urbangarden.data.GardenStoreFrontDAO;
+import com.skilldistillery.urbangarden.data.ProductDAO;
 import com.skilldistillery.urbangarden.entities.GardenProduce;
 
 @Controller
@@ -15,6 +17,12 @@ public class GardenProduceController {
 		
 	@Autowired
 	private GardenProduceDAO dao;
+	
+	@Autowired
+	private GardenStoreFrontDAO daoGSF;
+	
+	@Autowired
+	private ProductDAO daoProd;
 	
 	@RequestMapping(path = "getGardenProduce.do", method = RequestMethod.GET, params = "id")
 	public String showGardenProduce(@RequestParam Integer id, Model model) {
@@ -28,14 +36,18 @@ public class GardenProduceController {
 	public String addGardenProduce( Model model, GardenProduce gardenProduce) {
 		String view = "addGardenProduce";
 		model.addAttribute("gardenProduce", gardenProduce);
-		return view;
+		return "redirect:addGardenProduce.do"; //Will redirect if time allots for new JSP
 	}
 	
 	@RequestMapping(path = "addGardenProduce.do", method = RequestMethod.POST)
-	public String postGardenProduce(Model model, GardenProduce gardenProduce) {
+	public String postGardenProduce(Model model, GardenProduce gardenProduce, int gardenId, int productId) {
 		String view = "gardenProducePost";
+		
+		gardenProduce.setGardenStoreFront(daoGSF.findById(gardenId));
+		gardenProduce.setProduct(daoProd.findById(productId));
+		System.out.println("@@@@@@@@@@@@@@@@@@@YOU MDADE IT HERE @@@@@@@@@@@@@@@@@@@@@@@");
 		dao.create(gardenProduce);
-		return view;
+		return "redirect:homePage.do";
 	}
 	
 	@RequestMapping(path = "deleteGardenProduce.do", method = RequestMethod.POST, params="id")

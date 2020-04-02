@@ -62,9 +62,7 @@
 						</div>
 
 					</div>
-					<p>
-						<a class="btn btn-secondary" href="editGardenStoreFront.do" role="button">Edit Profile</a>
-					</p>
+					
 				</div>
 				<div class="col-lg-8 text-left">
 
@@ -77,6 +75,10 @@
 						<br>
 						<c:out value="${user.gardenStoreFront.address.city }" />
 						<c:out value="${user.gardenStoreFront.address.zipCode }" />
+					</p>
+					<p>
+						<a class="btn btn-secondary" href="editGardenStoreFront.do" role="button">Edit Profile</a>
+						<a class="btn btn-secondary" href="addNewProduct.do" role="button">Add Product</a>
 					</p>
 				</div>
 			</div>
