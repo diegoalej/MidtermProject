@@ -11,7 +11,7 @@
 </head>
 <body>
 	<!-- N A V I G A T I O N -->
-	<jsp:include page="includes/navbar.jsp"/>
+<%-- 	<jsp:include page="includes/navbar.jsp"/> --%>
 	<!-- M A I N  B O D Y -->
 	<div class="d-flex justify-content-center">
 		<div class="row justify-content-center">
@@ -48,13 +48,13 @@
 							<input class="form-control" type="text" name="username" /> <br> 
 							<label> Password </label> 
 							<input class="form-control" type="password" name="password" required/> 
-							<br> 
+							<!-- <br> 
 							<label for="role"> What is your role? </label>
 							<select name="role" id="role">
 								<option value="user">User</option>
 								<option value="gardener">Gardener</option>
 								<option value="admin">Admin</option>
-							</select>
+							</select> -->
 							<br> 
 							<label class="form-check-label" for="role">Add a profile image (Recommended size 200x200)</label>
 							<div class="input-group">
@@ -68,6 +68,7 @@
 							</div>
 							<br> 
 							<input class="form-control" type="hidden" name="enabled" value="true" /> 
+							<input class="form-control" type="hidden" name="role" value="gardener" /> 
 							<input type="submit" value="Add User" class="btn btn-primary" />
 						</div>
 					</form:form>
