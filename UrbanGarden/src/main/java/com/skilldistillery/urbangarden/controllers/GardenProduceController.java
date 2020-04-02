@@ -43,7 +43,6 @@ public class GardenProduceController {
 	@RequestMapping(path = "addGardenProduce.do", method = RequestMethod.POST)
 	public String postGardenProduce(Model model, GardenProduce gardenProduce, int gardenId, int productId,
 			String dateAvailableString, String harvestedString, String dateExpiresString) {
-		String view = "gardenProducePost";
 		gardenProduce.setDateAvailable(LocalDate.parse(dateAvailableString));
 		gardenProduce.setHarvested(LocalDate.parse(harvestedString));
 		gardenProduce.setExpires(LocalDate.parse(dateExpiresString));

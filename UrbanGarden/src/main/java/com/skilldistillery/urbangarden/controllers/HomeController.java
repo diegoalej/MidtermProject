@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.skilldistillery.urbangarden.data.GardenProduceDAO;
 import com.skilldistillery.urbangarden.data.GardenStoreFrontDAO;
+import com.skilldistillery.urbangarden.data.OfferDAO;
 import com.skilldistillery.urbangarden.data.ProductDAO;
 import com.skilldistillery.urbangarden.data.UserDAO;
 import com.skilldistillery.urbangarden.entities.GardenProduce;
@@ -28,6 +29,8 @@ public class HomeController {
 	private ProductDAO prodDAO;
 	@Autowired
 	private GardenProduceDAO gpDAO;
+	@Autowired
+	private OfferDAO offerDAO;
 
 	@RequestMapping(path = { "/", "home.do" })
 	public String home() {
@@ -43,9 +46,12 @@ public class HomeController {
 				List<User> allUsers = dao.findAll();		
 				model.addAttribute("user", user);
 				model.addAttribute("users", allUsers);
+				
 				return "admin";
 			} else {
 				model.addAttribute("user", user);
+				model.addAttribute("receivedOffers", offerDAO.findRequestOffersByUser(user.getId()));
+				model.addAttribute("madeOffers", offerDAO.findDesiredOffersByUser(user.getId()));
 				return "myGardenStoreFront";
 			}
 		} else {
@@ -56,7 +62,10 @@ public class HomeController {
 
 	@RequestMapping(path = "homePage.do", method = RequestMethod.GET)
 	public String homePage(Model model, HttpSession session) {
-		model.addAttribute("user", dao.findById(((User) session.getAttribute("userSession")).getId()));
+		User user = dao.findById(((User) session.getAttribute("userSession")).getId());
+		model.addAttribute("user", user);
+		model.addAttribute("receivedOffers", offerDAO.findRequestOffersByUser(user.getId()));
+		model.addAttribute("madeOffers", offerDAO.findDesiredOffersByUser(user.getId()));
 		return "myGardenStoreFront";
 	}
 

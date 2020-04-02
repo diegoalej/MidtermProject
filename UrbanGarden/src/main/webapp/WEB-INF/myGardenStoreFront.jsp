@@ -89,14 +89,45 @@
 		<div class="container">
 			<nav>
 				<div class="nav nav-tabs" id="nav-tab" role="tablist">
-					<a class="nav-item nav-link active" id="nav-home-tab"
-						data-toggle="tab" href="#nav-home" role="tab"
-						aria-controls="nav-home" aria-selected="true">Products</a> <a
-						class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab"
-						href="#nav-profile" role="tab" aria-controls="nav-profile"
-						aria-selected="false">Offers</a> <a class="nav-item nav-link"
-						id="nav-contact-tab" data-toggle="tab" href="#nav-contact"
-						role="tab" aria-controls="nav-contact" aria-selected="false">Trades</a>
+						<a 
+							class="nav-item nav-link active" 
+							id="nav-home-tab"
+							data-toggle="tab" 
+							href="#nav-home" 
+							role="tab"
+							aria-controls="nav-home" 
+							aria-selected="true">Your Products
+						</a> 
+						
+						<a 
+							class="nav-item nav-link" 
+							id="nav-pending-offers-received-tab" 
+							data-toggle="tab"
+							href="#nav-pending-offers-received" 
+							role="tab" 
+							aria-controls="nav-pending-offers-received"
+							aria-selected="false">Pending Offers Received
+						</a> 
+						
+						<a 
+							class="nav-item nav-link" 
+							id="nav-pending-offers-made-tab" 
+							data-toggle="tab"
+							href="#nav-pending-offers-made" 
+							role="tab" 
+							aria-controls="nav-pending-offers-made"
+							aria-selected="false">Pending Offers Made
+						</a> 
+						
+						<a 
+							class="nav-item nav-link"
+							id="nav-completed-trades-tab" 
+							data-toggle="tab" 
+							href="#nav-completed-trades"
+							role="tab" 
+							aria-controls="nav-completed-trades" 
+							aria-selected="false">Completed Trades
+						</a>
 				</div>
 			</nav>
 			<div class="tab-content" id="nav-tabContent">
@@ -176,14 +207,14 @@
 												</p>
 											</div>
 											<div class="col-lg-4 justify-content-start pl-4">
-												<p>
+												<%-- <p>
 													<p>
 													<form:form method="POST" action="editProduce.do" modelAttribute="gardenProduce">
 														<input type="hidden" name="gardenProduceID" value="${produce.id}"/>
 														<input type="submit" class="btn btn-secondary" value="See Offers"/>
 													</form:form>
-												</p>
-												</p>
+												</p> --%>
+												<!-- </p> -->
 											</div>
 										</div>
 									</div>
@@ -197,64 +228,62 @@
 
 
 				</div>
-				<div class="tab-pane fade" id="nav-profile" role="tabpanel"
-					aria-labelledby="nav-profile-tab">
+				
+				<!-- Tab begins for Offers Pending -->
+				<div class="tab-pane fade" id="nav-pending-offers-received" role="tabpanel"
+					aria-labelledby="nav-pending-offers-tab">
 					<div class="container">
 						<div class="row d-flex justify-content-center">
 							<div class="col-lg-12 text-left pb-1 pt-3">
-								<h2>Offers</h2>
+								<h2>Offers Received</h2>
 							</div>
-							<div class="col-lg-12 text-left pb-1">
-								<h3>Trade 1234</h3>
-							</div>
-							<div class="col-lg-6 justify-content-center pl-4">
-								<h5>Desired</h5>
-								<p>Desired item: Cherry Tomato</p>
-								<p>Farm name: Steve's Farm</p>
-								<p>Amount: 6lbs</p>
-								<p>Trade Begin: Apr 23 2020</p>
-								<p>Harvest: Jun 3 2020</p>
-								<p>Expires: Jun 30 2020</p>
-								<p>Size: medium</p>
-							</div>
-							<div class="col-lg-6 justify-content-center pl-4">
-								<h5>Offered</h5>
-								<p>Offered item: Acorn squash</p>
-								<p>Farm name: Nancy's Farm</p>
-								<p>Amount: 10lbs</p>
-								<p>Trade Begin: Apr 23 2020</p>
-								<p>Harvest: Jun 3 2020</p>
-								<p>Expires: Jun 30 2020</p>
-								<p>Size: medium</p>
-
-							</div>
-							<div class="col-lg-12 text-left pb-1">
-								<h4>Comments</h4>
-							</div>
-							<div class="col-lg-12 text-left pb-2">
-								<p>
-									Donec sed odio dui. Cras justo odio, dapibus ac facilisis in,
-									egestas eget quam.<strong> Steve</strong> April 23 2020 time ?
-								</p>
-								<p>
-									Donec sed odio dui. Cras justo odio, dapibus ac facilisis in,
-									egestas eget quam.<strong> Nancy</strong> April 23 2020 time ?
-								</p>
-								<p>
-									Donec sed odio dui. Cras justo odio, dapibus ac facilisis in,
-									egestas eget quam.<strong> Steve</strong>
-								</p>
-								<p>
-									Donec sed odio dui. Cras justo odio, dapibus ac facilisis in,
-									egestas eget quam.<strong> Nancy</strong> April 23 2020 time ?
-								</p>
-							</div>
-							<form:form class="form-horizontal needs-validation" action="showOffer.do" modelAttribute="offer" >
-								<div class="col-lg-4 justify-content-start pl-4">
-									<input class="form-control" type="hidden" name="id" value="1" /> 
-									<input type="submit" value="View Details" class="btn btn-primary" />
-								</div>
-							</form:form>
+							<!-- Start of choose -->
+							<c:choose>
+								<c:when test="${empty receivedOffers}">
+									<div class="col-lg-12 text-left pb-1">
+										<h3>You have no incoming trade offers.</h3>
+									</div>
+								</c:when>
+							<c:otherwise>
+									<!-- Start of forEach -->
+								<c:forEach items="${receivedOffers}" var="offerDetails">
+									<c:if test="${empty offerDetails.accepeted}">
+										<div class="col-lg-12 text-left pb-1">
+											<h3>Trade Request Received: <c:out value="${offerDetails.offerDate}"/></h3>
+										</div>
+										<div class="col-lg-6 justify-content-center pl-4">
+											<h5>Desired from you:</h5><!-- What they want from you -->
+											<p>Desired item: <c:out value="${offerDetails.desired.product.name}"/></p>
+											<p>Amount: <c:out value="${offerDetails.desired.amount}"/></p>
+											
+										</div>
+										<div class="col-lg-6 justify-content-center pl-4">
+											<h5>Offered to you:</h5> <!-- What they are willing to give you -->
+											<p>Offered item: <c:out value="${offerDetails.offered.product.name}"/></p>
+											<p>Farm name: <c:out value="${offerDetails.offered.gardenStoreFront.nameOfGarden}"/></p>
+											<p>Amount: <c:out value="${offerDetails.offered.amount}"/></p>
+									
+			
+										</div>
+										<div class="col-lg-12 text-left pb-1">
+											<h4>Comments</h4>
+										</div>
+										<div class="col-lg-12 text-left pb-2">
+											<p>
+												<c:out value="${offerDetails.comment}" />
+											</p>
+											
+										</div>
+										<form:form class="form-horizontal needs-validation" action="showOffer.do" modelAttribute="offer" >
+											<div class="col-lg-4 justify-content-start pl-4">
+												<input class="form-control" type="hidden" name="id" value="${offerDetails.id}" /> 
+												<input type="submit" value="View Details" class="btn btn-primary" />
+											</div>
+										</form:form>
+									</c:if>
+									</c:forEach>
+								</c:otherwise>
+							</c:choose>
 						</div>
 					</div>
 
@@ -262,8 +291,72 @@
 
 
 				</div>
-				<div class="tab-pane fade" id="nav-contact" role="tabpanel"
-					aria-labelledby="nav-contact-tab">
+				<!-- Tabs begin for Offers Received -->
+				<div class="tab-pane fade" id="nav-pending-offers-made" role="tabpanel"
+					aria-labelledby="nav-pending-offers-made-tab">
+					<div class="container">
+						<div class="row d-flex justify-content-center">
+							<div class="col-lg-12 text-left pb-1 pt-3">
+								<h2>Offers Received</h2>
+							</div>
+							<!-- Start of choose -->
+							<c:choose>
+								<c:when test="${empty madeOffers}">
+									<div class="col-lg-12 text-left pb-1">
+										<h3>You have no outgoing trade offers.</h3>
+									</div>
+								</c:when>
+							<c:otherwise>
+									<!-- Start of forEach -->
+								<c:forEach items="${madeOffers}" var="offerDetails">
+									<c:if test="${empty offerDetails.accepeted}">
+										<div class="col-lg-12 text-left pb-1">
+											<h3>Trade Request Received: <c:out value="${offerDetails.offerDate}"/></h3>
+										</div>
+										<div class="col-lg-6 justify-content-center pl-4">
+											<h5>What you requested:</h5><!-- What you want from them -->
+											<p>Requested item: <c:out value="${offerDetails.desired.product.name}"/></p>
+											<p>Amount: <c:out value="${offerDetails.desired.amount}"/></p>
+											<p>Farm you requested from: <c:out value="${offerDetails.desired.garden.nameOfGarden }"/></p>
+											
+										</div>
+										<div class="col-lg-6 justify-content-center pl-4">
+											<h5>What you offered them:</h5> <!-- What you are willing to give -->
+											<p>Offered item: <c:out value="${offerDetails.offered.product.name}"/></p>
+											<p>Farm name: <c:out value="${offerDetails.offered.gardenStoreFront.nameOfGarden}"/></p>
+											<p>Amount: <c:out value="${offerDetails.offered.amount}"/></p>
+									
+			
+										</div>
+										<div class="col-lg-12 text-left pb-1">
+											<h4>Comments</h4>
+										</div>
+										<div class="col-lg-12 text-left pb-2">
+											<p>
+												<c:out value="${offerDetails.comment}" />
+											</p>
+											
+										</div>
+										<form:form class="form-horizontal needs-validation" action="showOffer.do" modelAttribute="offer" >
+											<div class="col-lg-4 justify-content-start pl-4">
+												<input class="form-control" type="hidden" name="id" value="${offerDetails.id}" /> 
+												<input type="submit" value="View Details" class="btn btn-primary" />
+											</div>
+										</form:form>
+									</c:if>
+									</c:forEach>
+								</c:otherwise>
+							</c:choose>
+					</div>
+
+
+
+
+				</div>
+				
+				<!-- Tab begin for Completed Trades -->
+				<div class="tab-pane fade" id="nav-completed-trades" role="tabpanel"
+					aria-labelledby="nav-completed-trades-tab">
 					<div class="container">
 						<div class="row d-flex justify-content-center">
 							<div class="col-lg-12 text-left pb-1 pt-3">
@@ -310,6 +403,7 @@
 				</div>
 			</div>
 		</div>
+	</div>
 	</div>
 	<div class="row spacer">
 		<div class="span4"></div>

@@ -67,4 +67,28 @@ public class OfferDAOImpl implements OfferDAO {
 		return false;
 	}
 
+	@Override
+	public List<Offer> findDesiredOffersByUser(int userId) {
+		String query = "SELECT DISTINCT(o) "
+				+ "FROM Offer o "
+				+ "JOIN GardenProduce gp "
+				+ "on o.offered.id = gp.id "
+				+ "join GardenStoreFront gsf "
+				+ "on gsf = gp.garden "
+				+ "where gsf.user.id = :userId";
+		return em.createQuery(query, Offer.class).setParameter("userId", userId).getResultList();
+	}
+
+	@Override
+	public List<Offer> findRequestOffersByUser(int userId) {
+		String query = "SELECT DISTINCT(o)"
+				+ " FROM Offer o "
+				+ "JOIN GardenProduce gp "
+				+ "ON o.desired.id = gp.id "
+				+ "JOIN GardenStoreFront gsf "
+				+ "ON gsf = gp.garden "
+				+ "WHERE gsf.user.id = :userId";
+		return em.createQuery(query, Offer.class).setParameter("userId", userId).getResultList();
+	}
+
 }

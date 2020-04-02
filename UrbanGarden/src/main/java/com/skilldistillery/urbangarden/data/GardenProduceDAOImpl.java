@@ -9,8 +9,6 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.urbangarden.entities.GardenProduce;
-import com.skilldistillery.urbangarden.entities.GardenStoreFront;
-import com.skilldistillery.urbangarden.entities.Product;
 
 @Transactional
 @Service
@@ -18,7 +16,7 @@ public class GardenProduceDAOImpl implements GardenProduceDAO {
 
 	@PersistenceContext
 	private EntityManager em;
-	
+
 	@Override
 	public GardenProduce findById(int id) {
 		return em.find(GardenProduce.class, id);
