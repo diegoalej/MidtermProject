@@ -25,7 +25,7 @@
 			</div>
 		</div>
 		<div class="d-flex justify-content-start ">
-			<div class="row justify-content-start gardenProfile py-5 ">
+			<div class="row justify-content-start gardenProfile py-5 w-100">
 				<div class="col-4 text-left pt-2 ">
 					<form:form action="searchByKeyword.do">
 						<div class="form-group">
@@ -70,17 +70,30 @@
 		<div class="container">
 
 			<div class="row d-flex justify-content-around">
-				<div class="col-lg-12 text-left pt-1">
-					<h2>Gardens you might be interested in</h2>
-				</div>
-
+				<c:choose>
+					<c:when test="${empty gsfResults}">
+						<div class="col-lg-12 text-left pt-1">
+							<h2>We did not find any gardens</h2>
+						</div>
+					</c:when>
+					<c:when test="${welcomeInt == 1}">
+						<div class="col-lg-12 text-left pt-1">
+							<h2>Gardens you might be interested in</h2>
+						</div>
+					</c:when>
+					<c:when test="${welcomeInt == 2}">
+						<div class="col-lg-12 text2left pt-1">
+								<h2>We found&nbsp;${gsfResults.size()}&nbsp;results</h2>
+						</div>
+					</c:when>
+				</c:choose>
 			</div>
 		</div>
 		<c:forEach items="${gsfResults}" var="gardenStore">
 			<div class="container whiteLetters">
 				<div class="row d-flex justify-content-center w-100">
 					<div class="col-lg-12 text-left pb-1 ">
-						<h3 class="no-padding-bottom">
+						<h3 class="no-padding-bottom no-padding-top">
 							<c:out value="${gardenStore.user.firstName}'s Garden" />
 						</h3>
 						<h4>
@@ -95,7 +108,7 @@
 						</h4>
 					</div>
 					<div class="col-lg-12 justify-content-center pl-4">
-						<p>
+						<p class="no-padding-left">
 							Description:
 							<c:out value="${gardenStore.description}" />
 						</p>
