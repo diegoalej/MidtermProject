@@ -3,6 +3,7 @@ package com.skilldistillery.urbangarden.data;
 import java.util.List;
 
 import com.skilldistillery.urbangarden.entities.GardenStoreFront;
+import com.skilldistillery.urbangarden.entities.User;
 
 public interface GardenStoreFrontDAO {
 	GardenStoreFront findById(int id);
@@ -24,5 +25,7 @@ public interface GardenStoreFrontDAO {
 	List<GardenStoreFront> searchByKeyword(String keyword);
 
 	List<GardenStoreFront> searchByFarm(String farm);
+
+	GardenStoreFront createGardenAndUser(GardenStoreFront gsf, int id);
 
 }
