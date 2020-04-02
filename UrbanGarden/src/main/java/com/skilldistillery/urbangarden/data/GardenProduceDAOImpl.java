@@ -40,17 +40,13 @@ public class GardenProduceDAOImpl implements GardenProduceDAO {
 	}
 
 	@Override
-	public GardenProduce update(int id, GardenProduce gardenProduce) {
-		GardenProduce managedGardenProduce = em.find(GardenProduce.class, id);
+	public GardenProduce update(GardenProduce gardenProduce) {
+		GardenProduce managedGardenProduce = em.find(GardenProduce.class, gardenProduce.getId());
 		managedGardenProduce.setActive(gardenProduce.getActive());
 		managedGardenProduce.setAmount(gardenProduce.getAmount());
 		managedGardenProduce.setDateAvailable(gardenProduce.getDateAvailable());
 		managedGardenProduce.setExpires(gardenProduce.getExpires());
-		managedGardenProduce.setGardenStoreFront(gardenProduce.getGardenStoreFront());
 		managedGardenProduce.setHarvested(gardenProduce.getHarvested());
-		managedGardenProduce.setOfferedProduct(gardenProduce.getOfferedProduct());
-		managedGardenProduce.setRequestedProduct(gardenProduce.getRequestedProduct());
-		managedGardenProduce.setProduct(gardenProduce.getProduct());
 		return managedGardenProduce;
 	}
 

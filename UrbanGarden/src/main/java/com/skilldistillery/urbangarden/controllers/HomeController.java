@@ -10,9 +10,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.skilldistillery.urbangarden.data.GardenProduceDAO;
 import com.skilldistillery.urbangarden.data.GardenStoreFrontDAO;
 import com.skilldistillery.urbangarden.data.ProductDAO;
 import com.skilldistillery.urbangarden.data.UserDAO;
+import com.skilldistillery.urbangarden.entities.GardenProduce;
 import com.skilldistillery.urbangarden.entities.GardenStoreFront;
 import com.skilldistillery.urbangarden.entities.User;
 
@@ -24,6 +26,8 @@ public class HomeController {
 	private GardenStoreFrontDAO gsfDAO;
 	@Autowired
 	private ProductDAO prodDAO;
+	@Autowired
+	private GardenProduceDAO gpDAO;
 
 	@RequestMapping(path = { "/", "home.do" })
 	public String home() {
@@ -52,8 +56,12 @@ public class HomeController {
 
 	@RequestMapping(path = "homePage.do", method = RequestMethod.GET)
 	public String homePage(Model model, HttpSession session) {
-		model.addAttribute("user", dao.findById(((User) session.getAttribute("userSession")).getId()));
-		return "myGardenStoreFront";
+		User user = dao.findById(((User) session.getAttribute("userSession")).getId());
+		if(user != null) {
+			model.addAttribute("user", user);
+			return "myGardenStoreFront";
+		}
+		return "index";
 	}
 
 	@RequestMapping(path = "logout.do", method = RequestMethod.GET)
@@ -74,6 +82,19 @@ public class HomeController {
 		model.addAttribute("gardenStoreFront", userGSF);
 		model.addAttribute("listAllProducts", prodDAO.findAll());
 		return "addGardenProduce";
+	}
+	
+	@RequestMapping(path = "editProduce.do", method = RequestMethod.POST)
+	public String editProduce(Model model, HttpSession session, int gardenProduceID) {
+		GardenProduce gardenProduce = gpDAO.findById(gardenProduceID);
+		model.addAttribute("gardenProduce", gardenProduce);
+		return "editGardenProduce";
+	}
+	
+	@RequestMapping(path = "viewAllOffers")
+	public String viewOffers(Model model, HttpSession session, GardenProduce gardenProduce) {
+		
+		return "showOffer";
 	}
 
 //	@RequestMapping(path = "search.do", method = RequestMethod.GET)

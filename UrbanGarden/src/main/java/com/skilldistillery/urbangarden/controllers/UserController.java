@@ -1,5 +1,7 @@
 package com.skilldistillery.urbangarden.controllers;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -34,8 +36,9 @@ public class UserController {
 	
 	@RequestMapping(path = "addUser.do", method = RequestMethod.POST)
 	public String postUser(User user, Model model) {
-		String view = "offerUser";
+		String view = "createConfirm";
 		dao.create(user);
+		model.addAttribute("object", user);
 		return view;
 	}
 	
@@ -47,19 +50,27 @@ public class UserController {
 		model.addAttribute("id", id);
 		return view;
 	}
+
+	@RequestMapping(path = "deactivateUser.do", method = RequestMethod.POST, params="id")
+	public String deactivateUser(@RequestParam Integer id, Model model) {
+		String view = "removeConfirm";
+		User user = dao.deactivate(id);
+		model.addAttribute("object", user);
+		return view;
+	}
 	
 	@RequestMapping(path = "editUser.do", method = RequestMethod.GET)
-	public String editUser(User user, Model model) {
+	public String editUser(HttpSession session, Model model) {
 		String view = "editUser";
-		model.addAttribute("user", user);
+		model.addAttribute("user", dao.findById(((User) session.getAttribute("userSession")).getId()));
 		return view;
 	}
 	
 	@RequestMapping(path = "editUser.do", method = RequestMethod.POST)
-	public String updateUser(@RequestParam Integer id, User user, Model model) {
-		String view = "myGardenStoreFront";
-		model.addAttribute("user", user);
+	public String updateUser(Integer id, User user, Model model) {
+		String view = "updateConfirm";
 		dao.update(id, user);
+		model.addAttribute("user", user);
 		return view;
 	}
 	
