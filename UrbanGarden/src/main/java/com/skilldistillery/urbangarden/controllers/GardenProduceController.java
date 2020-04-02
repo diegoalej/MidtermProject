@@ -1,5 +1,7 @@
 package com.skilldistillery.urbangarden.controllers;
 
+import java.time.LocalDate;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -40,12 +42,14 @@ public class GardenProduceController {
 	}
 	
 	@RequestMapping(path = "addGardenProduce.do", method = RequestMethod.POST)
-	public String postGardenProduce(Model model, GardenProduce gardenProduce, int gardenId, int productId) {
+	public String postGardenProduce(Model model, GardenProduce gardenProduce, int gardenId, int productId,
+			String dateAvailableString, String harvestedString, String dateExpiresString) {
 		String view = "gardenProducePost";
-		
+		gardenProduce.setDateAvailable(LocalDate.parse(dateAvailableString));
+		gardenProduce.setHarvested(LocalDate.parse(harvestedString));
+		gardenProduce.setExpires(LocalDate.parse(dateExpiresString));
 		gardenProduce.setGardenStoreFront(daoGSF.findById(gardenId));
 		gardenProduce.setProduct(daoProd.findById(productId));
-		System.out.println("@@@@@@@@@@@@@@@@@@@YOU MDADE IT HERE @@@@@@@@@@@@@@@@@@@@@@@");
 		dao.create(gardenProduce);
 		return "redirect:homePage.do";
 	}

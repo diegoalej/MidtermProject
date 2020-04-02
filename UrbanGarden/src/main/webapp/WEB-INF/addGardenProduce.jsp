@@ -48,13 +48,13 @@
 							<input class="form-control" type="number" name="amount" required="required"/> 
 							<br> 
 							<label>Date Expected</label>
-							<input class="form-control" type="date" name="dateAvailable"/> 
+							<input class="form-control" type="date" name="dateAvailables"/> 
 							<br> 
 							<label>Date Harvested</label>
-							<input class="form-control" type="date" name="harvested"/> 
+							<input class="form-control" type="date" name="harvesteds"/> 
 							<br> 
 							<label>Date of Expiration</label>
-							<input class="form-control" type="date" name="dateExpires"/> 
+							<input class="form-control" type="date" name="dateExpiress"/> 
 							<br> 
 							<br> 
 							<input class="form-control" type="hidden" name="active" value="true" /> 
