@@ -12,6 +12,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.urbangarden.data.GardenStoreFrontDAO;
 import com.skilldistillery.urbangarden.data.UserDAO;
+import com.skilldistillery.urbangarden.entities.Address;
 import com.skilldistillery.urbangarden.entities.GardenStoreFront;
 import com.skilldistillery.urbangarden.entities.User;
 
@@ -64,9 +65,11 @@ public class GardenStoreFrontController {
 //	}
 //	
 	@RequestMapping(path = "addGardenStoreFront.do", method = RequestMethod.POST, params = "userid")
-	public String postGardenStoreFront(Model model, GardenStoreFront gardenStoreFront, int userid) {
+	public String postGardenStoreFront(Model model, GardenStoreFront gardenStoreFront, int userid, 
+			String street, String street2, int zipCode, String city, String state, String country) {
 		String view = "createGardenConfirm";
-		dao.createGardenAndUser(gardenStoreFront, userid);
+		Address address = new Address(street, street2, zipCode, city, state, country);
+		dao.createUserandGardenWithAddress(gardenStoreFront, userid, address);
 		model.addAttribute("object", gardenStoreFront);
 		return view;
 	}
