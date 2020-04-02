@@ -56,8 +56,12 @@ public class HomeController {
 
 	@RequestMapping(path = "homePage.do", method = RequestMethod.GET)
 	public String homePage(Model model, HttpSession session) {
-		model.addAttribute("user", dao.findById(((User) session.getAttribute("userSession")).getId()));
-		return "myGardenStoreFront";
+		User user = dao.findById(((User) session.getAttribute("userSession")).getId());
+		if(user != null) {
+			model.addAttribute("user", user);
+			return "myGardenStoreFront";
+		}
+		return "index";
 	}
 
 	@RequestMapping(path = "logout.do", method = RequestMethod.GET)

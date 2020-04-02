@@ -44,11 +44,8 @@ public class OfferController {
 	@RequestMapping(path = "deactivateOffer.do", method = RequestMethod.POST, params="id")
 	public String deactivateOffer(@RequestParam Integer id, HttpSession session, Model model) {
 		Offer offer = dao.deactivate(id);
-//		model.addAttribute("offer", offer);
-//		model.addAttribute("id", id);
-		System.out.println((User) session.getAttribute("userSession"));
-		model.addAttribute("user", dao.findById(((User) session.getAttribute("userSession")).getId()));
-		return "myGardenStoreFront";
+		model.addAttribute("object", offer);
+		return "removeConfirm";
 	}
 	
 	@RequestMapping(path = "deleteOffer.do", method = RequestMethod.POST, params="id")
