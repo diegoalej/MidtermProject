@@ -59,7 +59,7 @@
 										</div>
 										<div class="col-lg-12 text-left pb-2">
 											<p>
-												${buyerComment}<strong> ${offer.offered.garden.user.firstName}</strong>
+												${offer.comment}<strong> ${offer.offered.garden.user.firstName}</strong>
 											</p>
 											<p>
 												${sellerComment}<strong> ${offer.desired.garden.user.firstName}</strong>
