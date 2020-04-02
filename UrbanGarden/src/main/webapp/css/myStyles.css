@@ -1,6 +1,11 @@
 @charset "UTF-8";
 /* NAVIGATION */
-
+.no-padding-left {
+	padding-left: 0px;
+}
+.no-padding-bottom {
+	padding-bottom: 0px;
+}
 a:hover {
 	color: whitesmoke;
 }
@@ -24,11 +29,23 @@ a:hover {
 /* BODY STYLES */
 
  .homeBody {
-background-image: url('../images/signInBackground.jpg');
+background-image: url('https://americanlifestylemag.com/wp-content/uploads/2020/01/person-gardening-lettuce-intext1.jpg');
 background-size: cover;
 background-repeat: no-repeat;
 height: 100%;
 font-family: 'Karla', sans-serif;
+ }
+ .homeBody h1{
+color: black;/* #5B7213 */
+ }
+ .homeBody h5{
+color: white;
+ }
+ .homeBody a{
+color: white;
+ }
+ .homeBody h1{
+padding-bottom: .5em;
  }
 
 .footer {
@@ -81,6 +98,9 @@ h1, h2, h3{
 	padding-bottom: .8em;
 	font-family: 'Rubik', sans-serif;
 }
+homelogo h1 {
+	font-size: 3rem;
+}
 .gardenPageTrade h5, h4, h3{
 	color: white;
 }
@@ -90,6 +110,9 @@ h5, h4, p, a, span{
 
 .moreinfo {
 	background-color: whitesmoke;
+}
+.moreinfo h2{
+	color: black;
 }
 .gardenDetails {
 	background-color: #14729A;
@@ -106,7 +129,7 @@ border-style: none;
 .gardenProfile {
 	background-color: #D7D7D9;
 }
-.gardenProfile h2{
+.gardenProfile h2, h4{
 	color: black;
 }
 .nav-link.active {
@@ -129,7 +152,7 @@ border-style: none;
 padding-bottom: 10em}
 
 .card{
-height: 22em;
+/* height: 24em; */
 margin-top: auto;
 margin-bottom: auto;
 width: 400px;
@@ -139,12 +162,20 @@ background-color: #5B7213 !important;
 
 .card-header h3{
 color: white;
+padding-top: .5em;
+padding-bottom: .5em;
 }
 .card-header a{
 color: white;
 }
+.card-footerr a{
+color: white;
+}
 .card-header p{
 color: white;
+}
+.card .btn{
+background-color: #022601;
 }
 
 

@@ -1,5 +1,6 @@
 package com.skilldistillery.urbangarden.data;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -8,6 +9,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.urbangarden.entities.GardenProduce;
 import com.skilldistillery.urbangarden.entities.Offer;
 
 @Transactional
@@ -16,7 +18,7 @@ public class OfferDAOImpl implements OfferDAO {
 
 	@PersistenceContext
 	private EntityManager em;
-	
+
 	@Override
 	public Offer findById(int id) {
 		return em.find(Offer.class, id);
@@ -29,7 +31,12 @@ public class OfferDAOImpl implements OfferDAO {
 	}
 
 	@Override
-	public Offer create(Offer offer) {
+	public Offer create(GardenProduce desired, GardenProduce offered, String commentString) {
+		Offer offer = new Offer();
+		offer.setDesired(desired);
+		offer.setOffered(offered);
+		offer.setComment(commentString);
+		offer.setOfferDate(LocalDateTime.now());
 		em.persist(offer);
 		em.flush();
 		return offer;
@@ -69,25 +76,15 @@ public class OfferDAOImpl implements OfferDAO {
 
 	@Override
 	public List<Offer> findDesiredOffersByUser(int userId) {
-		String query = "SELECT DISTINCT(o) "
-				+ "FROM Offer o "
-				+ "JOIN GardenProduce gp "
-				+ "on o.offered.id = gp.id "
-				+ "join GardenStoreFront gsf "
-				+ "on gsf = gp.garden "
-				+ "where gsf.user.id = :userId";
+		String query = "SELECT DISTINCT(o) " + "FROM Offer o " + "JOIN GardenProduce gp " + "on o.offered.id = gp.id "
+				+ "join GardenStoreFront gsf " + "on gsf = gp.garden " + "where gsf.user.id = :userId";
 		return em.createQuery(query, Offer.class).setParameter("userId", userId).getResultList();
 	}
 
 	@Override
 	public List<Offer> findRequestOffersByUser(int userId) {
-		String query = "SELECT DISTINCT(o)"
-				+ " FROM Offer o "
-				+ "JOIN GardenProduce gp "
-				+ "ON o.desired.id = gp.id "
-				+ "JOIN GardenStoreFront gsf "
-				+ "ON gsf = gp.garden "
-				+ "WHERE gsf.user.id = :userId";
+		String query = "SELECT DISTINCT(o)" + " FROM Offer o " + "JOIN GardenProduce gp " + "ON o.desired.id = gp.id "
+				+ "JOIN GardenStoreFront gsf " + "ON gsf = gp.garden " + "WHERE gsf.user.id = :userId";
 		return em.createQuery(query, Offer.class).setParameter("userId", userId).getResultList();
 	}
 

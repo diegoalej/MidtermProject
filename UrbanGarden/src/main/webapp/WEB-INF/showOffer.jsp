@@ -59,7 +59,7 @@
 										</div>
 										<div class="col-lg-12 text-left pb-2">
 											<p>
-												${buyerComment}<strong> ${offer.offered.garden.user.firstName}</strong>
+												${offer.comment}<strong> ${offer.offered.garden.user.firstName}</strong>
 											</p>
 											<p>
 												${sellerComment}<strong> ${offer.desired.garden.user.firstName}</strong>
@@ -86,7 +86,7 @@
 										</div>
 									</div>
 									<div>
-										<form:form class="form-horizontal needs-validation" action="editOffer.do" modelAttribute="offer" >
+										<%-- <form:form class="form-horizontal needs-validation" action="editOffer.do" modelAttribute="offer" method="GET" >
 											<div class="col-lg-4 justify-content-start pl-4">
 												<input class="form-control" type="hidden" name="offer" value="${offer}" /> 
 												<input class="form-control" type="hidden" name="id" value="${offer.id}" /> 
@@ -95,8 +95,8 @@
 												<input class="form-control" type="hidden" name="comment" value="${offer.comment}" /> 
 												<input type="submit" value="Edit Offer" class="btn btn-primary" />
 											</div>
-										</form:form>
-										<form:form class="form-horizontal needs-validation" action="deactivateOffer.do" modelAttribute="offer" >
+										</form:form> --%>
+										<form:form class="form-horizontal needs-validation" action="deactivateOffer.do" modelAttribute="offer" method="POST">
 											<div class="col-lg-4 justify-content-start pl-4">
 												<input class="form-control" type="hidden" name="id" value="${offer.id}" /> 
 												<input type="submit" value="Remove Offer" class="btn btn-primary" />

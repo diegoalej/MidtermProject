@@ -9,7 +9,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.skilldistillery.urbangarden.data.GardenProduceDAO;
 import com.skilldistillery.urbangarden.data.OfferDAO;
+import com.skilldistillery.urbangarden.data.UserDAO;
+import com.skilldistillery.urbangarden.entities.GardenProduce;
 import com.skilldistillery.urbangarden.entities.Offer;
 import com.skilldistillery.urbangarden.entities.User;
 
@@ -18,6 +21,10 @@ public class OfferController {
 		
 	@Autowired
 	private OfferDAO dao;
+	@Autowired
+	private GardenProduceDAO GPdao;
+	@Autowired
+	private UserDAO Udao;
 	
 	@RequestMapping(path = "getOffer.do", method = RequestMethod.GET, params = "id")
 	public String getOffer(@RequestParam Integer id, Model model) {
@@ -27,28 +34,30 @@ public class OfferController {
 		return view;
 	}
 	
-	@RequestMapping(path = "addOffer.do", method = RequestMethod.GET)
-	public String addTrade( Model model, Offer offer) {
+	@RequestMapping(path = "addOffer.do", method = RequestMethod.GET, params = "id")
+	public String addTrade( @RequestParam Integer id, HttpSession session, Model model) {//Offer offer, 
 		String view = "addOffer";
-		model.addAttribute("offer", offer);
+		GardenProduce prodIn = GPdao.findById(id);
+		model.addAttribute("user", Udao.findById(((User) session.getAttribute("userSession")).getId()));
+		model.addAttribute("produce", prodIn);
 		return view;
 	}
 	
 	@RequestMapping(path = "addOffer.do", method = RequestMethod.POST)
-	public String postOffer(Model model, Offer offer) {
-		String view = "offerPost";
-		dao.create(offer);
+	public String postOffer(Integer desiredId, Integer offeredId, String commentString, Model model) {
+		String view = "showOffer";
+		GardenProduce desired = GPdao.findById(desiredId);
+		GardenProduce offered = GPdao.findById(offeredId);
+		Offer finalO = dao.create(desired, offered, commentString);
+		model.addAttribute("offer", finalO);
 		return view;
 	}
 	
 	@RequestMapping(path = "deactivateOffer.do", method = RequestMethod.POST, params="id")
 	public String deactivateOffer(@RequestParam Integer id, HttpSession session, Model model) {
 		Offer offer = dao.deactivate(id);
-//		model.addAttribute("offer", offer);
-//		model.addAttribute("id", id);
-		System.out.println((User) session.getAttribute("userSession"));
-		model.addAttribute("user", dao.findById(((User) session.getAttribute("userSession")).getId()));
-		return "myGardenStoreFront";
+		model.addAttribute("object", offer);
+		return "removeConfirm";
 	}
 	
 	@RequestMapping(path = "deleteOffer.do", method = RequestMethod.POST, params="id")

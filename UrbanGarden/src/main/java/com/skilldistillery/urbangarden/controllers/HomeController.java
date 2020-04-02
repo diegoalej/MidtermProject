@@ -63,10 +63,15 @@ public class HomeController {
 	@RequestMapping(path = "homePage.do", method = RequestMethod.GET)
 	public String homePage(Model model, HttpSession session) {
 		User user = dao.findById(((User) session.getAttribute("userSession")).getId());
-		model.addAttribute("user", user);
-		model.addAttribute("receivedOffers", offerDAO.findRequestOffersByUser(user.getId()));
-		model.addAttribute("madeOffers", offerDAO.findDesiredOffersByUser(user.getId()));
-		return "myGardenStoreFront";
+		
+		if(user != null) {
+			model.addAttribute("user", user);
+			model.addAttribute("receivedOffers", offerDAO.findRequestOffersByUser(user.getId()));
+			model.addAttribute("madeOffers", offerDAO.findDesiredOffersByUser(user.getId()));
+			return "myGardenStoreFront";
+		} else {
+			return "index";
+		}
 	}
 
 	@RequestMapping(path = "logout.do", method = RequestMethod.GET)

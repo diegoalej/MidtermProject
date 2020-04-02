@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.urbangarden.data.GardenStoreFrontDAO;
+import com.skilldistillery.urbangarden.data.UserDAO;
+import com.skilldistillery.urbangarden.entities.Address;
 import com.skilldistillery.urbangarden.entities.GardenStoreFront;
 import com.skilldistillery.urbangarden.entities.User;
 
@@ -19,6 +21,8 @@ public class GardenStoreFrontController {
 
 	@Autowired
 	private GardenStoreFrontDAO dao;
+	@Autowired
+	private UserDAO udao;
 
 	@RequestMapping(path = "getGardenStoreFront.do", method = RequestMethod.GET, params = "id")
 	public String showGardenStoreFront(@RequestParam Integer id, Model model) {
@@ -38,18 +42,35 @@ public class GardenStoreFrontController {
 		model.addAttribute("gardenStoreFront", gardenStoreFront);
 		return view;
 	}
+//
+//	@RequestMapping(path = "addGardenStoreFront.do", method = RequestMethod.GET)
+//	public String addGardenStoreFront(Model model, GardenStoreFront gardenStoreFront) {
+//		String view = "addGarden";
+//		model.addAttribute("gardenStoreFront", gardenStoreFront);
+//		return view;
+//	}
 
 	@RequestMapping(path = "addGardenStoreFront.do", method = RequestMethod.GET)
-	public String addGardenStoreFront(Model model, GardenStoreFront gardenStoreFront) {
+	public String addGardenStoreFront(Model model, int id) {
 		String view = "addGarden";
-		model.addAttribute("gardenStoreFront", gardenStoreFront);
+		model.addAttribute("user", udao.findById(id));
 		return view;
 	}
 
-	@RequestMapping(path = "addGardenStoreFront.do", method = RequestMethod.POST)
-	public String postGardenStoreFront(Model model, GardenStoreFront gardenStoreFront) {
-		String view = "gardenStoreFront";
-		dao.create(gardenStoreFront);
+//	@RequestMapping(path = "addGardenStoreFront.do", method = RequestMethod.POST)
+//	public String postGardenStoreFront(Model model, GardenStoreFront gardenStoreFront) {
+//		String view = "gardenStoreFront";
+//		dao.create(gardenStoreFront);
+//		return view;
+//	}
+//	
+	@RequestMapping(path = "addGardenStoreFront.do", method = RequestMethod.POST, params = "userid")
+	public String postGardenStoreFront(Model model, GardenStoreFront gardenStoreFront, int userid, 
+			String street, String street2, int zipCode, String city, String state, String country) {
+		String view = "createGardenConfirm";
+		Address address = new Address(street, street2, zipCode, city, state, country);
+		dao.createUserandGardenWithAddress(gardenStoreFront, userid, address);
+		model.addAttribute("object", gardenStoreFront);
 		return view;
 	}
 

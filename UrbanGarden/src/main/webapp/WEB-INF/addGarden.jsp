@@ -60,39 +60,39 @@
 								value="${gardenStoreFront.description}" /> 
 							<br> 
 							<label>Address</label>
-							<input class="form-control" type="text" name="street" value="${gardenStoreFront.address.street}"/> 
+							<input class="form-control" type="text" name="street" /> 
 							<br>
 							<label>Address</label>
-							<input class="form-control" type="text" name="street" value="${gardenStoreFront.address.street2}"/> 
+							<input class="form-control" type="text" name="street2" /> 
 							<br>
 							<label>City</label> <input class="form-control" type="text"
-								name="city" value="${gardenStoreFront.address.city}"/> 
+								name="city" /> 
 							<br> 
 							<label>ZipCode</label> <input
-								class="form-control" type="text" name="zipCode" value="${gardenStoreFront.address.zipCode}"/> 
+								class="form-control" type="text" name="zipCode" /> 
 							<br> 
 							<label>State</label>
-							<input class="form-control" type="text" name="state" value="${gardenStoreFront.address.state}"/> 
+							<input class="form-control" type="text" name="state" /> 
 							<br>
 							<label>Country</label>
-							<input class="form-control" type="text" name="state" value="${gardenStoreFront.address.country}"/> 
+							<input class="form-control" type="text" name="country" /> 
 							<br>
-							<br> 
+							<!-- <br> 
 							<label class="form-check-label" for="role">Add a profile image (Recommended size 200x200)</label>
 							<div class="input-group">
-								<!-- 	<div class="input-group-prepend">
+									<div class="input-group-prepend">
 									<span class="input-group-text" id="imageURL">Upload</span>
-								</div> -->
+								</div>
 								<div class="custom-file">
 									<input type="file" class="custom-file-input" id="imageURL"
 										aria-describedby="imageURL"> <label
 										class="custom-file-label" for="imageURL">Choose file</label>
 								</div>
-							</div>
+							</div> -->
 							<br> 
-							<input class="form-control" type="hidden" name="active"
-								value="true" /> <input type="submit" value="Add Garden"
-								class="btn btn-primary" />
+							<input class="form-control" type="hidden" name="active" value="true" /> 
+							<input class="form-control" type="hidden" name="userid" value="${user.id}" /> 
+							<input type="submit" value="Add Garden" class="btn btn-primary" />
 						</div>
 					</form:form>
 				</div>

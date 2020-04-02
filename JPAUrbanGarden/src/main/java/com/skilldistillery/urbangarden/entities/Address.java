@@ -1,5 +1,6 @@
 package com.skilldistillery.urbangarden.entities;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,7 +28,7 @@ public class Address {
 	
 	private String country;
 	
-	@OneToOne(mappedBy = "user")
+	@OneToOne(mappedBy = "address")
 	private GardenStoreFront gardenStoreFront;
 	
 	//
@@ -35,6 +36,16 @@ public class Address {
 	//
 	
 	public Address() {}
+
+	public Address(String street, String street2, Integer zipCode, String city, String state, String country) {
+		super();
+		this.street = street;
+		this.street2 = street2;
+		this.zipCode = zipCode;
+		this.city = city;
+		this.state = state;
+		this.country = country;
+	}
 
 	public int getId() {
 		return id;

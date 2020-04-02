@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.skilldistillery.urbangarden.entities.Address;
 import com.skilldistillery.urbangarden.entities.GardenStoreFront;
+import com.skilldistillery.urbangarden.entities.User;
 
 @Transactional
 @Service
@@ -35,6 +36,15 @@ public class GardenStoreFrontDAOImpl implements GardenStoreFrontDAO {
 
 	@Override
 	public GardenStoreFront create(GardenStoreFront gsf) {
+		em.persist(gsf);
+		em.flush();
+		return gsf;
+	}
+	
+	@Override
+	public GardenStoreFront createUserandGardenWithAddress(GardenStoreFront gsf, int id, Address address) {
+		gsf.setUser(em.find(User.class, id));
+		gsf.setAddress(address);
 		em.persist(gsf);
 		em.flush();
 		return gsf;
@@ -132,6 +142,10 @@ public class GardenStoreFrontDAOImpl implements GardenStoreFrontDAO {
 		return gsfResults;
 	}
 	
-	
+	public GardenStoreFront addUser(User user, int id) {
+		GardenStoreFront managedGardenStoreFront = em.find(GardenStoreFront.class, id);
+		managedGardenStoreFront.setUser(user);
+		return managedGardenStoreFront;
+	}
 
 }
