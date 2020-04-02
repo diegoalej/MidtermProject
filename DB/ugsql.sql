@@ -356,7 +356,7 @@ INSERT INTO `garden_produce` (`id`, `garden_id`, `produce_id`, `amount`, `active
 INSERT INTO `garden_produce` (`id`, `garden_id`, `produce_id`, `amount`, `active`, `date_expected_available`, `date_harvested`, `date_expires`) VALUES (13, 3, 10, 25, 1, '2020-09-30', '2020-10-01', '2020-11-01');
 INSERT INTO `garden_produce` (`id`, `garden_id`, `produce_id`, `amount`, `active`, `date_expected_available`, `date_harvested`, `date_expires`) VALUES (14, 3, 11, 15, 1, '2020-09-30', '2020-10-01', '2020-11-01');
 INSERT INTO `garden_produce` (`id`, `garden_id`, `produce_id`, `amount`, `active`, `date_expected_available`, `date_harvested`, `date_expires`) VALUES (15, 3, 40, 19, 1, '2020-09-30', '2020-10-01', '2020-11-01');
-INSERT INTO `garden_produce` (`id`, `garden_id`, `produce_id`, `amount`, `active`, `date_expected_available`, `date_harvested`, `date_expires`) VALUES (16, 3, 46, 40, DEFAULT, '2020-09-30', '2020-10-01', '2020-11-01');
+INSERT INTO `garden_produce` (`id`, `garden_id`, `produce_id`, `amount`, `active`, `date_expected_available`, `date_harvested`, `date_expires`) VALUES (16, 3, 46, 40, 1, '2020-09-30', '2020-10-01', '2020-11-01');
 
 COMMIT;
 
@@ -368,6 +368,15 @@ START TRANSACTION;
 USE `urbangardendb`;
 INSERT INTO `offer` (`id`, `offer_date`, `garden_produce_id`, `offered_produce_id`, `accepted_rejected`, `comment`) VALUES (1, '2020-06-30', 1, 2, 1, 'We love your tomatoes');
 INSERT INTO `offer` (`id`, `offer_date`, `garden_produce_id`, `offered_produce_id`, `accepted_rejected`, `comment`) VALUES (2, '2020-07-15', 2, 1, NULL, 'Your Melons make me happy');
+INSERT INTO `offer` (`id`, `offer_date`, `garden_produce_id`, `offered_produce_id`, `accepted_rejected`, `comment`) VALUES (3, '2020-01-01', 3, 4, NULL, NULL);
+INSERT INTO `offer` (`id`, `offer_date`, `garden_produce_id`, `offered_produce_id`, `accepted_rejected`, `comment`) VALUES (4, '2020-01-01', 5, 6, NULL, NULL);
+INSERT INTO `offer` (`id`, `offer_date`, `garden_produce_id`, `offered_produce_id`, `accepted_rejected`, `comment`) VALUES (5, '2020-01-01', 7, 8, NULL, NULL);
+INSERT INTO `offer` (`id`, `offer_date`, `garden_produce_id`, `offered_produce_id`, `accepted_rejected`, `comment`) VALUES (6, '2020-01-01', 9, 10, NULL, NULL);
+INSERT INTO `offer` (`id`, `offer_date`, `garden_produce_id`, `offered_produce_id`, `accepted_rejected`, `comment`) VALUES (7, '2020-01-01', 11, 12, NULL, NULL);
+INSERT INTO `offer` (`id`, `offer_date`, `garden_produce_id`, `offered_produce_id`, `accepted_rejected`, `comment`) VALUES (8, '2020-01-01', 13, 14, NULL, NULL);
+INSERT INTO `offer` (`id`, `offer_date`, `garden_produce_id`, `offered_produce_id`, `accepted_rejected`, `comment`) VALUES (9, '2020-01-01', 1, 4, NULL, 'Testing the relationships');
+INSERT INTO `offer` (`id`, `offer_date`, `garden_produce_id`, `offered_produce_id`, `accepted_rejected`, `comment`) VALUES (10, '2020-01-01', 4, 9, NULL, 'Second tested relationship');
+INSERT INTO `offer` (`id`, `offer_date`, `garden_produce_id`, `offered_produce_id`, `accepted_rejected`, `comment`) VALUES (11, '2020-01-01', 10, 16, NULL, 'Third Tested Relationship');
 
 COMMIT;
 

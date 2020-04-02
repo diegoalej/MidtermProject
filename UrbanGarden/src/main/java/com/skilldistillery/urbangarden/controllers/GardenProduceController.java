@@ -43,10 +43,21 @@ public class GardenProduceController {
 	@RequestMapping(path = "addGardenProduce.do", method = RequestMethod.POST)
 	public String postGardenProduce(Model model, GardenProduce gardenProduce, int gardenId, int productId,
 			String dateAvailableString, String harvestedString, String dateExpiresString) {
-		String view = "gardenProducePost";
-		gardenProduce.setDateAvailable(LocalDate.parse(dateAvailableString));
-		gardenProduce.setHarvested(LocalDate.parse(harvestedString));
-		gardenProduce.setExpires(LocalDate.parse(dateExpiresString));
+		try {
+			gardenProduce.setDateAvailable(LocalDate.parse(dateAvailableString));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		try {
+			gardenProduce.setHarvested(LocalDate.parse(harvestedString));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		try {
+			gardenProduce.setExpires(LocalDate.parse(dateExpiresString));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		gardenProduce.setGardenStoreFront(daoGSF.findById(gardenId));
 		gardenProduce.setProduct(daoProd.findById(productId));
 		dao.create(gardenProduce);
@@ -69,9 +80,21 @@ public class GardenProduceController {
 	
 	@RequestMapping(path = "editGardenProduce.do", method = RequestMethod.POST)
 	public String updateGardenProduce(GardenProduce gardenProduce, Model model, String dateAvailableString, String harvestedString, String dateExpiresString) {
-		gardenProduce.setDateAvailable(LocalDate.parse(dateAvailableString));
-		gardenProduce.setHarvested(LocalDate.parse(harvestedString));
-		gardenProduce.setExpires(LocalDate.parse(dateExpiresString));
+		try {
+			gardenProduce.setDateAvailable(LocalDate.parse(dateAvailableString));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		try {
+			gardenProduce.setHarvested(LocalDate.parse(harvestedString));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		try {
+			gardenProduce.setExpires(LocalDate.parse(dateExpiresString));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		model.addAttribute("gardenProduce", gardenProduce);
 		dao.update(gardenProduce);
 		return "redirect:editGardenProduce.do";

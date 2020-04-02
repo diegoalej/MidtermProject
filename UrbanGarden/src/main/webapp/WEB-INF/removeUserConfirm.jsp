@@ -11,33 +11,28 @@
 </head>
 <body>
 	<!-- N A V I G A T I O N -->
-<%-- 	<jsp:include page="includes/navbar.jsp"/> --%>
+	<jsp:include page="includes/navbar.jsp"/>
 	<!-- M A I N  B O D Y -->
 	<div class="d-flex justify-content-center">
 		<div class="row justify-content-center">
 			<div class="col-12 ">
-				<h1>Create Confirmation</h1>
+				<h1>Remove Confirmation</h1>
 			</div>
 		</div>
 	</div>
 	<div class="d-flex justify-content-center">
 
 		<div class="row justify-content-center">
-			<div class="col-12 ">
-				<h4>New Garden with ID: ${object.id} Created</h4>
-				<h4><strong>Thank you for registering with us!</strong></h4>
-				<h4><strong>You can now log in</strong></h4>
-				<div class="col-6">
-					<form action="home.do" method="GET">
-	<%-- 					<input class="form-control" type="hidden" name="user" value="${user}" /> --%>
-						<button type="submit" value="Login" class="btn float-center">Login</button>
-					</form>
-				</div>
-				<br>
+			<div class="col-12  ">
+				<h5>User ID: ${object.id} Removed</h5>
 			</div>
-			<br>
 		</div>
 	</div>
+	<form action="home.do" method="GET">
+		<button type="submit" value="Home" class="btn float-center">Home</button>
+	</form>
+	<br>
+	
 	<!-- Footer -->
 	<jsp:include page="includes/bootstrapFoot.jsp"/>
 </body>

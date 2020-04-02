@@ -11,7 +11,7 @@
 </head>
 <body>
 	<!-- N A V I G A T I O N -->
-	<jsp:include page="includes/navbar.jsp"/>
+<%-- 	<jsp:include page="includes/navbar.jsp"/> --%>
 	<!-- M A I N  B O D Y -->
 	<div class="d-flex justify-content-center">
 		<div class="row justify-content-center">
@@ -38,22 +38,18 @@
 							<label> Name of the Garden </label> <input class="form-control"
 								type="text" name="nameOfGarden" value="${gardenStoreFront.nameOfGarden}" />
 							<br> 
-							<label> Size in ft </label> <input class="form-control"
+							<label> Size in ft </label> 
+							<input class="form-control" required
 								type="text" name="size" value="${gardenStoreFront.size}" /> 
-							<br>
+							<%-- <br>
 							<label>Is your garden organic? </label>
 							<br>
 							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="checkbox" id="role"
-									value="${gardenStoreFront.organic}"> <label
-									class="form-check-label" for="role">Yes</label>
+								<input class="form-control" type="checkbox" name="role"
+								value="${gardenStoreFront.organic}"> 
+								<label class="form-control">Yes</label>
 							</div>
-							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="checkbox" id="role"
-									value="${!gardenStoreFront.organic}"> <label
-									class="form-check-label" for="role">No</label>
-							</div>
-							<br> 
+							<br>  --%>
 							<br> 
 							<label> Describe your garden </label> <input
 								class="form-control" type="text" name="description"
