@@ -76,15 +76,12 @@
 								type="text" path="nameOfGarden"
 								 /> <br>
 							<label> Size in ft </label> 
-							<form:input class="form-control" type="text" path="size"
-								/> <br> <label>Is
-								your garden organic? </label> <br>
-
+							<form:input class="form-control" type="text" path="size"/> 
+							<br> 
+							<label>Is your garden organic? </label> <br>
 							<div class="form-check form-check-inline">
-										<form:checkbox class="form-check-input"  id="role"
-											 path = "organic" />
-										<label class="form-check-label" for="role">Is organic</label>
-									
+										<form:checkbox class="form-check-input"  id="role" path = "organic" />
+										<label class="form-check-label" for="role">Is organic</label>									
 							</div>
 							<br> 
 							<label >Add a profile image URL (Recommended size 200x200)</label>
