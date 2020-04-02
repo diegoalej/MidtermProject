@@ -13,16 +13,16 @@
 	<!-- N A V I G A T I O N -->
 	<jsp:include page="includes/navbar.jsp"/>
 	<!-- M A I N  B O D Y -->
-	<div class="d-flex justify-content-center">
-		<div class="row justify-content-center">
+	<div class="d-flex justify-content-start">
+		<div class="row justify-content-start">
 			<div class="col-12 ">
 				<h1>Make an Offer</h1>
 			</div>
 		</div>
 	</div>
-	<div class="d-flex justify-content-center">
+	<div class="d-flex justify-content-start">
 
-		<div class="row justify-content-center">
+		<div class="row justify-content-start">
 			<div class="col-12  ">
 				<h5>What do you want to trade?</h5>
 			</div>
@@ -48,6 +48,7 @@
 							<br> 
 							<label>Comment</label>
 							<input class="form-control" type="text" name="comment"/> 
+							<textarea class="form-control"  name="comment" rows="2"></textarea>
 							<br> 
 							<br> 
 							<input class="form-control" type="hidden" name="active"
