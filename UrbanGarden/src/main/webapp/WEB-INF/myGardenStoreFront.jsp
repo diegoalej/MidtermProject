@@ -62,9 +62,7 @@
 						</div>
 
 					</div>
-					<p>
-						<a class="btn btn-secondary" href="editGardenStoreFront.do" role="button">Edit Profile</a>
-					</p>
+					
 				</div>
 				<div class="col-lg-8 text-left">
 
@@ -77,6 +75,10 @@
 						<br>
 						<c:out value="${user.gardenStoreFront.address.city }" />
 						<c:out value="${user.gardenStoreFront.address.zipCode }" />
+					</p>
+					<p>
+						<a class="btn btn-secondary" href="editGardenStoreFront.do" role="button">Edit Profile</a>
+						<a class="btn btn-secondary" href="addNewProduct.do" role="button">Add Product</a>
 					</p>
 				</div>
 			</div>
@@ -167,14 +169,20 @@
 
 											<div class="col-lg-4 justify-content-start pl-4">
 												<p>
-													<a class="btn btn-secondary" href="#" role="button">Edit
-														Product</a>
+													<form:form method="POST" action="editProduce.do" modelAttribute="gardenProduce">
+														<input type="hidden" name="gardenProduceID" value="${produce.id}"/>
+														<input type="submit" class="btn btn-secondary" value="Edit Product"/>
+													</form:form>
 												</p>
 											</div>
 											<div class="col-lg-4 justify-content-start pl-4">
 												<p>
-													<a class="btn btn-secondary" href="#" role="button">View
-														Offers</a>
+													<p>
+													<form:form method="POST" action="editProduce.do" modelAttribute="gardenProduce">
+														<input type="hidden" name="gardenProduceID" value="${produce.id}"/>
+														<input type="submit" class="btn btn-secondary" value="See Offers"/>
+													</form:form>
+												</p>
 												</p>
 											</div>
 										</div>

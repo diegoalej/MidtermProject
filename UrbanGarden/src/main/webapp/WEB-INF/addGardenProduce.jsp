@@ -33,32 +33,34 @@
 			<div class="row py-2">
 				<div class="col-sm-12">
 					<form:form class="form-horizontal" action="addGardenProduce.do"
-						modelAttribute="gardenProduce">
+						modelAttribute="gardenProduce" method="post">
 						<div class="form-group">
 							<label> Product </label>
 							<br> 
-							<select name="action" id="action">
-								<option value="1">Name of first Product</option>
-								<option value="2">2</option>
+							<select name="productId" id="product">
+								<c:forEach var="productName" items="${listAllProducts}">
+								<option value="${productName.id}">${productName.name}</option>
+								</c:forEach>
 							</select>
 							<br> 
 							<br> 
 							<label> Amount </label> 
-							<input class="form-control" type="number" name="amount"/> 
+							<input class="form-control" type="number" name="amount" required="required"/> 
 							<br> 
 							<label>Date Expected</label>
-							<input class="form-control" type="date" name="dateAvailable"/> 
+							<input class="form-control" type="date" name="dateAvailableString"/> 
 							<br> 
 							<label>Date Harvested</label>
-							<input class="form-control" type="date" name="harvested"/> 
+							<input class="form-control" type="date" name="harvestedString"/> 
 							<br> 
 							<label>Date of Expiration</label>
-							<input class="form-control" type="date" name="dateExpires"/> 
+							<input class="form-control" type="date" name="dateExpiresString"/> 
 							<br> 
 							<br> 
-							<input class="form-control" type="hidden" name="active"
-								value="true" /> <input type="submit" value="Add"
-								class="btn btn-primary" />
+							<input class="form-control" type="hidden" name="active" value="true" /> 
+							<input class="form-control" type="hidden" name="gardenId" value="${gardenStoreFront.id}"/>
+							<%-- <input class="form-control" type="hidden" name="product" value="${productName}"/> --%>
+							<input type="submit" value="Add" class="btn btn-primary" />
 						</div>
 					</form:form>
 				</div>

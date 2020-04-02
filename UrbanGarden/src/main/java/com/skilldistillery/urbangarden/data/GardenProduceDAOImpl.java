@@ -9,6 +9,8 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.urbangarden.entities.GardenProduce;
+import com.skilldistillery.urbangarden.entities.GardenStoreFront;
+import com.skilldistillery.urbangarden.entities.Product;
 
 @Transactional
 @Service
@@ -30,23 +32,21 @@ public class GardenProduceDAOImpl implements GardenProduceDAO {
 
 	@Override
 	public GardenProduce create(GardenProduce gardenProduce) {
+		System.out.println("!!!!!!!!!!!!!!!!!!!!!You made it here!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 		em.persist(gardenProduce);
+		System.out.println("#########################WAS MY GUESS RIGHT#########################");
 		em.flush();
 		return gardenProduce;
 	}
 
 	@Override
-	public GardenProduce update(int id, GardenProduce gardenProduce) {
-		GardenProduce managedGardenProduce = em.find(GardenProduce.class, id);
+	public GardenProduce update(GardenProduce gardenProduce) {
+		GardenProduce managedGardenProduce = em.find(GardenProduce.class, gardenProduce.getId());
 		managedGardenProduce.setActive(gardenProduce.getActive());
 		managedGardenProduce.setAmount(gardenProduce.getAmount());
 		managedGardenProduce.setDateAvailable(gardenProduce.getDateAvailable());
 		managedGardenProduce.setExpires(gardenProduce.getExpires());
-		managedGardenProduce.setGardenStoreFront(gardenProduce.getGardenStoreFront());
 		managedGardenProduce.setHarvested(gardenProduce.getHarvested());
-		managedGardenProduce.setOfferedProduct(gardenProduce.getOfferedProduct());
-		managedGardenProduce.setRequestedProduct(gardenProduce.getRequestedProduct());
-		managedGardenProduce.setProduct(gardenProduce.getProduct());
 		return managedGardenProduce;
 	}
 
