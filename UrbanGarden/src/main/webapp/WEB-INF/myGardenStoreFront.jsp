@@ -169,14 +169,20 @@
 
 											<div class="col-lg-4 justify-content-start pl-4">
 												<p>
-													<a class="btn btn-secondary" href="#" role="button">Edit
-														Product</a>
+													<form:form method="POST" action="editProduce.do" modelAttribute="gardenProduce">
+														<input type="hidden" name="gardenProduceID" value="${produce.id}"/>
+														<input type="submit" class="btn btn-secondary" value="Edit Product"/>
+													</form:form>
 												</p>
 											</div>
 											<div class="col-lg-4 justify-content-start pl-4">
 												<p>
-													<a class="btn btn-secondary" href="#" role="button">View
-														Offers</a>
+													<p>
+													<form:form method="POST" action="editProduce.do" modelAttribute="gardenProduce">
+														<input type="hidden" name="gardenProduceID" value="${produce.id}"/>
+														<input type="submit" class="btn btn-secondary" value="See Offers"/>
+													</form:form>
+												</p>
 												</p>
 											</div>
 										</div>
