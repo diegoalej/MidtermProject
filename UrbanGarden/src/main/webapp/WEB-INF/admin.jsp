@@ -32,9 +32,9 @@
 						<h2>You can deactivate users by using buttons below</h2>
 					</div>
 					<div class="col-12 text-left">
-						<div class="row justify-content-start gardenProfile ">
+						<div class="row justify-content-start align-items-center gardenProfile ">
 							<c:forEach items="${users}" var="users">
-								<div class="col-12 text-left pb-5">
+								<div class="col-4 text-left pb-4">
 									<h4>${users.firstName}&nbsp;${users.lastName}</h4>
 									<%-- <c:out value="gardenStoreFront.user.firstName" />
 									<c:out value="gardenStoreFront.user.lastName" /> --%>
@@ -53,14 +53,16 @@
 										</c:when>
 										</c:choose>
 									</p>
+								</div>	
+								<div class="col-8 text-left pb-4">
 									<c:choose>
 										<c:when test="${users.enabled == true}">
 											<form:form action="disableUser.do" method="POST">
 												<div class="custom-control custom-switch pb-2">
-													<div class="form-check">
+													<div class="form-check align-middle">
 
 														<input type="hidden" value="${users.id }" name="id"
-															class="btn float-left"> <input type="submit"
+															class="btn float-left "> <input type="submit"
 															value="Disable" class="btn float-left">
 													</div>
 												</div>
