@@ -90,9 +90,9 @@
 								</div>
 							</div>
 							<br> 
-							<input class="form-control" type="hidden" name="active"
-								value="true" /> <input type="submit" value="Add Garden"
-								class="btn btn-primary" />
+							<input class="form-control" type="hidden" name="active" value="true" /> 
+							<input class="form-control" type="hidden" name="userid" value="${user.id}" /> 
+							<input type="submit" value="Add Garden" class="btn btn-primary" />
 						</div>
 					</form:form>
 				</div>

@@ -11,7 +11,7 @@
 </head>
 <body>
 	<!-- N A V I G A T I O N -->
-	<jsp:include page="includes/navbar.jsp"/>
+<%-- 	<jsp:include page="includes/navbar.jsp"/> --%>
 	<!-- M A I N  B O D Y -->
 	<div class="d-flex justify-content-center">
 		<div class="row justify-content-center">
@@ -25,9 +25,10 @@
 		<div class="row justify-content-center">
 			<div class="col-12  ">
 				<h5>${object} Created</h5>
-				<h5><strong>Home</strong></h5>
-				<form action="home.do" method="GET">
-					<button type="submit" value="Home" class="btn float-center">Home</button>
+				<h5><strong>Next create your Garden Store Front page</strong></h5>
+				<form action="addGardenStoreFront.do" method="GET">
+					<input class="form-control" type="hidden" name="id" value="${user.id}" />
+					<button type="submit" value="Create Garden" class="btn float-center">Create Garden</button>
 				</form>
 				<br>
 			</div>

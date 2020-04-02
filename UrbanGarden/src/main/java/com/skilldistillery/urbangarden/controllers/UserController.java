@@ -36,7 +36,7 @@ public class UserController {
 	
 	@RequestMapping(path = "addUser.do", method = RequestMethod.POST)
 	public String postUser(User user, Model model) {
-		String view = "createConfirm";
+		String view = "createUserConfirm";
 		dao.create(user);
 		model.addAttribute("object", user);
 		return view;
