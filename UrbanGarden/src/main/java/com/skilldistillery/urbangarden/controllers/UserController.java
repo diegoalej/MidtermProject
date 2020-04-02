@@ -53,7 +53,7 @@ public class UserController {
 
 	@RequestMapping(path = "deactivateUser.do", method = RequestMethod.POST, params="id")
 	public String deactivateUser(@RequestParam Integer id, Model model) {
-		String view = "removeConfirm";
+		String view = "removeUserConfirm";
 		User user = dao.deactivate(id);
 		model.addAttribute("object", user);
 		return view;

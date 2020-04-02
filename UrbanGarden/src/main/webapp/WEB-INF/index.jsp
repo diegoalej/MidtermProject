@@ -13,7 +13,7 @@
 	<div class="d-flex justify-content-center ">
 		<div class="row justify-content-center">
 			<div class="col-12 homelogo">
-				<h1>UrbanGarden App</h1>
+				<h1><strong>UrbanGarden App</strong></h1>
 			</div>
 		</div>
 	</div>
