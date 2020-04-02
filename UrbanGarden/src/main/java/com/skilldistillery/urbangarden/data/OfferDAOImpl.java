@@ -1,5 +1,6 @@
 package com.skilldistillery.urbangarden.data;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -8,6 +9,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.urbangarden.entities.GardenProduce;
 import com.skilldistillery.urbangarden.entities.Offer;
 
 @Transactional
@@ -29,7 +31,12 @@ public class OfferDAOImpl implements OfferDAO {
 	}
 
 	@Override
-	public Offer create(Offer offer) {
+	public Offer create(GardenProduce desired, GardenProduce offered, String commentString) {
+		Offer offer = new Offer();
+		offer.setDesired(desired);
+		offer.setOffered(offered);
+		offer.setComment(commentString);
+		offer.setOfferDate(LocalDateTime.now());
 		em.persist(offer);
 		em.flush();
 		return offer;

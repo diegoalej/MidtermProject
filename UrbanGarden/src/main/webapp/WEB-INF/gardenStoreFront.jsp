@@ -142,10 +142,14 @@
 								<div class="row d-flex justify-content-start">
 
 									<div class="col-lg-4 justify-content-start pl-4">
-										<p>
-											<a class="btn btn-secondary" href="#" role="button">Place
-												offer</a>
-										</p>
+										<form:form class="form-horizontal"
+											action="addOffer.do" modelAttribute="id"
+											method="GET" >
+							
+											<input type="hidden"  name="id" value="${produce.id}" />
+											<input type="submit" value="Place Offer"
+														class="btn btn-primary" />
+										</form:form>
 									</div>
 								</div>
 							</div>
