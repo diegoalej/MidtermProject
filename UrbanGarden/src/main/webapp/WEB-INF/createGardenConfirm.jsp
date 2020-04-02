@@ -27,8 +27,8 @@
 				<h5>${object} Created</h5>
 				<h5><strong>Thank you for registering with us!</strong></h5>
 				<h5><strong>You can now log in</strong></h5>
-				<form action="homePage.do" method="GET">
-					<input class="form-control" type="hidden" name="user" value="${user}" />
+				<form action="home.do" method="GET">
+<%-- 					<input class="form-control" type="hidden" name="user" value="${user}" /> --%>
 					<button type="submit" value="Login" class="btn float-center">Login</button>
 				</form>
 				<br>

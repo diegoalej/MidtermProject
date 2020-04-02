@@ -2,6 +2,7 @@ package com.skilldistillery.urbangarden.data;
 
 import java.util.List;
 
+import com.skilldistillery.urbangarden.entities.Address;
 import com.skilldistillery.urbangarden.entities.GardenStoreFront;
 import com.skilldistillery.urbangarden.entities.User;
 
@@ -26,6 +27,6 @@ public interface GardenStoreFrontDAO {
 
 	List<GardenStoreFront> searchByFarm(String farm);
 
-	GardenStoreFront createGardenAndUser(GardenStoreFront gsf, int id);
+	GardenStoreFront createUserandGardenWithAddress(GardenStoreFront gsf, int id, Address address);
 
 }

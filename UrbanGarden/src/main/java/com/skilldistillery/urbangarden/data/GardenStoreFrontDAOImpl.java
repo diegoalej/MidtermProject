@@ -42,8 +42,9 @@ public class GardenStoreFrontDAOImpl implements GardenStoreFrontDAO {
 	}
 	
 	@Override
-	public GardenStoreFront createGardenAndUser(GardenStoreFront gsf, int id) {
+	public GardenStoreFront createUserandGardenWithAddress(GardenStoreFront gsf, int id, Address address) {
 		gsf.setUser(em.find(User.class, id));
+		gsf.setAddress(address);
 		em.persist(gsf);
 		em.flush();
 		return gsf;
