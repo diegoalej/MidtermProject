@@ -41,19 +41,21 @@ public class HomeController {
 	public String login(User userLogin, Model model, HttpSession session) {
 		User user = dao.login(userLogin);
 		if (user != null) {
-			session.setAttribute("userSession", user);
-			if (user.getRole().equals("admin")) {
-				List<User> allUsers = dao.findAll();		
-				model.addAttribute("user", user);
-				model.addAttribute("users", allUsers);
-				
-				return "admin";
-			} else {
-				model.addAttribute("user", user);
-				model.addAttribute("receivedOffers", offerDAO.findRequestOffersByUser(user.getId()));
-				model.addAttribute("madeOffers", offerDAO.findDesiredOffersByUser(user.getId()));
-				return "myGardenStoreFront";
-			}
+			if (user.getEnabled()) {
+				session.setAttribute("userSession", user);
+				if (user.getRole().equals("admin")) {
+					List<User> allUsers = dao.findAll();
+					model.addAttribute("user", user);
+					model.addAttribute("users", allUsers);
+
+					return "admin";
+				} else {
+					model.addAttribute("user", user);
+					model.addAttribute("receivedOffers", offerDAO.findRequestOffersByUser(user.getId()));
+					model.addAttribute("madeOffers", offerDAO.findDesiredOffersByUser(user.getId()));
+					return "myGardenStoreFront";
+				}
+			} else return "index";
 		} else {
 			return "index";
 		}
@@ -63,15 +65,18 @@ public class HomeController {
 	@RequestMapping(path = "homePage.do", method = RequestMethod.GET)
 	public String homePage(Model model, HttpSession session) {
 		User user = dao.findById(((User) session.getAttribute("userSession")).getId());
-		
-		if(user != null) {
-			model.addAttribute("user", user);
-			model.addAttribute("receivedOffers", offerDAO.findRequestOffersByUser(user.getId()));
-			model.addAttribute("madeOffers", offerDAO.findDesiredOffersByUser(user.getId()));
-			return "myGardenStoreFront";
-		} else {
+
+		if (user != null) {
+			if (user.getEnabled()) {
+				model.addAttribute("user", user);
+				model.addAttribute("receivedOffers", offerDAO.findRequestOffersByUser(user.getId()));
+				model.addAttribute("madeOffers", offerDAO.findDesiredOffersByUser(user.getId()));
+				return "myGardenStoreFront";
+			} else {
+				return "index";
+			}
+		} else
 			return "index";
-		}
 	}
 
 	@RequestMapping(path = "logout.do", method = RequestMethod.GET)
@@ -84,8 +89,8 @@ public class HomeController {
 
 		return "index";
 	}
-	
-	@RequestMapping(path= "addNewProduct.do", method = RequestMethod.GET)
+
+	@RequestMapping(path = "addNewProduct.do", method = RequestMethod.GET)
 	public String newProduct(Model model, HttpSession session) {
 		GardenStoreFront userGSF = ((User) session.getAttribute("userSession")).getGardenStoreFront();
 		System.out.println(userGSF);
@@ -93,17 +98,17 @@ public class HomeController {
 		model.addAttribute("listAllProducts", prodDAO.findAll());
 		return "addGardenProduce";
 	}
-	
+
 	@RequestMapping(path = "editProduce.do", method = RequestMethod.POST)
 	public String editProduce(Model model, HttpSession session, int gardenProduceID) {
 		GardenProduce gardenProduce = gpDAO.findById(gardenProduceID);
 		model.addAttribute("gardenProduce", gardenProduce);
 		return "editGardenProduce";
 	}
-	
+
 	@RequestMapping(path = "viewAllOffers")
 	public String viewOffers(Model model, HttpSession session, GardenProduce gardenProduce) {
-		
+
 		return "showOffer";
 	}
 
