@@ -72,6 +72,7 @@
 									</div>
 									<br> 
 									<input class="form-control" type="hidden" name="enabled" value="true" /> 
+									<input class="form-control" type="hidden" name="role" value="${user.role}"/>
 									<input class="form-control" type="hidden" name="id" value="${user.id}" /> 
 									<input class="form-control" type="hidden" name="user" value="${user}" /> 
 									<input type="submit" value="Update User" class="btn btn-primary" />

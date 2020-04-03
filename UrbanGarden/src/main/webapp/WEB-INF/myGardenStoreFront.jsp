@@ -488,6 +488,8 @@
 			</div>
 		</div>
 	</div>
+	</div>
+</div>
 	<div class="row spacer">
 		<div class="span4"></div>
 	</div>
