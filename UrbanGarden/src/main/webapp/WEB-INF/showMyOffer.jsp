@@ -67,13 +67,6 @@
 										</div>
 									</div>
 									<div class="row d-flex justify-content-start">
-
-										<div class="col-lg-4 justify-content-start pl-4">
-											<p>
-												<a class="btn btn-secondary" href="homePage.do" role="button" >Back
-													to Garden Store Front</a>
-											</p>
-										</div>
 										<form:form class="form-horizontal needs-validation" action="deactivateOffer.do" modelAttribute="offer" method="POST">
 											<div class="col-lg-4 justify-content-start pl-4">
 												<input class="form-control" type="hidden" name="id" value="${offer.id}" /> 
