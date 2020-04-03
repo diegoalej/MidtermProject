@@ -91,18 +91,31 @@ public class OfferDAOImpl implements OfferDAO {
 
 	@Override
 	public Offer accept(int id) {
-		Offer offer = em.find(Offer.class, id); //Makes sure to grab the right Trade
-		offer.setAccepeted(true); //sets the accepted_rejected value to true;
-//		Trade unmanagedTrade = new Trade(); //creates an unmanagedTrade object to send into DAO
-//		unmanagedTrade.setOffer(offer); //Sets unmanageTrade's offer to current offer
-//		TradeDAO tDAO = new TradeDAOImpl(); //Creates a DAO to persist Trade
-		
-//		System.out.println(offer); //Prints to make sure values are not null
-//		System.out.println(offer.getDesired().toString());
-//		System.out.println(offer.getOffered().toString());
+		Offer offer = em.find(Offer.class, id); 
 		Trade trade = new Trade();
 		trade.setTradeDate(LocalDateTime.now());
+		offer.getDesired().setActive(false);
+		offer.getOffered().setActive(false);
 		trade.setOffer(offer);
+		
+		int desiredId = offer.getDesired().getId();
+		int offeredId = offer.getOffered().getId();
+		
+//		String query = "SELECT DISTINCT(gp) FROM GardenProduce gp WHERE gp.id = :desiredId OR gp.id = :offeredId";
+//		List<GardenProduce> gpToDeactivate = em.createQuery(query, GardenProduce.class).setParameter("desiredId", desiredId).setParameter("offeredId", offeredId).getResultList();
+//		for (GardenProduce gardenProduce : gpToDeactivate) {
+//			if(gardenProduce.getActive() == true) {
+//				gardenProduce.setActive(false);
+//			}
+//		}
+		String query2 = "SELECT DISTINCT(o) FROM Offer o WHERE o.desired.active = false or o.offered.active = false";
+		List<Offer> offerToDeactivate = em.createQuery(query2, Offer.class).getResultList();
+		for (Offer offer2 : offerToDeactivate) {
+			if (offer2.getAccepeted() == null) {
+				offer2.setAccepeted(false);
+			}
+		}
+		
 		em.persist(trade);
 		em.flush();
 //		tDAO.create(offer); // attempts to persist Trade

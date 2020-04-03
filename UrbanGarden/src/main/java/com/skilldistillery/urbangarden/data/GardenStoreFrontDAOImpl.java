@@ -128,8 +128,8 @@ public class GardenStoreFrontDAOImpl implements GardenStoreFrontDAO {
 	public List<GardenStoreFront> searchByKeyword(String keyword) {
 		String query = "SELECT  DISTINCT gsf FROM GardenProduce gp JOIN GardenStoreFront gsf "
 						+ "ON gp.garden = gsf JOIN Product p ON gp.product = p "
-						+ "WHERE p.name LIKE :keyword OR p.type LIKE :keyword "
-						+ "OR p.description LIKE :keyword"; //concat the % inside the setParameter method
+						+ "WHERE gp.active = true AND (p.name LIKE :keyword OR p.type LIKE :keyword "
+						+ "OR p.description LIKE :keyword)"; //concat the % inside the setParameter method
 		List<GardenStoreFront> gsfResults = em.createQuery(query, GardenStoreFront.class).setParameter("keyword", "%"+keyword+"%").getResultList();
 		return gsfResults;
 	}
