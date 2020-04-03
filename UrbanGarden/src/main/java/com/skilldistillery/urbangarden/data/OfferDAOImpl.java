@@ -95,14 +95,17 @@ public class OfferDAOImpl implements OfferDAO {
 		offer.setAccepeted(true); //sets the accepted_rejected value to true;
 //		Trade unmanagedTrade = new Trade(); //creates an unmanagedTrade object to send into DAO
 //		unmanagedTrade.setOffer(offer); //Sets unmanageTrade's offer to current offer
-		TradeDAO tDAO = new TradeDAOImpl(); //Creates a DAO to persist Trade
+//		TradeDAO tDAO = new TradeDAOImpl(); //Creates a DAO to persist Trade
 		
 //		System.out.println(offer); //Prints to make sure values are not null
 //		System.out.println(offer.getDesired().toString());
 //		System.out.println(offer.getOffered().toString());
-		
-		
-		tDAO.create(offer); //attempts to persist Trade
+		Trade trade = new Trade();
+		trade.setTradeDate(LocalDateTime.now());
+		trade.setOffer(offer);
+		em.persist(trade);
+		em.flush();
+//		tDAO.create(offer); // attempts to persist Trade
 		return offer;
 	}
 
