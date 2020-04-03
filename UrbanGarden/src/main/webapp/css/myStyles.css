@@ -144,6 +144,13 @@ margin-bottom: .5rem;
 .gardenDetails h4{
 color: white;
 }
+.gardenDetails h3{
+color: white;
+padding-bottom: 0px;
+}
+.gardenDetails h5{
+color: white;
+}
 .gardenDetails p {
 margin-bottom: .5rem;
 color: white;
