@@ -2,6 +2,7 @@ package com.skilldistillery.urbangarden.entities;
 
 import java.time.LocalDateTime;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -36,7 +37,7 @@ public class Offer {
 	
 	private String comment;
 	
-	@OneToOne(mappedBy = "offer")
+	@OneToOne(mappedBy = "offer", cascade = CascadeType.PERSIST)
 	private Trade trade;
 	
 	// m e t h o d s 

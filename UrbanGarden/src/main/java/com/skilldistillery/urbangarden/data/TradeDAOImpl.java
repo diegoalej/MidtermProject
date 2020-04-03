@@ -1,5 +1,6 @@
 package com.skilldistillery.urbangarden.data;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -8,6 +9,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.urbangarden.entities.Offer;
 import com.skilldistillery.urbangarden.entities.Trade;
 
 @Transactional
@@ -29,10 +31,23 @@ public class TradeDAOImpl implements TradeDAO {
 	}
 
 	@Override
-	public Trade create(Trade trade) {
-		em.persist(trade);
+	public Trade create(Offer offer) {
+		Trade unmanagedTrade = new Trade();
+		unmanagedTrade.setOffer(offer);
+		unmanagedTrade.setTradeDate(LocalDateTime.now());
+		
+		
+		unmanagedTrade.setBuyerComment("Something");
+		unmanagedTrade.setSellerComment("Else");
+		unmanagedTrade.setBuyerRating(5);
+		unmanagedTrade.setSellerRating(5);
+		
+		em.persist(unmanagedTrade);
+		
+		System.out.println("SECOND TIME PRINTING TRADE"+ unmanagedTrade);
+		
 		em.flush();
-		return trade;
+		return unmanagedTrade;
 	}
 
 	@Override
