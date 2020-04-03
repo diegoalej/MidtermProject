@@ -25,49 +25,54 @@
 				</div>
 			</div>
 		</div>
-		<div class="row justify-content-start gardenProfile py-3">
-			<div class="col-4 ">
-				<div class="col-lg-12 text-left justify-content-start pt-2">
+	</div>
+	<div class="container gardenProfile">
+		<div class="d-flex justify-content-start">
 
-					<div class="col-lg-12 text-left justify-content-start pt-1 pb-2">
+			<div class="row justify-content-start  py-3 w-100">
+				<div class="col-4 ">
+					<div class="col-lg-12 text-left justify-content-start pt-2">
 
-						<img class="rounded-circle"
-							src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-							alt="Generic placeholder image" width="120" height="120">
+						<div class="col-lg-12 text-left justify-content-start pt-1 pb-2">
+
+							<img class="rounded-circle"
+								src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+								alt="Generic placeholder image" width="120" height="120">
+						</div>
+						<div class="col-12 text-left pt-5">
+							<p>
+								<strong>Garden Name: </strong>
+								<c:out value="${gardenStoreFront.nameOfGarden }" />
+							</p>
+							<p>
+								<strong>Owner: </strong>
+								<c:out value="${gardenStoreFront.user.firstName }" />
+								<c:out value="${gardenStoreFront.user.lastName }" />
+							</p>
+							<p>
+								<strong>Organic: </strong>
+								<c:choose>
+									<c:when test="${gardenStoreFront.organic}">Yes</c:when>
+									<c:otherwise>No</c:otherwise>
+								</c:choose>
+							</p>
+						</div>
+
 					</div>
-					<div class="col-12 text-left pt-5">
-						<p>
-							<strong>Garden Name: </strong>
-							<c:out value="${gardenStoreFront.nameOfGarden }" />
-						</p>
-						<p>
-							<strong>Owner: </strong>
-							<c:out value="${gardenStoreFront.user.firstName }" />
-							<c:out value="${gardenStoreFront.user.lastName }" />
-						</p>
-						<p>
-							<strong>Organic: </strong>
-							<c:choose>
-								<c:when test="${gardenStoreFront.organic}">Yes</c:when>
-								<c:otherwise>No</c:otherwise>
-							</c:choose>
-						</p>
-					</div>
-
 				</div>
-			</div>
-			<div class="col-lg-4 text-left pt-2 w-100">
+				<div class="col-lg-4 text-left pt-2 w-100">
 
-				<h2>Description</h2>
-				<p>
-					<c:out value="${gardenStoreFront.description }" />
-				</p>
-				<p>
-					<c:out value="${gardenStoreFront.address.street }" />
-					<br>
-					<c:out value="${gardenStoreFront.address.city }" />
-					<c:out value="${gardenStoreFront.address.zipCode }" />
-				</p>
+					<h2>Description</h2>
+					<p>
+						<c:out value="${gardenStoreFront.description }" />
+					</p>
+					<p>
+						<c:out value="${gardenStoreFront.address.street }" />
+						<br>
+						<c:out value="${gardenStoreFront.address.city }" />
+						<c:out value="${gardenStoreFront.address.zipCode }" />
+					</p>
+				</div>
 			</div>
 		</div>
 	</div>
