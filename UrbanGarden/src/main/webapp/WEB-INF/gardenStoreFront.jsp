@@ -25,7 +25,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="row justify-content-start gardenProfile py-5">
+		<div class="row justify-content-start gardenProfile py-3">
 			<div class="col-4 ">
 				<div class="col-lg-12 text-left justify-content-start pt-2">
 
