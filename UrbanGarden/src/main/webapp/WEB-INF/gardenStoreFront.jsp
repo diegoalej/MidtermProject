@@ -36,7 +36,7 @@
 						<div class="col-lg-12 text-left justify-content-start pt-1 pb-2">
 
 							<img class="rounded-circle"
-								src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+								src="https://southparkstudios.mtvnimages.com/images/shows/south-park/episode-thumbnails/season-22/south-park-s22e04-Tegridy-Farms_16x9.jpg?quality=0.8&grayscale=true"
 								alt="Generic placeholder image" width="120" height="120">
 						</div>
 						<div class="col-12 text-left pt-5">
