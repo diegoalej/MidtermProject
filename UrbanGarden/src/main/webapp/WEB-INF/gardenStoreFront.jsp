@@ -60,9 +60,9 @@
 
 					</div>
 				</div>
-				<div class="col-lg-4 text-left pt-2 w-100">
+				<div class="col-lg-4 text-left pt-2 w-100 align-self-center">
 
-					<h2>Description</h2>
+					<h2 class="no-padding-bottom">Description</h2>
 					<p>
 						<c:out value="${gardenStoreFront.description }" />
 					</p>

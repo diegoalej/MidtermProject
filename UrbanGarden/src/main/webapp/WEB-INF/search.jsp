@@ -24,8 +24,10 @@
 				</div>
 			</div>
 		</div>
+	</div>
+	<div class="container gardenProfile">
 		<div class="d-flex justify-content-start ">
-			<div class="row justify-content-start gardenProfile py-5 w-100">
+			<div class="row justify-content-start  py-5 w-100">
 				<div class="col-4 text-left pt-2 ">
 					<form:form action="searchByKeyword.do">
 						<div class="form-group">
@@ -107,14 +109,14 @@
 								value="${gardenStore.address.city}, ${gardenStore.address.state} ${gardenStore.address.zipCode}" />
 						</h4>
 					</div>
-					<div class="col-lg-12 justify-content-center pl-4">
+					<div class="col-lg-12 justify-content-center ">
 						<p class="no-padding-left">
 							Description:
 							<c:out value="${gardenStore.description}" />
 						</p>
 					</div>
 					<div class="col-lg-12 justify-content-center">
-						<div class="row d-flex justify-content-center">
+						<div class="row d-flex justify-content-center pb-1">
 							<c:forEach items="${gardenStore.gardenProduces}" var="produce"
 								begin="0" end="5">
 								<div class="col-lg-2 justify-content-center pl-4">
