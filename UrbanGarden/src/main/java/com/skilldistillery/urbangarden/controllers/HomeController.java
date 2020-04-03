@@ -43,22 +43,21 @@ public class HomeController {
 	@RequestMapping(path = "login.do", method = RequestMethod.POST)
 	public String login(User userLogin, Model model, HttpSession session) {
 		User user = dao.login(userLogin);
-		if (user != null) {
-			if (user.getEnabled()) {
-				session.setAttribute("userSession", user);
-				if (user.getRole().equals("admin")) {
-					List<User> allUsers = dao.findAll();
-					model.addAttribute("user", user);
-					model.addAttribute("users", allUsers);
+		if (user != null && user.getEnabled()) {
 
-					return "admin";
-				} else {
-					model.addAttribute("user", user);
-					model.addAttribute("receivedOffers", offerDAO.findRequestOffersByUser(user.getId()));
-					model.addAttribute("madeOffers", offerDAO.findDesiredOffersByUser(user.getId()));
-					return "myGardenStoreFront";
-				}
-			} else return "index";
+			session.setAttribute("userSession", user);
+			if (user.getRole().equals("admin")) {
+				List<User> allUsers = dao.findAll();
+				model.addAttribute("user", user);
+				model.addAttribute("users", allUsers);
+
+				return "admin";
+			} else {
+				model.addAttribute("user", user);
+				model.addAttribute("receivedOffers", offerDAO.findRequestOffersByUser(user.getId()));
+				model.addAttribute("madeOffers", offerDAO.findDesiredOffersByUser(user.getId()));
+				return "myGardenStoreFront";
+			}
 		} else {
 			return "index";
 		}
@@ -69,7 +68,7 @@ public class HomeController {
 	public String homePage(Model model, HttpSession session) {
 		User user = dao.findById(((User) session.getAttribute("userSession")).getId());
 
-		if (user != null) {
+		if (user != null && user.getEnabled()) {
 			if (user.getEnabled()) {
 				model.addAttribute("user", user);
 				model.addAttribute("receivedOffers", offerDAO.findRequestOffersByUser(user.getId()));
