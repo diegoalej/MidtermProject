@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import com.skilldistillery.urbangarden.entities.GardenProduce;
 import com.skilldistillery.urbangarden.entities.Offer;
+import com.skilldistillery.urbangarden.entities.Trade;
 
 @Transactional
 @Service
@@ -77,15 +78,32 @@ public class OfferDAOImpl implements OfferDAO {
 	@Override
 	public List<Offer> findDesiredOffersByUser(int userId) {
 		String query = "SELECT DISTINCT(o) " + "FROM Offer o " + "JOIN GardenProduce gp " + "on o.offered.id = gp.id "
-				+ "join GardenStoreFront gsf " + "on gsf = gp.garden " + "where gsf.user.id = :userId";
+				+ "join GardenStoreFront gsf " + "on gsf = gp.garden " + "where gsf.user.id = :userId and o.accepeted = null";
 		return em.createQuery(query, Offer.class).setParameter("userId", userId).getResultList();
 	}
 
 	@Override
 	public List<Offer> findRequestOffersByUser(int userId) {
 		String query = "SELECT DISTINCT(o)" + " FROM Offer o " + "JOIN GardenProduce gp " + "ON o.desired.id = gp.id "
-				+ "JOIN GardenStoreFront gsf " + "ON gsf = gp.garden " + "WHERE gsf.user.id = :userId";
+				+ "JOIN GardenStoreFront gsf " + "ON gsf = gp.garden " + "WHERE gsf.user.id = :userId and o.accepeted = null";
 		return em.createQuery(query, Offer.class).setParameter("userId", userId).getResultList();
+	}
+
+	@Override
+	public Offer accept(int id) {
+		Offer offer = em.find(Offer.class, id); //Makes sure to grab the right Trade
+		offer.setAccepeted(true); //sets the accepted_rejected value to true;
+//		Trade unmanagedTrade = new Trade(); //creates an unmanagedTrade object to send into DAO
+//		unmanagedTrade.setOffer(offer); //Sets unmanageTrade's offer to current offer
+		TradeDAO tDAO = new TradeDAOImpl(); //Creates a DAO to persist Trade
+		
+//		System.out.println(offer); //Prints to make sure values are not null
+//		System.out.println(offer.getDesired().toString());
+//		System.out.println(offer.getOffered().toString());
+		
+		
+		tDAO.create(offer); //attempts to persist Trade
+		return offer;
 	}
 
 }

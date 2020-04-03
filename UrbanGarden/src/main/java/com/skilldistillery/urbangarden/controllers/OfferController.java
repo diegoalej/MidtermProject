@@ -92,4 +92,11 @@ public class OfferController {
 		return view;
 	}
 	
+	@RequestMapping(path = "acceptOffer.do", method = RequestMethod.POST)
+	public String acceptOffer(Model model, int id) {
+		dao.accept(id);
+	
+		return "redirect:homePage.do";
+	}
+	
 }
