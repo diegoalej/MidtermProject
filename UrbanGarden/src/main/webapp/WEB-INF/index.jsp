@@ -9,11 +9,11 @@
 <jsp:include page="includes/bootstrapHead.jsp" />
 </head>
 <!-- MAIN BODY -->
-<body class="homeBody">
+<body class="homeBody bg-overlay">
 	<div class="d-flex justify-content-center ">
 		<div class="row justify-content-center">
-			<div class="col-12 homelogo">
-				<h1><strong>UrbanGarden App</strong></h1>
+			<div class="col-12 homelogo pb-4">
+				<h1><span style="font-family: Arial; font-size: 1.8em !important; color: #ffffff;">UrbanGarden App</span></h1>
 			</div>
 		</div>
 	</div>

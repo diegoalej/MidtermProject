@@ -34,13 +34,23 @@ a:hover {
 
 /* BODY STYLES */
 
- .homeBody {
+/*  .homeBody {
 background-image: url('https://americanlifestylemag.com/wp-content/uploads/2020/01/person-gardening-lettuce-intext1.jpg');
 background-size: cover;
 background-repeat: no-repeat;
 height: 100%;
 font-family: 'Karla', sans-serif;
- }
+ } */
+ 
+ .bg-overlay {
+    background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url("https://americanlifestylemag.com/wp-content/uploads/2020/01/person-gardening-lettuce-intext1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    color: #fff;
+    height: 100%;
+    font-family: 'Karla', sans-serif;
+}
  .homeBody h1{
 color: black;/* #5B7213 */
  }
