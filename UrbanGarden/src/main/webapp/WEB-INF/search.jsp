@@ -24,8 +24,10 @@
 				</div>
 			</div>
 		</div>
+	</div>
+	<div class="container gardenProfile">
 		<div class="d-flex justify-content-start ">
-			<div class="row justify-content-start gardenProfile py-5 w-100">
+			<div class="row justify-content-start  py-5 w-100">
 				<div class="col-4 text-left pt-2 ">
 					<form:form action="searchByKeyword.do">
 						<div class="form-group">
