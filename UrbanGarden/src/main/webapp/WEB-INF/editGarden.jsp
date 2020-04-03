@@ -26,44 +26,26 @@
 </head>
 <body>
 	<!-- N A V I G A T I O N -->
-	<nav class="navbar navbar-expand-lg">
-		<a class="navbar-brand" href="home.do">UrbanGarden</a>
-
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav ml-auto">
-				<li class="nav-item active"><a class="nav-link" href="home.do">Home
-						<span class="sr-only">(current)</span>
-				</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">Garden</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">Offers/Trades</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">Profile</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">Search</a></li>
-			</ul>
-			<button class="navbar-toggler" type="button" data-toggle="collapse"
-				data-target="#navbarSupportedContent"
-				aria-controls="navbarSupportedContent" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-		</div>
-	</nav>
+	<jsp:include page="includes/navbar.jsp"/> 
 	<!-- M A I N  B O D Y -->
-	<div class="d-flex justify-content-center">
-		<div class="row justify-content-center">
+	<div class="container ">
+	<div class="d-flex justify-content-start">
+		<div class="row justify-content-start">
 			<div class="col-12 ">
 				<h1>Edit Garden</h1>
 			</div>
 		</div>
 	</div>
-	<div class="d-flex justify-content-center">
+	<div class="d-flex justify-content-start">
 
-		<div class="row justify-content-center">
+		<div class="row justify-content-start">
 			<div class="col-12  ">
 				<h5>Tell us about your garden</h5>
 			</div>
 		</div>
 	</div>
-	<div class="d-flex justify-content-center">
+	</div>
+	<div class="d-flex justify-content-start">
 		<div class="container">
 			<div class="row py-2">
 				<div class="col-sm-12">

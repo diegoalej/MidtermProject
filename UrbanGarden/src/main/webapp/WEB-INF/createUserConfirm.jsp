@@ -33,7 +33,7 @@
 						<div class="row justify-content-start pt-1">
 							<form action="addGardenStoreFront.do" method="GET">
 								<input class="form-control" type="hidden" name="id" value="${user.id}"/>
-								<button type="submit" value="Create Garden" class="btn float-center" >Create Garden</button>
+								<button style="width:9em" type="submit" value="Create Garden" class="btn " >Create Garden</button>
 							</form>
 						</div>
 						<br>

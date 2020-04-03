@@ -13,22 +13,24 @@
 	<!-- N A V I G A T I O N -->
 	<jsp:include page="includes/navbar.jsp"/>
 	<!-- M A I N  B O D Y -->
-	<div class="d-flex justify-content-center">
-		<div class="row justify-content-center">
+	<div class="container ">	
+	<div class="d-flex justify-content-start">
+		<div class="row justify-content-start">
 			<div class="col-12 ">
 				<h1>Edit Produce in your Garden's Inventory</h1>
 			</div>
 		</div>
 	</div>
-	<div class="d-flex justify-content-center">
+	<div class="d-flex justify-content-start">
 
-		<div class="row justify-content-center">
+		<div class="row justify-content-start">
 			<div class="col-12  ">
 				<h5>Edit Garden Product</h5>
 			</div>
 		</div>
 	</div>
-	<div class="d-flex justify-content-center">
+	</div>
+	<div class="d-flex justify-content-start">
 		<div class="container">
 			<div class="row py-2">
 				<div class="col-sm-12">
@@ -37,8 +39,7 @@
 						<div class="form-group">
 							<label> Product: ${gardenProduce.product.name} </label><br>
 							<label> ID: ${gardenProduce.id} </label>
-							<br> 
-							<br> 
+							<br> 	 
 							<br> 
 							<label> Amount </label> 
 							<input class="form-control" type="number" name="amount" value="${gardenProduce.amount}"/> 

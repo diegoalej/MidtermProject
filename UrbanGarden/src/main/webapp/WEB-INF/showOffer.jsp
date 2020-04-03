@@ -71,16 +71,17 @@
 									</div>
 									<div>
 										<div class="row d-flex justify-content-start">
-											
-											<form:form class="form-horizontal needs-validation" action="acceptOffer.do" modelAttribute="offer"
-												method="POST">
+
+											<form:form class="form-horizontal needs-validation"
+												action="acceptOffer.do" modelAttribute="offer" method="POST">
 												<div class="col-lg-4 justify-content-start pl-4">
 													<input class="form-control" type="hidden" name="id"
 														value="${offer.id}" /> <input type="submit"
 														value="Accept Offer" class="btn btn-primary" />
 												</div>
 											</form:form>
-											<form:form class="form-horizontal needs-validation" action="deactivateOffer.do" modelAttribute="offer"
+											<form:form class="form-horizontal needs-validation"
+												action="deactivateOffer.do" modelAttribute="offer"
 												method="POST">
 												<div class="col-lg-4 justify-content-start pl-4">
 													<input class="form-control" type="hidden" name="id"
@@ -106,7 +107,9 @@
 			<!-- /.row -->
 		</div>
 	</div>
-
+	<div class="row spacer">
+		<div class="span4"></div>
+	</div>
 	<!-- Footer -->
 	<jsp:include page="includes/bootstrapFoot.jsp" />
 

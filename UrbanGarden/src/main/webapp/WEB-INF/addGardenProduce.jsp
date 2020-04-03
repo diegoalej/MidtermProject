@@ -13,22 +13,24 @@
 	<!-- N A V I G A T I O N -->
 	<jsp:include page="includes/navbar.jsp"/>
 	<!-- M A I N  B O D Y -->
-	<div class="d-flex justify-content-center">
-		<div class="row justify-content-center">
+	<div class="container">
+	<div class="d-flex justify-content-start">
+		<div class="row justify-content-start">
 			<div class="col-12 ">
 				<h1>Add Produce to your Garden's Inventory</h1>
 			</div>
 		</div>
 	</div>
-	<div class="d-flex justify-content-center">
+	<div class="d-flex justify-content-start">
 
-		<div class="row justify-content-center">
+		<div class="row justify-content-start">
 			<div class="col-12  ">
 				<h5>Pick a Product to add to your Garden</h5>
 			</div>
 		</div>
 	</div>
-	<div class="d-flex justify-content-center">
+	</div>
+	<div class="d-flex justify-content-start">
 		<div class="container">
 			<div class="row py-2">
 				<div class="col-sm-12">
