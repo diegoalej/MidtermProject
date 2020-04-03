@@ -30,6 +30,8 @@ public class SearchController {
 			User user = ((User) session.getAttribute("userSession"));
 			int zip = user.getGardenStoreFront().getAddress().getZipCode();
 			List<GardenStoreFront> gsfList = gsfDAO.searchByZip(zip);
+			int wInt = 1;
+			model.addAttribute("welcomeInt", wInt);
 			model.addAttribute("gsfResults", gsfList);
 
 		}
@@ -46,20 +48,26 @@ public class SearchController {
 			System.out.println("Could not parse integer. Returning list of all farms");
 		}
 		model.addAttribute("gsfResults", gsfResults);
+		int wInt = 2;
+		model.addAttribute("welcomeInt", wInt);
 		return "search";
 	}
 
 	@RequestMapping(path = "searchByKeyword.do", method = RequestMethod.POST)
 	public String searchByKeyword(String keyword, HttpSession session, Model model) {
 		List<GardenStoreFront> gsfResults = gsfDAO.searchByKeyword(keyword);
+		int wInt = 2;
 		model.addAttribute("gsfResults", gsfResults);
+		model.addAttribute("welcomeInt", wInt);
 		return "search";
 	}
 
 	@RequestMapping(path = "searchByFarm.do", method = RequestMethod.POST)
 	public String searchByProduct(String farm, HttpSession session, Model model) {
 		List<GardenStoreFront> gsfResults = gsfDAO.searchByFarm(farm);
+		int wInt = 2;
 		model.addAttribute("gsfResults", gsfResults);
+		model.addAttribute("welcomeInt", wInt);
 		return "search";
 	}
 

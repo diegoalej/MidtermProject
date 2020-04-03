@@ -2,6 +2,7 @@ package com.skilldistillery.urbangarden.entities;
 
 import java.time.LocalDateTime;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,10 +23,6 @@ public class Trade {
 	@Column(name="trade_date")
 	private LocalDateTime tradeDate;
 	
-//	@OneToOne
-//	@JoinColumn(name="offer_id")
-//	private int offerId;
-	
 	@Column(name="rating_by_buyer")
 	private Integer buyerRating;
 	@Column(name="rating_by_seller")
@@ -35,7 +32,7 @@ public class Trade {
 	@Column(name="comment_by_seller")
 	private String sellerComment;
 	
-	@OneToOne
+	@OneToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name="offer_id")
 	private Offer offer;
 	

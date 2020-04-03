@@ -16,6 +16,8 @@ public interface OfferDAO {
 	boolean delete(int id);
 
 	Offer deactivate(int id);
+	
+	Offer accept(int id);
 
 	List<Offer> findDesiredOffersByUser(int userId);
 

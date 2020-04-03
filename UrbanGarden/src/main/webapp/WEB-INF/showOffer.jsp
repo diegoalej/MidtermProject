@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
@@ -6,11 +7,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Offer Detail</title>
-<jsp:include page="includes/bootstrapHead.jsp"/>
+<jsp:include page="includes/bootstrapHead.jsp" />
 </head>
 <body>
 	<!-- N A V I G A T I O N -->
-	<jsp:include page="includes/navbar.jsp"/>
+	<jsp:include page="includes/navbar.jsp" />
 
 	<!-- MAIN BODY -->
 	<div class="container">
@@ -37,7 +38,7 @@
 											<h3>Offer ${offer.id}</h3>
 										</div>
 										<div class="col-lg-6 justify-content-center pl-4">
-											<h5>Date of Offer: ${offer.offerDate} </h5>
+											<h5>Date of Offer: ${offer.offerDate}</h5>
 											<h5>Desired</h5>
 											<p>Desired item: ${offer.desired.product.name}</p>
 											<p>Farm name: ${offer.desired.garden.nameOfGarden}</p>
@@ -59,50 +60,38 @@
 										</div>
 										<div class="col-lg-12 text-left pb-2">
 											<p>
-												${offer.comment}<strong> ${offer.offered.garden.user.firstName}</strong>
+												${offer.comment}<strong>
+													${offer.offered.garden.user.firstName}</strong>
 											</p>
 											<p>
-												${sellerComment}<strong> ${offer.desired.garden.user.firstName}</strong>
-											</p>
-										</div>
-									</div>
-									<div class="row d-flex justify-content-start">
-
-										<div class="col-lg-4 justify-content-start pl-4">
-											<p>
-												<a class="btn btn-secondary" href="homePage.do" role="button" >Back
-													to Garden Store Front</a>
-											</p>
-										</div>
-										<div class="col-lg-4 justify-content-start pl-4">
-											<p>
-												<a class="btn btn-secondary" href="showTradeDetail.do" role="button">Accept Offer</a>
-											</p>
-										</div>
-										<div class="col-lg-4 justify-content-start pl-4">
-											<p>
-												<a class="btn btn-secondary" href="#" role="button">Deny Offer</a>
+												${sellerComment}<strong>
+													${offer.desired.garden.user.firstName}</strong>
 											</p>
 										</div>
 									</div>
 									<div>
-										<%-- <form:form class="form-horizontal needs-validation" action="editOffer.do" modelAttribute="offer" method="GET" >
-											<div class="col-lg-4 justify-content-start pl-4">
-												<input class="form-control" type="hidden" name="offer" value="${offer}" /> 
-												<input class="form-control" type="hidden" name="id" value="${offer.id}" /> 
-												<input class="form-control" type="hidden" name="desired" value="${offer.desired}" /> 
-												<input class="form-control" type="hidden" name="offered" value="${offer.offered}" /> 
-												<input class="form-control" type="hidden" name="comment" value="${offer.comment}" /> 
-												<input type="submit" value="Edit Offer" class="btn btn-primary" />
-											</div>
-										</form:form> --%>
-										<form:form class="form-horizontal needs-validation" action="deactivateOffer.do" modelAttribute="offer" method="POST">
-											<div class="col-lg-4 justify-content-start pl-4">
-												<input class="form-control" type="hidden" name="id" value="${offer.id}" /> 
-												<input type="submit" value="Remove Offer" class="btn btn-primary" />
-											</div>
-										</form:form>
-										
+										<div class="row d-flex justify-content-start">
+											
+											<form:form class="form-horizontal needs-validation" action="acceptOffer.do" modelAttribute="offer"
+												method="POST">
+												<div class="col-lg-4 justify-content-start pl-4">
+													<input class="form-control" type="hidden" name="id"
+														value="${offer.id}" /> <input type="submit"
+														value="Accept Offer" class="btn btn-primary" />
+												</div>
+											</form:form>
+											<form:form class="form-horizontal needs-validation" action="deactivateOffer.do" modelAttribute="offer"
+												method="POST">
+												<div class="col-lg-4 justify-content-start pl-4">
+													<input class="form-control" type="hidden" name="id"
+														value="${offer.id}" /> <input type="submit"
+														value="Reject Offer" class="btn btn-primary" />
+												</div>
+											</form:form>
+
+
+										</div>
+
 									</div>
 								</div>
 
@@ -119,7 +108,7 @@
 	</div>
 
 	<!-- Footer -->
-	<jsp:include page="includes/bootstrapFoot.jsp"/>
+	<jsp:include page="includes/bootstrapFoot.jsp" />
 
 </body>
 </html>
