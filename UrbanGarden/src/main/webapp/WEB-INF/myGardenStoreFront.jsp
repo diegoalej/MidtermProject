@@ -29,7 +29,7 @@
 			</div>
 		</div>
 		<div class="d-flex justify-content-start">
-			<div class="row justify-content-start gardenProfile">
+			<div class="row justify-content-start gardenProfile py-3">
 				<div class="col-4 ">
 					<div class="col-lg-12 text-left justify-content-start pt-2">
 
