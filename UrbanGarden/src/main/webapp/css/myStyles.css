@@ -135,6 +135,9 @@ h5, h4, p, a, span{
 color: white;
 margin-bottom: .5rem;
 }
+.gardenDetails h4{
+color: white;
+}
 .gardenDetails p {
 margin-bottom: .5rem;
 color: white;
