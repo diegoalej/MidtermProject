@@ -92,7 +92,6 @@
 
 						<div class="row d-flex justify-content-start">
 							<div class="col-lg-3 text-center pt-2">
-
 								<c:choose>
 									<c:when test="${not empty produce.product.imageURL}">
 										<img class="rounded-circle" width="120" height="120"
