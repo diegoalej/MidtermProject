@@ -17,7 +17,7 @@
 	</nav>
 	<!-- M A I N  B O D Y -->
 	<div class="container ">
-		<div class="d-flex justify-content-cstart">
+		<div class="d-flex justify-content-start">
 			<div class="row justify-content-start">
 				<div class="col-12 ">
 					<h1>Add New User</h1>
