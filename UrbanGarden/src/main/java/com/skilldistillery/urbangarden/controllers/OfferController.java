@@ -91,6 +91,14 @@ public class OfferController {
 		model.addAttribute("offer", offer);
 		return view;
 	}
+
+	@RequestMapping(path = "showMyOffer.do")
+	public String showMyOffer(@RequestParam Integer id, Model model, HttpSession session) {
+		String view = "showMyOffer";
+		Offer offer = dao.findById(id);
+		model.addAttribute("offer", offer);
+		return view;
+	}
 	
 	@RequestMapping(path = "acceptOffer.do", method = RequestMethod.POST)
 	public String acceptOffer(Model model, int id) {

@@ -29,7 +29,7 @@
 			</div>
 		</div>
 		<div class="d-flex justify-content-start">
-			<div class="row justify-content-start">
+			<div class="row justify-content-start gardenProfile py-3">
 				<div class="col-4 ">
 					<div class="col-lg-12 text-left justify-content-start pt-2">
 
@@ -304,7 +304,7 @@
 					<div class="container">
 						<div class="row d-flex justify-content-center">
 							<div class="col-lg-12 text-left pb-1 pt-3">
-								<h2>Offers Received</h2>
+								<h2>Offers Made</h2>
 							</div>
 							<!-- Start of choose -->
 							<c:choose>
@@ -371,7 +371,7 @@
 
 											</div>
 											<form:form class="form-horizontal needs-validation"
-												action="showOffer.do" modelAttribute="offer">
+												action="showMyOffer.do" modelAttribute="offer">
 												<div class="col-lg-4 justify-content-start pl-4">
 													<input class="form-control" type="hidden" name="id"
 														value="${offerDetails.id}" /> <input type="submit"
