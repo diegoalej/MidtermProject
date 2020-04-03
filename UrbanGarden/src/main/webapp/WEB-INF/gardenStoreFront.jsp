@@ -89,10 +89,9 @@
 				<!-- THIS WILL HAVE A FOREACH THAT WILL DISPLAY ALL PRODUCTS -->
 				<c:forEach items="${gardenStoreFront.gardenProduces}" var="produce">
 					<div class="col-lg-12 text-center pb-2">
-
+						<c:if test="${produce.active}">
 						<div class="row d-flex justify-content-start">
 							<div class="col-lg-3 text-center pt-2">
-
 								<c:choose>
 									<c:when test="${not empty produce.product.imageURL}">
 										<img class="rounded-circle" width="120" height="120"
@@ -159,6 +158,7 @@
 								</div>
 							</div>
 						</div>
+						</c:if>
 					</div>
 				</c:forEach>
 			</div>
