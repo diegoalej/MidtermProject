@@ -24,12 +24,15 @@
 
 		<div class="row justify-content-center">
 			<div class="col-12  ">
-				<h5>${object} Created</h5>
-				<h5><strong>Next create your Garden Store Front page</strong></h5>
-				<form action="addGardenStoreFront.do" method="GET">
-					<input class="form-control" type="hidden" name="id" value="${user.id}" />
-					<button type="submit" value="Create Garden" class="btn float-center">Create Garden</button>
-				</form>
+				<h4>New User with ID: ${object.id} Created</h4>
+				<br>
+				<h4><strong>Next create your Garden Store Front page</strong></h4>
+				<div class="row justify-content-center">
+					<form action="addGardenStoreFront.do" method="GET">
+						<input class="form-control" type="hidden" name="id" value="${user.id}"/>
+						<button type="submit" value="Create Garden" class="btn float-center" >Create Garden</button>
+					</form>
+				</div>
 				<br>
 			</div>
 			<br>

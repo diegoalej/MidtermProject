@@ -17,43 +17,48 @@
 	<!-- ------------------ -->
 	<!-- MAIN BODY -->
 	<div class="container">
-		<div class="row justify-content-start gardenProfile py-5">
-			<div class="col-12 ">
-				<h3>Check out gardens near you or search for something in
-					particular</h3>
+		<div class="d-flex justify-content-start">
+			<div class="row justify-content-start">
+				<div class="col-12 ">
+					<h1>Find Products and Gardens</h1>
+				</div>
 			</div>
-			<div class="col-4 text-left pt-2 ">
-				<form:form action="searchByKeyword.do">
-					<div class="form-group">
-						<label for="keywordSearch">Search by Keyword</label> <input
-							type="text" class="form-control" id="keywordSearch"
-							placeholder="Enter Keyword" name="keyword">
-					</div>
-					<button type="submit" class="btn ">Submit</button>
-				</form:form>
+		</div>
+		<div class="d-flex justify-content-start ">
+			<div class="row justify-content-start gardenProfile py-5 w-100">
+				<div class="col-4 text-left pt-2 ">
+					<form:form action="searchByKeyword.do">
+						<div class="form-group">
+							<label for="keywordSearch">Search by Keyword</label> <input
+								type="text" class="form-control" id="keywordSearch"
+								placeholder="Enter Keyword" name="keyword">
+						</div>
+						<button type="submit" class="btn ">Submit</button>
+					</form:form>
 
-			</div>
-			<div class="col-lg-4 text-left pt-2">
+				</div>
+				<div class="col-lg-4 text-left pt-2">
 
-				<form:form action="searchByFarm.do">
-					<div class="form-group">
-						<label for="farmSearch">Search by Garden</label> <input
-							type="text" class="form-control" id="farmSearch"
-							placeholder="Enter Farm" name="farm">
-					</div>
-					<button type="submit" class="btn ">Submit</button>
-				</form:form>
-			</div>
-			<div class="col-lg-4 text-left pt-2">
+					<form:form action="searchByFarm.do">
+						<div class="form-group">
+							<label for="farmSearch">Search by Garden</label> <input
+								type="text" class="form-control" id="farmSearch"
+								placeholder="Enter Farm" name="farm">
+						</div>
+						<button type="submit" class="btn ">Submit</button>
+					</form:form>
+				</div>
+				<div class="col-lg-4 text-left pt-2">
 
-				<form:form action="searchByZip.do">
-					<div class="form-group">
-						<label for="searchByZip">Search by ZipCode</label> <input
-							type="text" class="form-control" id="searchByZip"
-							placeholder="Enter ZipCode" name="zipString">
-					</div>
-					<button type="submit" class="btn ">Submit</button>
-				</form:form>
+					<form:form action="searchByZip.do">
+						<div class="form-group">
+							<label for="searchByZip">Search by ZipCode</label> <input
+								type="text" class="form-control" id="searchByZip"
+								placeholder="Enter ZipCode" name="zipString">
+						</div>
+						<button type="submit" class="btn ">Submit</button>
+					</form:form>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -65,22 +70,35 @@
 		<div class="container">
 
 			<div class="row d-flex justify-content-around">
-				<div class="col-lg-12 text-left pt-1">
-					<h2>Gardens you might be interested in</h2>
-				</div>
-
+				<c:choose>
+					<c:when test="${empty gsfResults}">
+						<div class="col-lg-12 text-left pt-1">
+							<h2>We did not find any gardens</h2>
+						</div>
+					</c:when>
+					<c:when test="${welcomeInt == 1}">
+						<div class="col-lg-12 text-left pt-1">
+							<h2>Gardens you might be interested in</h2>
+						</div>
+					</c:when>
+					<c:when test="${welcomeInt == 2}">
+						<div class="col-lg-12 text2left pt-1">
+								<h2>We found&nbsp;${gsfResults.size()}&nbsp;results</h2>
+						</div>
+					</c:when>
+				</c:choose>
 			</div>
 		</div>
 		<c:forEach items="${gsfResults}" var="gardenStore">
-			<div class="container gardenPageTrade">
-				<div class="row d-flex justify-content-center">
-					<div class="col-lg-12 text-left pb-1">
-						<h3>
+			<div class="container whiteLetters">
+				<div class="row d-flex justify-content-center w-100">
+					<div class="col-lg-12 text-left pb-1 ">
+						<h3 class="no-padding-bottom no-padding-top">
 							<c:out value="${gardenStore.user.firstName}'s Garden" />
 						</h3>
-						<h3>
+						<h4>
 							<c:out value="${gardenStore.nameOfGarden}" />
-						</h3>
+						</h4>
 						<h4>
 							<c:out value="${gardenStore.address.street}" />
 						</h4>
@@ -90,7 +108,7 @@
 						</h4>
 					</div>
 					<div class="col-lg-12 justify-content-center pl-4">
-						<p>
+						<p class="no-padding-left">
 							Description:
 							<c:out value="${gardenStore.description}" />
 						</p>

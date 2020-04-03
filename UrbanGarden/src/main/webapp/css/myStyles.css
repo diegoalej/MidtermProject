@@ -6,6 +6,12 @@
 .no-padding-bottom {
 	padding-bottom: 0px;
 }
+.no-padding-top {
+	padding-top: 0px;
+}
+.no-padding-right {
+	padding-right: 0px;
+}
 a:hover {
 	color: whitesmoke;
 }
@@ -49,6 +55,7 @@ padding-bottom: .5em;
  }
 
 .footer {
+	
 	height: 4em;
 	background-color: #5B7213;
 	left: 0;
@@ -101,7 +108,13 @@ h1, h2, h3{
 homelogo h1 {
 	font-size: 3rem;
 }
-.gardenPageTrade h5, h4, h3{
+.gardenPageTrade h5  {
+	color: white;
+}
+.gardenPageTrade h4 {
+	color: white;
+}
+.gardenPageTrade h3{
 	color: white;
 }
 h5, h4, p, a, span{
@@ -118,7 +131,10 @@ h5, h4, p, a, span{
 	background-color: #14729A;
 }
 
-.gardenDetails p, h2{
+.gardenDetails h2{
+color: white;
+}
+.gardenDetails p {
 color: white;
 }
 .gardenDetails.btn{
@@ -129,8 +145,20 @@ border-style: none;
 .gardenProfile {
 	background-color: #D7D7D9;
 }
-.gardenProfile h2, h4{
+.gardenProfile h4{
 	color: black;
+}
+.gardenProfile h2 {
+	color: black;
+}
+.whiteLetters h2 {
+	color: white;
+}
+.whiteLetters h3 {
+	color: white;
+}
+.whiteLetters  h4{
+	color: white;
 }
 .nav-link.active {
 	background-color: #5A5519;

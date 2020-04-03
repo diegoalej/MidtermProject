@@ -144,6 +144,9 @@
 												<h2>
 													<c:out value="${produce.product.name}" />
 												</h2>
+												<h4>
+													Available: <c:out value="${produce.active}" />
+												</h4>
 												<p>
 													Type:
 													<c:out value="${ produce.product.type}" />
