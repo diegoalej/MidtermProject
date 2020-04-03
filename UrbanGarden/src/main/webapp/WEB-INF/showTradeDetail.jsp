@@ -89,7 +89,9 @@
 			<!-- /.row -->
 		</div>
 	</div>
-
+	<div class="row spacer">
+		<div class="span4"></div>
+	</div>
 	<!-- Footer -->
 	<jsp:include page="includes/bootstrapFoot.jsp"/>
 	
