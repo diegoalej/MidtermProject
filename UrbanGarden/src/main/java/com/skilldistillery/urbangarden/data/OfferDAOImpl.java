@@ -97,6 +97,25 @@ public class OfferDAOImpl implements OfferDAO {
 		offer.getDesired().setActive(false);
 		offer.getOffered().setActive(false);
 		trade.setOffer(offer);
+		
+		int desiredId = offer.getDesired().getId();
+		int offeredId = offer.getOffered().getId();
+		
+//		String query = "SELECT DISTINCT(gp) FROM GardenProduce gp WHERE gp.id = :desiredId OR gp.id = :offeredId";
+//		List<GardenProduce> gpToDeactivate = em.createQuery(query, GardenProduce.class).setParameter("desiredId", desiredId).setParameter("offeredId", offeredId).getResultList();
+//		for (GardenProduce gardenProduce : gpToDeactivate) {
+//			if(gardenProduce.getActive() == true) {
+//				gardenProduce.setActive(false);
+//			}
+//		}
+		String query2 = "SELECT DISTINCT(o) FROM Offer o WHERE o.desired.active = false or o.offered.active = false";
+		List<Offer> offerToDeactivate = em.createQuery(query2, Offer.class).getResultList();
+		for (Offer offer2 : offerToDeactivate) {
+			if (offer2.getAccepeted() == null) {
+				offer2.setAccepeted(false);
+			}
+		}
+		
 		em.persist(trade);
 		em.flush();
 //		tDAO.create(offer); // attempts to persist Trade

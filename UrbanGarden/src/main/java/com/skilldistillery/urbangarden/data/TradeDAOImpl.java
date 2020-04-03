@@ -82,7 +82,7 @@ public class TradeDAOImpl implements TradeDAO {
 				+ "WHERE t.offer.desired.garden.user.id = :userId "
 				+ "OR t.offer.offered.garden.user.id = :userId";
 				
-		return em.createQuery(query2, Trade.class).setParameter("userId", 1).getResultList();
+		return em.createQuery(query2, Trade.class).setParameter("userId", userId).getResultList();
 	}
 
 }
