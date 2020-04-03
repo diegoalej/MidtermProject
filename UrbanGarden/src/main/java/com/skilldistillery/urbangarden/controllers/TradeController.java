@@ -33,12 +33,12 @@ public class TradeController {
 		return view;
 	}
 	
-	@RequestMapping(path = "addTrade.do", method = RequestMethod.POST)
-	public String postTrade(Model model, Trade trade) {
-		String view = "tradePost";
-		dao.create(trade);
-		return view;
-	}
+//	@RequestMapping(path = "addTrade.do", method = RequestMethod.POST)
+//	public String postTrade(Model model, Trade trade) {
+//		String view = "tradePost";
+//		dao.create(trade);
+//		return view;
+//	}
 
 	@RequestMapping(path = "showTrade.do")
 	public String showTrade(@RequestParam Integer id, Model model, HttpSession session) {
