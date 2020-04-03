@@ -14,35 +14,36 @@ import javax.persistence.OneToOne;
 
 @Entity
 public class Offer {
-	
+
 	// f i e l d s
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
-	@Column(name="offer_date")
+
+	@Column(name = "offer_date")
 	private LocalDateTime offerDate;
-	
-	@Column(name="accepted_rejected")
+
+	@Column(name = "accepted_rejected")
 	private Boolean accepeted;
-	
+
 	@ManyToOne
-	@JoinColumn(name="garden_produce_id")
+	@JoinColumn(name = "garden_produce_id")
 	private GardenProduce desired;
-	
+
 	@ManyToOne
-	@JoinColumn(name="offered_produce_id")
+	@JoinColumn(name = "offered_produce_id")
 	private GardenProduce offered;
-	
+
 	private String comment;
-	
+
 	@OneToOne(mappedBy = "offer", cascade = CascadeType.PERSIST)
 	private Trade trade;
-	
-	// m e t h o d s 
-	
-	public Offer() {}
+
+	// m e t h o d s
+
+	public Offer() {
+	}
 
 	public int getId() {
 		return id;
@@ -146,9 +147,4 @@ public class Offer {
 		return true;
 	}
 
-	
-
-
-
-	
 }

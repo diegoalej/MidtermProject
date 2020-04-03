@@ -76,9 +76,13 @@ public class TradeDAOImpl implements TradeDAO {
 	}
 
 	@Override
-	public List<Trade> tradesByUser() { //Functionality needs to be implemented.
-		// TODO Auto-generated method stub
-		return null;
+	public List<Trade> tradesByUser(int userId) { //Functionality needs to be implemented.
+		String query2 = "SELECT DISTINCT(t) "
+				+ "FROM Trade t "
+				+ "WHERE t.offer.desired.garden.user.id = :userId "
+				+ "OR t.offer.offered.garden.user.id = :userId";
+				
+		return em.createQuery(query2, Trade.class).setParameter("userId", 1).getResultList();
 	}
 
 }

@@ -12,6 +12,6 @@ public interface TradeDAO {
 	Trade create(Offer offer);
 	Trade update(int id, Trade trade);
 	boolean delete(int id);
-	List<Trade> tradesByUser();
+	List<Trade> tradesByUser(int userId);
 	
 }
