@@ -59,16 +59,6 @@ public class Trade {
 		this.tradeDate = tradeDate;
 	}
 
-//
-//	public Offer getOffer() {
-//		return offer;
-//	}
-//
-//
-//	public void setOffer(Offer offer) {
-//		this.offer = offer;
-//	}
-
 
 	public Integer getBuyerRating() {
 		return buyerRating;

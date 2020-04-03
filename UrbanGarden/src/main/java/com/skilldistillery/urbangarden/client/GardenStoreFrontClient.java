@@ -6,11 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import org.apache.jasper.tagplugins.jstl.core.ForEach;
-
-import com.skilldistillery.urbangarden.entities.GardenProduce;
-import com.skilldistillery.urbangarden.entities.Offer;
-import com.skilldistillery.urbangarden.entities.User;
+import com.skilldistillery.urbangarden.entities.Trade;
 
 public class GardenStoreFrontClient {
 
@@ -54,17 +50,32 @@ public class GardenStoreFrontClient {
 //				+ "on gsf = gp.garden "
 //				+ "where gsf.user.id = :userId";
 		
-		String query = "SELECT DISTINCT(o)"
-				+ " FROM Offer o "
-				+ "JOIN GardenProduce gp "
-				+ "ON o.desired.id = gp.id "
-				+ "JOIN GardenStoreFront gsf "
-				+ "ON gsf = gp.garden "
-				+ "WHERE gsf.user.id = :userId";
-		List<Offer> offers = em.createQuery(query, Offer.class).setParameter("userId", 1).getResultList();
-		for (Offer offer : offers) {
-			System.out.println(offer);
+//		String query = "SELECT DISTINCT(o)"
+//				+ " FROM Offer o "
+//				+ "JOIN GardenProduce gp "
+//				+ "ON o.desired.id = gp.id "
+//				+ "JOIN GardenStoreFront gsf "
+//				+ "ON gsf = gp.garden "
+//				+ "WHERE gsf.user.id = :userId";
+//		List<Offer> offers = em.createQuery(query, Offer.class).setParameter("userId", 1).getResultList();
+//		for (Offer offer : offers) {
+//			System.out.println(offer);
+//		}
+		String query2 = "SELECT DISTINCT(t) "
+				+ "FROM Trade t "
+				+ "WHERE t.offer.desired.garden.user.id = :userId "
+				+ "OR t.offer.offered.garden.user.id = :userId";
+//		String query = "SELeCT DISTINCT(t) FROM Trade t "
+//				+ "JOIN Offer o on o = t.offer "
+//				+ "JOIN o ON o.desired = GardenProduce gp "
+//				+ "JOIN o ON o.offered = gp "
+//				+ "JOIN GardenStoreFront gsf on gp.gardenStoreFront = gsf "
+//				+ "WHERE gsf.user.id = :userId ";
+		List<Trade> trades = em.createQuery(query2, Trade.class).setParameter("userId", 1).getResultList();
+		for (Trade trade : trades) {
+			System.out.println(trade);
 		}
+		
 		// TODO Auto-generated method stub
 
 	}
