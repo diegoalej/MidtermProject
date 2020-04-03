@@ -17,7 +17,7 @@
 
 	<!-- MAIN BODY -->
 	<!-- MAIN PROFILE  -->
-	<div class="container">
+	<div class="container ">
 		<div class="d-flex justify-content-start">
 			<div class="row justify-content-start">
 				<div class="col-12 ">
@@ -28,8 +28,10 @@
 				</div>
 			</div>
 		</div>
+	</div>
+	<div class="container gardenProfile">
 		<div class="d-flex justify-content-start">
-			<div class="row justify-content-start gardenProfile py-3">
+			<div class="row justify-content-start  py-3 w-100">
 				<div class="col-4 ">
 					<div class="col-lg-12 text-left justify-content-start pt-2">
 
@@ -85,6 +87,9 @@
 				</div>
 			</div>
 		</div>
+	</div>
+	<div class="row spacer1">
+		<div class="span4"></div>
 	</div>
 	<!-- PRODUCT AND OFFER TOGGLE -->
 	<div class="container gardenDetails " id="gardenDetails">
@@ -145,7 +150,8 @@
 													<c:out value="${produce.product.name}" />
 												</h2>
 												<h4>
-													Available: <c:out value="${produce.active}" />
+													Available:
+													<c:out value="${produce.active}" />
 												</h4>
 												<p>
 													Type:
