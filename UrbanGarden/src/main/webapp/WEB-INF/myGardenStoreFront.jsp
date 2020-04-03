@@ -403,44 +403,84 @@
 						<div class="row d-flex justify-content-center">
 							<div class="col-lg-12 text-left pb-1 pt-3">
 								<h2>Trades</h2>
-							</div>
-							<div class="col-lg-12 text-left pb-1">
-								<h3>Trade 1234</h3>
-							</div>
-							<div class="col-lg-6 justify-content-center pl-4">
-								<h5>Desired</h5>
-								<p>Desired item: Cherry Tomato</p>
-								<p>Farm name: Steve's Farm</p>
-								<p>Amount: 6lbs</p>
-								<p>Trade Date: Jun 3 2020</p>
-							</div>
-							<div class="col-lg-6 justify-content-center pl-4">
-								<h5>Offered</h5>
-								<p>Offered item: Acorn squash</p>
-								<p>Farm name: Nancy's Farm</p>
-								<p>Amount: 10lbs</p>
-								<p>Trade Date: Jun 3 2020</p>
-							</div>
-							<div class="col-lg-12 text-left pb-1">
-								<h4>Comments</h4>
-							</div>
-							<div class="col-lg-12 text-left pb-2">
+								<!-- Start of choose -->
+							<c:choose>
+								<c:when test="${empty allTrades}">
+									<div class="col-lg-12 text-left pb-1">
+										<h3>You have no completed trades.</h3>
+									</div>
+								</c:when>
+								<c:otherwise>
+									<!-- Start of forEach -->
+									<c:forEach items="${allTrades}" var="trade">
+											<div class="col-lg-12 text-left pb-1">
+												<h3>
+													Trade Completed On:
+													<c:out value="${trade.tradeDate}" />
+												</h3>
+											</div>
+											<div class="col-lg-6 justify-content-center pl-4">
+												<h5>What you recieved:</h5>
+												<!-- What you want from them -->
+												<p>
+													Requested item:
+													<c:out value="${trade.offer.desired.product.name}" />
+												</p>
+												<p>
+													Amount:
+													<c:out value="${trade.offer.desired.amount}" />
+													lbs.
+												</p>
+												<p>
+													Farm you traded with:
+													<c:out value="${trade.offer.desired.garden.nameOfGarden }" />
+												</p>
 
-								<p>
-									Donec sed odio dui. Cras justo odio, dapibus ac facilisis in,
-									egestas eget quam.<strong> Nancy</strong>
-								</p>
-							</div>
-							<form:form class="form-horizontal needs-validation"
-								action="showTrade.do" modelAttribute="trade">
-								<div class="col-lg-4 justify-content-start pl-4">
-									<input class="form-control" type="hidden" name="id" value="1" />
-									<input type="submit" value="View Details"
-										class="btn btn-primary" />
-								</div>
-							</form:form>
+											</div>
+											<div class="col-lg-6 justify-content-center pl-4">
+												<h5>What you traded them:</h5>
+												<!-- What you are willing to give -->
+												<p>
+													Offered item:
+													<c:out value="${trade.offer.offered.product.name}" />
+												</p>
+												<p>
+													Farm name:
+													<c:out
+														value="${trade.offer.offered.gardenStoreFront.nameOfGarden}" />
+												</p>
+												<p>
+													Amount:
+													<c:out value="${trade.offer.offered.amount}" />
+													lbs.
+												</p>
+
+
+											</div>
+											<div class="col-lg-12 text-left pb-1">
+												<h4>Comments</h4>
+											</div>
+											<div class="col-lg-12 text-left pb-2">
+												<p>
+													<c:out value="${trade.sellerComment}" />
+												</p>
+												<p>
+													<c:out value="${trade.buyerComment}" />
+												</p>
+											</div>
+											<form:form class="form-horizontal needs-validation"
+												action="showTrade.do" modelAttribute="trade">
+												<div class="col-lg-4 justify-content-start pl-4">
+													<input class="form-control" type="hidden" name="id"
+														value="${trade.id}" /> <input type="submit"
+														value="View Details" class="btn btn-primary" />
+												</div>
+											</form:form>
+									</c:forEach>
+								</c:otherwise>
+							</c:choose>
 						</div>
-					</div>
+							
 
 
 

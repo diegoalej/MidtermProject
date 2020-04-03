@@ -14,6 +14,7 @@ import com.skilldistillery.urbangarden.data.GardenProduceDAO;
 import com.skilldistillery.urbangarden.data.GardenStoreFrontDAO;
 import com.skilldistillery.urbangarden.data.OfferDAO;
 import com.skilldistillery.urbangarden.data.ProductDAO;
+import com.skilldistillery.urbangarden.data.TradeDAO;
 import com.skilldistillery.urbangarden.data.UserDAO;
 import com.skilldistillery.urbangarden.entities.GardenProduce;
 import com.skilldistillery.urbangarden.entities.GardenStoreFront;
@@ -31,6 +32,8 @@ public class HomeController {
 	private GardenProduceDAO gpDAO;
 	@Autowired
 	private OfferDAO offerDAO;
+	@Autowired
+	private TradeDAO tradeDAO;
 
 	@RequestMapping(path = { "/", "home.do" })
 	public String home() {
@@ -71,6 +74,7 @@ public class HomeController {
 				model.addAttribute("user", user);
 				model.addAttribute("receivedOffers", offerDAO.findRequestOffersByUser(user.getId()));
 				model.addAttribute("madeOffers", offerDAO.findDesiredOffersByUser(user.getId()));
+				model.addAttribute("allTrades", tradeDAO.tradesByUser(user.getId()));
 				return "myGardenStoreFront";
 			} else {
 				return "index";
