@@ -149,9 +149,16 @@ h5, h4, p, a, span{
 
 .gardenDetails h2{
 color: white;
-margin-bottom: .5rem;
+margin-bottom: .2rem;
 }
 .gardenDetails h4{
+color: white;
+}
+.gardenDetails h3{
+color: white;
+padding-bottom: 0px;
+}
+.gardenDetails h5{
 color: white;
 }
 .gardenDetails p {

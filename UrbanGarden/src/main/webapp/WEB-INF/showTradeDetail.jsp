@@ -71,7 +71,7 @@
 										<div class="col-lg-4 justify-content-start pl-4">
 											<p>
 												<a class="btn btn-secondary" href="homePage.do" role="button" >Back
-													to Garden Store Front</a>
+													to Garden</a>
 											</p>
 										</div>
 										</div>
@@ -89,7 +89,9 @@
 			<!-- /.row -->
 		</div>
 	</div>
-
+	<div class="row spacer">
+		<div class="span4"></div>
+	</div>
 	<!-- Footer -->
 	<jsp:include page="includes/bootstrapFoot.jsp"/>
 	
