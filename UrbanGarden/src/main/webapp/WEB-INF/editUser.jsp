@@ -80,7 +80,7 @@
 							</form:form>
 							<form:form class="form-horizontal needs-validation" action="deactivateUser.do" method="POST" modelAttribute="user">
 								<input class="form-control" type="hidden" name="id" value="${user.id}" />
-								<input type="submit" value="Remove User" class="btn btn-primary"/>
+								<input style="width:11em" type="submit" value="Deactivate Account" class="btn btn-primary"/>
 							</form:form>
 						</div>
 				</div>
