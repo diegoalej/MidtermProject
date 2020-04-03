@@ -82,7 +82,7 @@
 						</div>
 					</c:when>
 					<c:when test="${welcomeInt == 2}">
-						<div class="col-lg-12 text2left pt-1">
+						<div class="col-lg-12 text-left pt-1">
 								<h2>We found&nbsp;${gsfResults.size()}&nbsp;results</h2>
 						</div>
 					</c:when>
@@ -113,7 +113,7 @@
 							<c:out value="${gardenStore.description}" />
 						</p>
 					</div>
-					<div class="col-lg-12 justify-content-center pl-4">
+					<div class="col-lg-12 justify-content-center">
 						<div class="row d-flex justify-content-center">
 							<c:forEach items="${gardenStore.gardenProduces}" var="produce"
 								begin="0" end="5">
