@@ -32,7 +32,7 @@ public class Trade {
 	@Column(name="comment_by_seller")
 	private String sellerComment;
 	
-	@OneToOne(cascade = CascadeType.PERSIST)
+	@OneToOne
 	@JoinColumn(name="offer_id")
 	private Offer offer;
 	
