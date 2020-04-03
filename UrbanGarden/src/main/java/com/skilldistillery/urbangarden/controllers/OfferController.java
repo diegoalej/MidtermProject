@@ -45,7 +45,7 @@ public class OfferController {
 	
 	@RequestMapping(path = "addOffer.do", method = RequestMethod.POST)
 	public String postOffer(Integer desiredId, Integer offeredId, String commentString, Model model) {
-		String view = "showOffer";
+		String view = "showMyOffer";
 		GardenProduce desired = GPdao.findById(desiredId);
 		GardenProduce offered = GPdao.findById(offeredId);
 		Offer finalO = dao.create(desired, offered, commentString);

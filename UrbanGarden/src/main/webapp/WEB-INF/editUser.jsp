@@ -52,14 +52,14 @@
 									<label> Password </label> 
 									<input class="form-control" type="password" name="password" required value="${user.password}"/>
 									<br> 
-									<label for="role"> What is your role? </label>
+									<%-- <label for="role"> What is your role? </label>
 									<select name="role" id="role">
 										<option value="${user.role}" selected >Maintain Current Role</option>
 										<option value="user">User</option>
 										<option value="gardener">Gardener</option>
-										<!-- <option value="admin">Admin</option> -->
+										<option value="admin">Admin</option>
 									</select>
-									<br> 
+									<br>  --%>
 									<label class="form-check-label" >Add a profile image (Recommended size 200x200)</label>
 									<div class="input-group">
 										<!-- 	<div class="input-group-prepend">
