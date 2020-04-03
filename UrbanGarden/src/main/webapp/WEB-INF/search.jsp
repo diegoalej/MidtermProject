@@ -109,14 +109,14 @@
 								value="${gardenStore.address.city}, ${gardenStore.address.state} ${gardenStore.address.zipCode}" />
 						</h4>
 					</div>
-					<div class="col-lg-12 justify-content-center pl-4">
+					<div class="col-lg-12 justify-content-center ">
 						<p class="no-padding-left">
 							Description:
 							<c:out value="${gardenStore.description}" />
 						</p>
 					</div>
 					<div class="col-lg-12 justify-content-center">
-						<div class="row d-flex justify-content-center">
+						<div class="row d-flex justify-content-center pb-1">
 							<c:forEach items="${gardenStore.gardenProduces}" var="produce"
 								begin="0" end="5">
 								<div class="col-lg-2 justify-content-center pl-4">

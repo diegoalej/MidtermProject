@@ -67,9 +67,9 @@
 					</div>
 
 				</div>
-				<div class="col-lg-8 text-left">
+				<div class="col-lg-8 text-left align-self-center">
 
-					<h2>Description</h2>
+					<h2 class="no-padding-bottom">Description</h2>
 					<p>
 						<c:out value="${user.gardenStoreFront.description }" />
 					</p>
@@ -146,7 +146,7 @@
 										<div class="row d-flex justify-content-center">
 
 											<div class="col-lg-12 justify-content-center pl-4">
-												<h2>
+												<h2 class="no-padding-bottom">
 													<c:out value="${produce.product.name}" />
 												</h2>
 												<h4>

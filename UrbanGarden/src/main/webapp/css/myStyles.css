@@ -78,10 +78,16 @@ padding-bottom: .5em;
 color: white;
 background-color: #5B7213;
 width: 7em;
+border-style: none;
+
 }
 
 .btn-secondary {
+	border-style: none;
 	width: 9em
+}
+.btn-primary {
+	border-style: none;
 }
 
 .btn:hover{
