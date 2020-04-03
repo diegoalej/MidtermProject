@@ -42,10 +42,10 @@
 								alt="Generic placeholder image" width="120" height="120">
 						</div>
 						<div class="col-12 text-left py-3">
-							<p>
+							<%-- <p>
 								<strong>Garden Name: </strong>
 								<c:out value="${user.gardenStoreFront.nameOfGarden }" />
-							</p>
+							</p> --%>
 							<p>
 								<strong>Owner: </strong>
 								<c:out value="${user.firstName }" />
@@ -69,7 +69,7 @@
 				</div>
 				<div class="col-lg-8 text-left align-self-center">
 
-					<h2 class="no-padding-bottom">Description</h2>
+					<h2 class="no-padding-bottom">${user.gardenStoreFront.nameOfGarden }</h2>
 					<p>
 						<c:out value="${user.gardenStoreFront.description }" />
 					</p>
